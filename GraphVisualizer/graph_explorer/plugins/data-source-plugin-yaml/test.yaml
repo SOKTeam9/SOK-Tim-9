@@ -1,0 +1,37 @@
+automobili:
+  - id: "auto1"
+    marka: "Toyota"
+    model: "Corolla"
+    godiste: 2020
+    povezani_avioni: ["avion1"]   # primer veze
+
+  - id: "auto2"
+    marka: "Ford"
+    model: "Mustang"
+    godiste: 2018
+    povezani_avioni: []
+
+  - id: "auto3"
+    marka: "Tesla"
+    model: "Model S"
+    godiste: 2022
+    povezani_avioni: ["avion2"]
+
+avioni:
+  - id: "avion1"
+    proizvodjac: "Boeing"
+    model: "737"
+    kapacitet: 180
+    povezani_automobili: ["auto1"]
+
+  - id: "avion2"
+    proizvodjac: "Airbus"
+    model: "A320"
+    kapacitet: 150
+    povezani_automobili: ["auto3"]
+
+  - id: "avion3"
+    proizvodjac: "Cessna"
+    model: "172"
+    kapacitet: 4
+    povezani_automobili: []

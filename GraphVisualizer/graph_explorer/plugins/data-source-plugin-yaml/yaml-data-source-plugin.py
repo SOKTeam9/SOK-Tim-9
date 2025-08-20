@@ -2,7 +2,7 @@ from neo4j import GraphDatabase
 
 import yaml
 
-class Yaml_File_Parser():
+class YamlFileParser():
 	def __init__(self, file_name, driver):
 		self.file_name = file_name
 		self.data = []
@@ -25,12 +25,20 @@ class Yaml_File_Parser():
 		tx.run("MATCH (n) DETACH DELETE n")
 
 	def create_nodes(self, tx):
+		all_ids = set()
+
+		group_list = self.data.values()
+		for group in group_list:
+			for item in group:
+				all_ids.add(item["id"])
+				
 		for group_name, data_pool in self.data.items():
 			#data_pool = self.data[nodes] # lista recnika
-			all_ids = {node['id'] for node in data_pool} #set svih id
-
+			keys_list = []
+			for item in data_pool:
+				keys_list = list(item.keys())
+				break
 			for single_data in data_pool: #single_data = recnik
-				keys_list = list(single_data.keys())
 				for key, value in single_data.items():
 					if isinstance(value, list):
 						for item in value:
@@ -43,7 +51,7 @@ class Yaml_File_Parser():
 								break
 
 				node_data = {k: v for k, v in single_data.items() if k in keys_list}
-
+				print(node_data)
     			# Pripremi parametre za Cypher
 				cypher_keys = ", ".join(f"{k}: ${k}" for k in node_data.keys())
 
@@ -52,19 +60,17 @@ class Yaml_File_Parser():
 
 	def create_relationships(self, tx):
 		for source_id, target_id, rel_type in self.relationships:
-			tx.run(
-		        """
-		        MATCH (a:Node {id: $source_id})
-		        MATCH (b:Node {id: $target_id})
-		        CREATE (a)-[:{rel_type.upper()}]->(b)
-		        """,
-				source_id=source_id,
-				target_id=target_id
-			)
+			rel_type_upper = rel_type.upper()
+			query = f"""
+            MATCH (a:Node {{id: $source_id}})
+            MATCH (b:Node {{id: $target_id}})
+            CREATE (a)-[:{rel_type_upper}]->(b)
+        """
+        
+			tx.run(query, source_id=source_id, target_id=target_id)
 
-
+#TEST
 if __name__ == "__main__":
-	# Zameni ovim svojim kredencijalima iz Sandbox-a
 	uri = "neo4j://127.0.0.1:7687"
 	username = "neo4j"
 	password = "djomlaboss"
@@ -72,7 +78,7 @@ if __name__ == "__main__":
 	# Kreiranje drajvera
 	driver = GraphDatabase.driver(uri, auth=(username, password))
 
-	parser = Yaml_File_Parser("C:\\Users\\nexga\\OneDrive\\Desktop\\nesto\\test.yaml", driver)
+	parser = YamlFileParser("D:\\SOK\\SOK-Tim-9\\GraphVisualizer\\graph_explorer\\plugins\\data-source-plugin-yaml\\test.yaml", driver)
 
 	# Zatvaranje drajvera
 	driver.close()

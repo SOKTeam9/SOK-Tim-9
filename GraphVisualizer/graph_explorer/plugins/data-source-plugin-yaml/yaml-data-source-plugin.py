@@ -51,7 +51,6 @@ class YamlFileParser():
 								break
 
 				node_data = {k: v for k, v in single_data.items() if k in keys_list}
-				print(node_data)
     			# Pripremi parametre za Cypher
 				cypher_keys = ", ".join(f"{k}: ${k}" for k in node_data.keys())
 
@@ -78,7 +77,7 @@ if __name__ == "__main__":
 	# Kreiranje drajvera
 	driver = GraphDatabase.driver(uri, auth=(username, password))
 
-	parser = YamlFileParser("D:\\SOK\\SOK-Tim-9\\GraphVisualizer\\graph_explorer\\plugins\\data-source-plugin-yaml\\test.yaml", driver)
+	parser = YamlFileParser("D:\\SOK\\SOK-Tim-9\\GraphVisualizer\\graph_explorer\\plugins\\data-source-plugin-yaml\\a.yaml", driver)
 
 	# Zatvaranje drajvera
 	driver.close()

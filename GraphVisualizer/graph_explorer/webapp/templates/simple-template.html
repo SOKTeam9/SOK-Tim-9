@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block main-view %}
+<div id="graph"></div>
+
+<style>
+  #graph {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ccc;
+  }
+  circle {
+    fill: steelblue;
+    stroke: black;
+    stroke-width: 1px;
+  }
+  line {
+    stroke: gray;
+    stroke-width: 1px;
+  }
+  text {
+    font-size: 12px;
+    fill: black;
+  }
+</style>
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script>
+  // Podaci iz Pythona (GraphHandler -> SimpleVisualizer)
+  var nodes = {{ nodes|tojson }};
+  var links = {{ edges|tojson }};
+
+  var width = 800,
+      height = 500;
+
+  var svg = d3.select("#graph").append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+  var force = d3.layout.force()
+      .nodes(nodes)
+      .links(links)
+      .size([width, height])
+      .linkDistance(120)
+      .charge(-300)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(links)
+      .enter().append("line")
+      .attr("class", "link");
+
+  var node = svg.selectAll(".node")
+      .data(nodes)
+      .enter().append("circle")
+      .attr("class", "node")
+      .attr("r", 15)
+      .call(force.drag);
+
+  var label = svg.selectAll(".label")
+      .data(nodes)
+      .enter().append("text")
+      .attr("class", "label")
+      .text(function(d) { return d.id; });
+
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+
+    label.attr("x", function(d) { return d.x + 20; })
+         .attr("y", function(d) { return d.y; });
+  });
+</script>
+{% endblock %}

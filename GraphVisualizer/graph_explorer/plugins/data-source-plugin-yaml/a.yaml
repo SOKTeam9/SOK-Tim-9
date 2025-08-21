@@ -1,0 +1,802 @@
+airports:
+  - id: AP1
+    name: Airport 1
+    country: Country 1
+    connections: [AP2, AP3, AP5]
+  - id: AP2
+    name: Airport 2
+    country: Country 2
+    connections: [AP1, AP4, AP6]
+  - id: AP3
+    name: Airport 3
+    country: Country 3
+    connections: [AP1, AP5, AP7]
+  - id: AP4
+    name: Airport 4
+    country: Country 4
+    connections: [AP2, AP8]
+  - id: AP5
+    name: Airport 5
+    country: Country 5
+    connections: [AP1, AP3, AP6]
+  - id: AP6
+    name: Airport 6
+    country: Country 6
+    connections: [AP2, AP5, AP9]
+  - id: AP7
+    name: Airport 7
+    country: Country 7
+    connections: [AP3, AP10]
+  - id: AP8
+    name: Airport 8
+    country: Country 8
+    connections: [AP4, AP9]
+  - id: AP9
+    name: Airport 9
+    country: Country 9
+    connections: [AP6, AP8, AP10]
+  - id: AP10
+    name: Airport 10
+    country: Country 10
+    connections: [AP7, AP9, AP11]
+  - id: AP11
+    name: Airport 11
+    country: Country 11
+    connections: [AP10, AP12, AP13]
+  - id: AP12
+    name: Airport 12
+    country: Country 12
+    connections: [AP11, AP14]
+  - id: AP13
+    name: Airport 13
+    country: Country 13
+    connections: [AP11, AP15]
+  - id: AP14
+    name: Airport 14
+    country: Country 14
+    connections: [AP12, AP16]
+  - id: AP15
+    name: Airport 15
+    country: Country 15
+    connections: [AP13, AP17]
+  - id: AP16
+    name: Airport 16
+    country: Country 16
+    connections: [AP14, AP18]
+  - id: AP17
+    name: Airport 17
+    country: Country 17
+    connections: [AP15, AP19]
+  - id: AP18
+    name: Airport 18
+    country: Country 18
+    connections: [AP16, AP20]
+  - id: AP19
+    name: Airport 19
+    country: Country 19
+    connections: [AP17, AP21]
+  - id: AP20
+    name: Airport 20
+    country: Country 20
+    connections: [AP18, AP22]
+  - id: AP21
+    name: Airport 21
+    country: Country 21
+    connections: [AP19, AP23]
+  - id: AP22
+    name: Airport 22
+    country: Country 22
+    connections: [AP20, AP24]
+  - id: AP23
+    name: Airport 23
+    country: Country 23
+    connections: [AP21, AP25]
+  - id: AP24
+    name: Airport 24
+    country: Country 24
+    connections: [AP22, AP26]
+  - id: AP25
+    name: Airport 25
+    country: Country 25
+    connections: [AP23, AP27]
+  - id: AP26
+    name: Airport 26
+    country: Country 26
+    connections: [AP24, AP28]
+  - id: AP27
+    name: Airport 27
+    country: Country 27
+    connections: [AP25, AP29]
+  - id: AP28
+    name: Airport 28
+    country: Country 28
+    connections: [AP26, AP30]
+  - id: AP29
+    name: Airport 29
+    country: Country 29
+    connections: [AP27, AP31]
+  - id: AP30
+    name: Airport 30
+    country: Country 30
+    connections: [AP28, AP32]
+  - id: AP31
+    name: Airport 31
+    country: Country 31
+    connections: [AP29, AP33]
+  - id: AP32
+    name: Airport 32
+    country: Country 32
+    connections: [AP30, AP34]
+  - id: AP33
+    name: Airport 33
+    country: Country 33
+    connections: [AP31, AP35]
+  - id: AP34
+    name: Airport 34
+    country: Country 34
+    connections: [AP32, AP36]
+  - id: AP35
+    name: Airport 35
+    country: Country 35
+    connections: [AP33, AP37]
+  - id: AP36
+    name: Airport 36
+    country: Country 36
+    connections: [AP34, AP38]
+  - id: AP37
+    name: Airport 37
+    country: Country 37
+    connections: [AP35, AP39]
+  - id: AP38
+    name: Airport 38
+    country: Country 38
+    connections: [AP36, AP40]
+  - id: AP39
+    name: Airport 39
+    country: Country 39
+    connections: [AP37, AP41]
+  - id: AP40
+    name: Airport 40
+    country: Country 40
+    connections: [AP38, AP42]
+  - id: AP41
+    name: Airport 41
+    country: Country 41
+    connections: [AP39, AP43]
+  - id: AP42
+    name: Airport 42
+    country: Country 42
+    connections: [AP40, AP44]
+  - id: AP43
+    name: Airport 43
+    country: Country 43
+    connections: [AP41, AP45]
+  - id: AP44
+    name: Airport 44
+    country: Country 44
+    connections: [AP42, AP46]
+  - id: AP45
+    name: Airport 45
+    country: Country 45
+    connections: [AP43, AP47]
+  - id: AP46
+    name: Airport 46
+    country: Country 46
+    connections: [AP44, AP48]
+  - id: AP47
+    name: Airport 47
+    country: Country 47
+    connections: [AP45, AP49]
+  - id: AP48
+    name: Airport 48
+    country: Country 48
+    connections: [AP46, AP50]
+  - id: AP49
+    name: Airport 49
+    country: Country 49
+    connections: [AP47, AP50]
+  - id: AP50
+    name: Airport 50
+    country: Country 50
+    connections: [AP48, AP49]
+  - id: AP51
+    name: Airport 51
+    country: Country 1
+    connections: [AP52, AP55, AP60, AP70]
+  - id: AP52
+    name: Airport 52
+    country: Country 2
+    connections: [AP51, AP53, AP56, AP61]
+  - id: AP53
+    name: Airport 53
+    country: Country 3
+    connections: [AP52, AP54, AP57, AP62]
+  - id: AP54
+    name: Airport 54
+    country: Country 4
+    connections: [AP53, AP55, AP63]
+  - id: AP55
+    name: Airport 55
+    country: Country 5
+    connections: [AP51, AP54, AP56, AP64]
+  - id: AP56
+    name: Airport 56
+    country: Country 6
+    connections: [AP52, AP55, AP57, AP65]
+  - id: AP57
+    name: Airport 57
+    country: Country 7
+    connections: [AP53, AP56, AP58, AP66]
+  - id: AP58
+    name: Airport 58
+    country: Country 8
+    connections: [AP57, AP59, AP67]
+  - id: AP59
+    name: Airport 59
+    country: Country 9
+    connections: [AP58, AP60, AP68]
+  - id: AP60
+    name: Airport 60
+    country: Country 10
+    connections: [AP51, AP59, AP61, AP69]
+  - id: AP61
+    name: Airport 61
+    country: Country 11
+    connections: [AP52, AP60, AP62, AP70]
+  - id: AP62
+    name: Airport 62
+    country: Country 12
+    connections: [AP53, AP61, AP63, AP71]
+  - id: AP63
+    name: Airport 63
+    country: Country 13
+    connections: [AP54, AP62, AP64, AP72]
+  - id: AP64
+    name: Airport 64
+    country: Country 14
+    connections: [AP55, AP63, AP65, AP73]
+  - id: AP65
+    name: Airport 65
+    country: Country 15
+    connections: [AP56, AP64, AP66, AP74]
+  - id: AP66
+    name: Airport 66
+    country: Country 16
+    connections: [AP57, AP65, AP67, AP75]
+  - id: AP67
+    name: Airport 67
+    country: Country 17
+    connections: [AP58, AP66, AP68, AP76]
+  - id: AP68
+    name: Airport 68
+    country: Country 18
+    connections: [AP59, AP67, AP69, AP77]
+  - id: AP69
+    name: Airport 69
+    country: Country 19
+    connections: [AP60, AP68, AP70, AP78]
+  - id: AP70
+    name: Airport 70
+    country: Country 20
+    connections: [AP51, AP61, AP69, AP79]
+  - id: AP71
+    name: Airport 71
+    country: Country 21
+    connections: [AP62, AP72, AP80]
+  - id: AP72
+    name: Airport 72
+    country: Country 22
+    connections: [AP63, AP71, AP73, AP81]
+  - id: AP73
+    name: Airport 73
+    country: Country 23
+    connections: [AP64, AP72, AP74, AP82]
+  - id: AP74
+    name: Airport 74
+    country: Country 24
+    connections: [AP65, AP73, AP75, AP83]
+  - id: AP75
+    name: Airport 75
+    country: Country 25
+    connections: [AP66, AP74, AP76, AP84]
+  - id: AP76
+    name: Airport 76
+    country: Country 26
+    connections: [AP67, AP75, AP77, AP85]
+  - id: AP77
+    name: Airport 77
+    country: Country 27
+    connections: [AP68, AP76, AP78, AP86]
+  - id: AP78
+    name: Airport 78
+    country: Country 28
+    connections: [AP69, AP77, AP79, AP87]
+  - id: AP79
+    name: Airport 79
+    country: Country 29
+    connections: [AP70, AP78, AP80, AP88]
+  - id: AP80
+    name: Airport 80
+    country: Country 30
+    connections: [AP71, AP79, AP81, AP89]
+  - id: AP81
+    name: Airport 81
+    country: Country 31
+    connections: [AP72, AP80, AP82, AP90]
+  - id: AP82
+    name: Airport 82
+    country: Country 32
+    connections: [AP73, AP81, AP83, AP91]
+  - id: AP83
+    name: Airport 83
+    country: Country 33
+    connections: [AP74, AP82, AP84, AP92]
+  - id: AP84
+    name: Airport 84
+    country: Country 34
+    connections: [AP75, AP83, AP85, AP93]
+  - id: AP85
+    name: Airport 85
+    country: Country 35
+    connections: [AP76, AP84, AP86, AP94]
+  - id: AP86
+    name: Airport 86
+    country: Country 36
+    connections: [AP77, AP85, AP87, AP95]
+  - id: AP87
+    name: Airport 87
+    country: Country 37
+    connections: [AP78, AP86, AP88, AP96]
+  - id: AP88
+    name: Airport 88
+    country: Country 38
+    connections: [AP79, AP87, AP89, AP97]
+  - id: AP89
+    name: Airport 89
+    country: Country 39
+    connections: [AP80, AP88, AP90, AP98]
+  - id: AP90
+    name: Airport 90
+    country: Country 40
+    connections: [AP81, AP89, AP91, AP99]
+  - id: AP91
+    name: Airport 91
+    country: Country 41
+    connections: [AP82, AP90, AP92, AP100]
+  - id: AP92
+    name: Airport 92
+    country: Country 42
+    connections: [AP83, AP91, AP93, AP100]
+  - id: AP93
+    name: Airport 93
+    country: Country 43
+    connections: [AP84, AP92, AP94]
+  - id: AP94
+    name: Airport 94
+    country: Country 44
+    connections: [AP85, AP93, AP95]
+  - id: AP95
+    name: Airport 95
+    country: Country 45
+    connections: [AP86, AP94, AP96]
+  - id: AP96
+    name: Airport 96
+    country: Country 46
+    connections: [AP87, AP95, AP97]
+  - id: AP97
+    name: Airport 97
+    country: Country 47
+    connections: [AP88, AP96, AP98]
+  - id: AP98
+    name: Airport 98
+    country: Country 48
+    connections: [AP89, AP97, AP99]
+  - id: AP99
+    name: Airport 99
+    country: Country 49
+    connections: [AP90, AP98, AP100]
+  - id: AP100
+    name: Airport 100
+    country: Country 50
+    connections: [AP91, AP92, AP99]
+  - id: AP101
+    name: Airport 101
+    country: Country 1
+    connections: [AP102, AP105, AP110, AP120]
+  - id: AP102
+    name: Airport 102
+    country: Country 2
+    connections: [AP101, AP103, AP106, AP121]
+  - id: AP103
+    name: Airport 103
+    country: Country 3
+    connections: [AP102, AP104, AP107, AP122]
+  - id: AP104
+    name: Airport 104
+    country: Country 4
+    connections: [AP103, AP105, AP123]
+  - id: AP105
+    name: Airport 105
+    country: Country 5
+    connections: [AP101, AP104, AP106, AP124]
+  - id: AP106
+    name: Airport 106
+    country: Country 6
+    connections: [AP102, AP105, AP107, AP125]
+  - id: AP107
+    name: Airport 107
+    country: Country 7
+    connections: [AP103, AP106, AP108, AP126]
+  - id: AP108
+    name: Airport 108
+    country: Country 8
+    connections: [AP107, AP109, AP127]
+  - id: AP109
+    name: Airport 109
+    country: Country 9
+    connections: [AP108, AP110, AP128]
+  - id: AP110
+    name: Airport 110
+    country: Country 10
+    connections: [AP101, AP109, AP111, AP129]
+  - id: AP111
+    name: Airport 111
+    country: Country 11
+    connections: [AP110, AP112, AP130]
+  - id: AP112
+    name: Airport 112
+    country: Country 12
+    connections: [AP111, AP113, AP131]
+  - id: AP113
+    name: Airport 113
+    country: Country 13
+    connections: [AP112, AP114, AP132]
+  - id: AP114
+    name: Airport 114
+    country: Country 14
+    connections: [AP113, AP115, AP133]
+  - id: AP115
+    name: Airport 115
+    country: Country 15
+    connections: [AP114, AP116, AP134]
+  - id: AP116
+    name: Airport 116
+    country: Country 16
+    connections: [AP115, AP117, AP135]
+  - id: AP117
+    name: Airport 117
+    country: Country 17
+    connections: [AP116, AP118, AP136]
+  - id: AP118
+    name: Airport 118
+    country: Country 18
+    connections: [AP117, AP119, AP137]
+  - id: AP119
+    name: Airport 119
+    country: Country 19
+    connections: [AP118, AP120, AP138]
+  - id: AP120
+    name: Airport 120
+    country: Country 20
+    connections: [AP101, AP119, AP121, AP139]
+  - id: AP121
+    name: Airport 121
+    country: Country 21
+    connections: [AP102, AP120, AP122, AP140]
+  - id: AP122
+    name: Airport 122
+    country: Country 22
+    connections: [AP103, AP121, AP123, AP141]
+  - id: AP123
+    name: Airport 123
+    country: Country 23
+    connections: [AP104, AP122, AP124, AP142]
+  - id: AP124
+    name: Airport 124
+    country: Country 24
+    connections: [AP105, AP123, AP125, AP143]
+  - id: AP125
+    name: Airport 125
+    country: Country 25
+    connections: [AP106, AP124, AP126, AP144]
+  - id: AP126
+    name: Airport 126
+    country: Country 26
+    connections: [AP107, AP125, AP127, AP145]
+  - id: AP127
+    name: Airport 127
+    country: Country 27
+    connections: [AP108, AP126, AP128, AP146]
+  - id: AP128
+    name: Airport 128
+    country: Country 28
+    connections: [AP109, AP127, AP129, AP147]
+  - id: AP129
+    name: Airport 129
+    country: Country 29
+    connections: [AP110, AP128, AP130, AP148]
+  - id: AP130
+    name: Airport 130
+    country: Country 30
+    connections: [AP111, AP129, AP131, AP149]
+  - id: AP131
+    name: Airport 131
+    country: Country 31
+    connections: [AP112, AP130, AP132, AP150]
+  - id: AP132
+    name: Airport 132
+    country: Country 32
+    connections: [AP113, AP131, AP133]
+  - id: AP133
+    name: Airport 133
+    country: Country 33
+    connections: [AP114, AP132, AP134]
+  - id: AP134
+    name: Airport 134
+    country: Country 34
+    connections: [AP115, AP133, AP135]
+  - id: AP135
+    name: Airport 135
+    country: Country 35
+    connections: [AP116, AP134, AP136]
+  - id: AP136
+    name: Airport 136
+    country: Country 36
+    connections: [AP117, AP135, AP137]
+  - id: AP137
+    name: Airport 137
+    country: Country 37
+    connections: [AP118, AP136, AP138]
+  - id: AP138
+    name: Airport 138
+    country: Country 38
+    connections: [AP119, AP137, AP139]
+  - id: AP139
+    name: Airport 139
+    country: Country 39
+    connections: [AP120, AP138, AP140]
+  - id: AP140
+    name: Airport 140
+    country: Country 40
+    connections: [AP121, AP139, AP141]
+  - id: AP141
+    name: Airport 141
+    country: Country 41
+    connections: [AP122, AP140, AP142]
+  - id: AP142
+    name: Airport 142
+    country: Country 42
+    connections: [AP123, AP141, AP143]
+  - id: AP143
+    name: Airport 143
+    country: Country 43
+    connections: [AP124, AP142, AP144]
+  - id: AP144
+    name: Airport 144
+    country: Country 44
+    connections: [AP125, AP143, AP145]
+  - id: AP145
+    name: Airport 145
+    country: Country 45
+    connections: [AP126, AP144, AP146]
+  - id: AP146
+    name: Airport 146
+    country: Country 46
+    connections: [AP127, AP145, AP147]
+  - id: AP147
+    name: Airport 147
+    country: Country 47
+    connections: [AP128, AP146, AP148]
+  - id: AP148
+    name: Airport 148
+    country: Country 48
+    connections: [AP129, AP147, AP149]
+  - id: AP149
+    name: Airport 149
+    country: Country 49
+    connections: [AP130, AP148, AP150]
+  - id: AP150
+    name: Airport 150
+    country: Country 50
+    connections: [AP131, AP149]
+  - id: AP151
+    name: Airport 151
+    country: Country 1
+    connections: [AP152, AP155, AP160, AP170]
+  - id: AP152
+    name: Airport 152
+    country: Country 2
+    connections: [AP151, AP153, AP156, AP171]
+  - id: AP153
+    name: Airport 153
+    country: Country 3
+    connections: [AP152, AP154, AP157, AP172]
+  - id: AP154
+    name: Airport 154
+    country: Country 4
+    connections: [AP153, AP155, AP173]
+  - id: AP155
+    name: Airport 155
+    country: Country 5
+    connections: [AP151, AP154, AP156, AP174]
+  - id: AP156
+    name: Airport 156
+    country: Country 6
+    connections: [AP152, AP155, AP157, AP175]
+  - id: AP157
+    name: Airport 157
+    country: Country 7
+    connections: [AP153, AP156, AP158, AP176]
+  - id: AP158
+    name: Airport 158
+    country: Country 8
+    connections: [AP157, AP159, AP177]
+  - id: AP159
+    name: Airport 159
+    country: Country 9
+    connections: [AP158, AP160, AP178]
+  - id: AP160
+    name: Airport 160
+    country: Country 10
+    connections: [AP151, AP159, AP161, AP179]
+  - id: AP161
+    name: Airport 161
+    country: Country 11
+    connections: [AP160, AP162, AP180]
+  - id: AP162
+    name: Airport 162
+    country: Country 12
+    connections: [AP161, AP163, AP181]
+  - id: AP163
+    name: Airport 163
+    country: Country 13
+    connections: [AP162, AP164, AP182]
+  - id: AP164
+    name: Airport 164
+    country: Country 14
+    connections: [AP163, AP165, AP183]
+  - id: AP165
+    name: Airport 165
+    country: Country 15
+    connections: [AP164, AP166, AP184]
+  - id: AP166
+    name: Airport 166
+    country: Country 16
+    connections: [AP165, AP167, AP185]
+  - id: AP167
+    name: Airport 167
+    country: Country 17
+    connections: [AP166, AP168, AP186]
+  - id: AP168
+    name: Airport 168
+    country: Country 18
+    connections: [AP167, AP169, AP187]
+  - id: AP169
+    name: Airport 169
+    country: Country 19
+    connections: [AP168, AP170, AP188]
+  - id: AP170
+    name: Airport 170
+    country: Country 20
+    connections: [AP151, AP169, AP171, AP189]
+  - id: AP171
+    name: Airport 171
+    country: Country 21
+    connections: [AP152, AP170, AP172, AP190]
+  - id: AP172
+    name: Airport 172
+    country: Country 22
+    connections: [AP153, AP171, AP173, AP191]
+  - id: AP173
+    name: Airport 173
+    country: Country 23
+    connections: [AP154, AP172, AP174, AP192]
+  - id: AP174
+    name: Airport 174
+    country: Country 24
+    connections: [AP155, AP173, AP175, AP193]
+  - id: AP175
+    name: Airport 175
+    country: Country 25
+    connections: [AP156, AP174, AP176, AP194]
+  - id: AP176
+    name: Airport 176
+    country: Country 26
+    connections: [AP157, AP175, AP177, AP195]
+  - id: AP177
+    name: Airport 177
+    country: Country 27
+    connections: [AP158, AP176, AP178, AP196]
+  - id: AP178
+    name: Airport 178
+    country: Country 28
+    connections: [AP159, AP177, AP179, AP197]
+  - id: AP179
+    name: Airport 179
+    country: Country 29
+    connections: [AP160, AP178, AP180, AP198]
+  - id: AP180
+    name: Airport 180
+    country: Country 30
+    connections: [AP161, AP179, AP181, AP199]
+  - id: AP181
+    name: Airport 181
+    country: Country 31
+    connections: [AP162, AP180, AP182, AP200]
+  - id: AP182
+    name: Airport 182
+    country: Country 32
+    connections: [AP163, AP181, AP183]
+  - id: AP183
+    name: Airport 183
+    country: Country 33
+    connections: [AP164, AP182, AP184]
+  - id: AP184
+    name: Airport 184
+    country: Country 34
+    connections: [AP165, AP183, AP185]
+  - id: AP185
+    name: Airport 185
+    country: Country 35
+    connections: [AP166, AP184, AP186]
+  - id: AP186
+    name: Airport 186
+    country: Country 36
+    connections: [AP167, AP185, AP187]
+  - id: AP187
+    name: Airport 187
+    country: Country 37
+    connections: [AP168, AP186, AP188]
+  - id: AP188
+    name: Airport 188
+    country: Country 38
+    connections: [AP169, AP187, AP189]
+  - id: AP189
+    name: Airport 189
+    country: Country 39
+    connections: [AP170, AP188, AP190]
+  - id: AP190
+    name: Airport 190
+    country: Country 40
+    connections: [AP171, AP189, AP191]
+  - id: AP191
+    name: Airport 191
+    country: Country 41
+    connections: [AP172, AP190, AP192]
+  - id: AP192
+    name: Airport 192
+    country: Country 42
+    connections: [AP173, AP191, AP193]
+  - id: AP193
+    name: Airport 193
+    country: Country 43
+    connections: [AP174, AP192, AP194]
+  - id: AP194
+    name: Airport 194
+    country: Country 44
+    connections: [AP175, AP193, AP195]
+  - id: AP195
+    name: Airport 195
+    country: Country 45
+    connections: [AP176, AP194, AP196]
+  - id: AP196
+    name: Airport 196
+    country: Country 46
+    connections: [AP177, AP195, AP197]
+  - id: AP197
+    name: Airport 197
+    country: Country 47
+    connections: [AP178, AP196, AP198]
+  - id: AP198
+    name: Airport 198
+    country: Country 48
+    connections: [AP179, AP197, AP199]
+  - id: AP199
+    name: Airport 199
+    country: Country 49
+    connections: [AP180, AP198, AP200]
+  - id: AP200
+    name: Airport 200
+    country: Country 50
+    connections: [AP181, AP199]
+

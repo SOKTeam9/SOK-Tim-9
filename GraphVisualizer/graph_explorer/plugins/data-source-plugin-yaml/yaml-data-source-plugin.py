@@ -8,10 +8,7 @@ class YamlFileParser():
 		self.data = []
 		self.driver = driver
 		self.relationships = []
-		self.load()
 		
-
-
 	def load(self):
 		with open(self.file_name, "r") as f:
 			self.data = yaml.safe_load(f)
@@ -33,7 +30,6 @@ class YamlFileParser():
 				all_ids.add(item["id"])
 				
 		for group_name, data_pool in self.data.items():
-			#data_pool = self.data[nodes] # lista recnika
 			keys_list = []
 			for item in data_pool:
 				keys_list = list(item.keys())
@@ -78,6 +74,6 @@ if __name__ == "__main__":
 	driver = GraphDatabase.driver(uri, auth=(username, password))
 
 	parser = YamlFileParser("D:\\SOK\\SOK-Tim-9\\GraphVisualizer\\graph_explorer\\plugins\\data-source-plugin-yaml\\a.yaml", driver)
-
+	parser.load()
 	# Zatvaranje drajvera
 	driver.close()

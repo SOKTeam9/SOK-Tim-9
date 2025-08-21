@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee id="emp-001"><name>Marko Markovic</name><title>CEO</title><colleagues_with><colleague_ref ref="emp-002"/></colleagues_with></employee>
+    <employee id="emp-002"><name>Jelena Jelic</name><title>COO</title><colleagues_with><colleague_ref ref="emp-003"/><colleague_ref ref="emp-004"/></colleagues_with></employee>
+    <employee id="emp-003"><name>Petar Petrovic</name><title>CTO</title><colleagues_with><colleague_ref ref="emp-004"/></colleagues_with></employee>
+    <employee id="emp-004"><name>Ana Anic</name><title>Software Engineer</title><colleagues_with><colleague_ref ref="emp-005"/></colleagues_with></employee>
+    <employee id="emp-005"><name>Ivan Ivanovic</name><title>Software Engineer</title><colleagues_with><colleague_ref ref="emp-006"/><colleague_ref ref="emp-007"/></colleagues_with></employee>
+    <employee id="emp-006"><name>Milos Milicevic</name><title>QA</title><colleagues_with><colleague_ref ref="emp-008"/></colleagues_with></employee>
+    <employee id="emp-007"><name>Milica Milic</name><title>UX Designer</title><colleagues_with><colleague_ref ref="emp-009"/></colleagues_with></employee>
+    <employee id="emp-008"><name>Dusan Dusanovic</name><title>Data Scientist</title><colleagues_with><colleague_ref ref="emp-010"/></colleagues_with></employee>
+    <employee id="emp-009"><name>Nina Ninic</name><title>Marketing Manager</title><colleagues_with><colleague_ref ref="emp-011"/></colleagues_with></employee>
+    <employee id="emp-010"><name>Lazar Lazarevic</name><title>Sales Lead</title><colleagues_with><colleague_ref ref="emp-012"/></colleagues_with></employee>
+    <employee id="emp-011"><name>Iva Ivic</name><title>HR Manager</title><colleagues_with><colleague_ref ref="emp-013"/></colleagues_with></employee>
+    <employee id="emp-012"><name>Vuk Vucic</name><title>Financial Analyst</title><colleagues_with><colleague_ref ref="emp-014"/></colleagues_with></employee>
+    <employee id="emp-013"><name>Tea Tepic</name><title>PR Specialist</title><colleagues_with><colleague_ref ref="emp-015"/></colleagues_with></employee>
+    <employee id="emp-014"><name>Luka Lukic</name><title>Analyst</title><colleagues_with><colleague_ref ref="emp-016"/></colleagues_with></employee>
+    <employee id="emp-015"><name>Maja Majic</name><title>Specialist</title><colleagues_with><colleague_ref ref="emp-017"/></colleagues_with></employee>
+    <employee id="emp-016"><name>Nikola Nikolic</name><title>Intern</title><colleagues_with><colleague_ref ref="emp-018"/></colleagues_with></employee>
+    <employee id="emp-017"><name>Sara Saric</name><title>Junior Developer</title><colleagues_with><colleague_ref ref="emp-019"/></colleagues_with></employee>
+    <employee id="emp-018"><name>David Davidovic</name><title>Tester</title><colleagues_with><colleague_ref ref="emp-020"/></colleagues_with></employee>
+    <employee id="emp-019"><name>Stefan Stefanovic</name><title>UI Designer</title><colleagues_with><colleague_ref ref="emp-021"/></colleagues_with></employee>
+    <employee id="emp-020"><name>Zoran Zoranovic</name><title>Full Stack Developer</title><colleagues_with><colleague_ref ref="emp-022"/></colleagues_with></employee>
+    <employee id="emp-021"><name>Stefan Zoranovic</name><title>Asistent</title><colleagues_with><colleague_ref ref="emp-023"/></colleagues_with></employee>
+    <employee id="emp-022"><name>David Lazarevic</name><title>Saradnik</title><colleagues_with><colleague_ref ref="emp-024"/></colleagues_with></employee>
+    <employee id="emp-023"><name>Mladen Petric</name><title>Koordinator</title><colleagues_with><colleague_ref ref="emp-025"/></colleagues_with></employee>
+    <employee id="emp-024"><name>Neven Ilincic</name><title>Konsultant</title><colleagues_with><colleague_ref ref="emp-026"/></colleagues_with></employee>
+    <employee id="emp-025"><name>Luka Vukovic</name><title>Analitičar</title><colleagues_with><colleague_ref ref="emp-027"/></colleagues_with></employee>
+    <employee id="emp-026"><name>Petar Dragicevic</name><title>Menadžer</title><colleagues_with><colleague_ref ref="emp-028"/></colleagues_with></employee>
+    <employee id="emp-027"><name>Miljana Ristic</name><title>Developer</title><colleagues_with><colleague_ref ref="emp-029"/></colleagues_with></employee>
+    <employee id="emp-028"><name>Vuk Nikolic</name><title>Tester</title><colleagues_with><colleague_ref ref="emp-030"/></colleagues_with></employee>
+    <employee id="emp-029"><name>Anastasija Arsic</name><title>Specijalista</title><colleagues_with><colleague_ref ref="emp-031"/></colleagues_with></employee>
+    <employee id="emp-030"><name>Luka Citic</name><title>Asistent</title><colleagues_with><colleague_ref ref="emp-032"/></colleagues_with></employee>
+    <employee id="emp-031"><name>Kristina Trajkovic</name><title>Saradnik</title><colleagues_with><colleague_ref ref="emp-033"/></colleagues_with></employee>
+    <employee id="emp-032"><name>Tamara Stojkovic</name><title>Koordinator</title><colleagues_with><colleague_ref ref="emp-034"/></colleagues_with></employee>
+    <employee id="emp-033"><name>David Stosic</name><title>Konsultant</title><colleagues_with><colleague_ref ref="emp-035"/></colleagues_with></employee>
+    <employee id="emp-034"><name>Luka Trajkovic</name><title>Analitičar</title><colleagues_with><colleague_ref ref="emp-036"/></colleagues_with></employee>
+    <employee id="emp-035"><name>Milos Mitic</name><title>Menadžer</title><colleagues_with><colleague_ref ref="emp-037"/></colleagues_with></employee>
+    <employee id="emp-036"><name>Pedja Popovic</name><title>Developer</title><colleagues_with><colleague_ref ref="emp-038"/></colleagues_with></employee>
+    <employee id="emp-037"><name>Teodora Stamenkovic</name><title>Tester</title><colleagues_with><colleague_ref ref="emp-039"/></colleagues_with></employee>
+    <employee id="emp-038"><name>Emilija Milosavljevic</name><title>Specijalista</title><colleagues_with><colleague_ref ref="emp-040"/></colleagues_with></employee>
+    <employee id="emp-039"><name>Lazar Simonovic</name><title>Asistent</title><colleagues_with><colleague_ref ref="emp-041"/></colleagues_with></employee>
+    <employee id="emp-040"><name>Marijan Stojmenovic</name><title>Saradnik</title><colleagues_with><colleague_ref ref="emp-042"/></colleagues_with></employee>
+    <employee id="emp-041"><name>Djordje Kuzmanovic</name><title>Koordinator</title><colleagues_with><colleague_ref ref="emp-043"/></colleagues_with></employee>
+    <employee id="emp-042"><name>Djordje Kitanovic</name><title>Konsultant</title><colleagues_with><colleague_ref ref="emp-044"/></colleagues_with></employee>
+    <employee id="emp-043"><name>Miljana Petrusijevic</name><title>Analitičar</title><colleagues_with><colleague_ref ref="emp-045"/></colleagues_with></employee>
+    <employee id="emp-044"><name>Danijela Kartaljevic</name><title>Menadžer</title><colleagues_with><colleague_ref ref="emp-046"/></colleagues_with></employee>
+    <employee id="emp-045"><name>Bratislav Djordjevic</name><title>Developer</title><colleagues_with><colleague_ref ref="emp-047"/></colleagues_with></employee>
+    <employee id="emp-046"><name>Vukasin Trajkovic</name><title>Tester</title><colleagues_with><colleague_ref ref="emp-048"/></colleagues_with></employee>
+    <employee id="emp-047"><name>Jovan Velickovic</name><title>Specijalista</title><colleagues_with><colleague_ref ref="emp-049"/></colleagues_with></employee>
+    <employee id="emp-048"><name>Aleksa Pavlovic</name><title>Asistent</title><colleagues_with><colleague_ref ref="emp-050"/></colleagues_with></employee>
+    <employee id="emp-049"><name>Andrija Stosic</name><title>Saradnik</title><colleagues_with><colleague_ref ref="emp-001"/></colleagues_with></employee>
+    <employee id="emp-050"><name>Sanja Stojkovic</name><title>Koordinator</title><colleagues_with><colleague_ref ref="emp-002"/></colleagues_with></employee>
+</employees>

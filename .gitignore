@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*~
+*.swp
+.DS_Store
+
+# Virtual environment
+/venv/
+/env/
+
+# Database
+db.sqlite3
+/data/
+
+# Media and static files
+/media/
+/static/
+
+# Django-specific files
+/staticfiles/
+.vscode/
+.idea/
+.env
+
+# OS
+.DS_Store
+.vscode/
+
+# Logs and other temporary files
+*.log
+tmp/

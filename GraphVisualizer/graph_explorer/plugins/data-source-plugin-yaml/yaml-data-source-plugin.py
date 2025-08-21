@@ -73,7 +73,7 @@ if __name__ == "__main__":
 	# Kreiranje drajvera
 	driver = GraphDatabase.driver(uri, auth=(username, password))
 
-	parser = YamlFileParser("D:\\SOK\\SOK-Tim-9\\GraphVisualizer\\graph_explorer\\plugins\\data-source-plugin-yaml\\a.yaml", driver)
+	parser = YamlFileParser("C:\\Users\\mpetr\\OneDrive\\Desktop\\SOK\\SOK-Tim-9\\GraphVisualizer\\graph_explorer\\plugins\\data-source-plugin-yaml\\test.yaml", driver)
 	parser.load()
 	# Zatvaranje drajvera
 	driver.close()

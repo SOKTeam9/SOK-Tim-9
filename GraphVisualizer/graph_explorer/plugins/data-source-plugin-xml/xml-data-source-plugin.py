@@ -1,5 +1,6 @@
 from neo4j import GraphDatabase
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
 class XmlFileParser:
     def __init__(self, file_name, driver, config):
@@ -41,7 +42,20 @@ class XmlFileParser:
                         if target_id:
                             self.relationships.append((node_id, target_id, relationship_name))
                 else:
-                    node_data[child.tag] = child.text
+                   value = child.text
+                   if value is not None:
+                        try:
+                            date_obj = datetime.strptime(value, '%Y-%m-%d').date()
+                            node_data[child.tag] = date_obj
+                        except ValueError:
+                            if value.isdigit():
+                                node_data[child.tag] = int(value)
+                            elif value.lower() == 'true':
+                                node_data[child.tag] = True
+                            elif value.lower() == 'false':
+                                node_data[child.tag] = False
+                            else:
+                                node_data[child.tag] = value
             
             props_str = ", ".join([f"{k}: ${k}" for k in node_data])
             query = f"CREATE (n:{node_tag_name} {{ {props_str} }})"
@@ -85,9 +99,6 @@ if __name__ == "__main__":
     
     driver.close()
 
-
-#     MATCH (e:Employee)-[r:COLLEAGUES_WITH]->(c:Employee)
-# RETURN e, r, c
-
-# MATCH (u:User)-[r:FOLLOWS]->(f:User)
-# RETURN u, r, f
+# MATCH (n)
+# OPTIONAL MATCH (n)-[r]-()
+# RETURN n, r

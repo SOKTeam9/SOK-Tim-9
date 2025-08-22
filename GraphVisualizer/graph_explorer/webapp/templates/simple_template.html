@@ -137,94 +137,216 @@
 {% endblock %}
 {% block birdView %}
 <h1 class="text-center">Bird view</h1>
-<div id="bird-view" style="width:100%; height:100%; border:1px solid #ccc; background:#f9f9f9;">
+<div id="bird-view" style="width:100%; height:80%; border:1px solid #ccc; background:#f9f9f9;">
 </div>
 <script>
-function waitForMainGraph() {
-    if (window.nodes && window.edges) {
-        initBirdView();   // safe to build bird-view now
-    } else {
-        setTimeout(waitForMainGraph, 50);
+    function waitForMainGraph() {
+        if (window.nodes && window.edges) {
+            initBirdView();   // safe to build bird-view now
+        } else {
+            setTimeout(waitForMainGraph, 50);
+        }
     }
-}
-waitForMainGraph();
+    waitForMainGraph();
 
-function initBirdView() {
-    const birdDiv = document.getElementById('bird-view');
-    window.birdWidth = birdDiv.clientWidth;
-    window.birdHeight = birdDiv.clientHeight;
+    function initBirdView() {
+        const birdDiv = document.getElementById('bird-view');
+        window.birdWidth = birdDiv.clientWidth;
+        window.birdHeight = birdDiv.clientHeight;
 
-    const birdSvg = d3.select("#bird-view")
-        .append("svg")
-        .attr("width", window.birdWidth)
-        .attr("height", window.birdHeight);
+        const birdSvg = d3.select("#bird-view")
+            .append("svg")
+            .attr("width", window.birdWidth)
+            .attr("height", window.birdHeight);
 
-    const birdG = birdSvg.append("g");
+        const birdG = birdSvg.append("g");
 
-    // Create links
-    window.birdLinks = birdG.append("g")
-        .attr("stroke", "#aaa")
-        .selectAll("line")
-        .data(window.edges)
-        .enter().append("line")
-        .attr("stroke-width", 1);
+        // Create links
+        window.birdLinks = birdG.append("g")
+            .attr("stroke", "#aaa")
+            .selectAll("line")
+            .data(window.edges)
+            .enter().append("line")
+            .attr("stroke-width", 1);
 
-    // Create nodes
-    window.birdNodes = birdG.append("g")
-        .selectAll("circle")
-        .data(window.nodes)
-        .enter().append("circle")
-        .attr("r", 3)
-        .attr("fill", "#4CAF50");
+        // Create nodes
+        window.birdNodes = birdG.append("g")
+            .selectAll("circle")
+            .data(window.nodes)
+            .enter().append("circle")
+            .attr("r", 3)
+            .attr("fill", "#4CAF50");
 
-    // Red rectangle for viewport
-    window.birdViewport = birdSvg.append("rect")
-        .attr("fill", "none")
-        .attr("stroke", "red")
-        .attr("stroke-width", 1);
-}
+        // Red rectangle for viewport
+        window.birdViewport = birdSvg.append("rect")
+            .attr("fill", "none")
+            .attr("stroke", "red")
+            .attr("stroke-width", 1);
+    }
 
-window.updateBirdView = function () {
-    if (!window.birdNodes || !window.birdLinks) return;
+    window.updateBirdView = function () {
+        if (!window.birdNodes || !window.birdLinks) return;
 
-    const transform = d3.zoomTransform(svg.node()); // main graph zoom & pan
-    const xExtent = d3.extent(window.nodes, d => d.x);
-    const yExtent = d3.extent(window.nodes, d => d.y);
+        const transform = d3.zoomTransform(svg.node()); // main graph zoom & pan
+        const xExtent = d3.extent(window.nodes, d => d.x);
+        const yExtent = d3.extent(window.nodes, d => d.y);
 
-    const graphWidth = xExtent[1] - xExtent[0];
-    const graphHeight = yExtent[1] - yExtent[0];
+        const graphWidth = xExtent[1] - xExtent[0];
+        const graphHeight = yExtent[1] - yExtent[0];
 
-    // scale to fit entire main graph in bird-view
-    const scale = Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight);
-    const offsetX = (window.birdWidth - graphWidth * scale) / 2;
-    const offsetY = (window.birdHeight - graphHeight * scale) / 2;
+        // scale to fit entire main graph in bird-view
+        const scale = Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight);
+        const offsetX = (window.birdWidth - graphWidth * scale) / 2;
+        const offsetY = (window.birdHeight - graphHeight * scale) / 2;
 
-    const scaleX = x => (x - xExtent[0]) * scale + offsetX;
-    const scaleY = y => (y - yExtent[0]) * scale + offsetY;
+        const scaleX = x => (x - xExtent[0]) * scale + offsetX;
+        const scaleY = y => (y - yExtent[0]) * scale + offsetY;
 
-    // update links
-    window.birdLinks
-        .attr("x1", d => scaleX(d.source.x))
-        .attr("y1", d => scaleY(d.source.y))
-        .attr("x2", d => scaleX(d.target.x))
-        .attr("y2", d => scaleY(d.target.y));
+        // update links
+        window.birdLinks
+            .attr("x1", d => scaleX(d.source.x))
+            .attr("y1", d => scaleY(d.source.y))
+            .attr("x2", d => scaleX(d.target.x))
+            .attr("y2", d => scaleY(d.target.y));
 
-    // update nodes
-    window.birdNodes
-        .attr("cx", d => scaleX(d.x))
-        .attr("cy", d => scaleY(d.y));
+        // update nodes
+        window.birdNodes
+            .attr("cx", d => scaleX(d.x))
+            .attr("cy", d => scaleY(d.y));
 
-    // update red rectangle for main viewport
-    const viewX = scaleX(-transform.x / transform.k);
-    const viewY = scaleY(-transform.y / transform.k);
-    const viewWidth = (width / transform.k) * scale;
-    const viewHeight = (height / transform.k) * scale;
+        // update red rectangle for main viewport
+        const viewX = scaleX(-transform.x / transform.k);
+        const viewY = scaleY(-transform.y / transform.k);
+        const viewWidth = (width / transform.k) * scale;
+        const viewHeight = (height / transform.k) * scale;
 
-    window.birdViewport
-        .attr("x", viewX)
-        .attr("y", viewY)
-        .attr("width", viewWidth)
-        .attr("height", viewHeight);
-}
+        window.birdViewport
+            .attr("x", viewX)
+            .attr("y", viewY)
+            .attr("width", viewWidth)
+            .attr("height", viewHeight);
+    }
+</script>
+{% endblock %}
+
+
+{% block treeView %}
+<h1 class="text-center">Tree View</h1>
+
+<div style="margin-bottom: 5px;">
+    <button id="expandAll">Expand All</button>
+    <button id="collapseAll">Collapse All</button>
+</div>
+
+<div id="treeView" style="height: 100%; overflow: auto; border: 1px solid #ccc; padding: 5px;"></div>
+
+<style>
+    #treeView ul {
+        list-style-type: none;
+        padding-left: 15px;
+    }
+
+    #treeView li {
+        padding: 2px 0;
+    }
+
+    #treeView li span {
+        cursor: pointer;
+    }
+
+    #treeView li button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        margin-right: 5px;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    function waitForGraphData() {
+        if (window.nodes && window.edges) {
+            initTreeView();
+        } else {
+            setTimeout(waitForGraphData, 50);
+        }
+    }
+    waitForGraphData();
+
+    function initTreeView() {
+        const nodeMap = new Map(window.nodes.map(n => [n.id, n]));
+
+        function getConnectedNodes(nodeId) {
+            return window.edges
+                .filter(l => (l.source.id || l.source) === nodeId || (l.target.id || l.target) === nodeId)
+                .map(l => {
+                    const otherId = (l.source.id || l.source) === nodeId ? (l.target.id || l.target) : (l.source.id || l.source);
+                    return nodeMap.get(otherId);
+                })
+                .filter(Boolean);
+        }
+
+        function renderTree(container, node, depth = 0, maxDepth = 3, visited = new Set()) {
+            if (!node || visited.has(node.id) || depth > maxDepth) return;
+            visited.add(node.id);
+
+            const li = document.createElement("li");
+            li.dataset.depth = depth;
+
+            const button = document.createElement("button");
+            button.textContent = "+";
+
+            const span = document.createElement("span");
+            span.textContent = node.properties?.id || node.id;
+
+            const ul = document.createElement("ul");
+            ul.style.display = "none";
+
+            // show properties
+            if (node.properties) {
+                for (const [k, v] of Object.entries(node.properties)) {
+                    if (k === "id") continue;
+                    const propLi = document.createElement("li");
+                    propLi.textContent = `${k}: ${v}`;
+                    ul.appendChild(propLi);
+                }
+            }
+
+            // show children
+            const children = getConnectedNodes(node.id);
+            children.forEach(c => renderTree(ul, c, depth + 1, maxDepth, new Set(visited)));
+
+            button.addEventListener("click", () => {
+                if (ul.style.display === "none") {
+                    ul.style.display = "block"; button.textContent = "−";
+                } else {
+                    ul.style.display = "none"; button.textContent = "+";
+                }
+            });
+            span.addEventListener("click", () => button.click());
+
+            li.appendChild(button);
+            li.appendChild(span);
+            li.appendChild(ul);
+            container.appendChild(li);
+        }
+
+        const treeContainer = document.getElementById("treeView");
+        treeContainer.innerHTML = "";
+        const ulRoot = document.createElement("ul");
+
+        window.nodes.forEach(n => renderTree(ulRoot, n));
+        treeContainer.appendChild(ulRoot);
+
+        // expand/collapse controls
+        document.getElementById("expandAll").addEventListener("click", () => {
+            treeContainer.querySelectorAll("ul ul").forEach(ul => ul.style.display = "block");
+            treeContainer.querySelectorAll("#treeView li > button").forEach(b => b.textContent = "−");
+        });
+        document.getElementById("collapseAll").addEventListener("click", () => {
+            treeContainer.querySelectorAll("ul ul").forEach(ul => ul.style.display = "none");
+            treeContainer.querySelectorAll("#treeView li > button").forEach(b => b.textContent = "+");
+        });
+    }
 </script>
 {% endblock %}

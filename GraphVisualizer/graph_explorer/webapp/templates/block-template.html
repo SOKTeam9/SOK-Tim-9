@@ -127,3 +127,245 @@
   });
 </script>
 {% endblock %}
+
+{% block treeView %}
+<div style="margin-bottom: 5px;">
+  <button id="expandAll">Expand All</button>
+  <button id="collapseAll">Collapse All</button>
+</div>
+
+<div id="treeView" style="height: 35vh; overflow-y: auto; border: 1px solid #ccc; padding: 5px;"></div>
+
+<style>
+  #treeView ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  #treeView li {
+    position: relative;
+    padding: 2px 0;
+  }
+
+  #treeView li span {
+    cursor: pointer;
+  }
+
+  #treeView li button {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    margin-right: 5px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #treeView li button:hover {
+    color: blue;
+  }
+
+  /* nivo dubine - razlike boja */
+  #treeView li[data-depth="0"] span { font-weight: bold; }
+  #treeView li[data-depth="1"] span { color: #333; }
+  #treeView li[data-depth="2"] span { color: #555; }
+  #treeView li[data-depth="3"] span { color: #777; }
+</style>
+{{ graph_json|json_script:"graph-block-data" }}
+<script>
+graphData = JSON.parse(document.getElementById("graph-block-data").textContent);
+nodes = graphData.nodes || [];
+links = graphData.links || [];
+
+const nodeMap = new Map(nodes.map(n => [n.id, n]));
+
+function getConnectedNodes(nodeId) {
+    return links
+        .filter(l => l.source === nodeId || l.target === nodeId)
+        .map(l => {
+            const otherId = l.source === nodeId ? l.target : l.source;
+            return nodeMap.get(otherId);
+        });
+}
+
+function renderTree(container, node, depth = 0, maxDepth = 3, visited = new Set()) {
+    if (depth > maxDepth) return;
+    if (visited.has(node.id)) return;
+    visited.add(node.id);
+
+    const li = document.createElement("li");
+    li.dataset.depth = depth;
+
+    const span = document.createElement("span");
+    span.textContent = node.properties?.name || node.id;
+
+    const button = document.createElement("button");
+    button.textContent = "+";
+
+    const ul = document.createElement("ul");
+    ul.style.display = "none";
+    ul.style.paddingLeft = "15px";
+
+    // property-ja
+    if (node.properties) {
+        for (const [key, value] of Object.entries(node.properties)) {
+            const propLi = document.createElement("li");
+            propLi.textContent = `${key}: ${value}`;
+            ul.appendChild(propLi);
+        }
+    }
+
+    // child nodes
+    if (depth < maxDepth) {
+        const connected = getConnectedNodes(node.id);
+        connected.forEach(child => renderTree(ul, child, depth + 1, maxDepth, new Set(visited)));
+    }
+
+    button.addEventListener("click", () => {
+        if (ul.style.display === "none") {
+            ul.style.display = "block";
+            button.textContent = "−"; // minus znak za otvoren
+        } else {
+            ul.style.display = "none";
+            button.textContent = "+";
+        }
+    });
+
+    // Klik na labelu isto otvara/zatvara
+    span.addEventListener("click", () => button.click());
+
+    li.appendChild(button);
+    li.appendChild(span);
+    li.appendChild(ul);
+    container.appendChild(li);
+}
+
+const treeContainer = document.getElementById("treeView");
+const ulRoot = document.createElement("ul");
+nodes.forEach(node => renderTree(ulRoot, node));
+treeContainer.appendChild(ulRoot);
+
+// dugmad za expand/collapse all
+document.getElementById("expandAll").addEventListener("click", () => {
+    treeContainer.querySelectorAll("ul ul").forEach(ul => ul.style.display = "block");
+    treeContainer.querySelectorAll("#treeView li > button").forEach(b => b.textContent = "−");
+});
+
+document.getElementById("collapseAll").addEventListener("click", () => {
+    treeContainer.querySelectorAll("ul ul").forEach(ul => ul.style.display = "none");
+    treeContainer.querySelectorAll("#treeView li > button").forEach(b => b.textContent = "+");
+});
+</script>
+{% endblock %}
+
+{% block birdView %}
+<div id="birdViewContainer" style="width: 300px; height: 200px; border: 1px solid #ccc; position: relative;">
+  <svg id="birdView" width="100%" height="100%"></svg>
+</div>
+
+<script>
+const birdSvg = d3.select("#birdView");
+const birdWidth = 300;
+const birdHeight = 200;
+height = 900;
+width = 1050;
+
+// Scale za bird view (relativno na main view dimenzije)
+const scaleX = birdWidth / width;
+const scaleY = birdHeight / height;
+
+const birdContainer = birdSvg.append("g");
+
+// Strelice za bird view
+birdSvg.append("defs").append("marker")
+  .attr("id", "arrowBird")
+  .attr("viewBox", "0 -5 10 10")
+  .attr("refX", 15)
+  .attr("refY", 0)
+  .attr("markerWidth", 6)
+  .attr("markerHeight", 6)
+  .attr("orient", "auto")
+.append("path")
+  .attr("d", "M0,-5L10,0L0,5")
+  .attr("fill", "#333");
+
+// Mapiranje linkova da source/target budu node objekti
+links.forEach(l => {
+  l.source = nodeMap.get(l.source);
+  l.target = nodeMap.get(l.target);
+});
+
+// Crveni viewport pravougaonik
+const viewport = birdSvg.append("rect")
+  .attr("fill", "rgba(255,0,0,0.2)")
+  .attr("stroke", "red")
+  .attr("stroke-width", 1)
+  .call(d3.drag()
+      .on("drag", (event) => {
+          let newX = event.x;
+          let newY = event.y;
+
+          // ograničenje unutar bird view
+          newX = Math.max(0, Math.min(newX, birdWidth - viewport.attr("width")));
+          newY = Math.max(0, Math.min(newY, birdHeight - viewport.attr("height")));
+
+          viewport.attr("x", newX).attr("y", newY);
+
+          // Pomeri main view
+          const tx = -newX / scaleX;
+          const ty = -newY / scaleY;
+          container.attr("transform", `translate(${tx},${ty}) scale(${zoomTransform.k})`);
+      })
+  );
+
+// Funkcija za update bird view kada main view zoom/pan
+function updateViewport(transform) {
+  viewport.attr("x", -transform.x * scaleX / transform.k)
+          .attr("y", -transform.y * scaleY / transform.k)
+          .attr("width", birdWidth / transform.k)
+          .attr("height", birdHeight / transform.k);
+}
+
+// Crtanje bird view čvorova i linkova
+function drawBirdView() {
+  // Linkovi
+  birdContainer.selectAll(".link")
+    .data(links)
+    .join("line")
+    .attr("x1", d => d.source.x * scaleX)
+    .attr("y1", d => d.source.y * scaleY)
+    .attr("x2", d => d.target.x * scaleX)
+    .attr("y2", d => d.target.y * scaleY)
+    .attr("stroke", "#999")
+    .attr("stroke-width", 1)
+    .attr("marker-end", "url(#arrowBird)");
+
+  // Čvorovi
+  birdContainer.selectAll(".node")
+    .data(nodes)
+    .join("rect")
+    .attr("x", d => d.x * scaleX - 5)
+    .attr("y", d => d.y * scaleY - 5)
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("fill", "#666");
+}
+
+// Update bird view nakon što force simulation postavi pozicije
+simulation.on("tick.bird", () => {
+  drawBirdView();
+  updateViewport(d3.zoomTransform(svg.node()));
+});
+
+// Ažuriranje viewport-a kada zoom/pan u main view
+zoom.on("zoom.birdView", (event) => {
+  container.attr("transform", event.transform);
+  updateViewport(event.transform);
+});
+
+// Inicijalno
+drawBirdView();
+updateViewport(d3.zoomTransform(svg.node()));
+</script>
+{% endblock %}

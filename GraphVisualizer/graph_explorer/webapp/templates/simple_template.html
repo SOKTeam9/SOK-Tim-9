@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% load static %} {% block mainView %}
 <h1 class="text-center">Main view</h1>
 
-<div id="graph" style="background-color: gray;"></div>
+<div id="graph" style="background-color: gray; width: 1300px; height: 650px;"></div>
 
 <!-- D3.js -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -10,6 +10,8 @@
     // Podaci koje Django ubacuje
     window.nodes = {{ nodes | safe }};
     window.edges = {{ edges | safe }};
+    const graphDiv = document.getElementById('graph');
+
     const width = 1300;
     const height = 650;
 
@@ -133,103 +135,95 @@
     }
 </script>
 {% endblock %}
-
 {% block birdView %}
 <div id="bird-view" style="width:100%; height:100%; border:1px solid #ccc; background:#f9f9f9;">
 </div>
-<script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-    function waitForMainGraph() {
-        if (window.nodes && window.edges) {
-            initBirdView();   // safe to build bird-view now
-        } else {
-            setTimeout(waitForMainGraph, 50); // check again in 50ms
-        }
+function waitForMainGraph() {
+    if (window.nodes && window.edges) {
+        initBirdView();   // safe to build bird-view now
+    } else {
+        setTimeout(waitForMainGraph, 50);
     }
-    waitForMainGraph();
+}
+waitForMainGraph();
 
-    function initBirdView() {
-        const birdDiv = document.getElementById('bird-view');
+function initBirdView() {
+    const birdDiv = document.getElementById('bird-view');
+    window.birdWidth = birdDiv.clientWidth;
+    window.birdHeight = birdDiv.clientHeight;
 
-        window.birdWidth = birdDiv.clientWidth;
-        window.birdHeight = birdDiv.clientHeight;
-        const birdSvg = d3.select("#bird-view")
-            .append("svg")
-            .attr("width", window.birdWidth)
-            .attr("height", window.birdHeight);
+    const birdSvg = d3.select("#bird-view")
+        .append("svg")
+        .attr("width", window.birdWidth)
+        .attr("height", window.birdHeight);
 
-        const birdG = birdSvg.append("g");
+    const birdG = birdSvg.append("g");
 
-        window.birdLinks = birdG.append("g")
-            .attr("stroke", "#aaa")
-            .selectAll("line")
-            .data(window.edges)
-            .enter().append("line")
-            .attr("stroke-width", 1);
+    // Create links
+    window.birdLinks = birdG.append("g")
+        .attr("stroke", "#aaa")
+        .selectAll("line")
+        .data(window.edges)
+        .enter().append("line")
+        .attr("stroke-width", 1);
 
-        window.birdNodes = birdG.append("g")
-            .selectAll("circle")
-            .data(window.nodes)
-            .enter().append("circle")
-            .attr("r", 3)
-            .attr("fill", "#4CAF50");
+    // Create nodes
+    window.birdNodes = birdG.append("g")
+        .selectAll("circle")
+        .data(window.nodes)
+        .enter().append("circle")
+        .attr("r", 3)
+        .attr("fill", "#4CAF50");
 
-        window.birdViewport = birdSvg.append("rect")
-            .attr("fill", "none")
-            .attr("stroke", "red")
-            .attr("stroke-width", 1);
-    }
+    // Red rectangle for viewport
+    window.birdViewport = birdSvg.append("rect")
+        .attr("fill", "none")
+        .attr("stroke", "red")
+        .attr("stroke-width", 1);
+}
 
-    window.updateBirdView = function () {
-        // Bird view update
-        if (window.birdLinks && window.birdNodes) {
-            const transform = d3.zoomTransform(svg.node()); // get current zoom + pan
+window.updateBirdView = function () {
+    if (!window.birdNodes || !window.birdLinks) return;
 
-            const xExtent = d3.extent(window.nodes, d => d.x);
-            const yExtent = d3.extent(window.nodes, d => d.y);
+    const transform = d3.zoomTransform(svg.node()); // main graph zoom & pan
+    const xExtent = d3.extent(window.nodes, d => d.x);
+    const yExtent = d3.extent(window.nodes, d => d.y);
 
-            const graphWidth = xExtent[1] - xExtent[0];
-            const graphHeight = yExtent[1] - yExtent[0];
+    const graphWidth = xExtent[1] - xExtent[0];
+    const graphHeight = yExtent[1] - yExtent[0];
 
-            // choose same scale for both axes (to preserve distances)
-            const scale = Math.min(
-                window.birdWidth / graphWidth,
-                window.birdHeight / graphHeight
-            );
+    // scale to fit entire main graph in bird-view
+    const scale = Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight);
+    const offsetX = (window.birdWidth - graphWidth * scale) / 2;
+    const offsetY = (window.birdHeight - graphHeight * scale) / 2;
 
-            // offsets so it's centered
-            const offsetX = (window.birdWidth - graphWidth * scale) / 2;
-            const offsetY = (window.birdHeight - graphHeight * scale) / 2;
+    const scaleX = x => (x - xExtent[0]) * scale + offsetX;
+    const scaleY = y => (y - yExtent[0]) * scale + offsetY;
 
-            function scaleX(x) {
-                return (x - xExtent[0]) * scale + offsetX;
-            }
-            function scaleY(y) {
-                return (y - yExtent[0]) * scale + offsetY;
-            }
+    // update links
+    window.birdLinks
+        .attr("x1", d => scaleX(d.source.x))
+        .attr("y1", d => scaleY(d.source.y))
+        .attr("x2", d => scaleX(d.target.x))
+        .attr("y2", d => scaleY(d.target.y));
 
-            const viewX = scaleX(-transform.x / transform.k);
-            const viewY = scaleY(-transform.y / transform.k);
-            const viewWidth = window.birdWidth / transform.k * scale;
-            const viewHeight = window.birdHeight / transform.k * scale;
+    // update nodes
+    window.birdNodes
+        .attr("cx", d => scaleX(d.x))
+        .attr("cy", d => scaleY(d.y));
 
-            window.birdLinks
-                .attr("x1", d => scaleX(d.source.x))
-                .attr("y1", d => scaleY(d.source.y))
-                .attr("x2", d => scaleX(d.target.x))
-                .attr("y2", d => scaleY(d.target.y));
+    // update red rectangle for main viewport
+    const viewX = scaleX(-transform.x / transform.k);
+    const viewY = scaleY(-transform.y / transform.k);
+    const viewWidth = (width / transform.k) * scale;
+    const viewHeight = (height / transform.k) * scale;
 
-            window.birdNodes
-                .attr("cx", d => scaleX(d.x))
-                .attr("cy", d => scaleY(d.y));
-
-            window.birdViewport
-                .attr("x", viewX)
-                .attr("y", viewY)
-                .attr("width", viewWidth)
-                .attr("height", viewHeight);
-
-        }
-    }
+    window.birdViewport
+        .attr("x", viewX)
+        .attr("y", viewY)
+        .attr("width", viewWidth)
+        .attr("height", viewHeight);
+}
 </script>
 {% endblock %}

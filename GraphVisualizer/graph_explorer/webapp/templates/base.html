@@ -14,7 +14,7 @@
         <div class="left-header">
           <a href="{% url 'index' %}">Graph Visualizer</a>
           <div class="views">
-            <button href="{% url 'simple_visualizer' %}" name="simple-view">Simple view</button>
+            <a class="simple" href="{% url 'simple_visualizer' %}"><button class="simple-button" name="simple-view">Simple view</button></a>
             <button name="block-view">Block view</button>
           </div>
         </div>
@@ -46,10 +46,10 @@
       </div>
       <div class="main">
         <div class="left">
-          <div class="top">{% block tree-view %}{% endblock %}</div>
-          <div class="bottom">{% block bird-view %}{% endblock %}</div>
+          <div class="top">{% block treeView %}{% endblock %}</div>
+          <div class="bottom">{% block birdView %}{% endblock %}</div>
         </div>
-        <div class="center">{% block main-view %}{% endblock %}</div>
+        <div class="center">{% block mainView %}{% endblock %}</div>
       </div>
     </div>
   </body>

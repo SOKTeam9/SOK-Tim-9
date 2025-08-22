@@ -1,0 +1,112 @@
+{% extends "base.html" %} {% load static %} {% block mainView %}
+<h1 class="text-center">Simple Graph Visualizer</h1>
+
+<div id="graph"></div>
+
+<!-- D3.js -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<script>
+
+    // Podaci koje Django ubacuje
+    const nodes = {{ nodes|safe }};
+    const edges = {{ edges|safe }};
+    console.log(nodes)
+    const width = 1300;
+    const height = 650;
+
+    const simulation = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(edges).id(d => d.id).distance(150))
+      .force("charge", d3.forceManyBody().strength(-400))
+      .force("center", d3.forceCenter(width / 2, height / 2));
+    const svg = d3.select("#graph")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  // Glavna grupa u koju ide ceo graf
+  const g = svg.append("g");
+
+  // linkovi
+  const link = g.append("g")
+    .attr("stroke", "#aaa")
+    .selectAll("line")
+    .data(edges)
+    .enter().append("line")
+    .attr("stroke-width", 2);
+
+  // čvorovi
+  const node = g.append("g")
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 1.5)
+    .selectAll("circle")
+    .data(nodes)
+    .enter().append("circle")
+    .attr("r", 30)
+    .attr("fill", "#4CAF50")
+    .call(drag(simulation));
+
+  // labele
+  const labels = g.append("g")
+    .selectAll("text")
+    .data(nodes)
+    .enter().append("text")
+    .attr("dy", 4)
+    .attr("text-anchor", "middle")
+    .text(d => d.properties.id)
+    .style("font-size", "12px")
+    .style("fill", "#fff");
+
+  // zoom funkcija
+  const zoom = d3.zoom()
+    .scaleExtent([0.2, 4]) // koliko može da se uveća/umanji
+    .on("zoom", (event) => {
+      g.attr("transform", event.transform); // menja transformaciju cele grupe
+    });
+
+  // aktiviraj zoom na svg
+  svg.call(zoom);
+
+
+    simulation.on("tick", () => {
+      link
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+
+      node
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+
+      labels
+        .attr("x", d => d.x)
+        .attr("y", d => d.y);
+    });
+
+
+    function drag(simulation) {
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+
+      return d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended);
+    }
+</script>
+{% endblock %}

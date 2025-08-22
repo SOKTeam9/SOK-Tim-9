@@ -1,0 +1,907 @@
+automobili:
+  - id: "auto1"
+    marka: "Toyota"
+    model: "Corolla"
+    godiste: 2020
+    povezani_avioni: ["avion1"]
+    povezani_kamioni: ["kamion2"]
+  - id: "auto2"
+    marka: "Ford"
+    model: "Mustang"
+    godiste: 2018
+    povezani_avioni: []
+    povezani_kamioni: ["kamion1", "kamion3"]
+  - id: "auto3"
+    marka: "Tesla"
+    model: "Model S"
+    godiste: 2022
+    povezani_avioni: ["avion2","avion3"]
+    povezani_kamioni: []
+  - id: "auto4"
+    marka: "Honda"
+    model: "Civic"
+    godiste: 2019
+    povezani_avioni: []
+    povezani_kamioni: ["kamion4"]
+  - id: "auto5"
+    marka: "BMW"
+    model: "X5"
+    godiste: 2021
+    povezani_avioni: ["avion1","avion4"]
+    povezani_kamioni: ["kamion1"]
+  - id: "auto6"
+    marka: "Audi"
+    model: "A6"
+    godiste: 2020
+    povezani_avioni: ["avion3"]
+    povezani_kamioni: ["kamion2","kamion3"]
+  - id: "auto7"
+    marka: "Nissan"
+    model: "Altima"
+    godiste: 2017
+    povezani_avioni: []
+    povezani_kamioni: []
+  - id: "auto8"
+    marka: "Hyundai"
+    model: "Elantra"
+    godiste: 2022
+    povezani_avioni: ["avion2"]
+    povezani_kamioni: []
+  - id: "auto9"
+    marka: "Kia"
+    model: "Optima"
+    godiste: 2019
+    povezani_avioni: []
+    povezani_kamioni: ["kamion5"]
+  - id: "auto10"
+    marka: "Mazda"
+    model: "3"
+    godiste: 2018
+    povezani_avioni: ["avion1","avion3"]
+    povezani_kamioni: []
+  - id: "auto11"
+    marka: "Subaru"
+    model: "Impreza"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: ["kamion1","kamion4"]
+  - id: "auto12"
+    marka: "Volkswagen"
+    model: "Passat"
+    godiste: 2021
+    povezani_avioni: ["avion2"]
+    povezani_kamioni: ["kamion3"]
+  - id: "auto13"
+    marka: "Chevrolet"
+    model: "Malibu"
+    godiste: 2017
+    povezani_avioni: ["avion4"]
+    povezani_kamioni: []
+  - id: "auto14"
+    marka: "Dodge"
+    model: "Charger"
+    godiste: 2019
+    povezani_avioni: []
+    povezani_kamioni: ["kamion2"]
+  - id: "auto15"
+    marka: "Jeep"
+    model: "Wrangler"
+    godiste: 2021
+    povezani_avioni: ["avion1"]
+    povezani_kamioni: []
+  - id: "auto16"
+    marka: "Mercedes"
+    model: "C-Class"
+    godiste: 2020
+    povezani_avioni: ["avion2","avion3"]
+    povezani_kamioni: ["kamion1"]
+  - id: "auto17"
+    marka: "Lexus"
+    model: "IS"
+    godiste: 2018
+    povezani_avioni: []
+    povezani_kamioni: []
+  - id: "auto18"
+    marka: "Acura"
+    model: "TLX"
+    godiste: 2022
+    povezani_avioni: ["avion4"]
+    povezani_kamioni: ["kamion2","kamion5"]
+  - id: "auto19"
+    marka: "Infiniti"
+    model: "Q50"
+    godiste: 2019
+    povezani_avioni: []
+    povezani_kamioni: ["kamion3"]
+  - id: "auto20"
+    marka: "Cadillac"
+    model: "CT5"
+    godiste: 2021
+    povezani_avioni: ["avion1"]
+    povezani_kamioni: []
+  - id: "auto21"
+    marka: "Mini"
+    model: "Cooper"
+    godiste: 2017
+    povezani_avioni: ["avion2"]
+    povezani_kamioni: ["kamion4"]
+  - id: "auto22"
+    marka: "Porsche"
+    model: "Cayenne"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: ["kamion5"]
+  - id: "auto23"
+    marka: "Jaguar"
+    model: "XE"
+    godiste: 2019
+    povezani_avioni: ["avion3"]
+    povezani_kamioni: []
+  - id: "auto24"
+    marka: "Volvo"
+    model: "S60"
+    godiste: 2022
+    povezani_avioni: ["avion1"]
+    povezani_kamioni: ["kamion2"]
+  - id: "auto25"
+    marka: "Ford"
+    model: "Explorer"
+    godiste: 2021
+    povezani_avioni: []
+    povezani_kamioni: ["kamion3"]
+  - id: "auto26"
+    marka: "Toyota"
+    model: "Camry"
+    godiste: 2020
+    povezani_avioni: ["avion2"]
+    povezani_kamioni: []
+  - id: "auto27"
+    marka: "Honda"
+    model: "Accord"
+    godiste: 2018
+    povezani_avioni: ["avion4"]
+    povezani_kamioni: ["kamion1","kamion5"]
+  - id: "auto28"
+    marka: "Tesla"
+    model: "Model 3"
+    godiste: 2022
+    povezani_avioni: []
+    povezani_kamioni: []
+  - id: "auto29"
+    marka: "Chevrolet"
+    model: "Impala"
+    godiste: 2017
+    povezani_avioni: ["avion3"]
+    povezani_kamioni: ["kamion2"]
+  - id: "auto30"
+    marka: "BMW"
+    model: "5 Series"
+    godiste: 2019
+    povezani_avioni: ["avion1"]
+    povezani_kamioni: []
+  - id: "auto31"
+    marka: "Audi"
+    model: "Q7"
+    godiste: 2021
+    povezani_avioni: ["avion2"]
+    povezani_kamioni: ["kamion3","kamion5"]
+  - id: "auto32"
+    marka: "Hyundai"
+    model: "Sonata"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: []
+  - id: "auto33"
+    marka: "Kia"
+    model: "Stinger"
+    godiste: 2018
+    povezani_avioni: ["avion3"]
+    povezani_kamioni: ["kamion1"]
+  - id: "auto34"
+    marka: "Mazda"
+    model: "6"
+    godiste: 2022
+    povezani_avioni: []
+    povezani_kamioni: ["kamion2"]
+  - id: "auto35"
+    marka: "Subaru"
+    model: "Legacy"
+    godiste: 2019
+    povezani_avioni: ["avion1","avion4"]
+    povezani_kamioni: []
+  - id: "auto36"
+    marka: "Volkswagen"
+    model: "Jetta"
+    godiste: 2021
+    povezani_avioni: []
+    povezani_kamioni: ["kamion3"]
+  - id: "auto37"
+    marka: "Dodge"
+    model: "Durango"
+    godiste: 2020
+    povezani_avioni: ["avion2"]
+    povezani_kamioni: []
+  - id: "auto38"
+    marka: "Jeep"
+    model: "Grand Cherokee"
+    godiste: 2018
+    povezani_avioni: ["avion3"]
+    povezani_kamioni: ["kamion4"]
+  - id: "auto39"
+    marka: "Mercedes"
+    model: "E-Class"
+    godiste: 2022
+    povezani_avioni: []
+    povezani_kamioni: ["kamion5"]
+  - id: "auto40"
+    marka: "Lexus"
+    model: "ES"
+    godiste: 2019
+    povezani_avioni: ["avion1"]
+    povezani_kamioni: []
+  - id: "auto41"
+    marka: "Acura"
+    model: "RLX"
+    godiste: 2021
+    povezani_avioni: ["avion4"]
+    povezani_kamioni: ["kamion2"]
+  - id: "auto42"
+    marka: "Infiniti"
+    model: "Q60"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: []
+  - id: "auto43"
+    marka: "Cadillac"
+    model: "CTS"
+    godiste: 2018
+    povezani_avioni: ["avion2"]
+    povezani_kamioni: ["kamion3"]
+  - id: "auto44"
+    marka: "Mini"
+    model: "Clubman"
+    godiste: 2022
+    povezani_avioni: []
+    povezani_kamioni: ["kamion1"]
+  - id: "auto45"
+    marka: "Porsche"
+    model: "Macan"
+    godiste: 2019
+    povezani_avioni: ["avion3"]
+    povezani_kamioni: []
+  - id: "auto46"
+    marka: "Jaguar"
+    model: "F-Pace"
+    godiste: 2021
+    povezani_avioni: ["avion1","avion4"]
+    povezani_kamioni: ["kamion2"]
+  - id: "auto47"
+    marka: "Volvo"
+    model: "XC60"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: ["kamion3","kamion5"]
+  - id: "auto48"
+    marka: "Ford"
+    model: "Fusion"
+    godiste: 2018
+    povezani_avioni: ["avion2"]
+    povezani_kamioni: []
+  - id: "auto49"
+    marka: "Toyota"
+    model: "RAV4"
+    godiste: 2022
+    povezani_avioni: ["avion3"]
+    povezani_kamioni: ["kamion1"]
+  - id: "auto50"
+    marka: "Honda"
+    model: "Accord"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: ["kamion4"]
+
+avioni:
+  - id: "avion1"
+    proizvodjac: "Boeing"
+    model: "737"
+    kapacitet: 180
+    povezani_automobili: ["auto1","auto5"]
+    povezani_kamioni: ["kamion2"]
+  - id: "avion2"
+    proizvodjac: "Airbus"
+    model: "A320"
+    kapacitet: 150
+    povezani_automobili: ["auto3"]
+    povezani_kamioni: ["kamion1","kamion3"]
+  - id: "avion3"
+    proizvodjac: "Cessna"
+    model: "172"
+    kapacitet: 4
+    povezani_automobili: ["auto10"]
+    povezani_kamioni: []
+  - id: "avion4"
+    proizvodjac: "Bombardier"
+    model: "CRJ900"
+    kapacitet: 90
+    povezani_automobili: ["auto2","auto7"]
+    povezani_kamioni: ["kamion5"]
+  - id: "avion5"
+    proizvodjac: "Embraer"
+    model: "E190"
+    kapacitet: 100
+    povezani_automobili: []
+    povezani_kamioni: ["kamion1"]
+  - id: "avion6"
+    proizvodjac: "Boeing"
+    model: "747"
+    kapacitet: 366
+    povezani_automobili: ["auto6"]
+    povezani_kamioni: []
+  - id: "avion7"
+    proizvodjac: "Airbus"
+    model: "A330"
+    kapacitet: 250
+    povezani_automobili: []
+    povezani_kamioni: ["kamion2","kamion4"]
+  - id: "avion8"
+    proizvodjac: "Cessna"
+    model: "208"
+    kapacitet: 12
+    povezani_automobili: ["auto8","auto12"]
+    povezani_kamioni: []
+  - id: "avion9"
+    proizvodjac: "Bombardier"
+    model: "CS300"
+    kapacitet: 130
+    povezani_automobili: []
+    povezani_kamioni: ["kamion3"]
+  - id: "avion10"
+    proizvodjac: "Embraer"
+    model: "E195"
+    kapacitet: 120
+    povezani_automobili: ["auto15"]
+    povezani_kamioni: ["kamion5"]
+  - id: "avion11"
+    proizvodjac: "Boeing"
+    model: "767"
+    kapacitet: 216
+    povezani_automobili: []
+    povezani_kamioni: []
+  - id: "avion12"
+    proizvodjac: "Airbus"
+    model: "A350"
+    kapacitet: 280
+    povezani_automobili: ["auto11"]
+    povezani_kamioni: ["kamion2"]
+  - id: "avion13"
+    proizvodjac: "Cessna"
+    model: "182"
+    kapacitet: 4
+    povezani_automobili: ["auto13","auto20"]
+    povezani_kamioni: []
+  - id: "avion14"
+    proizvodjac: "Bombardier"
+    model: "Dash 8"
+    kapacitet: 78
+    povezani_automobili: []
+    povezani_kamioni: ["kamion4"]
+  - id: "avion15"
+    proizvodjac: "Embraer"
+    model: "E175"
+    kapacitet: 88
+    povezani_automobili: ["auto14"]
+    povezani_kamioni: ["kamion1"]
+  - id: "avion16"
+    proizvodjac: "Boeing"
+    model: "777"
+    kapacitet: 396
+    povezani_automobili: []
+    povezani_kamioni: []
+  - id: "avion17"
+    proizvodjac: "Airbus"
+    model: "A380"
+    kapacitet: 525
+    povezani_automobili: ["auto16","auto18"]
+    povezani_kamioni: ["kamion3"]
+  - id: "avion18"
+    proizvodjac: "Cessna"
+    model: "150"
+    kapacitet: 2
+    povezani_automobili: []
+    povezani_kamioni: ["kamion2","kamion5"]
+  - id: "avion19"
+    proizvodjac: "Bombardier"
+    model: "CRJ700"
+    kapacitet: 70
+    povezani_automobili: ["auto17"]
+    povezani_kamioni: []
+  - id: "avion20"
+    proizvodjac: "Embraer"
+    model: "E170"
+    kapacitet: 80
+    povezani_automobili: ["auto19","auto21"]
+    povezani_kamioni: ["kamion1"]
+  - id: "avion21"
+    proizvodjac: "Boeing"
+    model: "737 MAX"
+    kapacitet: 200
+    povezani_automobili: []
+    povezani_kamioni: []
+  - id: "avion22"
+    proizvodjac: "Airbus"
+    model: "A321"
+    kapacitet: 185
+    povezani_automobili: ["auto22"]
+    povezani_kamioni: ["kamion4"]
+  - id: "avion23"
+    proizvodjac: "Cessna"
+    model: "172 Skyhawk"
+    kapacitet: 4
+    povezani_automobili: ["auto23"]
+    povezani_kamioni: []
+  - id: "avion24"
+    proizvodjac: "Bombardier"
+    model: "CS100"
+    kapacitet: 110
+    povezani_automobili: []
+    povezani_kamioni: ["kamion5"]
+  - id: "avion25"
+    proizvodjac: "Embraer"
+    model: "E195-E2"
+    kapacitet: 132
+    povezani_automobili: ["auto24"]
+    povezani_kamioni: []
+  - id: "avion26"
+    proizvodjac: "Boeing"
+    model: "747-8"
+    kapacitet: 410
+    povezani_automobili: []
+    povezani_kamioni: ["kamion1"]
+  - id: "avion27"
+    proizvodjac: "Airbus"
+    model: "A310"
+    kapacitet: 280
+    povezani_automobili: ["auto25"]
+    povezani_kamioni: []
+  - id: "avion28"
+    proizvodjac: "Cessna"
+    model: "208 Caravan"
+    kapacitet: 14
+    povezani_automobili: []
+    povezani_kamioni: ["kamion2","kamion3"]
+  - id: "avion29"
+    proizvodjac: "Bombardier"
+    model: "CRJ550"
+    kapacitet: 50
+    povezani_automobili: ["auto26"]
+    povezani_kamioni: []
+  - id: "avion30"
+    proizvodjac: "Embraer"
+    model: "E175-E2"
+    kapacitet: 88
+    povezani_automobili: ["auto27"]
+    povezani_kamioni: ["kamion4"]
+  - id: "avion31"
+    proizvodjac: "Boeing"
+    model: "787"
+    kapacitet: 242
+    povezani_automobili: []
+    povezani_kamioni: ["kamion5"]
+  - id: "avion32"
+    proizvodjac: "Airbus"
+    model: "A220"
+    kapacitet: 130
+    povezani_automobili: ["auto28"]
+    povezani_kamioni: []
+  - id: "avion33"
+    proizvodjac: "Cessna"
+    model: "162 Skycatcher"
+    kapacitet: 2
+    povezani_automobili: []
+    povezani_kamioni: ["kamion1"]
+  - id: "avion34"
+    proizvodjac: "Bombardier"
+    model: "Global 6000"
+    kapacitet: 13
+    povezani_automobili: ["auto29"]
+    povezani_kamioni: ["kamion2"]
+  - id: "avion35"
+    proizvodjac: "Embraer"
+    model: "E145"
+    kapacitet: 50
+    povezani_automobili: []
+    povezani_kamioni: []
+  - id: "avion36"
+    proizvodjac: "Boeing"
+    model: "737-800"
+    kapacitet: 189
+    povezani_automobili: ["auto30"]
+    povezani_kamioni: ["kamion3"]
+  - id: "avion37"
+    proizvodjac: "Airbus"
+    model: "A319"
+    kapacitet: 124
+    povezani_automobili: []
+    povezani_kamioni: []
+  - id: "avion38"
+    proizvodjac: "Cessna"
+    model: "172 Skyhawk II"
+    kapacitet: 4
+    povezani_automobili: ["auto31","auto32"]
+    povezani_kamioni: []
+  - id: "avion39"
+    proizvodjac: "Bombardier"
+    model: "CS300-E2"
+    kapacitet: 132
+    povezani_automobili: []
+    povezani_kamioni: ["kamion4"]
+  - id: "avion40"
+    proizvodjac: "Embraer"
+    model: "E190-E2"
+    kapacitet: 114
+    povezani_automobili: ["auto33"]
+    povezani_kamioni: []
+  - id: "avion41"
+    proizvodjac: "Boeing"
+    model: "727"
+    kapacitet: 149
+    povezani_automobili: []
+    povezani_kamioni: []
+  - id: "avion42"
+    proizvodjac: "Airbus"
+    model: "A300"
+    kapacitet: 250
+    povezani_automobili: ["auto34"]
+    povezani_kamioni: ["kamion5"]
+  - id: "avion43"
+    proizvodjac: "Cessna"
+    model: "182 Skylane"
+    kapacitet: 4
+    povezani_automobili: []
+    povezani_kamioni: []
+  - id: "avion44"
+    proizvodjac: "Bombardier"
+    model: "CRJ1000"
+    kapacitet: 100
+    povezani_automobili: ["auto35"]
+    povezani_kamioni: ["kamion1"]
+  - id: "avion45"
+    proizvodjac: "Embraer"
+    model: "E170-E2"
+    kapacitet: 80
+    povezani_automobili: []
+    povezani_kamioni: ["kamion2"]
+  - id: "avion46"
+    proizvodjac: "Boeing"
+    model: "737 MAX 9"
+    kapacitet: 220
+    povezani_automobili: ["auto36"]
+    povezani_kamioni: []
+  - id: "avion47"
+    proizvodjac: "Airbus"
+    model: "A321neo"
+    kapacitet: 200
+    povezani_automobili: []
+    povezani_kamioni: ["kamion3"]
+  - id: "avion48"
+    proizvodjac: "Cessna"
+    model: "150 Comet"
+    kapacitet: 2
+    povezani_automobili: ["auto37"]
+    povezani_kamioni: []
+  - id: "avion49"
+    proizvodjac: "Bombardier"
+    model: "CS500"
+    kapacitet: 125
+    povezani_automobili: []
+    povezani_kamioni: ["kamion4"]
+  - id: "avion50"
+    proizvodjac: "Embraer"
+    model: "E190-E2 Plus"
+    kapacitet: 114
+    povezani_automobili: ["auto38"]
+    povezani_kamioni: []
+
+
+kamioni:
+  - id: "kamion1"
+    proizvodjac: "Volvo"
+    model: "FH16"
+    nosivost: 20000
+    povezani_automobili: ["auto1","auto2"]
+    povezani_avioni: ["avion2","avion5"]
+  - id: "kamion2"
+    proizvodjac: "Scania"
+    model: "R500"
+    nosivost: 18000
+    povezani_automobili: ["auto3"]
+    povezani_avioni: ["avion1","avion7"]
+  - id: "kamion3"
+    proizvodjac: "Mercedes"
+    model: "Actros"
+    nosivost: 22000
+    povezani_automobili: ["auto4","auto5","auto6"]
+    povezani_avioni: ["avion8"]
+  - id: "kamion4"
+    proizvodjac: "MAN"
+    model: "TGX"
+    nosivost: 19000
+    povezani_automobili: ["auto7"]
+    povezani_avioni: ["avion10","avion14"]
+  - id: "kamion5"
+    proizvodjac: "DAF"
+    model: "XF"
+    nosivost: 21000
+    povezani_automobili: []
+    povezani_avioni: ["avion12"]
+  - id: "kamion6"
+    proizvodjac: "Volvo"
+    model: "FH12"
+    nosivost: 20000
+    povezani_automobili: ["auto8"]
+    povezani_avioni: []
+  - id: "kamion7"
+    proizvodjac: "Scania"
+    model: "S730"
+    nosivost: 23000
+    povezani_automobili: ["auto9","auto10"]
+    povezani_avioni: ["avion15"]
+  - id: "kamion8"
+    proizvodjac: "Mercedes"
+    model: "Arocs"
+    nosivost: 18000
+    povezani_automobili: []
+    povezani_avioni: ["avion16","avion17"]
+  - id: "kamion9"
+    proizvodjac: "MAN"
+    model: "TGS"
+    nosivost: 20000
+    povezani_automobili: ["auto11"]
+    povezani_avioni: []
+  - id: "kamion10"
+    proizvodjac: "DAF"
+    model: "CF"
+    nosivost: 21000
+    povezani_automobili: ["auto12","auto13"]
+    povezani_avioni: ["avion18"]
+  - id: "kamion11"
+    proizvodjac: "Volvo"
+    model: "FMX"
+    nosivost: 18000
+    povezani_automobili: []
+    povezani_avioni: ["avion19"]
+  - id: "kamion12"
+    proizvodjac: "Scania"
+    model: "P360"
+    nosivost: 20000
+    povezani_automobili: ["auto14"]
+    povezani_avioni: []
+  - id: "kamion13"
+    proizvodjac: "Mercedes"
+    model: "Atego"
+    nosivost: 16000
+    povezani_automobili: ["auto15"]
+    povezani_avioni: ["avion20"]
+  - id: "kamion14"
+    proizvodjac: "MAN"
+    model: "LE"
+    nosivost: 17000
+    povezani_automobili: []
+    povezani_avioni: ["avion21","avion22"]
+  - id: "kamion15"
+    proizvodjac: "DAF"
+    model: "LF"
+    nosivost: 15000
+    povezani_automobili: ["auto16"]
+    povezani_avioni: []
+  - id: "kamion16"
+    proizvodjac: "Volvo"
+    model: "FL"
+    nosivost: 14000
+    povezani_automobili: ["auto17","auto18"]
+    povezani_avioni: ["avion23"]
+  - id: "kamion17"
+    proizvodjac: "Scania"
+    model: "G450"
+    nosivost: 20000
+    povezani_automobili: []
+    povezani_avioni: ["avion24"]
+  - id: "kamion18"
+    proizvodjac: "Mercedes"
+    model: "Arocs 6x4"
+    nosivost: 19000
+    povezani_automobili: ["auto19"]
+    povezani_avioni: []
+  - id: "kamion19"
+    proizvodjac: "MAN"
+    model: "TGX 18.500"
+    nosivost: 21000
+    povezani_automobili: ["auto20","auto21"]
+    povezani_avioni: ["avion25"]
+  - id: "kamion20"
+    proizvodjac: "DAF"
+    model: "XF 530"
+    nosivost: 23000
+    povezani_automobili: []
+    povezani_avioni: ["avion26"]
+  - id: "kamion21"
+    proizvodjac: "Volvo"
+    model: "FH 540"
+    nosivost: 22000
+    povezani_automobili: ["auto22"]
+    povezani_avioni: []
+  - id: "kamion22"
+    proizvodjac: "Scania"
+    model: "R620"
+    nosivost: 20000
+    povezani_automobili: []
+    povezani_avioni: ["avion27"]
+  - id: "kamion23"
+    proizvodjac: "Mercedes"
+    model: "Actros 2545"
+    nosivost: 21000
+    povezani_automobili: ["auto23","auto24"]
+    povezani_avioni: []
+  - id: "kamion24"
+    proizvodjac: "MAN"
+    model: "TGM"
+    nosivost: 18000
+    povezani_automobili: []
+    povezani_avioni: ["avion28"]
+  - id: "kamion25"
+    proizvodjac: "DAF"
+    model: "CF 460"
+    nosivost: 20000
+    povezani_automobili: ["auto25"]
+    povezani_avioni: ["avion29"]
+  - id: "kamion26"
+    proizvodjac: "Volvo"
+    model: "FH 460"
+    nosivost: 22000
+    povezani_automobili: []
+    povezani_avioni: []
+  - id: "kamion27"
+    proizvodjac: "Scania"
+    model: "R500 6x2"
+    nosivost: 20000
+    povezani_automobili: ["auto26"]
+    povezani_avioni: ["avion30"]
+  - id: "kamion28"
+    proizvodjac: "Mercedes"
+    model: "Arocs 8x4"
+    nosivost: 24000
+    povezani_automobili: []
+    povezani_avioni: ["avion31"]
+  - id: "kamion29"
+    proizvodjac: "MAN"
+    model: "TGX 26.500"
+    nosivost: 25000
+    povezani_automobili: ["auto27","auto28"]
+    povezani_avioni: []
+  - id: "kamion30"
+    proizvodjac: "DAF"
+    model: "XF 480"
+    nosivost: 23000
+    povezani_automobili: []
+    povezani_avioni: ["avion32"]
+  - id: "kamion31"
+    proizvodjac: "Volvo"
+    model: "FH 500"
+    nosivost: 21000
+    povezani_automobili: ["auto29"]
+    povezani_avioni: ["avion33"]
+  - id: "kamion32"
+    proizvodjac: "Scania"
+    model: "S520"
+    nosivost: 22000
+    povezani_automobili: []
+    povezani_avioni: ["avion34"]
+  - id: "kamion33"
+    proizvodjac: "Mercedes"
+    model: "Actros 1845"
+    nosivost: 23000
+    povezani_automobili: ["auto30"]
+    povezani_avioni: []
+  - id: "kamion34"
+    proizvodjac: "MAN"
+    model: "TGS 18.440"
+    nosivost: 21000
+    povezani_automobili: []
+    povezani_avioni: ["avion35"]
+  - id: "kamion35"
+    proizvodjac: "DAF"
+    model: "XF 460 Space Cab"
+    nosivost: 24000
+    povezani_automobili: ["auto31"]
+    povezani_avioni: []
+  - id: "kamion36"
+    proizvodjac: "Volvo"
+    model: "FH16 750"
+    nosivost: 25000
+    povezani_automobili: []
+    povezani_avioni: ["avion36"]
+  - id: "kamion37"
+    proizvodjac: "Scania"
+    model: "G450 6x2"
+    nosivost: 23000
+    povezani_automobili: ["auto32","auto33"]
+    povezani_avioni: []
+  - id: "kamion38"
+    proizvodjac: "Mercedes"
+    model: "Arocs SLT"
+    nosivost: 26000
+    povezani_automobili: []
+    povezani_avioni: ["avion37"]
+  - id: "kamion39"
+    proizvodjac: "MAN"
+    model: "TGM 18.280"
+    nosivost: 18000
+    povezani_automobili: ["auto34"]
+    povezani_avioni: []
+  - id: "kamion40"
+    proizvodjac: "DAF"
+    model: "LF 280"
+    nosivost: 15000
+    povezani_automobili: []
+    povezani_avioni: ["avion38"]
+  - id: "kamion41"
+    proizvodjac: "Volvo"
+    model: "FE 320"
+    nosivost: 17000
+    povezani_automobili: ["auto35"]
+    povezani_avioni: []
+  - id: "kamion42"
+    proizvodjac: "Scania"
+    model: "P410"
+    nosivost: 20000
+    povezani_automobili: []
+    povezani_avioni: ["avion39"]
+  - id: "kamion43"
+    proizvodjac: "Mercedes"
+    model: "Atego 1523"
+    nosivost: 16000
+    povezani_automobili: ["auto36"]
+    povezani_avioni: []
+  - id: "kamion44"
+    proizvodjac: "MAN"
+    model: "TGX 18.460"
+    nosivost: 22000
+    povezani_automobili: []
+    povezani_avioni: ["avion40"]
+  - id: "kamion45"
+    proizvodjac: "DAF"
+    model: "XF 530 Space Cab"
+    nosivost: 25000
+    povezani_automobili: ["auto37"]
+    povezani_avioni: []
+  - id: "kamion46"
+    proizvodjac: "Volvo"
+    model: "FH 540"
+    nosivost: 26000
+    povezani_automobili: []
+    povezani_avioni: ["avion41"]
+  - id: "kamion47"
+    proizvodjac: "Scania"
+    model: "R580"
+    nosivost: 27000
+    povezani_automobili: ["auto38"]
+    povezani_avioni: []
+  - id: "kamion48"
+    proizvodjac: "Mercedes"
+    model: "Actros 2545 SLT"
+    nosivost: 28000
+    povezani_automobili: []
+    povezani_avioni: ["avion42"]
+  - id: "kamion49"
+    proizvodjac: "MAN"
+    model: "TGS 26.440"
+    nosivost: 29000
+    povezani_automobili: ["auto39"]
+    povezani_avioni: []
+  - id: "kamion50"
+    proizvodjac: "DAF"
+    model: "CF 460 Super Space Cab"
+    nosivost: 30000
+    povezani_automobili: []
+    povezani_avioni: ["avion43"]
+

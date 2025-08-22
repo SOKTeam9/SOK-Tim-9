@@ -1,5 +1,4 @@
 from neo4j import GraphDatabase
-
 class GraphHandler:
     def __init__(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
@@ -40,5 +39,7 @@ class GraphHandler:
 
 if __name__ == "__main__":
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-    print(handler.get_graph())
+    # print(handler.get_graph())
     handler.close()
+    # simple = SimpleVisualizer()
+    # simple.render(handler.get_graph())

@@ -119,4 +119,5 @@ button.reset:hover {
 .center {
   flex: 7;
   padding: 10px;
+  background-color: rgb(167, 27, 27);
 }

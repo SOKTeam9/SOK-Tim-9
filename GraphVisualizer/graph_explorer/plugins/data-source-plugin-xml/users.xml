@@ -1,0 +1,2390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user id="u-001">
+      <name>Elena</name>
+      <followers_count>1500</followers_count>
+      <joined_date>2023-01-15</joined_date>
+      <is_active>true</is_active>
+      <follows>
+        <user_ref ref="u-002"/>
+        <user_ref ref="u-003"/>
+      </follows>
+    </user>
+   <user id="u-002">
+    <name>Damir</name>
+    <followers_count>850</followers_count>
+    <joined_date>2022-11-20</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-001"/>
+        <user_ref ref="u-004"/>
+        <user_ref ref="u-074"/>
+    </follows>
+</user>
+<user id="u-003">
+    <name>Jovan</name>
+    <followers_count>200</followers_count>
+    <joined_date>2023-03-10</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-001"/>
+        <user_ref ref="u-005"/>
+    </follows>
+</user>
+<user id="u-004">
+    <name>Marija</name>
+    <followers_count>1200</followers_count>
+    <joined_date>2022-12-05</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-002"/>
+        <user_ref ref="u-006"/>
+    </follows>
+</user>
+<user id="u-005">
+    <name>Luka</name>
+    <followers_count>75</followers_count>
+    <joined_date>2024-01-22</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-003"/>
+        <user_ref ref="u-007"/>
+    </follows>
+</user>
+<user id="u-006">
+    <name>Ana</name>
+    <followers_count>450</followers_count>
+    <joined_date>2023-05-18</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-008"/>
+        <user_ref ref="u-139"/>
+    </follows>
+</user>
+<user id="u-007">
+    <name>Petar</name>
+    <followers_count>310</followers_count>
+    <joined_date>2023-07-02</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-009"/>
+        <user_ref ref="u-074"/>
+    </follows>
+</user>
+<user id="u-008">
+    <name>Ivana</name>
+    <followers_count>980</followers_count>
+    <joined_date>2022-09-01</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-010"/>
+    </follows>
+</user>
+<user id="u-009">
+    <name>Nikola</name>
+    <followers_count>530</followers_count>
+    <joined_date>2023-04-25</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-011"/>
+    </follows>
+</user>
+<user id="u-010">
+    <name>Milica</name>
+    <followers_count>1100</followers_count>
+    <joined_date>2022-10-14</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-012"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-011">
+    <name>Marko</name>
+    <followers_count>620</followers_count>
+    <joined_date>2023-02-09</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-013"/>
+        <user_ref ref="u-007"/>
+    </follows>
+</user>
+<user id="u-012">
+    <name>Zoran</name>
+    <followers_count>400</followers_count>
+    <joined_date>2023-06-01</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-014"/>
+    </follows>
+</user>
+<user id="u-013">
+    <name>Sara</name>
+    <followers_count>250</followers_count>
+    <joined_date>2023-08-11</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-014">
+    <name>David</name>
+    <followers_count>150</followers_count>
+    <joined_date>2024-02-28</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-016"/>
+    </follows>
+</user>
+<user id="u-015">
+    <name>Teodora</name>
+    <followers_count>3400</followers_count>
+    <joined_date>2022-08-05</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-017"/>
+    </follows>
+</user>
+<user id="u-016">
+    <name>Andrija</name>
+    <followers_count>770</followers_count>
+    <joined_date>2023-09-19</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-018"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-017">
+    <name>Mina</name>
+    <followers_count>120</followers_count>
+    <joined_date>2024-03-01</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-019"/>
+    </follows>
+</user>
+<user id="u-018">
+    <name>Vuk</name>
+    <followers_count>600</followers_count>
+    <joined_date>2023-10-11</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-020"/>
+        <user_ref ref="u-139"/>
+    </follows>
+</user>
+<user id="u-019">
+    <name>Lena</name>
+    <followers_count>90</followers_count>
+    <joined_date>2024-04-16</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-021"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-020">
+    <name>Uroš</name>
+    <followers_count>1300</followers_count>
+    <joined_date>2022-07-25</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-022"/>
+    </follows>
+</user>
+<user id="u-021">
+    <name>Tamara</name>
+    <followers_count>550</followers_count>
+    <joined_date>2023-11-03</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-023"/>
+    </follows>
+</user>
+   <user id="u-022">
+    <name>Filip</name>
+    <followers_count>800</followers_count>
+    <joined_date>2023-08-01</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-024"/>
+    </follows>
+</user>
+<user id="u-023">
+    <name>Gorana</name>
+    <followers_count>120</followers_count>
+    <joined_date>2024-01-15</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-025"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-024">
+    <name>Dusan</name>
+    <followers_count>450</followers_count>
+    <joined_date>2023-11-20</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-026"/>
+    </follows>
+</user>
+<user id="u-025">
+    <name>Jelena</name>
+    <followers_count>1500</followers_count>
+    <joined_date>2022-12-05</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-027"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-026">
+    <name>Bojan</name>
+    <followers_count>250</followers_count>
+    <joined_date>2024-02-18</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-028"/>
+    </follows>
+</user>
+<user id="u-027">
+    <name>Kristina</name>
+    <followers_count>700</followers_count>
+    <joined_date>2023-04-10</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-029"/>
+    </follows>
+</user>
+<user id="u-028">
+    <name>Nemanja</name>
+    <followers_count>950</followers_count>
+    <joined_date>2022-10-01</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-030"/>
+    </follows>
+</user>
+<user id="u-029">
+    <name>Ljubica</name>
+    <followers_count>300</followers_count>
+    <joined_date>2024-05-22</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-031"/>
+    </follows>
+</user>
+<user id="u-030">
+    <name>Miloš</name>
+    <followers_count>1800</followers_count>
+    <joined_date>2022-09-15</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-032"/>
+    </follows>
+</user>
+<user id="u-031">
+    <name>Nada</name>
+    <followers_count>420</followers_count>
+    <joined_date>2023-07-28</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-033"/>
+    </follows>
+</user>
+<user id="u-032">
+    <name>Ognjen</name>
+    <followers_count>650</followers_count>
+    <joined_date>2023-03-03</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-034"/>
+        <user_ref ref="u-015"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+<user id="u-033">
+    <name>Pavle</name>
+    <followers_count>280</followers_count>
+    <joined_date>2024-04-12</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-035"/>
+    </follows>
+</user>
+<user id="u-034">
+    <name>Rastko</name>
+    <followers_count>1100</followers_count>
+    <joined_date>2022-11-09</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-036"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+<user id="u-035">
+    <name>Strahinja</name>
+    <followers_count>500</followers_count>
+    <joined_date>2023-06-25</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-037"/>
+    </follows>
+</user>
+<user id="u-036">
+    <name>Tijana</name>
+    <followers_count>720</followers_count>
+    <joined_date>2023-01-08</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-038"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-037">
+    <name>Vanja</name>
+    <followers_count>180</followers_count>
+    <joined_date>2024-03-29</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-039"/>
+    </follows>
+</user>
+<user id="u-038">
+    <name>Vesna</name>
+    <followers_count>610</followers_count>
+    <joined_date>2023-10-05</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-040"/>
+    </follows>
+</user>
+<user id="u-039">
+    <name>Vladan</name>
+    <followers_count>870</followers_count>
+    <joined_date>2022-09-22</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-041"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-040">
+    <name>Gordana</name>
+    <followers_count>200</followers_count>
+    <joined_date>2024-01-03</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-42"/>
+    </follows>
+</user>
+<user id="u-041">
+    <name>Dražen</name>
+    <followers_count>540</followers_count>
+    <joined_date>2023-05-15</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-043"/>
+    </follows>
+</user>
+   <user id="u-042">
+    <name>Jasmina</name>
+    <followers_count>200</followers_count>
+    <joined_date>2023-01-03</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-044"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+<user id="u-043">
+    <name>Ksenija</name>
+    <followers_count>540</followers_count>
+    <joined_date>2023-05-15</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-045"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-044">
+    <name>Lazar</name>
+    <followers_count>1000</followers_count>
+    <joined_date>2022-09-29</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-046"/>
+    </follows>
+</user>
+<user id="u-045">
+    <name>Mladen</name>
+    <followers_count>320</followers_count>
+    <joined_date>2024-02-14</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-047"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-046">
+    <name>Natalija</name>
+    <followers_count>670</followers_count>
+    <joined_date>2023-08-08</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-048"/>
+    </follows>
+</user>
+<user id="u-047">
+    <name>Olivera</name>
+    <followers_count>110</followers_count>
+    <joined_date>2024-03-21</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-049"/>
+    </follows>
+</user>
+<user id="u-048">
+    <name>Predrag</name>
+    <followers_count>920</followers_count>
+    <joined_date>2022-11-29</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-050"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-049">
+    <name>Svetlana</name>
+    <followers_count>490</followers_count>
+    <joined_date>2023-09-05</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-051"/>
+    </follows>
+</user>
+<user id="u-050">
+    <name>Željko</name>
+    <followers_count>2300</followers_count>
+    <joined_date>2022-10-18</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-052"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-051">
+    <name>Dušan</name>
+    <followers_count>380</followers_count>
+    <joined_date>2024-01-29</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-053"/>
+    </follows>
+</user>
+<user id="u-052">
+    <name>Jovana</name>
+    <followers_count>760</followers_count>
+    <joined_date>2023-05-10</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-054"/>
+    </follows>
+</user>
+<user id="u-053">
+    <name>Miloš</name>
+    <followers_count>1400</followers_count>
+    <joined_date>2022-12-01</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-055"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-054">
+    <name>Lara</name>
+    <followers_count>210</followers_count>
+    <joined_date>2024-03-08</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-056"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+<user id="u-055">
+    <name>Vuk</name>
+    <followers_count>550</followers_count>
+    <joined_date>2023-07-26</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-057"/>
+    </follows>
+</user>
+<user id="u-056">
+    <name>Ivana</name>
+    <followers_count>890</followers_count>
+    <joined_date>2022-08-19</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-058"/>
+    </follows>
+</user>
+<user id="u-057">
+    <name>Filip</name>
+    <followers_count>370</followers_count>
+    <joined_date>2024-01-22</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-059"/>
+    </follows>
+</user>
+<user id="u-058">
+    <name>Nikolina</name>
+    <followers_count>1300</followers_count>
+    <joined_date>2022-10-04</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-060"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-059">
+    <name>Strahinja</name>
+    <followers_count>620</followers_count>
+    <joined_date>2023-06-16</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-061"/>
+    </follows>
+</user>
+<user id="u-060">
+    <name>Tijana</name>
+    <followers_count>280</followers_count>
+    <joined_date>2024-02-25</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-062"/>
+    </follows>
+</user>
+<user id="u-061">
+    <name>Andrija</name>
+    <followers_count>950</followers_count>
+    <joined_date>2022-12-07</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-063"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-062">
+    <name>Vanja</name>
+    <followers_count>410</followers_count>
+    <joined_date>2023-05-30</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-064"/>
+    </follows>
+</user>
+<user id="u-063">
+    <name>Vuk</name>
+    <followers_count>1700</followers_count>
+    <joined_date>2022-09-20</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-065"/>
+        <user_ref ref="u-074"/>
+    </follows>
+</user>
+<user id="u-064">
+    <name>Mina</name>
+    <followers_count>580</followers_count>
+    <joined_date>2024-01-12</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-066"/>
+    </follows>
+</user>
+<user id="u-065">
+    <name>Miloš</name>
+    <followers_count>340</followers_count>
+    <joined_date>2023-04-05</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-067"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-066">
+    <name>Marko</name>
+    <followers_count>1150</followers_count>
+    <joined_date>2022-11-17</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-068"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+<user id="u-067">
+    <name>Marija</name>
+    <followers_count>260</followers_count>
+    <joined_date>2024-03-01</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-069"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-068">
+    <name>Nikola</name>
+    <followers_count>980</followers_count>
+    <joined_date>2023-09-28</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-070"/>
+    </follows>
+</user>
+<user id="u-069">
+    <name>Kristina</name>
+    <followers_count>530</followers_count>
+    <joined_date>2023-02-14</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-071"/>
+    </follows>
+</user>
+<user id="u-070">
+    <name>Milan</name>
+    <followers_count>770</followers_count>
+    <joined_date>2022-11-06</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-072"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-071">
+    <name>Lana</name>
+    <followers_count>400</followers_count>
+    <joined_date>2024-04-20</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-073"/>
+    </follows>
+</user>
+<user id="u-072">
+    <name>Petra</name>
+    <followers_count>1200</followers_count>
+    <joined_date>2023-07-09</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-074"/>
+    </follows>
+</user>
+<user id="u-073">
+    <name>Aleksandar</name>
+    <followers_count>600</followers_count>
+    <joined_date>2023-01-27</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-075"/>
+        <user_ref ref="u-094"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-074">
+    <name>Milica</name>
+    <followers_count>2500</followers_count>
+    <joined_date>2022-08-11</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-076"/>
+    </follows>
+</user>
+<user id="u-075">
+    <name>Jelena</name>
+    <followers_count>520</followers_count>
+    <joined_date>2023-04-03</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-077"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+    <user id="u-076">
+    <name>Filip</name>
+    <followers_count>720</followers_count>
+    <joined_date>2023-01-22</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-078"/>
+    </follows>
+</user>
+<user id="u-077">
+    <name>Vukasin</name>
+    <followers_count>180</followers_count>
+    <joined_date>2024-03-29</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-079"/>
+    </follows>
+</user>
+<user id="u-078">
+    <name>Ana</name>
+    <followers_count>610</followers_count>
+    <joined_date>2023-10-05</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-080"/>
+    </follows>
+</user>
+<user id="u-079">
+    <name>Stefan</name>
+    <followers_count>870</followers_count>
+    <joined_date>2022-09-22</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-081"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-080">
+    <name>Danica</name>
+    <followers_count>200</followers_count>
+    <joined_date>2024-01-03</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-082"/>
+    </follows>
+</user>
+<user id="u-081">
+    <name>Boris</name>
+    <followers_count>540</followers_count>
+    <joined_date>2023-05-15</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-083"/>
+    </follows>
+</user>
+<user id="u-082">
+    <name>Una</name>
+    <followers_count>1000</followers_count>
+    <joined_date>2022-09-29</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-084"/>
+    </follows>
+</user>
+<user id="u-083">
+    <name>Maja</name>
+    <followers_count>320</followers_count>
+    <joined_date>2024-02-14</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-085"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-084">
+    <name>Pavle</name>
+    <followers_count>670</followers_count>
+    <joined_date>2023-08-08</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-086"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+<user id="u-085">
+    <name>Tara</name>
+    <followers_count>110</followers_count>
+    <joined_date>2024-03-21</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-087"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-086">
+    <name>Lazar</name>
+    <followers_count>920</followers_count>
+    <joined_date>2022-11-29</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-088"/>
+    </follows>
+</user>
+<user id="u-087">
+    <name>Ivana</name>
+    <followers_count>490</followers_count>
+    <joined_date>2023-09-05</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-089"/>
+    </follows>
+</user>
+<user id="u-088">
+    <name>Nemanja</name>
+    <followers_count>2300</followers_count>
+    <joined_date>2022-10-18</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-090"/>
+    </follows>
+</user>
+<user id="u-089">
+    <name>Mia</name>
+    <followers_count>380</followers_count>
+    <joined_date>2024-01-29</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-091"/>
+    </follows>
+</user>
+<user id="u-090">
+    <name>Petar</name>
+    <followers_count>760</followers_count>
+    <joined_date>2023-05-10</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-092"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-091">
+    <name>Dimitrije</name>
+    <followers_count>1400</followers_count>
+    <joined_date>2022-12-01</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-093"/>
+    </follows>
+</user>
+<user id="u-092">
+    <name>Olivera</name>
+    <followers_count>210</followers_count>
+    <joined_date>2024-03-08</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-094"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+<user id="u-093">
+    <name>Sara</name>
+    <followers_count>550</followers_count>
+    <joined_date>2023-07-26</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-095"/>
+    </follows>
+</user>
+<user id="u-094">
+    <name>Viktor</name>
+    <followers_count>890</followers_count>
+    <joined_date>2022-08-19</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-096"/>
+        <user_ref ref="u-095"/>
+    </follows>
+</user>
+<user id="u-095">
+    <name>Dunja</name>
+    <followers_count>370</followers_count>
+    <joined_date>2024-01-22</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-097"/>
+        <user_ref ref="u-094"/>
+    </follows>
+</user>
+<user id="u-096">
+    <name>Luka</name>
+    <followers_count>1300</followers_count>
+    <joined_date>2022-10-04</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-098"/>
+        <user_ref ref="u-044"/>
+        <user_ref ref="u-015"/>
+    </follows>
+</user>
+<user id="u-097">
+    <name>Maša</name>
+    <followers_count>620</followers_count>
+    <joined_date>2023-06-16</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-099"/>
+    </follows>
+</user>
+<user id="u-098">
+    <name>Vasilije</name>
+    <followers_count>280</followers_count>
+    <joined_date>2024-02-25</joined_date>
+    <is_active>false</is_active>
+    <follows>
+        <user_ref ref="u-100"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+<user id="u-099">
+    <name>Vesna</name>
+    <followers_count>950</followers_count>
+    <joined_date>2022-12-07</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-001"/>
+        <user_ref ref="u-074"/>
+    </follows>
+</user>
+<user id="u-100">
+    <name>Aleksa</name>
+    <followers_count>410</followers_count>
+    <joined_date>2023-05-30</joined_date>
+    <is_active>true</is_active>
+    <follows>
+        <user_ref ref="u-002"/>
+        <user_ref ref="u-044"/>
+    </follows>
+</user>
+    <user id="u-101">
+        <name>Bojan Jovanovic</name>
+        <followers_count>670</followers_count>
+        <joined_date>2023-08-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-102"/>
+            <user_ref ref="u-150"/>
+        </follows>
+    </user>
+    <user id="u-102">
+        <name>Sofija Ilic</name>
+        <followers_count>1200</followers_count>
+        <joined_date>2022-10-18</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-103"/>
+            <user_ref ref="u-151"/>
+        </follows>
+    </user>
+    <user id="u-103">
+        <name>Filip Zivkovic</name>
+        <followers_count>240</followers_count>
+        <joined_date>2024-02-12</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-104"/>
+        </follows>
+    </user>
+    <user id="u-104">
+        <name>Dunja Petrovic</name>
+        <followers_count>890</followers_count>
+        <joined_date>2023-03-29</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-105"/>
+        </follows>
+    </user>
+    <user id="u-105">
+        <name>Luka Jovic</name>
+        <followers_count>310</followers_count>
+        <joined_date>2024-04-10</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-106"/>
+            <user_ref ref="u-152"/>
+        </follows>
+    </user>
+    <user id="u-106">
+        <name>Milica Zivkovic</name>
+        <followers_count>1500</followers_count>
+        <joined_date>2022-09-01</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-107"/>
+        </follows>
+    </user>
+    <user id="u-107">
+        <name>Nenad Petrovic</name>
+        <followers_count>580</followers_count>
+        <joined_date>2023-01-20</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-108"/>
+            <user_ref ref="u-153"/>
+        </follows>
+    </user>
+    <user id="u-108">
+        <name>Ivana Nikolic</name>
+        <followers_count>920</followers_count>
+        <joined_date>2022-11-25</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-109"/>
+        </follows>
+    </user>
+    <user id="u-109">
+        <name>Dusan Stojanovic</name>
+        <followers_count>120</followers_count>
+        <joined_date>2024-05-01</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-110"/>
+        </follows>
+    </user>
+    <user id="u-110">
+        <name>Jovana Markovic</name>
+        <followers_count>450</followers_count>
+        <joined_date>2023-06-15</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-111"/>
+            <user_ref ref="u-154"/>
+        </follows>
+    </user>
+    <user id="u-111">
+        <name>Milos Rakic</name>
+        <followers_count>700</followers_count>
+        <joined_date>2022-12-08</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-112"/>
+        </follows>
+    </user>
+    <user id="u-112">
+        <name>Marija Ivanovic</name>
+        <followers_count>110</followers_count>
+        <joined_date>2024-03-05</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-113"/>
+        </follows>
+    </user>
+    <user id="u-113">
+        <name>Nikola Kovacevic</name>
+        <followers_count>340</followers_count>
+        <joined_date>2023-08-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-114"/>
+            <user_ref ref="u-155"/>
+        </follows>
+    </user>
+    <user id="u-114">
+        <name>Ana Pavlovic</name>
+        <followers_count>800</followers_count>
+        <joined_date>2022-10-09</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-115"/>
+        </follows>
+    </user>
+    <user id="u-115">
+        <name>Stefan Stevic</name>
+        <followers_count>620</followers_count>
+        <joined_date>2024-01-19</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-116"/>
+            <user_ref ref="u-156"/>
+        </follows>
+    </user>
+    <user id="u-116">
+        <name>Jelena Nikolic</name>
+        <followers_count>1700</followers_count>
+        <joined_date>2022-11-14</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-117"/>
+        </follows>
+    </user>
+    <user id="u-117">
+        <name>Vuk Peric</name>
+        <followers_count>200</followers_count>
+        <joined_date>2023-03-01</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-118"/>
+            <user_ref ref="u-157"/>
+        </follows>
+    </user>
+    <user id="u-118">
+        <name>Mina Djordjevic</name>
+        <followers_count>980</followers_count>
+        <joined_date>2022-07-28</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-119"/>
+            <user_ref ref="u-112"/>
+        </follows>
+    </user>
+    <user id="u-119">
+        <name>Petar Lazic</name>
+        <followers_count>300</followers_count>
+        <joined_date>2024-02-09</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-120"/>
+            <user_ref ref="u-158"/>
+        </follows>
+    </user>
+    <user id="u-120">
+        <name>Aleksa Savic</name>
+        <followers_count>1100</followers_count>
+        <joined_date>2022-09-12</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-121"/>
+        </follows>
+    </user>
+    <user id="u-121">
+        <name>Andjela Ristic</name>
+        <followers_count>450</followers_count>
+        <joined_date>2023-04-18</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-122"/>
+            <user_ref ref="u-159"/>
+        </follows>
+    </user>
+    <user id="u-122">
+        <name>Teodora Milovanovic</name>
+        <followers_count>760</followers_count>
+        <joined_date>2022-12-03</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-123"/>
+        </follows>
+    </user>
+    <user id="u-123">
+        <name>Ognjen Popovic</name>
+        <followers_count>210</followers_count>
+        <joined_date>2024-03-12</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-124"/>
+            <user_ref ref="u-160"/>
+        </follows>
+    </user>
+    <user id="u-124">
+        <name>Lana Simic</name>
+        <followers_count>550</followers_count>
+        <joined_date>2023-07-09</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-125"/>
+        </follows>
+    </user>
+    <user id="u-125">
+        <name>David Vujic</name>
+        <followers_count>890</followers_count>
+        <joined_date>2022-10-21</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-126"/>
+            <user_ref ref="u-161"/>
+            <user_ref ref="u-112"/>
+        </follows>
+    </user>
+    <user id="u-126">
+        <name>Sara Mitrovic</name>
+        <followers_count>370</followers_count>
+        <joined_date>2024-01-29</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-127"/>
+        </follows>
+    </user>
+    <user id="u-127">
+        <name>Mihajlo Stankovic</name>
+        <followers_count>1300</followers_count>
+        <joined_date>2022-09-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-128"/>
+            <user_ref ref="u-162"/>
+        </follows>
+    </user>
+    <user id="u-128">
+        <name>Danica Rakic</name>
+        <followers_count>280</followers_count>
+        <joined_date>2024-04-01</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-129"/>
+        </follows>
+    </user>
+    <user id="u-129">
+        <name>Uros Jovanovic</name>
+        <followers_count>950</followers_count>
+        <joined_date>2022-11-19</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-130"/>
+            <user_ref ref="u-163"/>
+        </follows>
+    </user>
+    <user id="u-130">
+        <name>Jovan Pavlovic</name>
+        <followers_count>410</followers_count>
+        <joined_date>2023-05-25</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-131"/>
+            <user_ref ref="u-112"/>
+        </follows>
+    </user>
+    <user id="u-131">
+        <name>Milena Nikolic</name>
+        <followers_count>1700</followers_count>
+        <joined_date>2022-08-11</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-132"/>
+            <user_ref ref="u-164"/>
+        </follows>
+    </user>
+    <user id="u-132">
+        <name>Aleksa Jovanovic</name>
+        <followers_count>580</followers_count>
+        <joined_date>2024-02-15</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-133"/>
+        </follows>
+    </user>
+    <user id="u-133">
+        <name>Katarina Stankovic</name>
+        <followers_count>340</followers_count>
+        <joined_date>2023-04-28</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-134"/>
+            <user_ref ref="u-165"/>
+        </follows>
+    </user>
+    <user id="u-134">
+        <name>Vasilije Petric</name>
+        <followers_count>1150</followers_count>
+        <joined_date>2022-11-09</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-135"/>
+        </follows>
+    </user>
+    <user id="u-135">
+        <name>Anja Antic</name>
+        <followers_count>260</followers_count>
+        <joined_date>2024-03-08</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-136"/>
+            <user_ref ref="u-166"/>
+        </follows>
+    </user>
+    <user id="u-136">
+        <name>Mladen Milosevic</name>
+        <followers_count>980</followers_count>
+        <joined_date>2023-09-02</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-137"/>
+        </follows>
+    </user>
+    <user id="u-137">
+        <name>Elena Jovic</name>
+        <followers_count>530</followers_count>
+        <joined_date>2023-02-20</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-138"/>
+            <user_ref ref="u-167"/>
+        </follows>
+    </user>
+    <user id="u-138">
+        <name>Lazar Ilic</name>
+        <followers_count>770</followers_count>
+        <joined_date>2022-10-14</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-139"/>
+        </follows>
+    </user>
+    <user id="u-139">
+        <name>Vanja Zivkovic</name>
+        <followers_count>400</followers_count>
+        <joined_date>2024-04-20</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-140"/>
+            <user_ref ref="u-168"/>
+        </follows>
+    </user>
+    <user id="u-140">
+        <name>Sara Popovic</name>
+        <followers_count>1200</followers_count>
+        <joined_date>2023-07-09</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-141"/>
+        </follows>
+    </user>
+    <user id="u-141">
+        <name>Stefan Pavlovic</name>
+        <followers_count>600</followers_count>
+        <joined_date>2023-01-27</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-142"/>
+            <user_ref ref="u-169"/>
+        </follows>
+    </user>
+    <user id="u-142">
+        <name>Isidora Jovanovic</name>
+        <followers_count>2500</followers_count>
+        <joined_date>2022-08-11</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-143"/>
+            <user_ref ref="u-112"/>
+        </follows>
+    </user>
+    <user id="u-143">
+        <name>Boris Petrovic</name>
+        <followers_count>520</followers_count>
+        <joined_date>2023-04-03</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-144"/>
+            <user_ref ref="u-170"/>
+            <user_ref ref="u-112"/>
+        </follows>
+    </user>
+    <user id="u-144">
+        <name>Nemanja Milic</name>
+        <followers_count>720</followers_count>
+        <joined_date>2023-01-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-145"/>
+        </follows>
+    </user>
+    <user id="u-145">
+        <name>Masa Jovanovic</name>
+        <followers_count>180</followers_count>
+        <joined_date>2024-03-29</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-146"/>
+            <user_ref ref="u-171"/>
+        </follows>
+    </user>
+    <user id="u-146">
+        <name>Filip Djordjevic</name>
+        <followers_count>610</followers_count>
+        <joined_date>2023-10-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-147"/>
+        </follows>
+    </user>
+    <user id="u-147">
+        <name>Gorana Ilic</name>
+        <followers_count>870</followers_count>
+        <joined_date>2022-09-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-148"/>
+            <user_ref ref="u-172"/>
+        </follows>
+    </user>
+    <user id="u-148">
+        <name>Ognjen Popovic</name>
+        <followers_count>200</followers_count>
+        <joined_date>2024-01-03</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-149"/>
+        </follows>
+    </user>
+    <user id="u-149">
+        <name>Katarina Stankovic</name>
+        <followers_count>540</followers_count>
+        <joined_date>2023-05-15</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-150"/>
+            <user_ref ref="u-173"/>
+        </follows>
+    </user>
+    <user id="u-150">
+        <name>Lazar Petrovic</name>
+        <followers_count>1000</followers_count>
+        <joined_date>2022-09-29</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-151"/>
+        </follows>
+    </user>
+    <user id="u-151">
+        <name>Maja Milovanovic</name>
+        <followers_count>320</followers_count>
+        <joined_date>2024-02-14</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-152"/>
+            <user_ref ref="u-174"/>
+        </follows>
+    </user>
+    <user id="u-152">
+        <name>Neven Ilic</name>
+        <followers_count>670</followers_count>
+        <joined_date>2023-08-08</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-153"/>
+        </follows>
+    </user>
+    <user id="u-153">
+        <name>Ognjen Jovic</name>
+        <followers_count>110</followers_count>
+        <joined_date>2024-03-21</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-154"/>
+            <user_ref ref="u-175"/>
+            <user_ref ref="u-139"/>
+        </follows>
+    </user>
+    <user id="u-154">
+        <name>Petra Nikolic</name>
+        <followers_count>920</followers_count>
+        <joined_date>2022-11-29</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-155"/>
+        </follows>
+    </user>
+    <user id="u-155">
+        <name>Rastko Petrovic</name>
+        <followers_count>490</followers_count>
+        <joined_date>2023-09-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-156"/>
+            <user_ref ref="u-176"/>
+        </follows>
+    </user>
+    <user id="u-156">
+        <name>Sofija Trajkovic</name>
+        <followers_count>2300</followers_count>
+        <joined_date>2022-10-18</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-157"/>
+        </follows>
+    </user>
+    <user id="u-157">
+        <name>Todor Popovic</name>
+        <followers_count>380</followers_count>
+        <joined_date>2024-01-29</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-158"/>
+            <user_ref ref="u-177"/>
+        </follows>
+    </user>
+    <user id="u-158">
+        <name>Una Stefanovic</name>
+        <followers_count>760</followers_count>
+        <joined_date>2023-05-10</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-159"/>
+            <user_ref ref="u-139"/>
+        </follows>
+    </user>
+    <user id="u-159">
+        <name>Viktor Ristic</name>
+        <followers_count>1400</followers_count>
+        <joined_date>2022-12-01</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-160"/>
+            <user_ref ref="u-178"/>
+            <user_ref ref="u-015"/>
+        </follows>
+    </user>
+    <user id="u-160">
+        <name>Vladan Davidovic</name>
+        <followers_count>210</followers_count>
+        <joined_date>2024-03-08</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-161"/>
+        </follows>
+    </user>
+    <user id="u-161">
+        <name>Zoran Antic</name>
+        <followers_count>550</followers_count>
+        <joined_date>2023-07-26</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-162"/>
+            <user_ref ref="u-179"/>
+        </follows>
+    </user>
+    <user id="u-162">
+        <name>Aleksandra Zivkovic</name>
+        <followers_count>890</followers_count>
+        <joined_date>2022-08-19</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-163"/>
+        </follows>
+    </user>
+    <user id="u-163">
+        <name>Boban Petrovic</name>
+        <followers_count>370</followers_count>
+        <joined_date>2024-01-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-164"/>
+            <user_ref ref="u-180"/>
+        </follows>
+    </user>
+    <user id="u-164">
+        <name>Davor Ivanovic</name>
+        <followers_count>1300</followers_count>
+        <joined_date>2022-10-04</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-165"/>
+            <user_ref ref="u-139"/>
+        </follows>
+    </user>
+    <user id="u-165">
+        <name>Emilija Djordjevic</name>
+        <followers_count>620</followers_count>
+        <joined_date>2023-06-16</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-166"/>
+            <user_ref ref="u-015"/>
+            <user_ref ref="u-181"/>
+        </follows>
+    </user>
+    <user id="u-166">
+        <name>Filip Markovic</name>
+        <followers_count>280</followers_count>
+        <joined_date>2024-02-25</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-167"/>
+        </follows>
+    </user>
+    <user id="u-167">
+        <name>Goran Vujovic</name>
+        <followers_count>950</followers_count>
+        <joined_date>2022-12-07</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-168"/>
+            <user_ref ref="u-182"/>
+        </follows>
+    </user>
+    <user id="u-168">
+        <name>Helena Lukic</name>
+        <followers_count>410</followers_count>
+        <joined_date>2023-05-30</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-169"/>
+        </follows>
+    </user>
+    <user id="u-169">
+        <name>Igor Stojkovic</name>
+        <followers_count>1700</followers_count>
+        <joined_date>2022-09-20</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-170"/>
+            <user_ref ref="u-183"/>
+        </follows>
+    </user>
+    <user id="u-170">
+        <name>Jelena Jovic</name>
+        <followers_count>580</followers_count>
+        <joined_date>2024-01-12</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-171"/>
+        </follows>
+    </user>
+    <user id="u-171">
+        <name>Kristina Lazarevic</name>
+        <followers_count>340</followers_count>
+        <joined_date>2023-04-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-172"/>
+            <user_ref ref="u-184"/>
+        </follows>
+    </user>
+    <user id="u-172">
+        <name>Lazar Ristic</name>
+        <followers_count>1150</followers_count>
+        <joined_date>2022-11-17</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-173"/>
+        </follows>
+    </user>
+    <user id="u-173">
+        <name>Maja Pavlovic</name>
+        <followers_count>260</followers_count>
+        <joined_date>2024-03-01</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-174"/>
+            <user_ref ref="u-185"/>
+        </follows>
+    </user>
+    <user id="u-174">
+        <name>Nikola Simic</name>
+        <followers_count>980</followers_count>
+        <joined_date>2023-09-28</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-175"/>
+        </follows>
+    </user>
+    <user id="u-175">
+        <name>Olivera Maric</name>
+        <followers_count>530</followers_count>
+        <joined_date>2023-02-14</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-176"/>
+            <user_ref ref="u-186"/>
+        </follows>
+    </user>
+    <user id="u-176">
+        <name>Petar Peric</name>
+        <followers_count>770</followers_count>
+        <joined_date>2022-11-06</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-177"/>
+        </follows>
+    </user>
+    <user id="u-177">
+        <name>Sara Popovic</name>
+        <followers_count>400</followers_count>
+        <joined_date>2024-04-20</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-178"/>
+            <user_ref ref="u-187"/>
+        </follows>
+    </user>
+    <user id="u-178">
+        <name>Stefan Stojanovic</name>
+        <followers_count>1200</followers_count>
+        <joined_date>2023-07-09</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-179"/>
+            <user_ref ref="u-015"/>
+        </follows>
+    </user>
+    <user id="u-179">
+        <name>Tamara Jankovic</name>
+        <followers_count>600</followers_count>
+        <joined_date>2023-01-27</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-180"/>
+            <user_ref ref="u-188"/>
+        </follows>
+    </user>
+    <user id="u-180">
+        <name>Vasilije Ilic</name>
+        <followers_count>2500</followers_count>
+        <joined_date>2022-08-11</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-181"/>
+        </follows>
+    </user>
+    <user id="u-181">
+        <name>Zoran Stankovic</name>
+        <followers_count>520</followers_count>
+        <joined_date>2023-04-03</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-182"/>
+            <user_ref ref="u-189"/>
+        </follows>
+    </user>
+    <user id="u-182">
+        <name>Anja Trajkovic</name>
+        <followers_count>720</followers_count>
+        <joined_date>2023-01-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-183"/>
+        </follows>
+    </user>
+    <user id="u-183">
+        <name>Bojan Ristic</name>
+        <followers_count>180</followers_count>
+        <joined_date>2024-03-29</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-184"/>
+            <user_ref ref="u-190"/>
+        </follows>
+    </user>
+    <user id="u-184">
+        <name>Danica Jovic</name>
+        <followers_count>610</followers_count>
+        <joined_date>2023-10-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-185"/>
+        </follows>
+    </user>
+    <user id="u-185">
+        <name>Elena Zivkovic</name>
+        <followers_count>870</followers_count>
+        <joined_date>2022-09-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-186"/>
+            <user_ref ref="u-191"/>
+        </follows>
+    </user>
+    <user id="u-186">
+        <name>Filip Petrovic</name>
+        <followers_count>200</followers_count>
+        <joined_date>2024-01-03</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-187"/>
+            <user_ref ref="u-015"/>
+        </follows>
+    </user>
+    <user id="u-187">
+        <name>Goran Simic</name>
+        <followers_count>540</followers_count>
+        <joined_date>2023-05-15</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-188"/>
+            <user_ref ref="u-192"/>
+        </follows>
+    </user>
+    <user id="u-188">
+        <name>Helena Jovic</name>
+        <followers_count>1000</followers_count>
+        <joined_date>2022-09-29</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-189"/>
+        </follows>
+    </user>
+    <user id="u-189">
+        <name>Igor Nikolic</name>
+        <followers_count>320</followers_count>
+        <joined_date>2024-02-14</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-190"/>
+            <user_ref ref="u-193"/>
+        </follows>
+    </user>
+    <user id="u-190">
+        <name>Jelena Stojanovic</name>
+        <followers_count>670</followers_count>
+        <joined_date>2023-08-08</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-191"/>
+        </follows>
+    </user>
+    <user id="u-191">
+        <name>Katarina Markovic</name>
+        <followers_count>110</followers_count>
+        <joined_date>2024-03-21</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-192"/>
+            <user_ref ref="u-015"/>
+            <user_ref ref="u-194"/>
+        </follows>
+    </user>
+    <user id="u-192">
+        <name>Lazar Peric</name>
+        <followers_count>920</followers_count>
+        <joined_date>2022-11-29</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-193"/>
+        </follows>
+    </user>
+    <user id="u-193">
+        <name>Marija Savic</name>
+        <followers_count>490</followers_count>
+        <joined_date>2023-09-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-194"/>
+            <user_ref ref="u-195"/>
+        </follows>
+    </user>
+    <user id="u-194">
+        <name>Nemanja Milosevic</name>
+        <followers_count>2300</followers_count>
+        <joined_date>2022-10-18</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-195"/>
+        </follows>
+    </user>
+    <user id="u-195">
+        <name>Ognjen Petrovic</name>
+        <followers_count>380</followers_count>
+        <joined_date>2024-01-29</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-196"/>
+            <user_ref ref="u-206"/>
+        </follows>
+    </user>
+    <user id="u-196">
+        <name>Petar Markovic</name>
+        <followers_count>760</followers_count>
+        <joined_date>2023-05-10</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-197"/>
+        </follows>
+    </user>
+    <user id="u-197">
+        <name>Sara Ilic</name>
+        <followers_count>1400</followers_count>
+        <joined_date>2022-12-01</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-198"/>
+        </follows>
+    </user>
+    <user id="u-198">
+        <name>Tijana Lukic</name>
+        <followers_count>210</followers_count>
+        <joined_date>2024-03-08</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-199"/>
+            <user_ref ref="u-200"/>
+        </follows>
+    </user>
+    <user id="u-199">
+        <name>Uros Djordjevic</name>
+        <followers_count>550</followers_count>
+        <joined_date>2023-07-26</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-200"/>
+        </follows>
+    </user>
+    <user id="u-200">
+        <name>Vuk Vujovic</name>
+        <followers_count>890</followers_count>
+        <joined_date>2022-08-19</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-201"/>
+            <user_ref ref="u-202"/>
+        </follows>
+    </user>
+    <user id="u-201">
+        <name>Jovan Popovic</name>
+        <followers_count>370</followers_count>
+        <joined_date>2024-01-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-202"/>
+        </follows>
+    </user>
+    <user id="u-202">
+        <name>Marija Nikolic</name>
+        <followers_count>1300</followers_count>
+        <joined_date>2022-10-04</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-203"/>
+            <user_ref ref="u-204"/>
+        </follows>
+    </user>
+    <user id="u-203">
+        <name>Nikola Simic</name>
+        <followers_count>620</followers_count>
+        <joined_date>2023-06-16</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-204"/>
+        </follows>
+    </user>
+    <user id="u-204">
+        <name>Ana Antic</name>
+        <followers_count>280</followers_count>
+        <joined_date>2024-02-25</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-205"/>
+            <user_ref ref="u-206"/>
+        </follows>
+    </user>
+    <user id="u-205">
+        <name>Bojan Peric</name>
+        <followers_count>950</followers_count>
+        <joined_date>2022-12-07</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-206"/>
+        </follows>
+    </user>
+    <user id="u-206">
+        <name>Daniela Ilic</name>
+        <followers_count>410</followers_count>
+        <joined_date>2023-05-30</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-207"/>
+            <user_ref ref="u-208"/>
+        </follows>
+    </user>
+    <user id="u-207">
+        <name>Emilija Djordjevic</name>
+        <followers_count>1700</followers_count>
+        <joined_date>2022-09-20</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-208"/>
+        </follows>
+    </user>
+    <user id="u-208">
+        <name>Filip Markovic</name>
+        <followers_count>580</followers_count>
+        <joined_date>2024-01-12</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-209"/>
+            <user_ref ref="u-210"/>
+        </follows>
+    </user>
+    <user id="u-209">
+        <name>Goran Jovic</name>
+        <followers_count>340</followers_count>
+        <joined_date>2023-04-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-210"/>
+        </follows>
+    </user>
+    <user id="u-210">
+        <name>Helena Pavlovic</name>
+        <followers_count>1150</followers_count>
+        <joined_date>2022-11-17</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-211"/>
+            <user_ref ref="u-212"/>
+        </follows>
+    </user>
+    <user id="u-211">
+        <name>Igor Jovic</name>
+        <followers_count>260</followers_count>
+        <joined_date>2024-03-01</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-212"/>
+        </follows>
+    </user>
+    <user id="u-212">
+        <name>Jelena Stojkovic</name>
+        <followers_count>980</followers_count>
+        <joined_date>2023-09-28</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-213"/>
+            <user_ref ref="u-214"/>
+        </follows>
+    </user>
+    <user id="u-213">
+        <name>Katarina Ristic</name>
+        <followers_count>530</followers_count>
+        <joined_date>2023-02-14</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-214"/>
+        </follows>
+    </user>
+    <user id="u-214">
+        <name>Lazar Maric</name>
+        <followers_count>770</followers_count>
+        <joined_date>2022-11-06</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-215"/>
+            <user_ref ref="u-216"/>
+        </follows>
+    </user>
+    <user id="u-215">
+        <name>Maja Milosevic</name>
+        <followers_count>400</followers_count>
+        <joined_date>2024-04-20</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-216"/>
+        </follows>
+    </user>
+    <user id="u-216">
+        <name>Nikola Trajkovic</name>
+        <followers_count>1200</followers_count>
+        <joined_date>2023-07-09</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-217"/>
+            <user_ref ref="u-218"/>
+        </follows>
+    </user>
+    <user id="u-217">
+        <name>Olivera Popovic</name>
+        <followers_count>600</followers_count>
+        <joined_date>2023-01-27</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-218"/>
+        </follows>
+    </user>
+    <user id="u-218">
+        <name>Petar Petrovic</name>
+        <followers_count>2500</followers_count>
+        <joined_date>2022-08-11</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-219"/>
+            <user_ref ref="u-220"/>
+        </follows>
+    </user>
+    <user id="u-219">
+        <name>Svetlana Jovanovic</name>
+        <followers_count>520</followers_count>
+        <joined_date>2023-04-03</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-220"/>
+        </follows>
+    </user>
+    <user id="u-220">
+        <name>Tijana Markovic</name>
+        <followers_count>720</followers_count>
+        <joined_date>2023-01-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-221"/>
+            <user_ref ref="u-222"/>
+        </follows>
+    </user>
+    <user id="u-221">
+        <name>Uros Nikolic</name>
+        <followers_count>180</followers_count>
+        <joined_date>2024-03-29</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-222"/>
+        </follows>
+    </user>
+    <user id="u-222">
+        <name>Vanja Peric</name>
+        <followers_count>610</followers_count>
+        <joined_date>2023-10-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-223"/>
+            <user_ref ref="u-224"/>
+        </follows>
+    </user>
+    <user id="u-223">
+        <name>Vasilije Lazic</name>
+        <followers_count>870</followers_count>
+        <joined_date>2022-09-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-224"/>
+        </follows>
+    </user>
+    <user id="u-224">
+        <name>Zoran Savic</name>
+        <followers_count>200</followers_count>
+        <joined_date>2024-01-03</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-225"/>
+            <user_ref ref="u-226"/>
+        </follows>
+    </user>
+    <user id="u-225">
+        <name>Aleksa Ristic</name>
+        <followers_count>540</followers_count>
+        <joined_date>2023-05-15</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-226"/>
+        </follows>
+    </user>
+    <user id="u-226">
+        <name>Boris Petrovic</name>
+        <followers_count>1000</followers_count>
+        <joined_date>2022-09-29</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-227"/>
+            <user_ref ref="u-228"/>
+        </follows>
+    </user>
+    <user id="u-227">
+        <name>Dusan Stankovic</name>
+        <followers_count>320</followers_count>
+        <joined_date>2024-02-14</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-228"/>
+        </follows>
+    </user>
+    <user id="u-228">
+        <name>Emilija Jovic</name>
+        <followers_count>670</followers_count>
+        <joined_date>2023-08-08</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-229"/>
+            <user_ref ref="u-230"/>
+        </follows>
+    </user>
+    <user id="u-229">
+        <name>Filip Djordjevic</name>
+        <followers_count>110</followers_count>
+        <joined_date>2024-03-21</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-230"/>
+        </follows>
+    </user>
+    <user id="u-230">
+        <name>Gorana Ilic</name>
+        <followers_count>920</followers_count>
+        <joined_date>2022-11-29</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-231"/>
+            <user_ref ref="u-232"/>
+        </follows>
+    </user>
+    <user id="u-231">
+        <name>Ivana Petrovic</name>
+        <followers_count>490</followers_count>
+        <joined_date>2023-09-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-232"/>
+        </follows>
+    </user>
+    <user id="u-232">
+        <name>Jovan Popovic</name>
+        <followers_count>2300</followers_count>
+        <joined_date>2022-10-18</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-233"/>
+            <user_ref ref="u-234"/>
+        </follows>
+    </user>
+    <user id="u-233">
+        <name>Lazar Ristic</name>
+        <followers_count>380</followers_count>
+        <joined_date>2024-01-29</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-234"/>
+        </follows>
+    </user>
+    <user id="u-234">
+        <name>Milica Stankovic</name>
+        <followers_count>760</followers_count>
+        <joined_date>2023-05-10</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-235"/>
+            <user_ref ref="u-236"/>
+        </follows>
+    </user>
+    <user id="u-235">
+        <name>Nemanja Jovic</name>
+        <followers_count>1400</followers_count>
+        <joined_date>2022-12-01</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-236"/>
+        </follows>
+    </user>
+    <user id="u-236">
+        <name>Olivera Zivkovic</name>
+        <followers_count>210</followers_count>
+        <joined_date>2024-03-08</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-237"/>
+            <user_ref ref="u-238"/>
+        </follows>
+    </user>
+    <user id="u-237">
+        <name>Pavle Maric</name>
+        <followers_count>550</followers_count>
+        <joined_date>2023-07-26</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-238"/>
+        </follows>
+    </user>
+    <user id="u-238">
+        <name>Sara Popovic</name>
+        <followers_count>890</followers_count>
+        <joined_date>2022-08-19</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-239"/>
+            <user_ref ref="u-240"/>
+        </follows>
+    </user>
+    <user id="u-239">
+        <name>Tijana Ilic</name>
+        <followers_count>370</followers_count>
+        <joined_date>2024-01-22</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-240"/>
+        </follows>
+    </user>
+    <user id="u-240">
+        <name>Uros Jovanovic</name>
+        <followers_count>1300</followers_count>
+        <joined_date>2022-10-04</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-241"/>
+            <user_ref ref="u-242"/>
+        </follows>
+    </user>
+    <user id="u-241">
+        <name>Vanja Peric</name>
+        <followers_count>620</followers_count>
+        <joined_date>2023-06-16</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-242"/>
+        </follows>
+    </user>
+    <user id="u-242">
+        <name>Vasilije Lazic</name>
+        <followers_count>280</followers_count>
+        <joined_date>2024-02-25</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-243"/>
+            <user_ref ref="u-244"/>
+        </follows>
+    </user>
+    <user id="u-243">
+        <name>Zoran Savic</name>
+        <followers_count>950</followers_count>
+        <joined_date>2022-12-07</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-244"/>
+        </follows>
+    </user>
+    <user id="u-244">
+        <name>Aleksa Ristic</name>
+        <followers_count>410</followers_count>
+        <joined_date>2023-05-30</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-245"/>
+            <user_ref ref="u-246"/>
+        </follows>
+    </user>
+    <user id="u-245">
+        <name>Boris Petrovic</name>
+        <followers_count>1700</followers_count>
+        <joined_date>2022-09-20</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-246"/>
+        </follows>
+    </user>
+    <user id="u-246">
+        <name>Dusan Stankovic</name>
+        <followers_count>580</followers_count>
+        <joined_date>2024-01-12</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-247"/>
+            <user_ref ref="u-248"/>
+        </follows>
+    </user>
+    <user id="u-247">
+        <name>Emilija Jovic</name>
+        <followers_count>340</followers_count>
+        <joined_date>2023-04-05</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-248"/>
+        </follows>
+    </user>
+    <user id="u-248">
+        <name>Filip Djordjevic</name>
+        <followers_count>1150</followers_count>
+        <joined_date>2022-11-17</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-249"/>
+            <user_ref ref="u-250"/>
+        </follows>
+    </user>
+    <user id="u-249">
+        <name>Goran Ilic</name>
+        <followers_count>260</followers_count>
+        <joined_date>2024-03-01</joined_date>
+        <is_active>false</is_active>
+        <follows>
+            <user_ref ref="u-250"/>
+        </follows>
+    </user>
+    <user id="u-250">
+        <name>Ivana Petrovic</name>
+        <followers_count>980</followers_count>
+        <joined_date>2023-09-28</joined_date>
+        <is_active>true</is_active>
+        <follows>
+            <user_ref ref="u-001"/>
+            <user_ref ref="u-002"/>
+        </follows>
+    </user>
+</users>

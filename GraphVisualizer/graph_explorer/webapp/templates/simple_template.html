@@ -191,11 +191,11 @@
         const xExtent = d3.extent(window.nodes, d => d.x);
         const yExtent = d3.extent(window.nodes, d => d.y);
 
-        const graphWidth = xExtent[1] - xExtent[0];
-        const graphHeight = yExtent[1] - yExtent[0];
-
+        const graphWidth = xExtent[1] - xExtent[0] || 1;
+        const graphHeight = yExtent[1] - yExtent[0] || 1;
+        
         // scale to fit entire main graph in bird-view
-        const scale = Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight);
+        const scale = Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight) *0.5;
         const offsetX = (window.birdWidth - graphWidth * scale) / 2;
         const offsetY = (window.birdHeight - graphHeight * scale) / 2;
 
@@ -214,12 +214,13 @@
             .attr("cx", d => scaleX(d.x))
             .attr("cy", d => scaleY(d.y));
 
+        const factor = 0.9;
         // update red rectangle for main viewport
         const viewX = scaleX(-transform.x / transform.k);
         const viewY = scaleY(-transform.y / transform.k);
         const viewWidth = (width / transform.k) * scale;
         const viewHeight = (height / transform.k) * scale;
-
+ 
         window.birdViewport
             .attr("x", viewX)
             .attr("y", viewY)

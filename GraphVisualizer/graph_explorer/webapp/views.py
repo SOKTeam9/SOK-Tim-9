@@ -57,19 +57,38 @@ def load_file(request):
 def make_search(request):
     if request.method == "POST":
         search_query = request.POST.get("search", "").strip()
+        filter_attribute = request.POST.get("filter", "").strip()
+        filter_relation = request.POST.get("relations", "").strip()
+        filter_value = request.POST.get("value", "").strip()
+
+        print(filter_attribute)
+        if filter_attribute != "" and filter_relation != "" and filter_value != "":
+            try:
+                actual_value = float(filter_value)
+            except:
+                actual_value = filter_value
+            
+            single_filter = (filter_attribute, filter_relation, actual_value)
+            if single_filter not in filters:
+                filters.append(single_filter)
+
         if search_query != "":
             attribute = search_query.split("-")[0]
             operator = search_query.split("-")[1]
             value = search_query.split("-")[2]
+
             try:
                 actual_value = float(value)
             except:
                 actual_value = value
-            filters.append((attribute, operator, actual_value))
-            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-            graph_data = handler.get_subgraph(filters)
-            visualizer = SimpleVisualizer()
-            context = visualizer.get_context(graph_data)
-            return render(request, "simple_template.html", context)
+ 
+            single_filter = (attribute, operator, actual_value)
+            if single_filter not in filters:
+                filters.append(single_filter)
+        handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+        graph_data = handler.get_subgraph(filters)
+        visualizer = SimpleVisualizer()
+        context = visualizer.get_context(graph_data)
+        return render(request, "simple_template.html", context)
 
 

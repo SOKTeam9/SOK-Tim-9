@@ -39,6 +39,12 @@ class GraphHandler:
         return {"nodes": list(nodes.values()), "edges": edges}
     
     def get_subgraph(self, filters):
+        nodes = {}
+        edges = []
+
+        if len(filters) == 0:
+            return self.get_graph()
+
         query = "MATCH (n) "
         if len(filters) != 0:
             conditions = []
@@ -57,11 +63,6 @@ class GraphHandler:
         WHERE m IN filteredNodes
         RETURN n, collect(r) AS edges
         """
-
-
-
-        nodes = {}
-        edges = []
 
         with self.driver.session() as session:
             results = session.run(query)

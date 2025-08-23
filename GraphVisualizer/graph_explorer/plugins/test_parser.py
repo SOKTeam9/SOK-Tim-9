@@ -59,8 +59,8 @@ def run_test():
 
 
         print("\nParsiranje countries.json...")
-        json_path = Path(__file__).parent / "data_source_plugin_json" / "countries.json"
-        parser_countries = JSONGraphParser(str(json_path), driver, key_field="id", node_label="Country")
+        json_path = Path(__file__).parent / "data_source_plugin_json" / "test.json"
+        parser_countries = JSONGraphParser(str(json_path), driver)
         parser_countries.load()
         print("Parsiranje countries.json uspešno završeno!")
 

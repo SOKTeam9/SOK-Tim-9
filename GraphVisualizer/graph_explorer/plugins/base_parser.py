@@ -6,10 +6,6 @@ class BaseParser(ABC):
         self.driver = driver
 
     def load(self):
-        """
-        Glavna metoda koja definise redosled operacija.
-        Ovo je "template method".
-        """
         with self.driver.session() as session:
             session.execute_write(self.clear_database)
             
@@ -41,7 +37,7 @@ class BaseParser(ABC):
     @abstractmethod
     def parse_data(self):
         """
-        Apstraktna metoda za parsiranje fajla i vracanje nodova i veza.
-        Svaka podklasa mora da implementira ovu metodu.
+        An abstract method for parsing a file and returning nodes and relationships.
+Every subclass must implement this method.
         """
         pass

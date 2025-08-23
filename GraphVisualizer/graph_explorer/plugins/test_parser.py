@@ -1,6 +1,7 @@
 from neo4j import GraphDatabase
 from .data_source_plugin_xml import XmlFileParser
 from .data_source_plugin_yaml import YamlFileParser
+from .data_source_plugin_json import JSONGraphParser
 from pathlib import Path
 
 def run_test():
@@ -44,17 +45,26 @@ def run_test():
         # parser_employees.load()
         # print("Parsiranje i uvoz employees.xml uspešno završeno!")
 
-        print("\nParsiranje a.yaml...")
-        yaml_path = Path(__file__).parent / "data_source_plugin_yaml" / "a.yaml"
-        parser_a = YamlFileParser(str(yaml_path), driver)
-        parser_a.load()
-        print("Parsiranje a.yaml uspešno završeno!")
+        # print("\nParsiranje a.yaml...")
+        # yaml_path = Path(__file__).parent / "data_source_plugin_yaml" / "a.yaml"
+        # parser_a = YamlFileParser(str(yaml_path), driver)
+        # parser_a.load()
+        # print("Parsiranje a.yaml uspešno završeno!")
 
         # print("\nParsiranje test.yaml...")
         # yaml_path = Path(__file__).parent / "data_source_plugin_yaml" / "test.yaml"
         # parser_a = YamlFileParser(str(yaml_path), driver)
         # parser_a.load()
         # print("Parsiranje test.yaml uspešno završeno!")
+
+
+        print("\nParsiranje countries.json...")
+        json_path = Path(__file__).parent / "data_source_plugin_json" / "countries.json"
+        parser_countries = JSONGraphParser(str(json_path), driver, key_field="id", node_label="Country")
+        parser_countries.load()
+        print("Parsiranje countries.json uspešno završeno!")
+
+        
 
 
 

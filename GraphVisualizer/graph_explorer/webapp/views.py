@@ -20,3 +20,6 @@ def simple_visualizer(request):
     visualizer = SimpleVisualizer()
     context = visualizer.get_context(graph_data)
     return render(request, "simple_template.html", context)
+
+def load_file(request):
+    pass

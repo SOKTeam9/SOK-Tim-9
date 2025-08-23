@@ -1,4 +1,5 @@
 from neo4j import GraphDatabase
+
 class GraphHandler:
     def __init__(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
@@ -34,6 +35,56 @@ class GraphHandler:
                     "type": r.type,
                     "properties": dict(r)
                 })
+
+        return {"nodes": list(nodes.values()), "edges": edges}
+    
+    def get_subgraph(self, filters):
+        query = "MATCH (n) "
+        if len(filters) != 0:
+            conditions = []
+            for attr, op, val in filters:
+                if isinstance(val, str):
+                    val_repr = f"'{val}'"
+                else:
+                    val_repr = str(val)
+                conditions.append(f"n.{attr} {op} {val_repr}")
+            query += "WHERE " + " AND ".join(conditions)
+
+        query += """
+        WITH collect(n) AS filteredNodes
+        UNWIND filteredNodes AS n
+        OPTIONAL MATCH (n)-[r]->(m)
+        WHERE m IN filteredNodes
+        RETURN n, collect(r) AS edges
+        """
+
+
+
+        nodes = {}
+        edges = []
+
+        with self.driver.session() as session:
+            results = session.run(query)
+
+            for record in results:
+                for value in record.values():
+                    cls_name = value.__class__.__name__
+
+                    if cls_name == "Node":
+                        nodes[value.id] = {
+                            "id": value.id,
+                            "labels": list(value.labels),
+                            "properties": dict(value)
+                        }
+                    elif cls_name == "Relationship":
+                        edges.append({
+                            "id": value.id,
+                            "source": value.start_node.id,
+                            "target": value.end_node.id,
+                            "type": value.type,
+                            "properties": dict(value)
+                        })
+
 
         return {"nodes": list(nodes.values()), "edges": edges}
 

@@ -29,9 +29,12 @@
             <label>File:</label>
             <input type="file" name="load_file" onchange="document.getElementById('uploadForm').submit();">
           </form>
-          <label>Search:</label>
-          <input name="search"></input>
-          <button class="reset">Reset query</button>
+          <form id="searchForm" method="post" action="{% url 'query' %}">
+            {% csrf_token %}
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search" />
+            <button type="submit">Search</button>
+          </form>
         </div>
         <div class="mid-query">
           <label>Filter:</label>

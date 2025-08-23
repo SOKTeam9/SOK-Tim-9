@@ -1,38 +1,53 @@
 {% extends "base.html" %}
+<script src="https://d3js.org/d3.v7.min.js"></script>
 
 {% block mainView %}
-<div id="graph" style="width: 100%; height: 900px;"></div>
+<h1>Main view</h1>
+<div id="graph" style="width: 100%; height: 100%;"></div>
 
-{{ graph_json|json_script:"graph-block-data" }}
-
-<script src="https://d3js.org/d3.v7.min.js"></script>
+{{ graph_json|json_script:"graph-block-data-main" }}
 <script>
-  // Dobavljanje podataka
-  const graphData = JSON.parse(document.getElementById("graph-block-data").textContent);
-  const nodes = graphData.nodes || [];
-  const links = graphData.links || [];
+  // --- GLOBAL INIT (sigurno, jednom) ---
+  (function ensureGlobalConfig(){
+    if (!window.graphConfig) {
+      const gd = JSON.parse(document.getElementById("graph-block-data-main").textContent);
+      window.graphConfig = {
+        width: 1050,
+        height: 480,
+        nodes: gd.nodes || [],
+        links: gd.links || []
+      };
+    }
+  })();
 
-  console.log("Graph data:", graphData);
+  /***************************
+   * GLOBALNE PROMENLJIVE
+   ***************************/
+  const nodesMV = window.graphConfig.nodes || [];
+  const linksMV = window.graphConfig.links || [];
+  const nodeMap = new Map(nodesMV.map(n => [n.id, n]));
 
-  const width = 1050, height = 900;
+  const width = window.graphConfig.width, height = window.graphConfig.height;
+  let simulation, zoom, container, svg;
 
-  // SVG i container
-  const svg = d3.select("#graph").append("svg")
+  /***************************
+   * MAIN VIEW
+   ***************************/
+  svg = d3.select("#graph").append("svg")
       .attr("width", width)
       .attr("height", height);
 
-  const container = svg.append("g");
+  container = svg.append("g");
 
-  // Zoom i pan
-  const zoom = d3.zoom()
+  zoom = d3.zoom()
       .scaleExtent([0.1, 5])
-      .on("zoom", (event) => {
+      .on("zoom.core", (event) => {
           container.attr("transform", event.transform);
       });
 
   svg.call(zoom);
 
-  // Definicija strelica
+  // Strelice
   svg.append("defs").append("marker")
       .attr("id", "arrow")
       .attr("viewBox", "0 -5 10 10")
@@ -45,15 +60,15 @@
       .attr("d", "M0,-5L10,0L0,5")
       .attr("fill", "#333");
 
-  // Force simulation
-  const simulation = d3.forceSimulation(nodes)
-      .force("link", d3.forceLink(links).id(d => d.id).distance(150))
+  // Force
+  simulation = d3.forceSimulation(nodesMV)
+      .force("link", d3.forceLink(linksMV).id(d => d.id).distance(150))
       .force("charge", d3.forceManyBody().strength(-800))
       .force("center", d3.forceCenter(width / 2, height / 2));
 
   // Linkovi
   const link = container.selectAll(".link")
-      .data(links)
+      .data(linksMV)
       .enter().append("line")
       .attr("stroke", "#333")
       .attr("stroke-width", 1.5)
@@ -61,7 +76,7 @@
 
   // Čvorovi
   const node = container.selectAll(".node")
-      .data(nodes)
+      .data(nodesMV)
       .enter()
       .append("g")
       .attr("class", "node")
@@ -95,14 +110,14 @@
       .style("stroke", "#333")
       .style("stroke-width", 1.5);
 
-  // Naslov čvora
+  // Naslov
   node.append("text")
       .attr("x", 10)
       .attr("y", 20)
       .text(d => d.properties?.name || d.id || "Node")
       .style("font-weight", "bold");
 
-  // Svi property-ji
+  // Properties
   node.each(function(d) {
       const g = d3.select(this);
       const props = d.properties ? Object.entries(d.properties) : [];
@@ -115,7 +130,7 @@
       });
   });
 
-  // Update pozicije
+  // Tick
   simulation.on("tick", () => {
       link
           .attr("x1", d => d.source.x)
@@ -125,247 +140,238 @@
 
       node.attr("transform", d => `translate(${d.x},${d.y})`);
   });
+
+  // --- izložimo za bird view ---
+  window.mainSvg = svg;
+  window.mainContainer = container;
+  window.mainZoom = zoom;
+  window.simulation = simulation;
+  window.mainSize = { width, height };
 </script>
 {% endblock %}
 
 {% block treeView %}
+<h1>Tree view</h1>
 <div style="margin-bottom: 5px;">
   <button id="expandAll">Expand All</button>
   <button id="collapseAll">Collapse All</button>
 </div>
-
-<div id="treeView" style="height: 35vh; overflow-y: auto; border: 1px solid #ccc; padding: 5px;"></div>
+<div id="treeView" style="height: 65%; overflow: auto; border: 1px solid #ccc;"></div>
 
 <style>
-  #treeView ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-
-  #treeView li {
-    position: relative;
-    padding: 2px 0;
-  }
-
-  #treeView li span {
-    cursor: pointer;
-  }
-
+  #treeView ul { list-style-type: none; padding-left: 0; }
+  #treeView li { position: relative; padding: 2px 0; }
+  #treeView li span { cursor: pointer; }
   #treeView li button {
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    margin-right: 5px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    font-weight: bold;
+    width: 20px; height: 20px; text-align: center;
+    margin-right: 5px; border: none; background: transparent;
+    cursor: pointer; font-weight: bold;
   }
-
-  #treeView li button:hover {
-    color: blue;
-  }
-
-  /* nivo dubine - razlike boja */
+  #treeView li button:hover { color: blue; }
   #treeView li[data-depth="0"] span { font-weight: bold; }
   #treeView li[data-depth="1"] span { color: #333; }
   #treeView li[data-depth="2"] span { color: #555; }
   #treeView li[data-depth="3"] span { color: #777; }
 </style>
-{{ graph_json|json_script:"graph-block-data" }}
+
+{{ graph_json|json_script:"graph-block-data-tree" }}
 <script>
-graphData = JSON.parse(document.getElementById("graph-block-data").textContent);
-nodes = graphData.nodes || [];
-links = graphData.links || [];
-
-const nodeMap = new Map(nodes.map(n => [n.id, n]));
-
-function getConnectedNodes(nodeId) {
-    return links
-        .filter(l => l.source === nodeId || l.target === nodeId)
-        .map(l => {
-            const otherId = l.source === nodeId ? l.target : l.source;
-            return nodeMap.get(otherId);
-        });
-}
-
-function renderTree(container, node, depth = 0, maxDepth = 3, visited = new Set()) {
-    if (depth > maxDepth) return;
-    if (visited.has(node.id)) return;
-    visited.add(node.id);
-
-    const li = document.createElement("li");
-    li.dataset.depth = depth;
-
-    const span = document.createElement("span");
-    span.textContent = node.properties?.name || node.id;
-
-    const button = document.createElement("button");
-    button.textContent = "+";
-
-    const ul = document.createElement("ul");
-    ul.style.display = "none";
-    ul.style.paddingLeft = "15px";
-
-    // property-ja
-    if (node.properties) {
-        for (const [key, value] of Object.entries(node.properties)) {
-            const propLi = document.createElement("li");
-            propLi.textContent = `${key}: ${value}`;
-            ul.appendChild(propLi);
-        }
+  // --- GLOBAL INIT fallback (ako mainView još nije renderovan) ---
+  (function ensureGlobalConfig(){
+    if (!window.graphConfig) {
+      const gd = JSON.parse(document.getElementById("graph-block-data-tree").textContent);
+      window.graphConfig = {
+        width: 1050,
+        height: 480,
+        nodes: gd.nodes || [],
+        links: gd.links || []
+      };
     }
+  })();
 
-    // child nodes
-    if (depth < maxDepth) {
-        const connected = getConnectedNodes(node.id);
-        connected.forEach(child => renderTree(ul, child, depth + 1, maxDepth, new Set(visited)));
-    }
+  // ostatak tree view ostaje isti, samo uvodni globali
+  const nodesTV = window.graphConfig.nodes || [];
+  const links = window.graphConfig.links || [];
+  const nodeMapTV = new Map(nodesTV.map(n => [n.id, n]));
 
-    button.addEventListener("click", () => {
-        if (ul.style.display === "none") {
-            ul.style.display = "block";
-            button.textContent = "−"; // minus znak za otvoren
-        } else {
-            ul.style.display = "none";
-            button.textContent = "+";
-        }
-    });
+  function getConnectedNodes(nodeId) {
+      return links
+          .filter(l => (l.source.id || l.source) === nodeId || (l.target.id || l.target) === nodeId)
+          .map(l => {
+              const otherId = (l.source.id || l.source) === nodeId ? (l.target.id || l.target) : (l.source.id || l.source);
+              return nodeMapTV.get(otherId);
+          })
+          .filter(Boolean);
+  }
 
-    // Klik na labelu isto otvara/zatvara
-    span.addEventListener("click", () => button.click());
+  function renderTree(container, node, depth = 0, maxDepth = 3, visited = new Set()) {
+      if (depth > maxDepth) return;
+      if (!node || visited.has(node.id)) return;
+      visited.add(node.id);
 
-    li.appendChild(button);
-    li.appendChild(span);
-    li.appendChild(ul);
-    container.appendChild(li);
-}
+      const li = document.createElement("li");
+      li.dataset.depth = depth;
 
-const treeContainer = document.getElementById("treeView");
-const ulRoot = document.createElement("ul");
-nodes.forEach(node => renderTree(ulRoot, node));
-treeContainer.appendChild(ulRoot);
+      const span = document.createElement("span");
+      span.textContent = node.properties?.name || node.id;
 
-// dugmad za expand/collapse all
-document.getElementById("expandAll").addEventListener("click", () => {
-    treeContainer.querySelectorAll("ul ul").forEach(ul => ul.style.display = "block");
-    treeContainer.querySelectorAll("#treeView li > button").forEach(b => b.textContent = "−");
-});
+      const button = document.createElement("button");
+      button.textContent = "+";
 
-document.getElementById("collapseAll").addEventListener("click", () => {
-    treeContainer.querySelectorAll("ul ul").forEach(ul => ul.style.display = "none");
-    treeContainer.querySelectorAll("#treeView li > button").forEach(b => b.textContent = "+");
-});
+      const ul = document.createElement("ul");
+      ul.style.display = "none";
+      ul.style.paddingLeft = "15px";
+
+      if (node.properties) {
+          for (const [key, value] of Object.entries(node.properties)) {
+              const propLi = document.createElement("li");
+              propLi.textContent = `${key}: ${value}`;
+              ul.appendChild(propLi);
+          }
+      }
+
+      if (depth < maxDepth) {
+          const connected = getConnectedNodes(node.id);
+          connected.forEach(child => renderTree(ul, child, depth + 1, maxDepth, new Set(visited)));
+      }
+
+      button.addEventListener("click", () => {
+          if (ul.style.display === "none") {
+              ul.style.display = "block"; button.textContent = "−";
+          } else {
+              ul.style.display = "none"; button.textContent = "+";
+          }
+      });
+      span.addEventListener("click", () => button.click());
+
+      li.appendChild(button);
+      li.appendChild(span);
+      li.appendChild(ul);
+      container.appendChild(li);
+  }
+
+  const treeContainer = document.getElementById("treeView");
+  const ulRoot = document.createElement("ul");
+  nodesTV.forEach(n => renderTree(ulRoot, n));
+  treeContainer.appendChild(ulRoot);
+
+  document.getElementById("expandAll").addEventListener("click", () => {
+      treeContainer.querySelectorAll("ul ul").forEach(ul => ul.style.display = "block");
+      treeContainer.querySelectorAll("#treeView li > button").forEach(b => b.textContent = "−");
+  });
+  document.getElementById("collapseAll").addEventListener("click", () => {
+      treeContainer.querySelectorAll("ul ul").forEach(ul => ul.style.display = "none");
+      treeContainer.querySelectorAll("#treeView li > button").forEach(b => b.textContent = "+");
+  });
 </script>
 {% endblock %}
 
 {% block birdView %}
-<div id="birdViewContainer" style="width: 300px; height: 200px; border: 1px solid #ccc; position: relative;">
+<h1>Bird view</h1>
+<div id="birdViewContainer" style="width: 300px; height: 200px; border: 1px solid #ccc; position: relative; padding: 5x;">
   <svg id="birdView" width="100%" height="100%"></svg>
 </div>
 
+{{ graph_json|json_script:"graph-block-data-bird" }}
 <script>
-const birdSvg = d3.select("#birdView");
-const birdWidth = 300;
-const birdHeight = 200;
-height = 900;
-width = 1050;
+function initBirdOnceMainReady() {
+  if (!(window.mainSvg && window.mainZoom && window.simulation && window.mainSize)) {
+    setTimeout(initBirdOnceMainReady, 50);
+    return;
+  }
 
-// Scale za bird view (relativno na main view dimenzije)
-const scaleX = birdWidth / width;
-const scaleY = birdHeight / height;
+  const nodesBV = window.graphConfig.nodes;
+  const linksBV = window.graphConfig.links;
 
-const birdContainer = birdSvg.append("g");
+  const birdSvg = d3.select("#birdView"); 
+  const bbox = birdSvg.node().getBoundingClientRect();
+  const birdWidth = bbox.width || 300;
+  const birdHeight = bbox.height || 200;
 
-// Strelice za bird view
-birdSvg.append("defs").append("marker")
-  .attr("id", "arrowBird")
-  .attr("viewBox", "0 -5 10 10")
-  .attr("refX", 15)
-  .attr("refY", 0)
-  .attr("markerWidth", 6)
-  .attr("markerHeight", 6)
-  .attr("orient", "auto")
-.append("path")
-  .attr("d", "M0,-5L10,0L0,5")
-  .attr("fill", "#333");
+  const birdContainer = birdSvg.append("g");
 
-// Mapiranje linkova da source/target budu node objekti
-links.forEach(l => {
-  l.source = nodeMap.get(l.source);
-  l.target = nodeMap.get(l.target);
-});
+  const viewport = birdSvg.append("rect")
+    .attr("fill", "rgba(255,0,0,0.15)")
+    .attr("stroke", "red")
+    .attr("stroke-width", 1.2);
 
-// Crveni viewport pravougaonik
-const viewport = birdSvg.append("rect")
-  .attr("fill", "rgba(255,0,0,0.2)")
-  .attr("stroke", "red")
-  .attr("stroke-width", 1)
-  .call(d3.drag()
-      .on("drag", (event) => {
-          let newX = event.x;
-          let newY = event.y;
+  function computeGraphBounds() {
+    const xs = nodesBV.map(n => n.x || 0);
+    const ys = nodesBV.map(n => n.y || 0);
+    return {
+      minX: Math.min(...xs),
+      maxX: Math.max(...xs),
+      minY: Math.min(...ys),
+      maxY: Math.max(...ys),
+      width: Math.max(...xs) - Math.min(...xs),
+      height: Math.max(...ys) - Math.min(...ys)
+    };
+  }
 
-          // ograničenje unutar bird view
-          newX = Math.max(0, Math.min(newX, birdWidth - viewport.attr("width")));
-          newY = Math.max(0, Math.min(newY, birdHeight - viewport.attr("height")));
+  function drawBirdView() {
+    const bounds = computeGraphBounds();
+    const scale = Math.min(birdWidth / bounds.width, birdHeight / bounds.height) * 0.9;
+    const offsetX = (birdWidth - bounds.width * scale) / 2 - bounds.minX * scale;
+    const offsetY = (birdHeight - bounds.height * scale) / 2 - bounds.minY * scale;
 
-          viewport.attr("x", newX).attr("y", newY);
+    birdContainer.selectAll("line.blink")
+      .data(linksBV)
+      .join("line")
+      .attr("class", "blink")
+      .attr("stroke", "#aaa")
+      .attr("stroke-width", 1)
+      .attr("x1", d => (d.source.x||0) * scale + offsetX)
+      .attr("y1", d => (d.source.y||0) * scale + offsetY)
+      .attr("x2", d => (d.target.x||0) * scale + offsetX)
+      .attr("y2", d => (d.target.y||0) * scale + offsetY);
 
-          // Pomeri main view
-          const tx = -newX / scaleX;
-          const ty = -newY / scaleY;
-          container.attr("transform", `translate(${tx},${ty}) scale(${zoomTransform.k})`);
-      })
+    birdContainer.selectAll("rect.bnode")
+      .data(nodesBV)
+      .join("rect")
+      .attr("class", "bnode")
+      .attr("x", d => (d.x||0) * scale + offsetX - 3)
+      .attr("y", d => (d.y||0) * scale + offsetY - 3)
+      .attr("width", 6)
+      .attr("height", 6)
+      .attr("fill", "#666");
+
+    // viewport: koristi dimenzije main grafa i trenutni zoom
+    const t = d3.zoomTransform(window.mainSvg.node());
+    const vw = window.mainSize.width / t.k * scale;
+    const vh = window.mainSize.height / t.k * scale;
+    const vx = (-t.x / t.k) * scale + offsetX;
+    const vy = (-t.y / t.k) * scale + offsetY;
+
+    viewport.attr("x", vx).attr("y", vy).attr("width", vw).attr("height", vh);
+  }
+
+  viewport.call(
+    d3.drag().on("drag", (event) => {
+      const bounds = computeGraphBounds();
+      const scale = Math.min(birdWidth / bounds.width, birdHeight / bounds.height) * 0.9;
+      const offsetX = (birdWidth - bounds.width * scale) / 2 - bounds.minX * scale;
+      const offsetY = (birdHeight - bounds.height * scale) / 2 - bounds.minY * scale;
+
+      const current = d3.zoomTransform(window.mainSvg.node());
+      const k = current.k;
+
+      const nx = event.x;
+      const ny = event.y;
+
+      viewport.attr("x", nx).attr("y", ny);
+
+      const tx = -(nx - offsetX) / scale;
+      const ty = -(ny - offsetY) / scale;
+
+      window.mainSvg.call(window.mainZoom.transform, d3.zoomIdentity.translate(tx, ty).scale(k));
+    })
   );
 
-// Funkcija za update bird view kada main view zoom/pan
-function updateViewport(transform) {
-  viewport.attr("x", -transform.x * scaleX / transform.k)
-          .attr("y", -transform.y * scaleY / transform.k)
-          .attr("width", birdWidth / transform.k)
-          .attr("height", birdHeight / transform.k);
-}
-
-// Crtanje bird view čvorova i linkova
-function drawBirdView() {
-  // Linkovi
-  birdContainer.selectAll(".link")
-    .data(links)
-    .join("line")
-    .attr("x1", d => d.source.x * scaleX)
-    .attr("y1", d => d.source.y * scaleY)
-    .attr("x2", d => d.target.x * scaleX)
-    .attr("y2", d => d.target.y * scaleY)
-    .attr("stroke", "#999")
-    .attr("stroke-width", 1)
-    .attr("marker-end", "url(#arrowBird)");
-
-  // Čvorovi
-  birdContainer.selectAll(".node")
-    .data(nodes)
-    .join("rect")
-    .attr("x", d => d.x * scaleX - 5)
-    .attr("y", d => d.y * scaleY - 5)
-    .attr("width", 10)
-    .attr("height", 10)
-    .attr("fill", "#666");
-}
-
-// Update bird view nakon što force simulation postavi pozicije
-simulation.on("tick.bird", () => {
+  window.mainZoom.on("zoom.bird", () => drawBirdView());
+  window.simulation.on("tick.bird", drawBirdView);
   drawBirdView();
-  updateViewport(d3.zoomTransform(svg.node()));
-});
-
-// Ažuriranje viewport-a kada zoom/pan u main view
-zoom.on("zoom.birdView", (event) => {
-  container.attr("transform", event.transform);
-  updateViewport(event.transform);
-});
-
-// Inicijalno
-drawBirdView();
-updateViewport(d3.zoomTransform(svg.node()));
+}
+initBirdOnceMainReady();
 </script>
 {% endblock %}
+

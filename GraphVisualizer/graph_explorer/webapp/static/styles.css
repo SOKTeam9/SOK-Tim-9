@@ -110,15 +110,30 @@ button.reset:hover {
   border-right: 1px solid #ddd;
 }
 
-.left .top,
+.left .top {
+  flex: 2;
+  padding: 5px;
+  min-height: 50%;            /* sprečava da sadržaj gura flex */
+  overflow: hidden; 
+}
+
+
+.left .top #treeView{
+  overflow: auto;
+}
+
 .left .bottom {
-  flex: 1;
-  padding: 10px;
+  flex: 3;
+  min-height: 0;
+}
+
+.bottom {
+  padding: 5px;
 }
 
 .center {
   flex: 7;
-  padding: 10px;
+  padding: 5px;
 }
 
 .link { stroke: #aaa; }
@@ -127,3 +142,8 @@ button.reset:hover {
 
 .link-small { stroke: #ccc; }
 .node-small { fill: black; }
+
+h1 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}

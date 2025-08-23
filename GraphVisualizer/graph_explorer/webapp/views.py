@@ -12,6 +12,9 @@ filters = []
 def index(request):
     return render(request, 'index.html', {'title': 'Index'})
 
+def reset_graph(request):
+    filters.clear()
+    return simple_visualizer(request)
 # def simple_visualizer(request):
 #     print("PROBAAA")
 #     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
@@ -61,7 +64,6 @@ def make_search(request):
         filter_relation = request.POST.get("relations", "").strip()
         filter_value = request.POST.get("value", "").strip()
 
-        print(filter_attribute)
         if filter_attribute != "" and filter_relation != "" and filter_value != "":
             try:
                 actual_value = float(filter_value)

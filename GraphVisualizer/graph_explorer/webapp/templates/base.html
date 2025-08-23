@@ -29,6 +29,10 @@
             <label>File:</label>
             <input type="file" name="load_file" onchange="document.getElementById('uploadForm').submit();">
         </form>
+        <form id="resetGraphForm" method="post" action="{% url 'reset_graph' %}">
+          {% csrf_token %}
+          <button type="submit">Reset graph</button>
+        </form>
         <form id="searchForm" method="post" action="{% url 'query' %}">
           {% csrf_token %}
           <label for="search">Search:</label>

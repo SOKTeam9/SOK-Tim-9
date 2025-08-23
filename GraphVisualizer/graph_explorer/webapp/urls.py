@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('simpleVisualizer/', views.simple_visualizer, name="simple_visualizer")
+    path('simpleVisualizer/', views.simple_visualizer, name="simple_visualizer"),
+    path('fileInput/', views.load_file, name="load_file")
 ]

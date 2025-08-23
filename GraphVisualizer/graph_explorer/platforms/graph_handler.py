@@ -56,8 +56,7 @@ class GraphHandler:
                     "source": source_id,
                     "target": target_id,
                     "type": r.type,
-                    "properties": {k: str(v) for k, v in r.items()}
-                })
+                    "properties": {k: str(v) for k, v in r.items()}})
 
         return {"nodes": list(nodes.values()), "links": links}
 

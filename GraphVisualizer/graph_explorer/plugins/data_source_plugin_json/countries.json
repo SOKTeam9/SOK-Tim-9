@@ -1,0 +1,3324 @@
+[
+    {
+        "id": "AD",
+        "name": "Andorra",
+        "capital": [
+            "Andorra la Vella"
+        ],
+        "region": "Europe",
+        "population": 77265,
+        "borderCountries": [
+            "FR",
+            "ES"
+        ]
+    },
+    {
+        "id": "AE",
+        "name": "United Arab Emirates",
+        "capital": [
+            "Abu Dhabi"
+        ],
+        "region": "Asia",
+        "population": 9890400,
+        "borderCountries": [
+            "OM",
+            "SA"
+        ]
+    },
+    {
+        "id": "AF",
+        "name": "Afghanistan",
+        "capital": [
+            "Kabul"
+        ],
+        "region": "Asia",
+        "population": 40218234,
+        "borderCountries": [
+            "CN",
+            "IR",
+            "PK",
+            "TJ",
+            "TM",
+            "UZ"
+        ]
+    },
+    {
+        "id": "AG",
+        "name": "Antigua and Barbuda",
+        "capital": [
+            "Saint John's"
+        ],
+        "region": "Americas",
+        "population": 97928,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "AI",
+        "name": "Anguilla",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "AL",
+        "name": "Albania",
+        "capital": [
+            "Tirana"
+        ],
+        "region": "Europe",
+        "population": 2877797,
+        "borderCountries": [
+            "GR",
+            "ME",
+            "MK",
+            "RS"
+        ]
+    },
+    {
+        "id": "AM",
+        "name": "Armenia",
+        "capital": [
+            "Yerevan"
+        ],
+        "region": "Asia",
+        "population": 2963234,
+        "borderCountries": [
+            "AZ",
+            "GE",
+            "IR",
+            "TR"
+        ]
+    },
+    {
+        "id": "AO",
+        "name": "Angola",
+        "capital": [
+            "Luanda"
+        ],
+        "region": "Africa",
+        "population": 32866272,
+        "borderCountries": [
+            "CG",
+            "CD",
+            "NA",
+            "ZM"
+        ]
+    },
+    {
+        "id": "AQ",
+        "name": "Antarctica",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "AR",
+        "name": "Argentina",
+        "capital": [
+            "Buenos Aires"
+        ],
+        "region": "Americas",
+        "population": 45376763,
+        "borderCountries": [
+            "BO",
+            "BR",
+            "CL",
+            "PY",
+            "UY"
+        ]
+    },
+    {
+        "id": "AS",
+        "name": "American Samoa",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "AT",
+        "name": "Austria",
+        "capital": [
+            "Vienna"
+        ],
+        "region": "Europe",
+        "population": 8917205,
+        "borderCountries": [
+            "CZ",
+            "DE",
+            "HU",
+            "IT",
+            "LI",
+            "SK",
+            "SI",
+            "CH"
+        ]
+    },
+    {
+        "id": "AU",
+        "name": "Australia",
+        "capital": [
+            "Canberra"
+        ],
+        "region": "Oceania",
+        "population": 25687041,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "AW",
+        "name": "Aruba",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "AX",
+        "name": "Aland Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "AZ",
+        "name": "Azerbaijan",
+        "capital": [
+            "Baku"
+        ],
+        "region": "Asia",
+        "population": 10110116,
+        "borderCountries": [
+            "AM",
+            "GE",
+            "IR",
+            "RU",
+            "TR"
+        ]
+    },
+    {
+        "id": "BA",
+        "name": "Bosnia and Herzegovina",
+        "capital": [
+            "Sarajevo"
+        ],
+        "region": "Europe",
+        "population": 3280819,
+        "borderCountries": [
+            "HR",
+            "ME",
+            "RS"
+        ]
+    },
+    {
+        "id": "BB",
+        "name": "Barbados",
+        "capital": [
+            "Bridgetown"
+        ],
+        "region": "Americas",
+        "population": 287371,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "BD",
+        "name": "Bangladesh",
+        "capital": [
+            "Dhaka"
+        ],
+        "region": "Asia",
+        "population": 164689383,
+        "borderCountries": [
+            "IN",
+            "MM"
+        ]
+    },
+    {
+        "id": "BE",
+        "name": "Belgium",
+        "capital": [
+            "Brussels"
+        ],
+        "region": "Europe",
+        "population": 11524454,
+        "borderCountries": [
+            "FR",
+            "DE",
+            "LU",
+            "NL"
+        ]
+    },
+    {
+        "id": "BF",
+        "name": "Burkina Faso",
+        "capital": [
+            "Ouagadougou"
+        ],
+        "region": "Africa",
+        "population": 20903273,
+        "borderCountries": [
+            "BJ",
+            "CI",
+            "GH",
+            "ML",
+            "NE",
+            "TG"
+        ]
+    },
+    {
+        "id": "BG",
+        "name": "Bulgaria",
+        "capital": [
+            "Sofia"
+        ],
+        "region": "Europe",
+        "population": 7000039,
+        "borderCountries": [
+            "GR",
+            "MK",
+            "RO",
+            "RS",
+            "TR"
+        ]
+    },
+    {
+        "id": "BH",
+        "name": "Bahrain",
+        "capital": [
+            "Manama"
+        ],
+        "region": "Asia",
+        "population": 1701583,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "BI",
+        "name": "Burundi",
+        "capital": [
+            "Gitega"
+        ],
+        "region": "Africa",
+        "population": 11890784,
+        "borderCountries": [
+            "CD",
+            "RW",
+            "TZ"
+        ]
+    },
+    {
+        "id": "BJ",
+        "name": "Benin",
+        "capital": [
+            "Porto-Novo"
+        ],
+        "region": "Africa",
+        "population": 12123198,
+        "borderCountries": [
+            "BF",
+            "NE",
+            "NG",
+            "TG"
+        ]
+    },
+    {
+        "id": "BL",
+        "name": "Saint Barthelemy",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "BM",
+        "name": "Bermuda",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "BN",
+        "name": "Brunei Darussalam",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "MY"
+        ]
+    },
+    {
+        "id": "BO",
+        "name": "Bolivia (Plurinational State Of)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "AR",
+            "BR",
+            "CL",
+            "PY",
+            "PE"
+        ]
+    },
+    {
+        "id": "BQ",
+        "name": "Bonaire, Sint Eustatius and Saba",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "BR",
+        "name": "Brazil",
+        "capital": [
+            "Brasília"
+        ],
+        "region": "Americas",
+        "population": 212559409,
+        "borderCountries": [
+            "AR",
+            "BO",
+            "CO",
+            "GF",
+            "GY",
+            "PY",
+            "PE",
+            "SR",
+            "UY",
+            "VE"
+        ]
+    },
+    {
+        "id": "BS",
+        "name": "Bahamas",
+        "capital": [
+            "Nassau"
+        ],
+        "region": "Americas",
+        "population": 393248,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "BT",
+        "name": "Bhutan",
+        "capital": [
+            "Thimphu"
+        ],
+        "region": "Asia",
+        "population": 771612,
+        "borderCountries": [
+            "CN",
+            "IN"
+        ]
+    },
+    {
+        "id": "BV",
+        "name": "Bouvet Island",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "BW",
+        "name": "Botswana",
+        "capital": [
+            "Gaborone"
+        ],
+        "region": "Africa",
+        "population": 2351627,
+        "borderCountries": [
+            "NA",
+            "ZA",
+            "ZM",
+            "ZW"
+        ]
+    },
+    {
+        "id": "BY",
+        "name": "Belarus",
+        "capital": [
+            "Minsk"
+        ],
+        "region": "Europe",
+        "population": 9449323,
+        "borderCountries": [
+            "LV",
+            "LT",
+            "PL",
+            "RU",
+            "UA"
+        ]
+    },
+    {
+        "id": "BZ",
+        "name": "Belize",
+        "capital": [
+            "Belmopan"
+        ],
+        "region": "Americas",
+        "population": 397621,
+        "borderCountries": [
+            "GT",
+            "MX"
+        ]
+    },
+    {
+        "id": "CA",
+        "name": "Canada",
+        "capital": [
+            "Ottawa"
+        ],
+        "region": "Americas",
+        "population": 38005238,
+        "borderCountries": [
+            "US"
+        ]
+    },
+    {
+        "id": "CC",
+        "name": "Cocos (Keeling) Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "CD",
+        "name": "Congo (the Democratic Republic of the)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "AO",
+            "BI",
+            "CF",
+            "CG",
+            "RW",
+            "SS",
+            "TZ",
+            "UG",
+            "ZM"
+        ]
+    },
+    {
+        "id": "CF",
+        "name": "Central African Republic",
+        "capital": [
+            "Bangui"
+        ],
+        "region": "Africa",
+        "population": 4829767,
+        "borderCountries": [
+            "CM",
+            "TD",
+            "CG",
+            "CD",
+            "SS",
+            "SD"
+        ]
+    },
+    {
+        "id": "CG",
+        "name": "Congo",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "AO",
+            "CM",
+            "CF",
+            "CD",
+            "GA"
+        ]
+    },
+    {
+        "id": "CH",
+        "name": "Switzerland",
+        "capital": [
+            "Bern"
+        ],
+        "region": "Europe",
+        "population": 8654622,
+        "borderCountries": [
+            "AT",
+            "FR",
+            "DE",
+            "IT",
+            "LI"
+        ]
+    },
+    {
+        "id": "CI",
+        "name": "Cote d’Ivoire",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "BF",
+            "GH",
+            "GN",
+            "LR",
+            "ML"
+        ]
+    },
+    {
+        "id": "CK",
+        "name": "Cook Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "CL",
+        "name": "Chile",
+        "capital": [
+            "Santiago"
+        ],
+        "region": "Americas",
+        "population": 19116201,
+        "borderCountries": [
+            "AR",
+            "BO",
+            "PE"
+        ]
+    },
+    {
+        "id": "CM",
+        "name": "Cameroon",
+        "capital": [
+            "Yaoundé"
+        ],
+        "region": "Africa",
+        "population": 26545863,
+        "borderCountries": [
+            "CF",
+            "TD",
+            "CG",
+            "GQ",
+            "GA",
+            "NG"
+        ]
+    },
+    {
+        "id": "CN",
+        "name": "China",
+        "capital": [
+            "Beijing"
+        ],
+        "region": "Asia",
+        "population": 1402112000,
+        "borderCountries": [
+            "AF",
+            "BT",
+            "HK",
+            "IN",
+            "KZ",
+            "KP",
+            "KG",
+            "LA",
+            "MO",
+            "MN",
+            "MM",
+            "NP",
+            "PK",
+            "RU",
+            "TJ",
+            "VN"
+        ]
+    },
+    {
+        "id": "CO",
+        "name": "Colombia",
+        "capital": [
+            "Bogotá"
+        ],
+        "region": "Americas",
+        "population": 50882891,
+        "borderCountries": [
+            "BR",
+            "EC",
+            "PA",
+            "PE",
+            "VE"
+        ]
+    },
+    {
+        "id": "CR",
+        "name": "Costa Rica",
+        "capital": [
+            "San José"
+        ],
+        "region": "Americas",
+        "population": 5094118,
+        "borderCountries": [
+            "NI",
+            "PA"
+        ]
+    },
+    {
+        "id": "CU",
+        "name": "Cuba",
+        "capital": [
+            "Havana"
+        ],
+        "region": "Americas",
+        "population": 11326616,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "CV",
+        "name": "Cabo Verde",
+        "capital": [
+            "Praia"
+        ],
+        "region": "Africa",
+        "population": 555987,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "CW",
+        "name": "Curacao",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "CX",
+        "name": "Christmas Island",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "CY",
+        "name": "Cyprus",
+        "capital": [
+            "Nicosia"
+        ],
+        "region": "Europe",
+        "population": 1207361,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "CZ",
+        "name": "Czechia",
+        "capital": [
+            "Prague"
+        ],
+        "region": "Europe",
+        "population": 10708981,
+        "borderCountries": [
+            "AT",
+            "DE",
+            "PL",
+            "SK"
+        ]
+    },
+    {
+        "id": "DE",
+        "name": "Germany",
+        "capital": [
+            "Berlin"
+        ],
+        "region": "Europe",
+        "population": 83783942,
+        "borderCountries": [
+            "AT",
+            "BE",
+            "CZ",
+            "DK",
+            "FR",
+            "LU",
+            "NL",
+            "PL",
+            "CH"
+        ]
+    },
+    {
+        "id": "DJ",
+        "name": "Djibouti",
+        "capital": [
+            "Djibouti"
+        ],
+        "region": "Africa",
+        "population": 988000,
+        "borderCountries": [
+            "ER",
+            "ET",
+            "SO"
+        ]
+    },
+    {
+        "id": "DK",
+        "name": "Denmark",
+        "capital": [
+            "Copenhagen"
+        ],
+        "region": "Europe",
+        "population": 5831404,
+        "borderCountries": [
+            "DE"
+        ]
+    },
+    {
+        "id": "DM",
+        "name": "Dominica",
+        "capital": [
+            "Roseau"
+        ],
+        "region": "Americas",
+        "population": 71986,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "DO",
+        "name": "Dominican Republic",
+        "capital": [
+            "Santo Domingo"
+        ],
+        "region": "Americas",
+        "population": 10847910,
+        "borderCountries": [
+            "HT"
+        ]
+    },
+    {
+        "id": "DZ",
+        "name": "Algeria",
+        "capital": [
+            "Algiers"
+        ],
+        "region": "Africa",
+        "population": 44700000,
+        "borderCountries": [
+            "LY",
+            "ML",
+            "MR",
+            "MA",
+            "NE",
+            "TN",
+            "EH"
+        ]
+    },
+    {
+        "id": "EC",
+        "name": "Ecuador",
+        "capital": [
+            "Quito"
+        ],
+        "region": "Americas",
+        "population": 17643060,
+        "borderCountries": [
+            "CO",
+            "PE"
+        ]
+    },
+    {
+        "id": "EE",
+        "name": "Estonia",
+        "capital": [
+            "Tallinn"
+        ],
+        "region": "Europe",
+        "population": 1326535,
+        "borderCountries": [
+            "LV",
+            "RU"
+        ]
+    },
+    {
+        "id": "EG",
+        "name": "Egypt",
+        "capital": [
+            "Cairo"
+        ],
+        "region": "Africa",
+        "population": 102334404,
+        "borderCountries": [
+            "IL",
+            "LY",
+            "PS",
+            "SD"
+        ]
+    },
+    {
+        "id": "EH",
+        "name": "Western Sahara",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "DZ",
+            "MR",
+            "MA"
+        ]
+    },
+    {
+        "id": "ER",
+        "name": "Eritrea",
+        "capital": [
+            "Asmara"
+        ],
+        "region": "Africa",
+        "population": 3546064,
+        "borderCountries": [
+            "DJ",
+            "ET",
+            "SD"
+        ]
+    },
+    {
+        "id": "ES",
+        "name": "Spain",
+        "capital": [
+            "Madrid"
+        ],
+        "region": "Europe",
+        "population": 46754778,
+        "borderCountries": [
+            "AD",
+            "FR",
+            "GI",
+            "MA",
+            "PT"
+        ]
+    },
+    {
+        "id": "ET",
+        "name": "Ethiopia",
+        "capital": [
+            "Addis Ababa"
+        ],
+        "region": "Africa",
+        "population": 114963588,
+        "borderCountries": [
+            "DJ",
+            "ER",
+            "KE",
+            "SO",
+            "SS",
+            "SD"
+        ]
+    },
+    {
+        "id": "FI",
+        "name": "Finland",
+        "capital": [
+            "Helsinki"
+        ],
+        "region": "Europe",
+        "population": 5540720,
+        "borderCountries": [
+            "NO",
+            "RU",
+            "SE"
+        ]
+    },
+    {
+        "id": "FJ",
+        "name": "Fiji",
+        "capital": [
+            "Suva"
+        ],
+        "region": "Oceania",
+        "population": 896445,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "FK",
+        "name": "Falkland Islands (Malvinas)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "FM",
+        "name": "Micronesia (Federated States of)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "FO",
+        "name": "Faroe Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "FR",
+        "name": "France",
+        "capital": [
+            "Paris"
+        ],
+        "region": "Europe",
+        "population": 65273511,
+        "borderCountries": [
+            "AD",
+            "BE",
+            "DE",
+            "IT",
+            "LU",
+            "MC",
+            "ES",
+            "CH"
+        ]
+    },
+    {
+        "id": "GA",
+        "name": "Gabon",
+        "capital": [
+            "Libreville"
+        ],
+        "region": "Africa",
+        "population": 2225734,
+        "borderCountries": [
+            "CM",
+            "CG",
+            "GQ"
+        ]
+    },
+    {
+        "id": "GB",
+        "name": "United Kingdom of Great Britain and Northern Ireland",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "IE"
+        ]
+    },
+    {
+        "id": "GD",
+        "name": "Grenada",
+        "capital": [
+            "St. George's"
+        ],
+        "region": "Americas",
+        "population": 112519,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "GE",
+        "name": "Georgia",
+        "capital": [
+            "Tbilisi"
+        ],
+        "region": "Asia",
+        "population": 3989167,
+        "borderCountries": [
+            "AM",
+            "AZ",
+            "RU",
+            "TR"
+        ]
+    },
+    {
+        "id": "GF",
+        "name": "French Guiana",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "BR",
+            "SR"
+        ]
+    },
+    {
+        "id": "GG",
+        "name": "Guernsey",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "GH",
+        "name": "Ghana",
+        "capital": [
+            "Accra"
+        ],
+        "region": "Africa",
+        "population": 31072940,
+        "borderCountries": [
+            "BF",
+            "CI",
+            "TG"
+        ]
+    },
+    {
+        "id": "GI",
+        "name": "Gibraltar",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "ES"
+        ]
+    },
+    {
+        "id": "GL",
+        "name": "Greenland",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "GM",
+        "name": "Gambia (the)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "SN"
+        ]
+    },
+    {
+        "id": "GN",
+        "name": "Guinea",
+        "capital": [
+            "Conakry"
+        ],
+        "region": "Africa",
+        "population": 13132795,
+        "borderCountries": [
+            "CI",
+            "GW",
+            "LR",
+            "ML",
+            "SN",
+            "SL"
+        ]
+    },
+    {
+        "id": "GP",
+        "name": "Guadeloupe",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "GQ",
+        "name": "Equatorial Guinea",
+        "capital": [
+            "Malabo"
+        ],
+        "region": "Africa",
+        "population": 1402985,
+        "borderCountries": [
+            "CM",
+            "GA"
+        ]
+    },
+    {
+        "id": "GR",
+        "name": "Greece",
+        "capital": [
+            "Athens"
+        ],
+        "region": "Europe",
+        "population": 10423054,
+        "borderCountries": [
+            "AL",
+            "BG",
+            "MK",
+            "TR"
+        ]
+    },
+    {
+        "id": "GS",
+        "name": "South Georgia and the South Sandwich Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "GT",
+        "name": "Guatemala",
+        "capital": [
+            "Guatemala City"
+        ],
+        "region": "Americas",
+        "population": 17915568,
+        "borderCountries": [
+            "BZ",
+            "SV",
+            "HN",
+            "MX"
+        ]
+    },
+    {
+        "id": "GU",
+        "name": "Guam",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "GW",
+        "name": "Guinea-Bissau",
+        "capital": [
+            "Bissau"
+        ],
+        "region": "Africa",
+        "population": 1968001,
+        "borderCountries": [
+            "GN",
+            "SN"
+        ]
+    },
+    {
+        "id": "GY",
+        "name": "Guyana",
+        "capital": [
+            "Georgetown"
+        ],
+        "region": "Americas",
+        "population": 786559,
+        "borderCountries": [
+            "BR",
+            "SR",
+            "VE"
+        ]
+    },
+    {
+        "id": "HK",
+        "name": "Hong Kong",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "CN"
+        ]
+    },
+    {
+        "id": "HM",
+        "name": "Heard Island and McDonald Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "HN",
+        "name": "Honduras",
+        "capital": [
+            "Tegucigalpa"
+        ],
+        "region": "Americas",
+        "population": 9904608,
+        "borderCountries": [
+            "SV",
+            "GT",
+            "NI"
+        ]
+    },
+    {
+        "id": "HR",
+        "name": "Croatia",
+        "capital": [
+            "Zagreb"
+        ],
+        "region": "Europe",
+        "population": 4105267,
+        "borderCountries": [
+            "BA",
+            "HU",
+            "ME",
+            "RS",
+            "SI"
+        ]
+    },
+    {
+        "id": "HT",
+        "name": "Haiti",
+        "capital": [
+            "Port-au-Prince"
+        ],
+        "region": "Americas",
+        "population": 11402528,
+        "borderCountries": [
+            "DO"
+        ]
+    },
+    {
+        "id": "HU",
+        "name": "Hungary",
+        "capital": [
+            "Budapest"
+        ],
+        "region": "Europe",
+        "population": 9660351,
+        "borderCountries": [
+            "AT",
+            "HR",
+            "RO",
+            "RS",
+            "SK",
+            "SI",
+            "UA"
+        ]
+    },
+    {
+        "id": "ID",
+        "name": "Indonesia",
+        "capital": [
+            "Jakarta"
+        ],
+        "region": "Asia",
+        "population": 273523621,
+        "borderCountries": [
+            "MY",
+            "PG",
+            "TL"
+        ]
+    },
+    {
+        "id": "IE",
+        "name": "Ireland",
+        "capital": [
+            "Dublin"
+        ],
+        "region": "Europe",
+        "population": 4937786,
+        "borderCountries": [
+            "GB"
+        ]
+    },
+    {
+        "id": "IL",
+        "name": "Israel",
+        "capital": [
+            "Jerusalem"
+        ],
+        "region": "Asia",
+        "population": 8655535,
+        "borderCountries": [
+            "EG",
+            "JO",
+            "LB",
+            "PS",
+            "SY"
+        ]
+    },
+    {
+        "id": "IM",
+        "name": "Isle of Man",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "IN",
+        "name": "India",
+        "capital": [
+            "New Delhi"
+        ],
+        "region": "Asia",
+        "population": 1380004385,
+        "borderCountries": [
+            "BD",
+            "BT",
+            "CN",
+            "MM",
+            "NP",
+            "PK"
+        ]
+    },
+    {
+        "id": "IO",
+        "name": "British Indian Ocean Territory",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "IQ",
+        "name": "Iraq",
+        "capital": [
+            "Baghdad"
+        ],
+        "region": "Asia",
+        "population": 40222503,
+        "borderCountries": [
+            "IR",
+            "JO",
+            "KW",
+            "SA",
+            "SY",
+            "TR"
+        ]
+    },
+    {
+        "id": "IR",
+        "name": "Iran (Islamic Republic of)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "AF",
+            "AM",
+            "AZ",
+            "IQ",
+            "PK",
+            "TR",
+            "TM"
+        ]
+    },
+    {
+        "id": "IS",
+        "name": "Iceland",
+        "capital": [
+            "Reykjavik"
+        ],
+        "region": "Europe",
+        "population": 341243,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "IT",
+        "name": "Italy",
+        "capital": [
+            "Rome"
+        ],
+        "region": "Europe",
+        "population": 60461826,
+        "borderCountries": [
+            "AT",
+            "FR",
+            "SM",
+            "SI",
+            "CH",
+            "VA"
+        ]
+    },
+    {
+        "id": "JE",
+        "name": "Jersey",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "JM",
+        "name": "Jamaica",
+        "capital": [
+            "Kingston"
+        ],
+        "region": "Americas",
+        "population": 2961161,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "JO",
+        "name": "Jordan",
+        "capital": [
+            "Amman"
+        ],
+        "region": "Asia",
+        "population": 10203134,
+        "borderCountries": [
+            "IQ",
+            "IL",
+            "PS",
+            "SA",
+            "SY"
+        ]
+    },
+    {
+        "id": "JP",
+        "name": "Japan",
+        "capital": [
+            "Tokyo"
+        ],
+        "region": "Asia",
+        "population": 126476461,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "KE",
+        "name": "Kenya",
+        "capital": [
+            "Nairobi"
+        ],
+        "region": "Africa",
+        "population": 53771296,
+        "borderCountries": [
+            "ET",
+            "SO",
+            "SS",
+            "TZ",
+            "UG"
+        ]
+    },
+    {
+        "id": "KG",
+        "name": "Kyrgyzstan",
+        "capital": [
+            "Bishkek"
+        ],
+        "region": "Asia",
+        "population": 6524195,
+        "borderCountries": [
+            "CN",
+            "KZ",
+            "TJ",
+            "UZ"
+        ]
+    },
+    {
+        "id": "KH",
+        "name": "Cambodia",
+        "capital": [
+            "Phnom Penh"
+        ],
+        "region": "Asia",
+        "population": 16718965,
+        "borderCountries": [
+            "LA",
+            "TH",
+            "VN"
+        ]
+    },
+    {
+        "id": "KI",
+        "name": "Kiribati",
+        "capital": [
+            "South Tarawa"
+        ],
+        "region": "Oceania",
+        "population": 119446,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "KM",
+        "name": "Comoros",
+        "capital": [
+            "Moroni"
+        ],
+        "region": "Africa",
+        "population": 869601,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "KN",
+        "name": "Saint Kitts and Nevis",
+        "capital": [
+            "Basseterre"
+        ],
+        "region": "Americas",
+        "population": 53199,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "KP",
+        "name": "Korea (Democratic People's Republic of)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "CN",
+            "KR",
+            "RU"
+        ]
+    },
+    {
+        "id": "KR",
+        "name": "Korea (the Republic of)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "KP"
+        ]
+    },
+    {
+        "id": "KW",
+        "name": "Kuwait",
+        "capital": [
+            "Kuwait City"
+        ],
+        "region": "Asia",
+        "population": 4270571,
+        "borderCountries": [
+            "IQ",
+            "SA"
+        ]
+    },
+    {
+        "id": "KY",
+        "name": "Cayman Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "KZ",
+        "name": "Kazakhstan",
+        "capital": [
+            "Nur-Sultan"
+        ],
+        "region": "Asia",
+        "population": 18776707,
+        "borderCountries": [
+            "CN",
+            "KG",
+            "RU",
+            "TM",
+            "UZ"
+        ]
+    },
+    {
+        "id": "LA",
+        "name": "Lao People's Democratic Republic",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "CN",
+            "KH",
+            "MM",
+            "TH",
+            "VN"
+        ]
+    },
+    {
+        "id": "LB",
+        "name": "Lebanon",
+        "capital": [
+            "Beirut"
+        ],
+        "region": "Asia",
+        "population": 6825445,
+        "borderCountries": [
+            "IL",
+            "SY"
+        ]
+    },
+    {
+        "id": "LC",
+        "name": "Saint Lucia",
+        "capital": [
+            "Castries"
+        ],
+        "region": "Americas",
+        "population": 183627,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "LI",
+        "name": "Liechtenstein",
+        "capital": [
+            "Vaduz"
+        ],
+        "region": "Europe",
+        "population": 38128,
+        "borderCountries": [
+            "AT",
+            "CH"
+        ]
+    },
+    {
+        "id": "LK",
+        "name": "Sri Lanka",
+        "capital": [
+            "Sri Jayawardenepura Kotte"
+        ],
+        "region": "Asia",
+        "population": 21413249,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "LR",
+        "name": "Liberia",
+        "capital": [
+            "Monrovia"
+        ],
+        "region": "Africa",
+        "population": 5057681,
+        "borderCountries": [
+            "CI",
+            "GN",
+            "SL"
+        ]
+    },
+    {
+        "id": "LS",
+        "name": "Lesotho",
+        "capital": [
+            "Maseru"
+        ],
+        "region": "Africa",
+        "population": 2142249,
+        "borderCountries": [
+            "ZA"
+        ]
+    },
+    {
+        "id": "LT",
+        "name": "Lithuania",
+        "capital": [
+            "Vilnius"
+        ],
+        "region": "Europe",
+        "population": 2722289,
+        "borderCountries": [
+            "BY",
+            "LV",
+            "PL",
+            "RU"
+        ]
+    },
+    {
+        "id": "LU",
+        "name": "Luxembourg",
+        "capital": [
+            "Luxembourg"
+        ],
+        "region": "Europe",
+        "population": 625978,
+        "borderCountries": [
+            "BE",
+            "DE",
+            "FR"
+        ]
+    },
+    {
+        "id": "LV",
+        "name": "Latvia",
+        "capital": [
+            "Riga"
+        ],
+        "region": "Europe",
+        "population": 1886198,
+        "borderCountries": [
+            "BY",
+            "EE",
+            "LT",
+            "RU"
+        ]
+    },
+    {
+        "id": "LY",
+        "name": "Libya",
+        "capital": [
+            "Tripoli"
+        ],
+        "region": "Africa",
+        "population": 6871292,
+        "borderCountries": [
+            "DZ",
+            "TD",
+            "EG",
+            "NE",
+            "SD",
+            "TN"
+        ]
+    },
+    {
+        "id": "MA",
+        "name": "Morocco",
+        "capital": [
+            "Rabat"
+        ],
+        "region": "Africa",
+        "population": 36910560,
+        "borderCountries": [
+            "DZ",
+            "ES",
+            "EH"
+        ]
+    },
+    {
+        "id": "MC",
+        "name": "Monaco",
+        "capital": [
+            "Monaco"
+        ],
+        "region": "Europe",
+        "population": 39244,
+        "borderCountries": [
+            "FR"
+        ]
+    },
+    {
+        "id": "MD",
+        "name": "Moldova (the Republic of)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "RO",
+            "UA"
+        ]
+    },
+    {
+        "id": "ME",
+        "name": "Montenegro",
+        "capital": [
+            "Podgorica"
+        ],
+        "region": "Europe",
+        "population": 628066,
+        "borderCountries": [
+            "AL",
+            "BA",
+            "HR",
+            "RS"
+        ]
+    },
+    {
+        "id": "MF",
+        "name": "Saint Martin (French part)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "SX"
+        ]
+    },
+    {
+        "id": "MG",
+        "name": "Madagascar",
+        "capital": [
+            "Antananarivo"
+        ],
+        "region": "Africa",
+        "population": 27691018,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "MH",
+        "name": "Marshall Islands",
+        "capital": [
+            "Majuro"
+        ],
+        "region": "Oceania",
+        "population": 59190,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "MK",
+        "name": "North Macedonia",
+        "capital": [
+            "Skopje"
+        ],
+        "region": "Europe",
+        "population": 2083459,
+        "borderCountries": [
+            "AL",
+            "BG",
+            "GR",
+            "RS"
+        ]
+    },
+    {
+        "id": "ML",
+        "name": "Mali",
+        "capital": [
+            "Bamako"
+        ],
+        "region": "Africa",
+        "population": 20250833,
+        "borderCountries": [
+            "DZ",
+            "BF",
+            "CI",
+            "GN",
+            "MR",
+            "NE",
+            "SN"
+        ]
+    },
+    {
+        "id": "MM",
+        "name": "Myanmar",
+        "capital": [
+            "Naypyidaw"
+        ],
+        "region": "Asia",
+        "population": 54409800,
+        "borderCountries": [
+            "BD",
+            "CN",
+            "IN",
+            "LA",
+            "TH"
+        ]
+    },
+    {
+        "id": "MN",
+        "name": "Mongolia",
+        "capital": [
+            "Ulaanbaatar"
+        ],
+        "region": "Asia",
+        "population": 3278290,
+        "borderCountries": [
+            "CN",
+            "RU"
+        ]
+    },
+    {
+        "id": "MO",
+        "name": "Macao",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "CN"
+        ]
+    },
+    {
+        "id": "MP",
+        "name": "Northern Mariana Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "MQ",
+        "name": "Martinique",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "MR",
+        "name": "Mauritania",
+        "capital": [
+            "Nouakchott"
+        ],
+        "region": "Africa",
+        "population": 4649658,
+        "borderCountries": [
+            "DZ",
+            "ML",
+            "SN",
+            "EH"
+        ]
+    },
+    {
+        "id": "MS",
+        "name": "Montserrat",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "MT",
+        "name": "Malta",
+        "capital": [
+            "Valletta"
+        ],
+        "region": "Europe",
+        "population": 514564,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "MU",
+        "name": "Mauritius",
+        "capital": [
+            "Port Louis"
+        ],
+        "region": "Africa",
+        "population": 1271768,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "MV",
+        "name": "Maldives",
+        "capital": [
+            "Malé"
+        ],
+        "region": "Asia",
+        "population": 540542,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "MW",
+        "name": "Malawi",
+        "capital": [
+            "Lilongwe"
+        ],
+        "region": "Africa",
+        "population": 19129952,
+        "borderCountries": [
+            "MZ",
+            "TZ",
+            "ZM"
+        ]
+    },
+    {
+        "id": "MX",
+        "name": "Mexico",
+        "capital": [
+            "Mexico City"
+        ],
+        "region": "Americas",
+        "population": 128932753,
+        "borderCountries": [
+            "BZ",
+            "GT",
+            "US"
+        ]
+    },
+    {
+        "id": "MY",
+        "name": "Malaysia",
+        "capital": [
+            "Kuala Lumpur"
+        ],
+        "region": "Asia",
+        "population": 32365999,
+        "borderCountries": [
+            "BN",
+            "ID",
+            "TH"
+        ]
+    },
+    {
+        "id": "MZ",
+        "name": "Mozambique",
+        "capital": [
+            "Maputo"
+        ],
+        "region": "Africa",
+        "population": 31255435,
+        "borderCountries": [
+            "MW",
+            "SZ",
+            "ZA",
+            "TZ",
+            "ZM",
+            "ZW"
+        ]
+    },
+    {
+        "id": "NA",
+        "name": "Namibia",
+        "capital": [
+            "Windhoek"
+        ],
+        "region": "Africa",
+        "population": 2540905,
+        "borderCountries": [
+            "AO",
+            "BW",
+            "ZA",
+            "ZM"
+        ]
+    },
+    {
+        "id": "NC",
+        "name": "New Caledonia",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "NE",
+        "name": "Niger",
+        "capital": [
+            "Niamey"
+        ],
+        "region": "Africa",
+        "population": 24206644,
+        "borderCountries": [
+            "DZ",
+            "BJ",
+            "BF",
+            "TD",
+            "LY",
+            "ML",
+            "NG"
+        ]
+    },
+    {
+        "id": "NF",
+        "name": "Norfolk Island",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "NG",
+        "name": "Nigeria",
+        "capital": [
+            "Abuja"
+        ],
+        "region": "Africa",
+        "population": 206139587,
+        "borderCountries": [
+            "BJ",
+            "CM",
+            "TD",
+            "NE"
+        ]
+    },
+    {
+        "id": "NI",
+        "name": "Nicaragua",
+        "capital": [
+            "Managua"
+        ],
+        "region": "Americas",
+        "population": 6624554,
+        "borderCountries": [
+            "CR",
+            "HN"
+        ]
+    },
+    {
+        "id": "NL",
+        "name": "Netherlands",
+        "capital": [
+            "Amsterdam"
+        ],
+        "region": "Europe",
+        "population": 17134872,
+        "borderCountries": [
+            "BE",
+            "DE"
+        ]
+    },
+    {
+        "id": "NO",
+        "name": "Norway",
+        "capital": [
+            "Oslo"
+        ],
+        "region": "Europe",
+        "population": 5421241,
+        "borderCountries": [
+            "FI",
+            "RU",
+            "SE"
+        ]
+    },
+    {
+        "id": "NP",
+        "name": "Nepal",
+        "capital": [
+            "Kathmandu"
+        ],
+        "region": "Asia",
+        "population": 29136808,
+        "borderCountries": [
+            "CN",
+            "IN"
+        ]
+    },
+    {
+        "id": "NR",
+        "name": "Nauru",
+        "capital": [
+            "Yaren"
+        ],
+        "region": "Oceania",
+        "population": 10834,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "NU",
+        "name": "Niue",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "NZ",
+        "name": "New Zealand",
+        "capital": [
+            "Wellington"
+        ],
+        "region": "Oceania",
+        "population": 5084300,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "OM",
+        "name": "Oman",
+        "capital": [
+            "Muscat"
+        ],
+        "region": "Asia",
+        "population": 5106626,
+        "borderCountries": [
+            "AE",
+            "SA",
+            "YE"
+        ]
+    },
+    {
+        "id": "PA",
+        "name": "Panama",
+        "capital": [
+            "Panama City"
+        ],
+        "region": "Americas",
+        "population": 4314767,
+        "borderCountries": [
+            "CO",
+            "CR"
+        ]
+    },
+    {
+        "id": "PE",
+        "name": "Peru",
+        "capital": [
+            "Lima"
+        ],
+        "region": "Americas",
+        "population": 32971854,
+        "borderCountries": [
+            "BO",
+            "BR",
+            "CL",
+            "CO",
+            "EC"
+        ]
+    },
+    {
+        "id": "PF",
+        "name": "French Polynesia",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "PG",
+        "name": "Papua New Guinea",
+        "capital": [
+            "Port Moresby"
+        ],
+        "region": "Oceania",
+        "population": 8947024,
+        "borderCountries": [
+            "ID"
+        ]
+    },
+    {
+        "id": "PH",
+        "name": "Philippines",
+        "capital": [
+            "Manila"
+        ],
+        "region": "Asia",
+        "population": 109581078,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "PK",
+        "name": "Pakistan",
+        "capital": [
+            "Islamabad"
+        ],
+        "region": "Asia",
+        "population": 220892331,
+        "borderCountries": [
+            "AF",
+            "CN",
+            "IN",
+            "IR"
+        ]
+    },
+    {
+        "id": "PL",
+        "name": "Poland",
+        "capital": [
+            "Warsaw"
+        ],
+        "region": "Europe",
+        "population": 37846611,
+        "borderCountries": [
+            "BY",
+            "CZ",
+            "DE",
+            "LT",
+            "RU",
+            "SK",
+            "UA"
+        ]
+    },
+    {
+        "id": "PM",
+        "name": "Saint Pierre and Miquelon",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "PN",
+        "name": "Pitcairn",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "PR",
+        "name": "Puerto Rico",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "PS",
+        "name": "Palestine, State of",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "EG",
+            "IL",
+            "JO"
+        ]
+    },
+    {
+        "id": "PT",
+        "name": "Portugal",
+        "capital": [
+            "Lisbon"
+        ],
+        "region": "Europe",
+        "population": 10196709,
+        "borderCountries": [
+            "ES"
+        ]
+    },
+    {
+        "id": "PW",
+        "name": "Palau",
+        "capital": [
+            "Ngerulmud"
+        ],
+        "region": "Oceania",
+        "population": 18092,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "PY",
+        "name": "Paraguay",
+        "capital": [
+            "Asunción"
+        ],
+        "region": "Americas",
+        "population": 7132530,
+        "borderCountries": [
+            "AR",
+            "BO",
+            "BR"
+        ]
+    },
+    {
+        "id": "QA",
+        "name": "Qatar",
+        "capital": [
+            "Doha"
+        ],
+        "region": "Asia",
+        "population": 2881053,
+        "borderCountries": [
+            "SA"
+        ]
+    },
+    {
+        "id": "RE",
+        "name": "Reunion",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "RO",
+        "name": "Romania",
+        "capital": [
+            "Bucharest"
+        ],
+        "region": "Europe",
+        "population": 19237691,
+        "borderCountries": [
+            "BG",
+            "HU",
+            "MD",
+            "RS",
+            "UA"
+        ]
+    },
+    {
+        "id": "RS",
+        "name": "Serbia",
+        "capital": [
+            "Belgrade"
+        ],
+        "region": "Europe",
+        "population": 8737371,
+        "borderCountries": [
+            "AL",
+            "BA",
+            "BG",
+            "HR",
+            "HU",
+            "ME",
+            "MK",
+            "RO"
+        ]
+    },
+    {
+        "id": "RU",
+        "name": "Russian Federation",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "AZ",
+            "BY",
+            "CN",
+            "EE",
+            "FI",
+            "GE",
+            "KZ",
+            "KP",
+            "LV",
+            "LT",
+            "MN",
+            "NO",
+            "PL",
+            "UA"
+        ]
+    },
+    {
+        "id": "RW",
+        "name": "Rwanda",
+        "capital": [
+            "Kigali"
+        ],
+        "region": "Africa",
+        "population": 12952218,
+        "borderCountries": [
+            "BI",
+            "CD",
+            "TZ",
+            "UG"
+        ]
+    },
+    {
+        "id": "SA",
+        "name": "Saudi Arabia",
+        "capital": [
+            "Riyadh"
+        ],
+        "region": "Asia",
+        "population": 34813871,
+        "borderCountries": [
+            "IQ",
+            "JO",
+            "KW",
+            "OM",
+            "QA",
+            "AE",
+            "YE"
+        ]
+    },
+    {
+        "id": "SB",
+        "name": "Solomon Islands",
+        "capital": [
+            "Honiara"
+        ],
+        "region": "Oceania",
+        "population": 686884,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "SC",
+        "name": "Seychelles",
+        "capital": [
+            "Victoria"
+        ],
+        "region": "Africa",
+        "population": 98347,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "SD",
+        "name": "Sudan",
+        "capital": [
+            "Khartoum"
+        ],
+        "region": "Africa",
+        "population": 43849260,
+        "borderCountries": [
+            "CF",
+            "TD",
+            "EG",
+            "ET",
+            "ER",
+            "LY",
+            "SS"
+        ]
+    },
+    {
+        "id": "SE",
+        "name": "Sweden",
+        "capital": [
+            "Stockholm"
+        ],
+        "region": "Europe",
+        "population": 10099265,
+        "borderCountries": [
+            "FI",
+            "NO"
+        ]
+    },
+    {
+        "id": "SG",
+        "name": "Singapore",
+        "capital": [
+            "Singapore"
+        ],
+        "region": "Asia",
+        "population": 5850342,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "SH",
+        "name": "Saint Helena, Ascension and Tristan da Cunha",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "SI",
+        "name": "Slovenia",
+        "capital": [
+            "Ljubljana"
+        ],
+        "region": "Europe",
+        "population": 2078654,
+        "borderCountries": [
+            "AT",
+            "HR",
+            "HU",
+            "IT"
+        ]
+    },
+    {
+        "id": "SJ",
+        "name": "Svalbard and Jan Mayen",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "SK",
+        "name": "Slovakia",
+        "capital": [
+            "Bratislava"
+        ],
+        "region": "Europe",
+        "population": 5459642,
+        "borderCountries": [
+            "AT",
+            "CZ",
+            "HU",
+            "PL",
+            "UA"
+        ]
+    },
+    {
+        "id": "SL",
+        "name": "Sierra Leone",
+        "capital": [
+            "Freetown"
+        ],
+        "region": "Africa",
+        "population": 7976983,
+        "borderCountries": [
+            "GN",
+            "LR"
+        ]
+    },
+    {
+        "id": "SM",
+        "name": "San Marino",
+        "capital": [
+            "San Marino"
+        ],
+        "region": "Europe",
+        "population": 33931,
+        "borderCountries": [
+            "IT"
+        ]
+    },
+    {
+        "id": "SN",
+        "name": "Senegal",
+        "capital": [
+            "Dakar"
+        ],
+        "region": "Africa",
+        "population": 16743927,
+        "borderCountries": [
+            "GM",
+            "GN",
+            "GW",
+            "ML",
+            "MR"
+        ]
+    },
+    {
+        "id": "SO",
+        "name": "Somalia",
+        "capital": [
+            "Mogadishu"
+        ],
+        "region": "Africa",
+        "population": 15893222,
+        "borderCountries": [
+            "DJ",
+            "ET",
+            "KE"
+        ]
+    },
+    {
+        "id": "SR",
+        "name": "Suriname",
+        "capital": [
+            "Paramaribo"
+        ],
+        "region": "Americas",
+        "population": 586632,
+        "borderCountries": [
+            "BR",
+            "GF",
+            "GY"
+        ]
+    },
+    {
+        "id": "SS",
+        "name": "South Sudan",
+        "capital": [
+            "Juba"
+        ],
+        "region": "Africa",
+        "population": 11193725,
+        "borderCountries": [
+            "CF",
+            "CD",
+            "ET",
+            "KE",
+            "SD",
+            "UG"
+        ]
+    },
+    {
+        "id": "ST",
+        "name": "Sao Tome and Principe",
+        "capital": [
+            "São Tomé"
+        ],
+        "region": "Africa",
+        "population": 219159,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "SV",
+        "name": "El Salvador",
+        "capital": [
+            "San Salvador"
+        ],
+        "region": "Americas",
+        "population": 6486201,
+        "borderCountries": [
+            "GT",
+            "HN"
+        ]
+    },
+    {
+        "id": "SX",
+        "name": "Sint Maarten (Dutch part)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "MF"
+        ]
+    },
+    {
+        "id": "SY",
+        "name": "Syrian Arab Republic",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "IQ",
+            "IL",
+            "JO",
+            "LB",
+            "TR"
+        ]
+    },
+    {
+        "id": "SZ",
+        "name": "Eswatini",
+        "capital": [
+            "Mbabane",
+            "Lobamba"
+        ],
+        "region": "Africa",
+        "population": 1160164,
+        "borderCountries": [
+            "MZ",
+            "ZA"
+        ]
+    },
+    {
+        "id": "TC",
+        "name": "Turks and Caicos Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "TD",
+        "name": "Chad",
+        "capital": [
+            "N'Djamena"
+        ],
+        "region": "Africa",
+        "population": 17081080,
+        "borderCountries": [
+            "CM",
+            "CF",
+            "LY",
+            "NE",
+            "NG",
+            "SD"
+        ]
+    },
+    {
+        "id": "TF",
+        "name": "French Southern Territories",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "TG",
+        "name": "Togo",
+        "capital": [
+            "Lomé"
+        ],
+        "region": "Africa",
+        "population": 8278724,
+        "borderCountries": [
+            "BJ",
+            "BF",
+            "GH"
+        ]
+    },
+    {
+        "id": "TH",
+        "name": "Thailand",
+        "capital": [
+            "Bangkok"
+        ],
+        "region": "Asia",
+        "population": 69799978,
+        "borderCountries": [
+            "KH",
+            "LA",
+            "MY",
+            "MM"
+        ]
+    },
+    {
+        "id": "TJ",
+        "name": "Tajikistan",
+        "capital": [
+            "Dushanbe"
+        ],
+        "region": "Asia",
+        "population": 9537645,
+        "borderCountries": [
+            "AF",
+            "CN",
+            "KG",
+            "UZ"
+        ]
+    },
+    {
+        "id": "TK",
+        "name": "Tokelau",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "TL",
+        "name": "Timor-Leste",
+        "capital": [
+            "Dili"
+        ],
+        "region": "Asia",
+        "population": 1318442,
+        "borderCountries": [
+            "ID"
+        ]
+    },
+    {
+        "id": "TM",
+        "name": "Turkmenistan",
+        "capital": [
+            "Ashgabat"
+        ],
+        "region": "Asia",
+        "population": 6031200,
+        "borderCountries": [
+            "AF",
+            "IR",
+            "KZ",
+            "UZ"
+        ]
+    },
+    {
+        "id": "TN",
+        "name": "Tunisia",
+        "capital": [
+            "Tunis"
+        ],
+        "region": "Africa",
+        "population": 11818618,
+        "borderCountries": [
+            "DZ",
+            "LY"
+        ]
+    },
+    {
+        "id": "TO",
+        "name": "Tonga",
+        "capital": [
+            "Nuku'alofa"
+        ],
+        "region": "Oceania",
+        "population": 105695,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "TR",
+        "name": "Turkey",
+        "capital": [
+            "Ankara"
+        ],
+        "region": "Asia",
+        "population": 84339067,
+        "borderCountries": [
+            "AM",
+            "AZ",
+            "BG",
+            "GE",
+            "GR",
+            "IR",
+            "IQ",
+            "SY"
+        ]
+    },
+    {
+        "id": "TT",
+        "name": "Trinidad and Tobago",
+        "capital": [
+            "Port of Spain"
+        ],
+        "region": "Americas",
+        "population": 1399491,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "TV",
+        "name": "Tuvalu",
+        "capital": [
+            "Funafuti"
+        ],
+        "region": "Oceania",
+        "population": 11792,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "TW",
+        "name": "Taiwan (Province of China)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "TZ",
+        "name": "Tanzania (the United Republic of)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "BI",
+            "CD",
+            "KE",
+            "MW",
+            "MZ",
+            "RW",
+            "UG",
+            "ZM"
+        ]
+    },
+    {
+        "id": "UA",
+        "name": "Ukraine",
+        "capital": [
+            "Kyiv"
+        ],
+        "region": "Europe",
+        "population": 43733762,
+        "borderCountries": [
+            "BY",
+            "HU",
+            "MD",
+            "PL",
+            "RO",
+            "RU",
+            "SK"
+        ]
+    },
+    {
+        "id": "UG",
+        "name": "Uganda",
+        "capital": [
+            "Kampala"
+        ],
+        "region": "Africa",
+        "population": 45741007,
+        "borderCountries": [
+            "CD",
+            "KE",
+            "RW",
+            "SS",
+            "TZ"
+        ]
+    },
+    {
+        "id": "UM",
+        "name": "United States Minor Outlying Islands",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "US",
+        "name": "United States of America",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "CA",
+            "MX"
+        ]
+    },
+    {
+        "id": "UY",
+        "name": "Uruguay",
+        "capital": [
+            "Montevideo"
+        ],
+        "region": "Americas",
+        "population": 3473727,
+        "borderCountries": [
+            "AR",
+            "BR"
+        ]
+    },
+    {
+        "id": "UZ",
+        "name": "Uzbekistan",
+        "capital": [
+            "Tashkent"
+        ],
+        "region": "Asia",
+        "population": 33469203,
+        "borderCountries": [
+            "AF",
+            "KZ",
+            "KG",
+            "TJ",
+            "TM"
+        ]
+    },
+    {
+        "id": "VA",
+        "name": "Holy See",
+        "capital": [
+            "Vatican City"
+        ],
+        "region": "Europe",
+        "population": 801,
+        "borderCountries": [
+            "IT"
+        ]
+    },
+    {
+        "id": "VC",
+        "name": "Saint Vincent and the Grenadines",
+        "capital": [
+            "Kingstown"
+        ],
+        "region": "Americas",
+        "population": 110947,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "VE",
+        "name": "Venezuela (Bolivarian Republic of)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "BR",
+            "CO",
+            "GY"
+        ]
+    },
+    {
+        "id": "VG",
+        "name": "Virgin Islands (British)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "VI",
+        "name": "Virgin Islands (U.S.)",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "VN",
+        "name": "Viet Nam",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            "KH",
+            "CN",
+            "LA"
+        ]
+    },
+    {
+        "id": "VU",
+        "name": "Vanuatu",
+        "capital": [
+            "Port Vila"
+        ],
+        "region": "Oceania",
+        "population": 307145,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "WF",
+        "name": "Wallis and Futuna",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "WS",
+        "name": "Samoa",
+        "capital": [
+            "Apia"
+        ],
+        "region": "Oceania",
+        "population": 198410,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "YE",
+        "name": "Yemen",
+        "capital": [
+            "Sana'a"
+        ],
+        "region": "Asia",
+        "population": 29825964,
+        "borderCountries": [
+            "OM",
+            "SA"
+        ]
+    },
+    {
+        "id": "YT",
+        "name": "Mayotte",
+        "capital": [],
+        "region": "",
+        "population": 0,
+        "borderCountries": [
+            ""
+        ]
+    },
+    {
+        "id": "ZA",
+        "name": "South Africa",
+        "capital": [
+            "Pretoria",
+            "Bloemfontein",
+            "Cape Town"
+        ],
+        "region": "Africa",
+        "population": 59308690,
+        "borderCountries": [
+            "BW",
+            "LS",
+            "MZ",
+            "NA",
+            "SZ",
+            "ZW"
+        ]
+    },
+    {
+        "id": "ZM",
+        "name": "Zambia",
+        "capital": [
+            "Lusaka"
+        ],
+        "region": "Africa",
+        "population": 18383955,
+        "borderCountries": [
+            "AO",
+            "BW",
+            "CD",
+            "MW",
+            "MZ",
+            "NA",
+            "TZ",
+            "ZW"
+        ]
+    },
+    {
+        "id": "ZW",
+        "name": "Zimbabwe",
+        "capital": [
+            "Harare"
+        ],
+        "region": "Africa",
+        "population": 14862924,
+        "borderCountries": [
+            "BW",
+            "MZ",
+            "ZA",
+            "ZM"
+        ]
+    }
+]

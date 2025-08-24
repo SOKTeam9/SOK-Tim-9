@@ -152,3 +152,74 @@ span.selected-node {
   color: green;
   font-weight: bold;
 }
+/* TERMINAL */
+#modern-terminal-container {
+    height: 150px; /* Možete podesiti visinu po potrebi */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.terminal-header {
+    background-color: #f0f0f0;
+    padding: 8px 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+}
+
+.terminal-body {
+    flex-grow: 1;
+    background-color: #fcfcfc;
+    color: #333;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.terminal-output {
+    flex-grow: 1;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    padding-bottom: 5px;
+}
+
+.terminal-output .start-text {
+    color: #777;
+    font-style: italic;
+}
+
+.terminal-input-wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.terminal-input {
+    background: transparent;
+    color: #333;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-family: 'Consolas', 'Monaco', monospace;
+    cursor: not-allowed;
+}
+
+.prompt {
+    color: #6a5acd; /* Ljubičasta boja za prompt */
+    margin-right: 5px;
+}

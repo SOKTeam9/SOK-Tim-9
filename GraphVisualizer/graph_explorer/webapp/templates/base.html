@@ -68,6 +68,51 @@
     </div>
     <div class="center">{% block mainView %}{% endblock %}</div>
   </div>
+  <div class="footer">
+            <div id="modern-terminal-container">
+              <div class="terminal-header">
+                <span class="terminal-title">TERMINAL</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-output">
+                  <span class="start-text">Modern Graph Visualizer Terminal.</span>
+                  <span class="start-text">Unesite komandu za početak...</span>
+                </div>
+                <div class="terminal-input-wrapper">
+                  <span class="prompt"> > </span>
+                  <input type="text" class="terminal-input">
+                </div>
+              </div>
+            </div>
+        </div>
+        <script>
+    const terminalOutput = document.querySelector('.terminal-output');
+    const terminalInput = document.querySelector('.terminal-input');
+
+    // Funkcija koja dodaje liniju teksta u izlazni deo
+    function appendLine(text, isCommand = false) {
+        const line = document.createElement('div');
+        line.innerHTML = `<span class="prompt">${isCommand ? '> ' : ''}</span><span class="line-text">${text}</span>`;
+        terminalOutput.appendChild(line);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight; // Automatski skroluje na dno
+    }
+
+    // Slušaj pritisak na taster u input polju
+    terminalInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const command = this.value; // Dohvati uneseni tekst
+            if (command.trim() !== '') {
+                appendLine(command, true); // Ispiši unesenu komandu
+                this.value = ''; // Obriši tekst iz input polja
+            }
+        }
+    });
+
+    // Postavi fokus na input polje kada se stranica učita
+    window.addEventListener('load', function() {
+        terminalInput.focus();
+    });
+</script>
   </div>
 </body>
 

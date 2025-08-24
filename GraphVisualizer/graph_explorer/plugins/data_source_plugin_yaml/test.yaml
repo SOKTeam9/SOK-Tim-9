@@ -660,298 +660,397 @@ kamioni:
     nosivost: 20000
     povezani_automobili: ["auto1","auto2"]
     povezani_avioni: ["avion2","avion5"]
+    aktivan: true
+
   - id: "kamion2"
     proizvodjac: "Scania"
     model: "R500"
     nosivost: 18000
     povezani_automobili: ["auto3"]
     povezani_avioni: ["avion1","avion7"]
+    aktivan: true
+
   - id: "kamion3"
     proizvodjac: "Mercedes"
     model: "Actros"
     nosivost: 22000
     povezani_automobili: ["auto4","auto5","auto6"]
     povezani_avioni: ["avion8"]
+    aktivan: true
+
   - id: "kamion4"
     proizvodjac: "MAN"
     model: "TGX"
     nosivost: 19000
     povezani_automobili: ["auto7"]
     povezani_avioni: ["avion10","avion14"]
+    aktivan: true
+
   - id: "kamion5"
     proizvodjac: "DAF"
     model: "XF"
     nosivost: 21000
     povezani_automobili: []
     povezani_avioni: ["avion12"]
+    aktivan: true
+
   - id: "kamion6"
     proizvodjac: "Volvo"
     model: "FH12"
     nosivost: 20000
     povezani_automobili: ["auto8"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion7"
     proizvodjac: "Scania"
     model: "S730"
     nosivost: 23000
     povezani_automobili: ["auto9","auto10"]
     povezani_avioni: ["avion15"]
+    aktivan: true
+
   - id: "kamion8"
     proizvodjac: "Mercedes"
     model: "Arocs"
     nosivost: 18000
     povezani_automobili: []
     povezani_avioni: ["avion16","avion17"]
+    aktivan: true
+
   - id: "kamion9"
     proizvodjac: "MAN"
     model: "TGS"
     nosivost: 20000
     povezani_automobili: ["auto11"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion10"
     proizvodjac: "DAF"
     model: "CF"
     nosivost: 21000
     povezani_automobili: ["auto12","auto13"]
     povezani_avioni: ["avion18"]
+    aktivan: true
+
   - id: "kamion11"
     proizvodjac: "Volvo"
     model: "FMX"
     nosivost: 18000
     povezani_automobili: []
     povezani_avioni: ["avion19"]
+    aktivan: true
+
   - id: "kamion12"
     proizvodjac: "Scania"
     model: "P360"
     nosivost: 20000
     povezani_automobili: ["auto14"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion13"
     proizvodjac: "Mercedes"
     model: "Atego"
     nosivost: 16000
     povezani_automobili: ["auto15"]
     povezani_avioni: ["avion20"]
+    aktivan: true
+
   - id: "kamion14"
     proizvodjac: "MAN"
     model: "LE"
     nosivost: 17000
     povezani_automobili: []
     povezani_avioni: ["avion21","avion22"]
+    aktivan: true
+
   - id: "kamion15"
     proizvodjac: "DAF"
     model: "LF"
     nosivost: 15000
     povezani_automobili: ["auto16"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion16"
     proizvodjac: "Volvo"
     model: "FL"
     nosivost: 14000
     povezani_automobili: ["auto17","auto18"]
     povezani_avioni: ["avion23"]
+    aktivan: true
+
   - id: "kamion17"
     proizvodjac: "Scania"
     model: "G450"
     nosivost: 20000
     povezani_automobili: []
     povezani_avioni: ["avion24"]
+    aktivan: true
+
   - id: "kamion18"
     proizvodjac: "Mercedes"
     model: "Arocs 6x4"
     nosivost: 19000
     povezani_automobili: ["auto19"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion19"
     proizvodjac: "MAN"
     model: "TGX 18.500"
     nosivost: 21000
     povezani_automobili: ["auto20","auto21"]
     povezani_avioni: ["avion25"]
+    aktivan: true
+
   - id: "kamion20"
     proizvodjac: "DAF"
     model: "XF 530"
     nosivost: 23000
     povezani_automobili: []
     povezani_avioni: ["avion26"]
+    aktivan: true
+
   - id: "kamion21"
     proizvodjac: "Volvo"
     model: "FH 540"
     nosivost: 22000
     povezani_automobili: ["auto22"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion22"
     proizvodjac: "Scania"
     model: "R620"
     nosivost: 20000
     povezani_automobili: []
     povezani_avioni: ["avion27"]
+    aktivan: true
+
   - id: "kamion23"
     proizvodjac: "Mercedes"
     model: "Actros 2545"
     nosivost: 21000
     povezani_automobili: ["auto23","auto24"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion24"
     proizvodjac: "MAN"
     model: "TGM"
     nosivost: 18000
     povezani_automobili: []
     povezani_avioni: ["avion28"]
+    aktivan: true
+
   - id: "kamion25"
     proizvodjac: "DAF"
     model: "CF 460"
     nosivost: 20000
     povezani_automobili: ["auto25"]
     povezani_avioni: ["avion29"]
+    aktivan: true
+
   - id: "kamion26"
     proizvodjac: "Volvo"
     model: "FH 460"
     nosivost: 22000
     povezani_automobili: []
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion27"
     proizvodjac: "Scania"
     model: "R500 6x2"
     nosivost: 20000
     povezani_automobili: ["auto26"]
     povezani_avioni: ["avion30"]
+    aktivan: true
+
   - id: "kamion28"
     proizvodjac: "Mercedes"
     model: "Arocs 8x4"
     nosivost: 24000
     povezani_automobili: []
     povezani_avioni: ["avion31"]
+    aktivan: true
+
   - id: "kamion29"
     proizvodjac: "MAN"
     model: "TGX 26.500"
     nosivost: 25000
     povezani_automobili: ["auto27","auto28"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion30"
     proizvodjac: "DAF"
     model: "XF 480"
     nosivost: 23000
     povezani_automobili: []
     povezani_avioni: ["avion32"]
+    aktivan: true
+
   - id: "kamion31"
     proizvodjac: "Volvo"
     model: "FH 500"
     nosivost: 21000
     povezani_automobili: ["auto29"]
     povezani_avioni: ["avion33"]
+    aktivan: true
+
   - id: "kamion32"
     proizvodjac: "Scania"
     model: "S520"
     nosivost: 22000
     povezani_automobili: []
     povezani_avioni: ["avion34"]
+    aktivan: true
+
   - id: "kamion33"
     proizvodjac: "Mercedes"
     model: "Actros 1845"
     nosivost: 23000
     povezani_automobili: ["auto30"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion34"
     proizvodjac: "MAN"
     model: "TGS 18.440"
     nosivost: 21000
     povezani_automobili: []
     povezani_avioni: ["avion35"]
+    aktivan: true
+
   - id: "kamion35"
     proizvodjac: "DAF"
     model: "XF 460 Space Cab"
     nosivost: 24000
     povezani_automobili: ["auto31"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion36"
     proizvodjac: "Volvo"
     model: "FH16 750"
     nosivost: 25000
     povezani_automobili: []
     povezani_avioni: ["avion36"]
+    aktivan: true
+
   - id: "kamion37"
     proizvodjac: "Scania"
     model: "G450 6x2"
     nosivost: 23000
     povezani_automobili: ["auto32","auto33"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion38"
     proizvodjac: "Mercedes"
     model: "Arocs SLT"
     nosivost: 26000
     povezani_automobili: []
     povezani_avioni: ["avion37"]
+    aktivan: true
+
   - id: "kamion39"
     proizvodjac: "MAN"
     model: "TGM 18.280"
     nosivost: 18000
     povezani_automobili: ["auto34"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion40"
     proizvodjac: "DAF"
     model: "LF 280"
     nosivost: 15000
     povezani_automobili: []
     povezani_avioni: ["avion38"]
+    aktivan: true
+
   - id: "kamion41"
     proizvodjac: "Volvo"
     model: "FE 320"
     nosivost: 17000
     povezani_automobili: ["auto35"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion42"
     proizvodjac: "Scania"
     model: "P410"
     nosivost: 20000
     povezani_automobili: []
     povezani_avioni: ["avion39"]
+    aktivan: true
+
   - id: "kamion43"
     proizvodjac: "Mercedes"
     model: "Atego 1523"
     nosivost: 16000
     povezani_automobili: ["auto36"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion44"
     proizvodjac: "MAN"
     model: "TGX 18.460"
     nosivost: 22000
     povezani_automobili: []
     povezani_avioni: ["avion40"]
+    aktivan: true
+
   - id: "kamion45"
     proizvodjac: "DAF"
     model: "XF 530 Space Cab"
     nosivost: 25000
     povezani_automobili: ["auto37"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion46"
     proizvodjac: "Volvo"
     model: "FH 540"
     nosivost: 26000
     povezani_automobili: []
     povezani_avioni: ["avion41"]
+    aktivan: true
+
   - id: "kamion47"
     proizvodjac: "Scania"
     model: "R580"
     nosivost: 27000
     povezani_automobili: ["auto38"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion48"
     proizvodjac: "Mercedes"
     model: "Actros 2545 SLT"
     nosivost: 28000
     povezani_automobili: []
     povezani_avioni: ["avion42"]
+    aktivan: true
+
   - id: "kamion49"
     proizvodjac: "MAN"
     model: "TGS 26.440"
     nosivost: 29000
     povezani_automobili: ["auto39"]
     povezani_avioni: []
+    aktivan: true
+
   - id: "kamion50"
     proizvodjac: "DAF"
     model: "CF 460 Super Space Cab"
     nosivost: 30000
     povezani_automobili: []
     povezani_avioni: ["avion43"]
+    aktivan: true
 

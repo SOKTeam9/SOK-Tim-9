@@ -26,7 +26,12 @@
           <div class="top-query">
             {% csrf_token %}
             <label>File:</label>
-            <input type="file" name="load_file" onchange="document.getElementById('uploadForm').submit();">
+             {% if selected_file_name %}
+            <span style="margin-left: px; font-weight: bold;">
+              {{ selected_file_name }}
+            </span>
+            {% endif %}
+            <input type="file" name="load_file" onchange="document.getElementById('uploadForm').submit();" style="width: 75px; ">
         </form>
         <form id="resetGraphForm" method="post" action="{% url 'reset_graph' %}">
           {% csrf_token %}

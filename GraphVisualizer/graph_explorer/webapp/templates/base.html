@@ -33,23 +33,27 @@
           {% csrf_token %}
           <button type="submit">Reset graph</button>
         </form>
-        <form id="searchForm" method="post" action="{% url 'query' %}">
+        <form id="searchForm" method="post" action="{% url 'query_search' %}">
           {% csrf_token %}
           <label for="search">Search:</label>
           <input type="text" id="search" name="search" />
           <button type="submit">Search</button>
+        </form>
       </div>
       <div class="mid-query">
-        <label>Filter:</label>
-        <input name="filter"></input>
-        <select id="relations" name="relations">
-          <option value="=">=</option>
-          <option value="<">&lt;</option>
-          <option value=">">&gt;</option>
-          <option value="<=">&le;</option>
-          <option value=">=">&ge;</option>
-        </select>
-        <input name="value"></input>
+        <form id="searchForm" method="post" action="{% url 'query_filter' %}">
+          {% csrf_token %}
+          <label>Filter:</label>
+          <input name="filter"></input>
+          <select id="relations" name="relations">
+            <option value="=">=</option>
+            <option value="<">&lt;</option>
+            <option value=">">&gt;</option>
+            <option value="<=">&le;</option>
+            <option value=">=">&ge;</option>
+          </select>
+          <input name="value"></input>
+          <button type="submit">Apply filter</button>
         </form>
       </div>
       <div class="bottom-query">

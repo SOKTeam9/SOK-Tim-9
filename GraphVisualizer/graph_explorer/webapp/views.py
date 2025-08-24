@@ -25,9 +25,10 @@ def reset_graph(request):
 
 def simple_visualizer(request):
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-    graph_data = handler.get_graph()
+    graph_data = handler.get_subgraph(filters)
     visualizer = SimpleVisualizer()
     context = visualizer.get_context(graph_data)
+    context["filter_string"] = _applied_filters()
     return render(request, "simple_template.html", context)
 
 def load_file(request):
@@ -60,19 +61,6 @@ def load_file(request):
 def make_search(request):
     if request.method == "POST":
         search_query = request.POST.get("search", "").strip()
-        filter_attribute = request.POST.get("filter", "").strip()
-        filter_relation = request.POST.get("relations", "").strip()
-        filter_value = request.POST.get("value", "").strip()
-
-        if filter_attribute != "" and filter_relation != "" and filter_value != "":
-            try:
-                actual_value = float(filter_value)
-            except:
-                actual_value = filter_value
-            
-            single_filter = (filter_attribute, filter_relation, actual_value)
-            if single_filter not in filters:
-                filters.append(single_filter)
 
         if search_query != "":
             attribute = search_query.split("-")[0]
@@ -87,10 +75,32 @@ def make_search(request):
             single_filter = (attribute, operator, actual_value)
             if single_filter not in filters:
                 filters.append(single_filter)
-        handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-        graph_data = handler.get_subgraph(filters)
-        visualizer = SimpleVisualizer()
-        context = visualizer.get_context(graph_data)
-        return render(request, "simple_template.html", context)
+        return simple_visualizer(request)
 
 
+def apply_filter(request):
+     if request.method == "POST":
+        filter_attribute = request.POST.get("filter", "").strip()
+        filter_relation = request.POST.get("relations", "").strip()
+        filter_value = request.POST.get("value", "").strip()
+
+        if filter_attribute != "" and filter_relation != "" and filter_value != "":
+            try:
+                actual_value = float(filter_value)
+            except:
+                actual_value = filter_value
+            
+            single_filter = (filter_attribute, filter_relation, actual_value)
+            if single_filter not in filters:
+                filters.append(single_filter)
+        
+        return simple_visualizer(request)
+    
+def _applied_filters():
+    list_strings = []
+    for filter in filters:
+        list_strings.append("".join(str(x) for x in filter))
+    
+    filter_string = ",".join(list_strings)
+    print(filter_string)
+    return filter_string

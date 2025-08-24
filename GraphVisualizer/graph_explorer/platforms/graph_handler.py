@@ -1,6 +1,5 @@
 from neo4j import GraphDatabase
 from neo4j.time import Date, DateTime
-import json
 from datetime import date, datetime
 
 def serialize_value(value):
@@ -125,7 +124,7 @@ class GraphHandler:
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
     # def serialize_value(self,value):
-    #     if isinstance(value, (date, datetime)):
+    #     if isinstance(value, (date, datetime, Date)):
     #         return value.isoformat()  # "2025-08-24" ili "2025-08-24T14:35:12"
     #     if isinstance(value, bool):
     #         return bool(value)  # reši True/False problem

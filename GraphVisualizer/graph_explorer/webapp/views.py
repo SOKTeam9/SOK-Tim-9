@@ -7,7 +7,7 @@ from neo4j.time import Date, DateTime
 from plugins.visualizer_block.block_visualizer import BlockVisualizer
 import json
 import datetime
-
+from plugins.factory import ParserFactory, VisualizerFactory
 from plugins.visualizer_simple.simple_visualizer import SimpleVisualizer
 from plugins.data_source_plugin_yaml.yaml_data_source_plugin import YamlFileParser
 from neo4j import GraphDatabase
@@ -57,7 +57,7 @@ def block_view(request):
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
     graph_data = handler.get_subgraph(filters)  # vraća nodes + links
 
-    visualizer = BlockVisualizer(graph_data)
+    visualizer = VisualizerFactory.create_visualizer("block", graph_data)
     html = visualizer.render()
 
     string_filters = _applied_filters()
@@ -68,8 +68,10 @@ def simple_visualizer(request):
     current_view = "simple"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
     graph_data = handler.get_subgraph(filters)
-    visualizer = SimpleVisualizer()
+
+    visualizer = VisualizerFactory.create_visualizer("simple")
     context = visualizer.get_context(graph_data)
+
     context["filter_string"] = _applied_filters()
     return render(request, "simple_template.html", context)
 
@@ -92,13 +94,13 @@ def load_file(request=None):
                         tmp.write(chunk)
                     tmp_path = tmp.name  # privremena putanja fajla
 
-                parser = YamlFileParser(tmp_path, driver)
-                parser.load()
-                # Zatvaranje drajvera
-                driver.close()
+            parser = ParserFactory.create_parser(tmp_path, driver, file_type)
+            parser.load()
+            # Zatvaranje drajvera
+            driver.close()
 
-                # Možeš odmah obrisati privremeni fajl
-                os.remove(tmp_path)
+            # Možeš odmah obrisati privremeni fajl
+            os.remove(tmp_path)
                 
     if current_view == "simple":
         return simple_visualizer(request)

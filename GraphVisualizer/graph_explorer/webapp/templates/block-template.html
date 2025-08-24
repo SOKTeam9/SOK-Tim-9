@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+{% block filters %}
+  <p id="applied-filters">{{ filter_string }}</p>
+{% endblock %}
+
+{% block mainView %}
+<h1>Main view</h1>
+<div id="graph" style="width: 100%; height: 100%;"></div>
+
+{{ graph_json|json_script:"graph-block-data-main" }}
+<script>
+(function ensureGlobalConfig(){
+  if (!window.graphConfig) {
+    const gd = JSON.parse(document.getElementById("graph-block-data-main").textContent);
+    window.graphConfig = {
+      width: 1050,
+      height: 480,
+      nodes: gd.nodes || [],
+      links: gd.links || []
+    };
+  }
+})();
+
+const nodesMV = window.graphConfig.nodes || [];
+const linksMV = window.graphConfig.links || [];
+const nodeMap = new Map(nodesMV.map(n => [n.id, n]));
+
+window.selectedNodes = new Set(); // Globalni set selektovanih čvorova
+
+const width = window.graphConfig.width, height = window.graphConfig.height;
+let simulation, zoom, container, svg;
+
+svg = d3.select("#graph").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+container = svg.append("g");
+
+zoom = d3.zoom()
+    .scaleExtent([0.1, 5])
+    .on("zoom.core", (event) => container.attr("transform", event.transform));
+
+svg.call(zoom);
+
+svg.append("defs").append("marker")
+    .attr("id", "arrow")
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", 0)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+  .append("path")
+    .attr("d", "M0,-5L10,0L0,5")
+    .attr("fill", "#333");
+
+simulation = d3.forceSimulation(nodesMV)
+    .force("link", d3.forceLink(linksMV).id(d => d.id).distance(150))
+    .force("charge", d3.forceManyBody().strength(-800))
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+const link = container.selectAll(".link")
+    .data(linksMV)
+    .enter().append("line")
+    .attr("stroke", "#333")
+    .attr("stroke-width", 1.5)
+    .attr("marker-end", "url(#arrow)");
+
+const node = container.selectAll(".node")
+    .data(nodesMV)
+    .enter()
+    .append("g")
+    .attr("class", "node")
+    .call(d3.drag()
+        .on("start", (event, d) => {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x; d.fy = d.y;
+        })
+        .on("drag", (event, d) => { d.fx = event.x; d.fy = event.y; })
+        .on("end", (event, d) => { if (!event.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
+    );
+
+node.append("rect")
+    .attr("width", 160)
+    .attr("height", d => (d.properties ? Object.keys(d.properties).length : 0) * 15 + 30)
+    .attr("rx", 10).attr("ry", 10)
+    .style("fill", "#f5f5f5")
+    .style("stroke", "#333")
+    .style("stroke-width", 1.5);
+
+node.append("text")
+    .attr("x", 10)
+    .attr("y", 20)
+    .text(d => d.properties?.name || d.id || "Node")
+    .style("font-weight", "bold");
+
+node.each(function(d){
+  const g = d3.select(this);
+  const props = d.properties ? Object.entries(d.properties) : [];
+  props.forEach((entry, i) => {
+    g.append("text")
+     .attr("x", 10)
+     .attr("y", 40 + i*15)
+     .text(`${entry[0]}: ${entry[1]}`)
+     .style("font-size", "10px");
+  });
+});
+
+simulation.on("tick", () => {
+  link
+      .attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
+  node.attr("transform", d => `translate(${d.x},${d.y})`);
+});
+
+// Funkcija za update tree view
+function updateTreeViewText() {
+  document.querySelectorAll("#treeView li > span").forEach(span => {
+    const nodeId = String(span.dataset.nodeId);
+    if(window.selectedNodes.has(nodeId)){
+      span.classList.add("selected-node");
+    } else {
+      span.classList.remove("selected-node");
+    }
+  });
+}
+
+
+// Main view klik
+node.on("click", (event, d) => {
+  const idStr = String(d.id);
+  if (window.selectedNodes.has(idStr)) window.selectedNodes.delete(idStr);
+  else window.selectedNodes.add(idStr);
+
+  node.select("rect").style("fill", n => window.selectedNodes.has(String(n.id)) ? "green" : "#f5f5f5");
+  node.selectAll("text").style("fill", n => window.selectedNodes.has(String(n.id)) ? "white" : "steelblue");
+
+  if(window.birdContainer)
+    window.birdContainer.selectAll("rect.bnode")
+      .attr("fill", n => window.selectedNodes.has(String(n.id)) ? "green" : "#666");
+
+  updateTreeViewText();
+});
+
+window.mainSvg = svg;
+window.mainContainer = container;
+window.mainZoom = zoom;
+window.simulation = simulation;
+window.mainSize = { width, height };
+</script>
+{% endblock %}
+
+{% block treeView %}
+<h1>Tree view</h1>
+<div style="margin-bottom: 5px;">
+  <button id="expandAll">Expand All</button>
+  <button id="collapseAll">Collapse All</button>
+</div>
+<div id="treeView" style="height: 67%; overflow: auto; border: 1px solid #ccc;"></div>
+
+{{ graph_json|json_script:"graph-block-data-tree" }}
+<script>
+(function ensureGlobalConfig(){
+  if (!window.graphConfig) {
+    const gd = JSON.parse(document.getElementById("graph-block-data-tree").textContent);
+    window.graphConfig = {
+      width: 1050,
+      height: 480,
+      nodes: gd.nodes || [],
+      links: gd.links || []
+    };
+  }
+})();
+
+const nodesTV = window.graphConfig.nodes || [];
+const links = window.graphConfig.links || [];
+
+function getConnectedNodes(nodeId){
+  return links.filter(l => (l.source.id||l.source)===nodeId || (l.target.id||l.target)===nodeId)
+              .map(l => (l.source.id||l.source)===nodeId ? (l.target.id||l.target) : (l.source.id||l.source))
+              .map(id => nodesTV.find(n => n.id===id))
+              .filter(Boolean);
+}
+
+function renderTree(container,node,depth=0,maxDepth=3,visited=new Set()){
+  if(depth>maxDepth || !node || visited.has(node.id)) return;
+  visited.add(node.id);
+
+  const li = document.createElement("li");
+  li.dataset.depth = depth;
+
+  const span = document.createElement("span");
+  span.textContent = node.properties?.name || node.id;
+  span.dataset.nodeId = node.id;
+  span.style.cursor = "pointer";
+
+  const button = document.createElement("button");
+  button.textContent = "+";
+
+  const ul = document.createElement("ul");
+  ul.style.display = "none";
+  ul.style.paddingLeft = "15px";
+
+  if(node.properties){
+    for(const [k,v] of Object.entries(node.properties)){
+      const propLi = document.createElement("li");
+      propLi.textContent = `${k}: ${v}`;
+      ul.appendChild(propLi);
+    }
+  }
+
+  const connected = getConnectedNodes(node.id);
+  connected.forEach(child => renderTree(ul,child,depth+1,maxDepth,new Set(visited)));
+
+  button.addEventListener("click",()=> {
+    if(ul.style.display==="none"){ ul.style.display="block"; button.textContent="−"; }
+    else{ ul.style.display="none"; button.textContent="+"; }
+  });
+
+  span.addEventListener("click",()=> {
+    button.click();
+    const idStr = String(node.id);
+    if(window.selectedNodes.has(idStr)) window.selectedNodes.delete(idStr);
+    else window.selectedNodes.add(idStr);
+
+    // Main
+    const mainNodes = window.mainContainer.selectAll(".node");
+    mainNodes.select("rect").style("fill", n=>window.selectedNodes.has(String(n.id)) ? "green" : "#f5f5f5");
+    mainNodes.selectAll("text").style("fill", n=>window.selectedNodes.has(String(n.id)) ? "white" : "steelblue");
+
+    // Bird
+    if(window.birdContainer)
+      window.birdContainer.selectAll("rect.bnode").attr("fill", n=>window.selectedNodes.has(String(n.id)) ? "green" : "#666");
+
+    updateTreeViewText();
+  });
+
+  li.appendChild(button);
+  li.appendChild(span);
+  li.appendChild(ul);
+  container.appendChild(li);
+}
+
+const treeContainer = document.getElementById("treeView");
+const ulRoot = document.createElement("ul");
+nodesTV.forEach(n => renderTree(ulRoot,n));
+treeContainer.appendChild(ulRoot);
+
+document.getElementById("expandAll").addEventListener("click",()=> {
+  treeContainer.querySelectorAll("ul ul").forEach(ul=>ul.style.display="block");
+  treeContainer.querySelectorAll("#treeView li > button").forEach(b=>b.textContent="−");
+});
+document.getElementById("collapseAll").addEventListener("click",()=> {
+  treeContainer.querySelectorAll("ul ul").forEach(ul=>ul.style.display="none");
+  treeContainer.querySelectorAll("#treeView li > button").forEach(b=>b.textContent="+");
+});
+</script>
+{% endblock %}
+
+{% block birdView %}
+<h1>Bird view</h1>
+<div id="birdViewContainer" style="width: 300px; height: 200px; border: 1px solid #ccc; position: relative; padding: 5px;">
+  <svg id="birdView" width="100%" height="100%"></svg>
+</div>
+<div id="birdTooltip" style="
+  position: absolute;
+  padding: 6px 10px;
+  background: rgba(0,0,0,0.85);
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  visibility: hidden;
+  max-width: 200px;
+  white-space: normal;
+  line-height: 1.4;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+"></div>
+
+{{ graph_json|json_script:"graph-block-data-bird" }}
+<script>
+function initBirdOnceMainReady(){
+  if(!(window.mainSvg && window.mainZoom && window.simulation && window.mainSize)){
+    setTimeout(initBirdOnceMainReady,50);
+    return;
+  }
+
+  const nodesBV = window.graphConfig.nodes;
+  const linksBV = window.graphConfig.links;
+
+  const birdSvg = d3.select("#birdView");
+  const bbox = birdSvg.node().getBoundingClientRect();
+  const birdWidth = bbox.width || 300;
+  const birdHeight = bbox.height || 200;
+
+  const birdContainer = birdSvg.append("g");
+  window.birdContainer = birdContainer;
+
+  const viewport = birdSvg.append("rect")
+    .attr("fill","rgba(255,0,0,0.15)")
+    .attr("stroke","red")
+    .attr("stroke-width",1.2);
+
+  function computeGraphBounds(){
+    const xs = nodesBV.map(n=>n.x||0);
+    const ys = nodesBV.map(n=>n.y||0);
+    return { minX: Math.min(...xs), maxX: Math.max(...xs),
+             minY: Math.min(...ys), maxY: Math.max(...ys),
+             width: Math.max(...xs)-Math.min(...xs), height: Math.max(...ys)-Math.min(...ys)};
+  }
+
+  function drawBirdView(){
+    const bounds = computeGraphBounds();
+    const scale = Math.min(birdWidth/bounds.width, birdHeight/bounds.height)*0.9;
+    const offsetX = (birdWidth - bounds.width*scale)/2 - bounds.minX*scale;
+    const offsetY = (birdHeight - bounds.height*scale)/2 - bounds.minY*scale;
+
+    birdContainer.selectAll("line.blink")
+      .data(linksBV)
+      .join("line")
+      .attr("class","blink")
+      .attr("stroke","#aaa")
+      .attr("stroke-width",1)
+      .attr("x1", d=>(d.source.x||0)*scale+offsetX)
+      .attr("y1", d=>(d.source.y||0)*scale+offsetY)
+      .attr("x2", d=>(d.target.x||0)*scale+offsetX)
+      .attr("y2", d=>(d.target.y||0)*scale+offsetY);
+
+    const tooltip = d3.select("#birdTooltip");
+
+    const bnodes = birdContainer.selectAll("rect.bnode")
+      .data(nodesBV)
+      .join("rect")
+      .attr("class","bnode")
+      .attr("x", d=>(d.x||0)*scale+offsetX-3)
+      .attr("y", d=>(d.y||0)*scale+offsetY-3)
+      .attr("width",6)
+      .attr("height",6)
+      .attr("fill", d=>window.selectedNodes.has(String(d.id)) ? "green" : "#666")
+      .raise();
+
+    const t = d3.zoomTransform(window.mainSvg.node());
+    const vw = window.mainSize.width/t.k*scale;
+    const vh = window.mainSize.height/t.k*scale;
+    const vx = (-t.x/t.k)*scale + offsetX;
+    const vy = (-t.y/t.k)*scale + offsetY;
+    viewport.attr("x",vx).attr("y",vy).attr("width",vw).attr("height",vh);
+
+    bnodes
+      .on("mouseover", function(event,d){
+        tooltip.style("visibility","visible")
+               .html(Object.entries(d.properties||{}).map(([k,v])=>`<b>${k}</b>: ${v}`).join("<br>"));
+      })
+      .on("mousemove", function(event){
+        tooltip.style("top",(event.pageY-100)+"px").style("left",(event.pageX+10)+"px");
+      })
+      .on("mouseout", ()=>tooltip.style("visibility","hidden"))
+      .on("click", function(event,d){
+        const idStr = String(d.id);
+        if(window.selectedNodes.has(idStr)) window.selectedNodes.delete(idStr);
+        else window.selectedNodes.add(idStr);
+
+        bnodes.attr("fill", n=>window.selectedNodes.has(String(n.id)) ? "green" : "#666");
+
+        const mainNodes = window.mainContainer.selectAll(".node");
+        mainNodes.select("rect").style("fill", n=>window.selectedNodes.has(String(n.id)) ? "green" : "#f5f5f5");
+        mainNodes.selectAll("text").style("fill", n=>window.selectedNodes.has(String(n.id)) ? "white" : "steelblue");
+
+        updateTreeViewText();
+      });
+  }
+
+  viewport.call(d3.drag().on("drag",(event)=>{
+    const bounds = computeGraphBounds();
+    const scale = Math.min(birdWidth/bounds.width, birdHeight/bounds.height)*0.9;
+    const offsetX = (birdWidth - bounds.width*scale)/2 - bounds.minX*scale;
+    const offsetY = (birdHeight - bounds.height*scale)/2 - bounds.minY*scale;
+
+    const current = d3.zoomTransform(window.mainSvg.node());
+    const k = current.k;
+    const nx = event.x, ny = event.y;
+
+    viewport.attr("x", nx).attr("y", ny);
+
+    const tx = -(nx-offsetX)/scale;
+    const ty = -(ny-offsetY)/scale;
+    window.mainSvg.call(window.mainZoom.transform,d3.zoomIdentity.translate(tx,ty).scale(k));
+  }));
+
+  window.mainZoom.on("zoom.bird", ()=>drawBirdView());
+  window.simulation.on("tick.bird", drawBirdView);
+  drawBirdView();
+}
+initBirdOnceMainReady();
+</script>
+{% endblock %}

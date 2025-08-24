@@ -1,4 +1,11 @@
-{% extends "base.html" %} {% load static %} {% block mainView %}
+{% extends "base.html" %} {% load static %} 
+
+{% block filters %}
+  <p id="applied-filters">{{ filter_string }}</p>
+{% endblock %}
+
+
+{% block mainView %}
 <h1 class="text-center">Main view</h1>
 
 <div id="graph" style="background-color: #f9f9f9; width: 100%; height: 80%;"></div>
@@ -191,11 +198,12 @@
         const xExtent = d3.extent(window.nodes, d => d.x);
         const yExtent = d3.extent(window.nodes, d => d.y);
 
-        const graphWidth = xExtent[1] - xExtent[0];
-        const graphHeight = yExtent[1] - yExtent[0];
-
+        const graphWidth = xExtent[1] - xExtent[0] || 1000;
+        const graphHeight = yExtent[1] - yExtent[0] || 1000;
+        
         // scale to fit entire main graph in bird-view
-        const scale = Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight);
+        let factor = 0.75;
+        const scale = Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight) *factor;
         const offsetX = (window.birdWidth - graphWidth * scale) / 2;
         const offsetY = (window.birdHeight - graphHeight * scale) / 2;
 
@@ -219,7 +227,7 @@
         const viewY = scaleY(-transform.y / transform.k);
         const viewWidth = (width / transform.k) * scale;
         const viewHeight = (height / transform.k) * scale;
-
+ 
         window.birdViewport
             .attr("x", viewX)
             .attr("y", viewY)

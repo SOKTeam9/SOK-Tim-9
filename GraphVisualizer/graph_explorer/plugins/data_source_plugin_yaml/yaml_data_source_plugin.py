@@ -39,9 +39,15 @@ class YamlFileParser(BaseParser):
                 node_props = {k: v for k, v in single_data.items() if not isinstance(v, list) or (isinstance(v, list) and not any(item in all_ids for item in v))}
                 
                 node_props["label"] = group_name.capitalize()
-                print(node_props)
                 nodes.append(node_props)
 
+        rel_keys = {rel[2] for rel in relationships}
+       
+        for node in nodes:
+            for key in rel_keys:
+                if key in node:
+                    del node[key]
+                    
         return nodes, relationships
 
 #TEST

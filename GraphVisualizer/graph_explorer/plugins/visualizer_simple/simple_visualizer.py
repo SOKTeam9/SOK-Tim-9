@@ -10,5 +10,5 @@ class SimpleVisualizer:
         """
         return {
             "nodes": graph_data["nodes"],
-            "edges": graph_data["edges"],
+            "edges": graph_data["links"],
         }

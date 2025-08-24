@@ -10,11 +10,13 @@ html {
 .page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 95vh;
 }
 
 /* HEADER */
 .header {
+  flex: none;
+  height: 16%;
   display: flex;
   justify-content: space-between;
   align-items: stretch; /* iste visine za left-header i right-header */
@@ -113,12 +115,11 @@ button.reset:hover {
 .left .top {
   flex: 2;
   padding: 5px;
-  min-height: 47%;            /* sprečava da sadržaj gura flex */
-  overflow: hidden; 
+  min-height: 47%; /* sprečava da sadržaj gura flex */
+  overflow: hidden;
 }
 
-
-.left .top #treeView{
+.left .top #treeView {
   overflow: auto;
 }
 
@@ -136,12 +137,24 @@ button.reset:hover {
   padding: 5px;
 }
 
-.link { stroke: #aaa; }
-.node { fill: steelblue; cursor: pointer; }
-.label { font-size: 12px; text-anchor: middle; }
+.link {
+  stroke: #aaa;
+}
+.node {
+  fill: steelblue;
+  cursor: pointer;
+}
+.label {
+  font-size: 12px;
+  text-anchor: middle;
+}
 
-.link-small { stroke: #ccc; }
-.node-small { fill: black; }
+.link-small {
+  stroke: #ccc;
+}
+.node-small {
+  fill: black;
+}
 
 h1 {
   margin-top: 8px;
@@ -151,4 +164,31 @@ h1 {
 span.selected-node {
   color: green;
   font-weight: bold;
+}
+
+.workspaces {
+  flex: none;
+  height: 3%;
+  display: flex;
+  border-top: 1px solid #ccc;
+  background: #f7f7f7;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.workspace-tab {
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background: #eaeaea;
+  padding: 8px 16px;
+  margin-right: 4px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  width: 18%;
+}
+
+.workspace-tab.active {
+  background: white;
+  font-weight: bold;
+  border-bottom: 2px solid white; /* da izgleda "spojeno" sa sadržajem */
 }

@@ -38,6 +38,26 @@ class GraphHandler:
 
         return {"nodes": list(nodes.values()), "edges": edges}
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     def get_subgraph(self, filters):
         nodes = {}
         edges = []

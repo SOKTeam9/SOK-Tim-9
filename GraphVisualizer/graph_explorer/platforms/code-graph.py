@@ -53,32 +53,22 @@ def create_nodes(tx):
 
 
 def create_relationships(tx):
-    # Hijerarhija + ciklusi (sve isti tip veze: CONNECTED_TO)
     relationships = [
-        # Categories -> Subcategories
         (0, 3), (0, 4),
         (1, 5), (1, 6),
         (2, 4), (2, 6),
 
-        # Subcategories -> Items
         (3, 7), (3, 8),
         (4, 9), (4, 10),
         (5, 11),
         (6, 12),
 
-        # Items -> Tags
         (7, 13), (8, 14),
         (9, 15), (10, 16),
         (11, 17), (12, 18),
 
-        # Tags -> vraćaju unazad (ciklusi)
-        (13, 0),   # Xi → Alpha
-        (14, 1),   # Omicron → Beta
-        (15, 3),   # Pi → Delta
-        (16, 7),   # Rho → Theta
-        (17, 2),   # Sigma → Gamma
-        (18, 5),   # Tau → Zeta
-        (19, 0),   # Upsilon → Alpha
+        (13, 0), (14, 1), (15, 3), (16, 7),
+        (17, 2), (18, 5), (19, 0),
     ]
 
     for start, end in relationships:
@@ -88,14 +78,17 @@ def create_relationships(tx):
         """, start=start, end=end)
 
 
-def main():
-    with driver.session() as session:
+def main(database="neo4j"):
+    # prosledimo ime baze ovde
+    with driver.session(database=database) as session:
         session.execute_write(clear_database)
         session.execute_write(create_nodes)
         session.execute_write(create_relationships)
 
-    print("✅ Hijerarhijski graf sa 20 čvorova, datumima i ciklusima kreiran.")
+    print(f"✅ Hijerarhijski graf sa 20 čvorova kreiran u bazi: {database}")
 
 
 if __name__ == "__main__":
-    main()
+
+    # Upis u drugu bazu, npr. "test"
+    main(database="neo4j2")

@@ -1,11 +1,20 @@
 from ..base_parser import BaseParser
 import json
+from pathlib import Path
 
 class JSONGraphParser(BaseParser):
-    def __init__(self, file_name, driver, key_field="id", node_label="Node"):
+    def __init__(self, file_name, driver, node_label=None):
         super().__init__(file_name, driver)
-        self.key_field = key_field
+        self.key_field = "id"  #PRETPOSTAVLJA SE DA SVAKI OBJEKAT U FAJLU IMA ATRIBUT ID
         self.node_label = node_label
+
+    def detect_node_label(self):
+        if self.node_label:
+            return self.node_label
+
+        base_name = Path(self.file_name).stem
+        return base_name.capitalize()  # npr. "countries" → "Countries"
+
 
     def parse_data(self):
         try:
@@ -20,6 +29,11 @@ class JSONGraphParser(BaseParser):
             objects = data
         else:
             raise ValueError("JSON file must be list or dict")
+        
+        if not objects:
+            raise ValueError("JSON file is empty or invalid")
+
+        self.node_label = self.detect_node_label()
         
         all_nodes = []
         all_relationships = []

@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
-    
-    <!-- <script type="text/javascript" src="{% static 'd3.v3.js' %}"></script> -->
+    <script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>GraphVisualizer</title>
   </head>
@@ -15,8 +14,8 @@
         <div class="left-header">
           <a href="{% url 'index' %}">Graph Visualizer</a>
           <div class="views">
+            <a href="{% url 'block_visualizer' %}"><button name="block-view">Block view</button></a>
             <a class="simple" href="{% url 'simple_visualizer' %}"><button class="simple-button" name="simple-view">Simple view</button></a>
-            <button name="block-view">Block view</button>
           </div>
         </div>
         <div class="rigth-header">

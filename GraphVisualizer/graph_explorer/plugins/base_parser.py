@@ -1,12 +1,13 @@
 from abc import ABC, abstractmethod
 
 class BaseParser(ABC):
-    def __init__(self, file_name, driver):
+    def __init__(self, file_name, driver, database="neo4j1"):
         self.file_name = file_name
         self.driver = driver
+        self.database = database
 
     def load(self):
-        with self.driver.session() as session:
+        with self.driver.session(database=self.database) as session:
             session.execute_write(self.clear_database)
             
             nodes, relationships = self.parse_data()

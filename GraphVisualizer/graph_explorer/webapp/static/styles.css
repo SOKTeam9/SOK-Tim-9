@@ -184,7 +184,7 @@ span.selected-node {
   margin-right: 4px;
   cursor: pointer;
   border-radius: 5px 5px 0 0;
-  width: 18%;
+  width: 100%;
 }
 
 .workspace-tab.active {

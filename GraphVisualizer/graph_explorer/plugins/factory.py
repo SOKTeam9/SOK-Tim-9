@@ -7,14 +7,14 @@ from .visualizer_simple.simple_visualizer import SimpleVisualizer
 #FACTORY METHOD PATTERN
 class ParserFactory:
     @staticmethod
-    def create_parser(file_name, driver, file_type):
+    def create_parser(file_name, driver, file_type, database):
         file_type = file_type.lower()
         if file_type == "json":
-            return JSONGraphParser(file_name, driver)
+            return JSONGraphParser(file_name, driver, database)
         elif file_type == "xml":
-            return XmlFileParser(file_name, driver)
+            return XmlFileParser(file_name, driver, database)
         elif file_type == "yaml":
-            return YamlFileParser(file_name, driver)
+            return YamlFileParser(file_name, driver, database)
         else:
             raise ValueError(f"Unsupported parser type: {file_type}")
 

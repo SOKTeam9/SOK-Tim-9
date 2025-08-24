@@ -22,14 +22,14 @@ handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
 current_view = "simple"
 
 def index(request):
-    return render(request, 'index.html', {'title': 'Index'})
+    return render(request, 'index.html', {'title': 'Index', 'ws_id': 1})
 
-def reset_graph(request):
+def reset_graph(request, ws_id):
     filters.clear()
     if current_view == "simple":
-        return simple_visualizer(request)
+        return simple_visualizer(request, ws_id=ws_id)
     else:
-        return block_view(request)
+        return block_view(request, ws_id=ws_id)
 
 class Neo4jJSONEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -44,40 +44,51 @@ class Neo4jJSONEncoder(json.JSONEncoder):
         return super().default(obj)
 
 
-def graph_block_data(request):
+def graph_block_data(request, ws_id):
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
     return JsonResponse(
-    handler.get_graph(),
+    handler.get_graph("neo4j" + str(ws_id)),
     safe=False,
     encoder=Neo4jJSONEncoder)
 
-def block_view(request, file_name=None):
+def block_view(request, file_name=None, ws_id=1):
     global current_view
     current_view = "block"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-    graph_data = handler.get_subgraph(filters)  # vraća nodes + links
+    graph_data = handler.get_subgraph(filters, "neo4j" + str(ws_id))  # vraća nodes + links
 
     visualizer = VisualizerFactory.create_visualizer("block", graph_data)
     html = visualizer.render()
 
     string_filters = _applied_filters()
 
-    return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": file_name})
+    return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": file_name, "ws_id": ws_id})
 
-def simple_visualizer(request, file_name=None):
+def simple_visualizer(request, file_name=None, ws_id=1):
     global current_view
     current_view = "simple"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-    graph_data = handler.get_subgraph(filters)
+    graph_data = handler.get_subgraph(filters, "neo4j" + str(ws_id))
 
     visualizer = VisualizerFactory.create_visualizer("simple")
     context = visualizer.get_context(graph_data)
 
     context["filter_string"] = _applied_filters()
     context["selected_file_name"] = file_name
+    context["ws_id"] = ws_id
     return render(request, "simple_template.html", context)
 
-def load_file(request=None):
+def workspace_switch(request, ws_id=1):
+    global current_view
+    if current_view == "simple":
+        return simple_visualizer(request, ws_id=ws_id)
+    else:
+        return block_view(request, ws_id=ws_id)
+
+
+
+
+def load_file(request=None, ws_id=1):
     selected_file_name = None
 
     if request is not None:
@@ -99,7 +110,7 @@ def load_file(request=None):
                         tmp.write(chunk)
                     tmp_path = tmp.name  # privremena putanja fajla
 
-            parser = ParserFactory.create_parser(tmp_path, driver, file_type)
+            parser = ParserFactory.create_parser(tmp_path, driver, file_type, "neo4j" + str(ws_id))
             parser.load()
             # Zatvaranje drajvera
             driver.close()
@@ -112,7 +123,7 @@ def load_file(request=None):
     else:
         return block_view(request, selected_file_name)
 
-def make_search(request=None):
+def make_search(request=None, ws_id=1):
     if request.method == "POST":
         search_query = request.POST.get("search", "").strip()
 
@@ -130,12 +141,12 @@ def make_search(request=None):
             if single_filter not in filters:
                 filters.append(single_filter)
         if current_view == "simple":
-            return simple_visualizer(request)
+            return simple_visualizer(request, ws_id=ws_id)
         else:
-            return block_view(request)
+            return block_view(request, ws_id=ws_id)
 
 
-def apply_filter(request=None):
+def apply_filter(request=None, ws_id=1):
     if request is not None:
         if request.method == "POST":
             filter_attribute = request.POST.get("filter", "").strip()
@@ -153,9 +164,9 @@ def apply_filter(request=None):
                     filters.append(single_filter)
             
     if current_view == "simple":
-        return simple_visualizer(request)
+        return simple_visualizer(request, ws_id=ws_id)
     else:
-        return block_view(request)
+        return block_view(request, ws_id=ws_id)
     
 def _applied_filters():
     list_strings = []
@@ -172,7 +183,7 @@ def _applied_filters():
 
     return list_strings
 
-def filter_remove(request):
+def filter_remove(request, ws_id=1):
     selected_filter = request.GET.get("filter")
     for single_filter in filters:
         merged = "".join(str(x) for x in single_filter)
@@ -180,6 +191,6 @@ def filter_remove(request):
             filters.remove(single_filter)
             break
     if current_view == "simple":
-        return simple_visualizer(request)
+        return simple_visualizer(request, ws_id=ws_id)
     else:
-        return block_view(request)
+        return block_view(request, ws_id=ws_id)

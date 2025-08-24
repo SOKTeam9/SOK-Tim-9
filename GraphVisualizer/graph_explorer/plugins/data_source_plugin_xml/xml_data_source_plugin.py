@@ -7,8 +7,8 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 
 class XmlFileParser(BaseParser):
-    def __init__(self, file_name, driver):
-        super().__init__(file_name, driver)
+    def __init__(self, file_name, driver, database):
+        super().__init__(file_name, driver, database)
 
     def parse_data(self):
         nodes = []

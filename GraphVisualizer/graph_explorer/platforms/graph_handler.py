@@ -3,6 +3,14 @@ from neo4j.time import Date, DateTime
 from datetime import date, datetime
 import re
 
+# WORKSPACES = {
+#     "ws1": "neo4j1",   # default baza
+#     "ws2": "neo4j2",
+#     "ws3": "neo4j3",
+#     "ws4": "neo4j4",
+#     "ws5": "neo4j5",
+# }
+
 def serialize_value(value):
     if isinstance(value, (Date, DateTime)):
         return str(value)  # npr. "2025-08-20"
@@ -27,6 +35,14 @@ def cypher_value(val):
 class GraphHandler:
     def __init__(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
+
+    # def get_graph_by_workspace(self, workspace_key):
+    #     database = WORKSPACES.get(workspace_key, "neo4j1")  # fallback
+    #     return self.get_graph(database=database)
+
+    # def get_subgraph_by_workspace(self, workspace_key, filters):
+    #     database = WORKSPACES.get(workspace_key, "neo4j1")
+    #     return self.get_subgraph(filters, database=database)
 
     # def serialize_value(self,value):
     #     if isinstance(value, (date, datetime, Date)):

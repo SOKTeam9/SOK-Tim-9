@@ -51,7 +51,7 @@ def graph_block_data(request):
     safe=False,
     encoder=Neo4jJSONEncoder)
 
-def block_view(request):
+def block_view(request, file_name=None):
     global current_view
     current_view = "block"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
@@ -61,9 +61,10 @@ def block_view(request):
     html = visualizer.render()
 
     string_filters = _applied_filters()
-    return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters})
 
-def simple_visualizer(request):
+    return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": file_name})
+
+def simple_visualizer(request, file_name=None):
     global current_view
     current_view = "simple"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
@@ -73,13 +74,17 @@ def simple_visualizer(request):
     context = visualizer.get_context(graph_data)
 
     context["filter_string"] = _applied_filters()
+    context["selected_file_name"] = file_name
     return render(request, "simple_template.html", context)
 
 def load_file(request=None):
+    selected_file_name = None
+
     if request is not None:
         if request.method == "POST":
             uploaded_file = request.FILES.get("load_file")
             if uploaded_file:
+                selected_file_name = uploaded_file.name
                 uri = "neo4j://127.0.0.1:7687"
                 username = "neo4j"
                 password = "djomlaboss"
@@ -101,11 +106,11 @@ def load_file(request=None):
 
             # Možeš odmah obrisati privremeni fajl
             os.remove(tmp_path)
-                
+    
     if current_view == "simple":
-        return simple_visualizer(request)
+        return simple_visualizer(request, selected_file_name)
     else:
-        return block_view(request)
+        return block_view(request, selected_file_name)
 
 def make_search(request=None):
     if request.method == "POST":

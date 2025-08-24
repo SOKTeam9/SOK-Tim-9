@@ -58,7 +58,7 @@ def block_view(request):
     graph_data = handler.get_subgraph(filters)  # vraća nodes + links
 
     visualizer = VisualizerFactory.create_visualizer("block", graph_data)
-    html = visualizer.render()
+    html = visualizer.visualize(graph_data)
 
     string_filters = _applied_filters()
     return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters})
@@ -70,7 +70,8 @@ def simple_visualizer(request):
     graph_data = handler.get_subgraph(filters)
 
     visualizer = VisualizerFactory.create_visualizer("simple")
-    context = visualizer.get_context(graph_data)
+
+    context = visualizer.visualize(graph_data)
 
     context["filter_string"] = _applied_filters()
     return render(request, "simple_template.html", context)

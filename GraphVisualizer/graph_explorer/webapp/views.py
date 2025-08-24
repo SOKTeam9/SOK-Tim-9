@@ -7,7 +7,7 @@ from neo4j.time import Date, DateTime
 from plugins.visualizer_block.block_visualizer import BlockVisualizer
 import json
 import datetime
-
+from plugins.factory import ParserFactory
 from plugins.visualizer_simple.simple_visualizer import SimpleVisualizer
 from plugins.data_source_plugin_yaml.yaml_data_source_plugin import YamlFileParser
 from neo4j import GraphDatabase
@@ -91,7 +91,7 @@ def load_file(request):
                     tmp.write(chunk)
                 tmp_path = tmp.name  # privremena putanja fajla
 
-            parser = YamlFileParser(tmp_path, driver)
+            parser = ParserFactory.create_parser(tmp_path, driver, file_type)
             parser.load()
             # Zatvaranje drajvera
             driver.close()

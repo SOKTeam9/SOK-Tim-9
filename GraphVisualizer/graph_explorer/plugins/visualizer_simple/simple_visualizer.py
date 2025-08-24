@@ -1,7 +1,8 @@
 from jinja2 import Environment, FileSystemLoader
 import json
+from ..visualizer import Visualizer
 
-class SimpleVisualizer:
+class SimpleVisualizer(Visualizer):
     def __init__(self):
         pass
 
@@ -13,3 +14,6 @@ class SimpleVisualizer:
             "nodes": json.dumps(graph_data["nodes"]),
             "edges": json.dumps(graph_data["links"]),
         }
+    
+    def visualize(self, graph_data):
+        return self.get_context(graph_data)

@@ -1,0 +1,2 @@
+kapacitet~>=~300.0
+simple

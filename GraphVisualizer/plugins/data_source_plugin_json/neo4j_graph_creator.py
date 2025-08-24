@@ -45,7 +45,7 @@ class Neo4jGraphCreator:
 if __name__ == "__main__":
    
     parser = JSONGraphParser(key_field="id")
-    objects = parser.parse_json_file(r"C:\Users\Petar\Desktop\countries.json")
+    objects = parser.parse_json_file("countries.json")
     nodes, relationships = parser.get_nodes_and_relationships(objects)
 
     creator = Neo4jGraphCreator(node_label="Country", key_field="id")

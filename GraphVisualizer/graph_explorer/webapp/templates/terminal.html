@@ -1,6 +1,4 @@
-{% extends "base.html" %}
 
-{% block terminal %}
             <div id="modern-terminal-container">
               <div class="terminal-header">
                 <span class="terminal-title">TERMINAL</span>
@@ -16,4 +14,28 @@
                 </div>
               </div>
             </div>
-{% endblock %}
+<script>
+    const terminalOutput = document.querySelector('.terminal-output');
+    const terminalInput = document.querySelector('.terminal-input');
+
+    function appendLine(text, isCommand = false) {
+        const line = document.createElement('div');
+        line.innerHTML = `<span class="prompt">${isCommand ? '> ' : ''}</span><span class="line-text">${text}</span>`;
+        terminalOutput.appendChild(line);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    terminalInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const command = this.value;
+            if (command.trim() !== '') {
+                appendLine(command, true);
+                this.value = '';
+            }
+        }
+    });
+
+    window.addEventListener('load', function() {
+        terminalInput.focus();
+    });
+</script>

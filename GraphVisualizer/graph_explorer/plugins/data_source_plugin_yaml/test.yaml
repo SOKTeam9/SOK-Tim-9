@@ -307,301 +307,350 @@ avioni:
     kapacitet: 180
     povezani_automobili: ["auto1","auto5"]
     povezani_kamioni: ["kamion2"]
+    povezani_avioni: ["avion2","avion3"]
   - id: "avion2"
     proizvodjac: "Airbus"
     model: "A320"
     kapacitet: 150
     povezani_automobili: ["auto3"]
     povezani_kamioni: ["kamion1","kamion3"]
+    povezani_avioni: ["avion1","avion4"]
   - id: "avion3"
     proizvodjac: "Cessna"
     model: "172"
     kapacitet: 4
     povezani_automobili: ["auto10"]
     povezani_kamioni: []
+    povezani_avioni: ["avion1","avion5"]
   - id: "avion4"
     proizvodjac: "Bombardier"
     model: "CRJ900"
     kapacitet: 90
     povezani_automobili: ["auto2","auto7"]
     povezani_kamioni: ["kamion5"]
+    povezani_avioni: ["avion2","avion6"]
   - id: "avion5"
     proizvodjac: "Embraer"
     model: "E190"
     kapacitet: 100
     povezani_automobili: []
     povezani_kamioni: ["kamion1"]
+    povezani_avioni: ["avion3","avion7"]
   - id: "avion6"
     proizvodjac: "Boeing"
     model: "747"
     kapacitet: 366
     povezani_automobili: ["auto6"]
     povezani_kamioni: []
+    povezani_avioni: ["avion4","avion8"]
   - id: "avion7"
     proizvodjac: "Airbus"
     model: "A330"
     kapacitet: 250
     povezani_automobili: []
     povezani_kamioni: ["kamion2","kamion4"]
+    povezani_avioni: ["avion5","avion9"]
   - id: "avion8"
     proizvodjac: "Cessna"
     model: "208"
     kapacitet: 12
     povezani_automobili: ["auto8","auto12"]
     povezani_kamioni: []
+    povezani_avioni: ["avion6","avion10"]
   - id: "avion9"
     proizvodjac: "Bombardier"
     model: "CS300"
     kapacitet: 130
     povezani_automobili: []
     povezani_kamioni: ["kamion3"]
+    povezani_avioni: ["avion7","avion11"]
   - id: "avion10"
     proizvodjac: "Embraer"
     model: "E195"
     kapacitet: 120
     povezani_automobili: ["auto15"]
     povezani_kamioni: ["kamion5"]
+    povezani_avioni: ["avion8","avion12"]
   - id: "avion11"
     proizvodjac: "Boeing"
     model: "767"
     kapacitet: 216
     povezani_automobili: []
     povezani_kamioni: []
+    povezani_avioni: ["avion9","avion13"]
   - id: "avion12"
     proizvodjac: "Airbus"
     model: "A350"
     kapacitet: 280
     povezani_automobili: ["auto11"]
     povezani_kamioni: ["kamion2"]
+    povezani_avioni: ["avion10","avion14"]
   - id: "avion13"
     proizvodjac: "Cessna"
     model: "182"
     kapacitet: 4
     povezani_automobili: ["auto13","auto20"]
     povezani_kamioni: []
+    povezani_avioni: ["avion11","avion15"]
   - id: "avion14"
     proizvodjac: "Bombardier"
     model: "Dash 8"
     kapacitet: 78
     povezani_automobili: []
     povezani_kamioni: ["kamion4"]
+    povezani_avioni: ["avion12","avion16"]
   - id: "avion15"
     proizvodjac: "Embraer"
     model: "E175"
     kapacitet: 88
     povezani_automobili: ["auto14"]
     povezani_kamioni: ["kamion1"]
+    povezani_avioni: ["avion13","avion17"]
   - id: "avion16"
     proizvodjac: "Boeing"
     model: "777"
     kapacitet: 396
     povezani_automobili: []
     povezani_kamioni: []
+    povezani_avioni: ["avion14","avion18"]
   - id: "avion17"
     proizvodjac: "Airbus"
     model: "A380"
     kapacitet: 525
     povezani_automobili: ["auto16","auto18"]
     povezani_kamioni: ["kamion3"]
+    povezani_avioni: ["avion15","avion19"]
   - id: "avion18"
     proizvodjac: "Cessna"
     model: "150"
     kapacitet: 2
     povezani_automobili: []
     povezani_kamioni: ["kamion2","kamion5"]
+    povezani_avioni: ["avion16","avion20"]
   - id: "avion19"
     proizvodjac: "Bombardier"
     model: "CRJ700"
     kapacitet: 70
     povezani_automobili: ["auto17"]
     povezani_kamioni: []
+    povezani_avioni: ["avion17","avion21"]
   - id: "avion20"
     proizvodjac: "Embraer"
     model: "E170"
     kapacitet: 80
     povezani_automobili: ["auto19","auto21"]
     povezani_kamioni: ["kamion1"]
+    povezani_avioni: ["avion18","avion22"]
   - id: "avion21"
     proizvodjac: "Boeing"
     model: "737 MAX"
     kapacitet: 200
     povezani_automobili: []
     povezani_kamioni: []
+    povezani_avioni: ["avion19","avion23"]
   - id: "avion22"
     proizvodjac: "Airbus"
     model: "A321"
     kapacitet: 185
     povezani_automobili: ["auto22"]
     povezani_kamioni: ["kamion4"]
+    povezani_avioni: ["avion20","avion24"]
   - id: "avion23"
     proizvodjac: "Cessna"
     model: "172 Skyhawk"
     kapacitet: 4
     povezani_automobili: ["auto23"]
     povezani_kamioni: []
+    povezani_avioni: ["avion21","avion25"]
   - id: "avion24"
     proizvodjac: "Bombardier"
     model: "CS100"
     kapacitet: 110
     povezani_automobili: []
     povezani_kamioni: ["kamion5"]
+    povezani_avioni: ["avion22","avion26"]
   - id: "avion25"
     proizvodjac: "Embraer"
     model: "E195-E2"
     kapacitet: 132
     povezani_automobili: ["auto24"]
     povezani_kamioni: []
+    povezani_avioni: ["avion23","avion27"]
   - id: "avion26"
     proizvodjac: "Boeing"
     model: "747-8"
     kapacitet: 410
     povezani_automobili: []
     povezani_kamioni: ["kamion1"]
+    povezani_avioni: ["avion24","avion28"]
   - id: "avion27"
     proizvodjac: "Airbus"
     model: "A310"
     kapacitet: 280
     povezani_automobili: ["auto25"]
     povezani_kamioni: []
+    povezani_avioni: ["avion25","avion29"]
   - id: "avion28"
     proizvodjac: "Cessna"
     model: "208 Caravan"
     kapacitet: 14
     povezani_automobili: []
     povezani_kamioni: ["kamion2","kamion3"]
+    povezani_avioni: ["avion26","avion30"]
   - id: "avion29"
     proizvodjac: "Bombardier"
     model: "CRJ550"
     kapacitet: 50
     povezani_automobili: ["auto26"]
     povezani_kamioni: []
+    povezani_avioni: ["avion27","avion31"]
   - id: "avion30"
     proizvodjac: "Embraer"
     model: "E175-E2"
     kapacitet: 88
     povezani_automobili: ["auto27"]
     povezani_kamioni: ["kamion4"]
+    povezani_avioni: ["avion28","avion32"]
   - id: "avion31"
     proizvodjac: "Boeing"
     model: "787"
     kapacitet: 242
     povezani_automobili: []
     povezani_kamioni: ["kamion5"]
+    povezani_avioni: ["avion29","avion33"]
   - id: "avion32"
     proizvodjac: "Airbus"
     model: "A220"
     kapacitet: 130
     povezani_automobili: ["auto28"]
     povezani_kamioni: []
+    povezani_avioni: ["avion30","avion34"]
   - id: "avion33"
     proizvodjac: "Cessna"
     model: "162 Skycatcher"
     kapacitet: 2
     povezani_automobili: []
     povezani_kamioni: ["kamion1"]
+    povezani_avioni: ["avion31","avion35"]
   - id: "avion34"
     proizvodjac: "Bombardier"
     model: "Global 6000"
     kapacitet: 13
     povezani_automobili: ["auto29"]
     povezani_kamioni: ["kamion2"]
+    povezani_avioni: ["avion32","avion36"]
   - id: "avion35"
     proizvodjac: "Embraer"
     model: "E145"
     kapacitet: 50
     povezani_automobili: []
     povezani_kamioni: []
+    povezani_avioni: ["avion33","avion37"]
   - id: "avion36"
     proizvodjac: "Boeing"
     model: "737-800"
     kapacitet: 189
     povezani_automobili: ["auto30"]
     povezani_kamioni: ["kamion3"]
+    povezani_avioni: ["avion34","avion38"]
   - id: "avion37"
     proizvodjac: "Airbus"
     model: "A319"
     kapacitet: 124
     povezani_automobili: []
     povezani_kamioni: []
+    povezani_avioni: ["avion35","avion39"]
   - id: "avion38"
     proizvodjac: "Cessna"
     model: "172 Skyhawk II"
     kapacitet: 4
     povezani_automobili: ["auto31","auto32"]
     povezani_kamioni: []
+    povezani_avioni: ["avion36","avion40"]
   - id: "avion39"
     proizvodjac: "Bombardier"
     model: "CS300-E2"
     kapacitet: 132
     povezani_automobili: []
     povezani_kamioni: ["kamion4"]
+    povezani_avioni: ["avion37","avion41"]
   - id: "avion40"
     proizvodjac: "Embraer"
     model: "E190-E2"
     kapacitet: 114
     povezani_automobili: ["auto33"]
     povezani_kamioni: []
+    povezani_avioni: ["avion38","avion42"]
   - id: "avion41"
     proizvodjac: "Boeing"
     model: "727"
     kapacitet: 149
     povezani_automobili: []
     povezani_kamioni: []
+    povezani_avioni: ["avion39","avion43"]
   - id: "avion42"
     proizvodjac: "Airbus"
     model: "A300"
     kapacitet: 250
     povezani_automobili: ["auto34"]
     povezani_kamioni: ["kamion5"]
+    povezani_avioni: ["avion40","avion44"]
   - id: "avion43"
     proizvodjac: "Cessna"
     model: "182 Skylane"
     kapacitet: 4
     povezani_automobili: []
     povezani_kamioni: []
+    povezani_avioni: ["avion41","avion45"]
   - id: "avion44"
     proizvodjac: "Bombardier"
     model: "CRJ1000"
     kapacitet: 100
     povezani_automobili: ["auto35"]
     povezani_kamioni: ["kamion1"]
+    povezani_avioni: ["avion42","avion46"]
   - id: "avion45"
     proizvodjac: "Embraer"
     model: "E170-E2"
     kapacitet: 80
     povezani_automobili: []
     povezani_kamioni: ["kamion2"]
+    povezani_avioni: ["avion43","avion47"]
   - id: "avion46"
     proizvodjac: "Boeing"
     model: "737 MAX 9"
     kapacitet: 220
     povezani_automobili: ["auto36"]
     povezani_kamioni: []
+    povezani_avioni: ["avion44","avion48"]
   - id: "avion47"
     proizvodjac: "Airbus"
     model: "A321neo"
     kapacitet: 200
     povezani_automobili: []
     povezani_kamioni: ["kamion3"]
+    povezani_avioni: ["avion45","avion49"]
   - id: "avion48"
     proizvodjac: "Cessna"
     model: "150 Comet"
     kapacitet: 2
     povezani_automobili: ["auto37"]
     povezani_kamioni: []
+    povezani_avioni: ["avion46","avion50"]
   - id: "avion49"
     proizvodjac: "Bombardier"
     model: "CS500"
     kapacitet: 125
     povezani_automobili: []
     povezani_kamioni: ["kamion4"]
+    povezani_avioni: ["avion47","avion48"]
   - id: "avion50"
     proizvodjac: "Embraer"
     model: "E190-E2 Plus"
     kapacitet: 114
     povezani_automobili: ["auto38"]
     povezani_kamioni: []
-
+    povezani_avioni: ["avion48","avion49"]
 
 kamioni:
   - id: "kamion1"

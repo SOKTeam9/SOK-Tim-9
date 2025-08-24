@@ -160,10 +160,10 @@ def _applied_filters():
         list_strings_to_file.append("~".join(str(x) for x in filter))
     
     filter_string = ",".join(list_strings)
-    filter_string_to_file = ",".join(list_strings_to_file)
-    with open("session.txt", "w+") as f:
-        f.write(filter_string_to_file + "\n")
-        f.write(current_view)
+    # filter_string_to_file = ",".join(list_strings_to_file)
+    # with open("session.txt", "w+") as f:
+    #     f.write(filter_string_to_file + "\n")
+    #     f.write(current_view)
 
     return list_strings
 

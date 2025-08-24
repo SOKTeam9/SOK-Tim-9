@@ -1,5 +1,6 @@
 from neo4j import GraphDatabase
 from neo4j.time import Date, DateTime
+from datetime import date, datetime
 
 def serialize_value(value):
     if isinstance(value, (Date, DateTime)):
@@ -122,6 +123,13 @@ class GraphHandler:
     def __init__(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
+    # def serialize_value(self,value):
+    #     if isinstance(value, (date, datetime, Date)):
+    #         return value.isoformat()  # "2025-08-24" ili "2025-08-24T14:35:12"
+    #     if isinstance(value, bool):
+    #         return bool(value)  # reši True/False problem
+    #     return value
+
     def get_graph(self, database="neo4j"):
         query = """
         MATCH (n)-[r]->(m)
@@ -138,15 +146,15 @@ class GraphHandler:
                 m = record["m"]
                 r = record["r"]
 
-                nodes[n.id] = {"id": n.id, "labels": list(n.labels), "properties": dict(n)}
-                nodes[m.id] = {"id": m.id, "labels": list(m.labels), "properties": dict(m)}
+                nodes[n.id] = {"id": n.id, "labels": list(n.labels), "properties": serialize_value(dict(n))}
+                nodes[m.id] = {"id": m.id, "labels": list(m.labels), "properties": serialize_value(dict(m))}
 
                 edges.append({
                     "id": r.id,
                     "source": n.id,
                     "target": m.id,
                     "type": r.type,
-                    "properties": dict(r)
+                    "properties": serialize_value(dict(r))
                 })
 
         return {"nodes": list(nodes.values()), "links": edges}

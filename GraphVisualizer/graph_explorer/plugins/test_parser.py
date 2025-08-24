@@ -15,35 +15,27 @@ def run_test():
         driver.verify_connectivity()
         print("Uspešno povezano sa Neo4j bazom.")
 
-        # Konfiguracija za fajl "users.xml"
-        config_users = {
-            'node_tag': 'user',
-            'relationship_tag': 'follows',
-            'relationship_name': 'follows'
-        }
-        
-        # Konfiguracija za fajl "employees.xml"
-        config_employees = {
-            'node_tag': 'employee',
-            'relationship_tag': 'colleagues_with',
-            'relationship_name': 'colleagues_with'
-        }
-
         # Kreiranje i pokretanje parsera za "users.xml"
 
         # print("Parsiranje users.xml...")
         # xml_path = Path(__file__).parent / "data_source_plugin_xml" / "users.xml"
-        # parser_users = XmlFileParser(str(xml_path), driver, config_users)
+        # parser_users = XmlFileParser(str(xml_path), driver)
         # parser_users.load()
         # print("Parsiranje i uvoz users.xml uspešno završeno!")
 
         # Kreiranje i pokretanje parsera za "employees.xml"
 
-        # print("\nParsiranje employees.xml...")
-        # xml_path2 = Path(__file__).parent / "data_source_plugin_xml" / "employees.xml"
-        # parser_employees = XmlFileParser(str(xml_path2), driver, config_employees)
-        # parser_employees.load()
-        # print("Parsiranje i uvoz employees.xml uspešno završeno!")
+        print("\nParsiranje employees.xml...")
+        xml_path2 = Path(__file__).parent / "data_source_plugin_xml" / "employees.xml"
+        parser_employees = XmlFileParser(str(xml_path2), driver)
+        parser_employees.load()
+        print("Parsiranje i uvoz employees.xml uspešno završeno!")
+
+        # print("\nParsiranje city_routes.xml...")
+        # xml_book = Path(__file__).parent / "data_source_plugin_xml" / "city_routes.xml"
+        # parser_routes = XmlFileParser(str(xml_book), driver)
+        # parser_routes.load()
+        # print("Parsiranje i uvoz city_routes.xml uspešno završeno!")
 
         # print("\nParsiranje a.yaml...")
         # yaml_path = Path(__file__).parent / "data_source_plugin_yaml" / "a.yaml"
@@ -58,11 +50,11 @@ def run_test():
         # print("Parsiranje test.yaml uspešno završeno!")
 
 
-        print("\nParsiranje countries.json...")
-        json_path = Path(__file__).parent / "data_source_plugin_json" / "countries.json"
-        parser_countries = JSONGraphParser(str(json_path), driver, key_field="id", node_label="Country")
-        parser_countries.load()
-        print("Parsiranje countries.json uspešno završeno!")
+        # print("\nParsiranje countries.json...")
+        # json_path = Path(__file__).parent / "data_source_plugin_json" / "countries.json"
+        # parser_countries = JSONGraphParser(str(json_path), driver, key_field="id", node_label="Country")
+        # parser_countries.load()
+        # print("Parsiranje countries.json uspešno završeno!")
 
         
 

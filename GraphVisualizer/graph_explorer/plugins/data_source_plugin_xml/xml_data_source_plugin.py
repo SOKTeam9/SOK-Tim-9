@@ -3,11 +3,13 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from ..base_parser import BaseParser
 
+import xml.etree.ElementTree as ET
+from datetime import datetime
+
 class XmlFileParser(BaseParser):
-    def __init__(self, file_name, driver, config):
+    def __init__(self, file_name, driver):
         super().__init__(file_name, driver)
-        self.config = config
-    
+
     def parse_data(self):
         nodes = []
         relationships = []
@@ -18,17 +20,20 @@ class XmlFileParser(BaseParser):
         except ET.ParseError as e:
             print(f"Greška pri parsiranju XML fajla: {e}")
             return [], []
-            
-        node_tag_name = self.config['node_tag']
-        relationship_tag = self.config['relationship_tag']
-        relationship_name = self.config['relationship_name'].upper()
+
+        if not root:
+            return [], []
+        main_node_tag = root[0].tag
         
-        for node_element in root.findall(node_tag_name):
+        for node_element in root.findall(main_node_tag):
             node_id = node_element.get('id')
             node_data = {"id": node_id}
             
+            node_data["label"] = main_node_tag.capitalize()
+            
             for child in node_element:
-                if child.tag == relationship_tag:
+                if len(child) > 0:
+                    relationship_name = child.tag.upper().replace(" ", "_")
                     for ref_element in child:
                         target_id = ref_element.get('ref')
                         if target_id:
@@ -37,7 +42,6 @@ class XmlFileParser(BaseParser):
                     value = child.text
                     if value is not None:
                         try:
-                            # Pokusaj konverzije tipa
                             date_obj = datetime.strptime(value, '%Y-%m-%d').date()
                             node_data[child.tag] = date_obj
                         except ValueError:
@@ -50,9 +54,8 @@ class XmlFileParser(BaseParser):
                             else:
                                 node_data[child.tag] = value
             
-            node_data["label"] = node_tag_name.capitalize()
             nodes.append(node_data)
-            
+        
         return nodes, relationships
 
 # TEST

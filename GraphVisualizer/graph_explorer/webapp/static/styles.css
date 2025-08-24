@@ -152,9 +152,9 @@ span.selected-node {
   color: green;
   font-weight: bold;
 }
-/* TERMINAL */
+
 #modern-terminal-container {
-    height: 150px; /* Možete podesiti visinu po potrebi */
+    height: 150px;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -220,6 +220,6 @@ span.selected-node {
 }
 
 .prompt {
-    color: #6a5acd; /* Ljubičasta boja za prompt */
+    color: #6a5acd;
     margin-right: 5px;
 }

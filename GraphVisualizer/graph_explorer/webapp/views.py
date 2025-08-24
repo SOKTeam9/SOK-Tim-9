@@ -1,19 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 from django.apps import apps
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
@@ -23,11 +8,7 @@ from plugins.visualizer_block.block_visualizer import BlockVisualizer
 import json
 import datetime
 
-# URI obavezno promeni u "bolt://..." umesto neo4j://, jer ti je single instance
-handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-
 from plugins.visualizer_simple.simple_visualizer import SimpleVisualizer
-from platforms.graph_handler import GraphHandler
 from plugins.data_source_plugin_yaml.yaml_data_source_plugin import YamlFileParser
 from neo4j import GraphDatabase
 import os
@@ -35,12 +16,20 @@ import tempfile
 
 filters = []
 
+# URI obavezno promeni u "bolt://..." umesto neo4j://, jer ti je single instance
+handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+
+current_view = "simple"
+
 def index(request):
     return render(request, 'index.html', {'title': 'Index'})
 
 def reset_graph(request):
     filters.clear()
-    return simple_visualizer(request)
+    if current_view == "simple":
+        return simple_visualizer(request)
+    else:
+        return block_view(request)
 
 class Neo4jJSONEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -63,15 +52,20 @@ def graph_block_data(request):
     encoder=Neo4jJSONEncoder)
 
 def block_view(request):
+    global current_view
+    current_view = "block"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-    graph_data = handler.get_graph()  # vraća nodes + links
+    graph_data = handler.get_subgraph(filters)  # vraća nodes + links
 
     visualizer = BlockVisualizer(graph_data)
     html = visualizer.render()
 
-    return render(request, "block-template.html", {"graph_json": graph_data})
+    string_filters = _applied_filters()
+    return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters})
 
 def simple_visualizer(request):
+    global current_view
+    current_view = "simple"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
     graph_data = handler.get_subgraph(filters)
     visualizer = SimpleVisualizer()
@@ -123,7 +117,10 @@ def make_search(request):
             single_filter = (attribute, operator, actual_value)
             if single_filter not in filters:
                 filters.append(single_filter)
-        return simple_visualizer(request)
+        if current_view == "simple":
+            return simple_visualizer(request)
+        else:
+            return block_view(request)
 
 
 def apply_filter(request):
@@ -142,7 +139,10 @@ def apply_filter(request):
             if single_filter not in filters:
                 filters.append(single_filter)
         
-        return simple_visualizer(request)
+        if current_view == "simple":
+            return simple_visualizer(request)
+        else:
+            return block_view(request)
     
 def _applied_filters():
     list_strings = []
@@ -151,4 +151,4 @@ def _applied_filters():
     
     filter_string = ",".join(list_strings)
     return filter_string
-    pass
+

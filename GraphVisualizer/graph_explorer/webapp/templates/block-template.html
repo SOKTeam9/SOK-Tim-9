@@ -2,6 +2,10 @@
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
+{% block filters %}
+  <p id="applied-filters">{{ filter_string }}</p>
+{% endblock %}
+
 {% block mainView %}
 <h1>Main view</h1>
 <div id="graph" style="width: 100%; height: 100%;"></div>

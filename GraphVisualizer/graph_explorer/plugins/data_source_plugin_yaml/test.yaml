@@ -652,6 +652,7 @@ avioni:
     povezani_kamioni: []
     povezani_avioni: ["avion48","avion49"]
 
+
 kamioni:
   - id: "kamion1"
     proizvodjac: "Volvo"

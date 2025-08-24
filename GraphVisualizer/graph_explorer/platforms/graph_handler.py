@@ -57,35 +57,34 @@ class GraphHandler:
             query += "WHERE " + " AND ".join(conditions)
 
         query += """
-        WITH collect(n) AS filteredNodes
-        UNWIND filteredNodes AS n
         OPTIONAL MATCH (n)-[r]->(m)
-        WHERE m IN filteredNodes
-        RETURN n, collect(r) AS edges
+        WHERE """ + " AND ".join([f"m.{attr} {op} {repr(val) if isinstance(val, str) else val}" for attr, op, val in filters]) + """
+        RETURN n, r, m
         """
+
 
         with self.driver.session() as session:
             results = session.run(query)
 
             for record in results:
-                for value in record.values():
-                    cls_name = value.__class__.__name__
+                n = record["n"]
+                m = record["m"]
+                r = record["r"]
 
-                    if cls_name == "Node":
-                        nodes[value.id] = {
-                            "id": value.id,
-                            "labels": list(value.labels),
-                            "properties": dict(value)
-                        }
-                    elif cls_name == "Relationship":
-                        edges.append({
-                            "id": value.id,
-                            "source": value.start_node.id,
-                            "target": value.end_node.id,
-                            "type": value.type,
-                            "properties": dict(value)
-                        })
+                # Dodaj čvorove u dict (da ne dupliraš)
+                nodes[n.id] = {"id": n.id, "labels": list(n.labels), "properties": dict(n)}
+                if m != None:
+                    nodes[m.id] = {"id": m.id, "labels": list(m.labels), "properties": dict(m)}
 
+                if r != None:
+                    # Dodaj vezu
+                    edges.append({
+                        "id": r.id,
+                        "source": n.id,
+                        "target": m.id,
+                        "type": r.type,
+                        "properties": dict(r)
+                    })
 
         return {"nodes": list(nodes.values()), "edges": edges}
 

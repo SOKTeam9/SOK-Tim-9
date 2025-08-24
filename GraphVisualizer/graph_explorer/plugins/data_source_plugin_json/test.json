@@ -1,0 +1,160 @@
+[
+    {
+      "id": 1,
+      "name": "Node 1",
+      "neighbors": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Node 2",
+      "neighbors": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Node 3",
+      "neighbors": [
+        1,
+        7,
+        8
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Node 4",
+      "neighbors": [
+        1,
+        9
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Node 5",
+      "neighbors": [
+        2,
+        10,
+        11
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Node 6",
+      "neighbors": [
+        2,
+        12
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Node 7",
+      "neighbors": [
+        3,
+        13
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Node 8",
+      "neighbors": [
+        3,
+        14,
+        15
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Node 9",
+      "neighbors": [
+        4,
+        16
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Node 10",
+      "neighbors": [
+        5,
+        17
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Node 11",
+      "neighbors": [
+        5,
+        18
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Node 12",
+      "neighbors": [
+        6,
+        19
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Node 13",
+      "neighbors": [
+        7,
+        20
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Node 14",
+      "neighbors": [
+        8
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Node 15",
+      "neighbors": [
+        8
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Node 16",
+      "neighbors": [
+        9
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Node 17",
+      "neighbors": [
+        10
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Node 18",
+      "neighbors": [
+        11
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Node 19",
+      "neighbors": [
+        12
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Node 20",
+      "neighbors": [
+        13
+      ]
+    } 
+]

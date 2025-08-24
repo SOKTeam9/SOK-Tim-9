@@ -1,9 +1,16 @@
-{% extends "base.html" %} {% load static %} 
+{% extends "base.html" %} {% load static %}
+
 
 {% block filters %}
-  <p id="applied-filters">{{ filter_string }}</p>
-{% endblock %}
+<div id="applied-filters">
+    {% for f in filter_string %}
+    <a href="{% url 'filter_remove' %}?filter={{ f }}">
+        <button type="button">{{ f }}</button>
+    </a>
+    {% endfor %}
+</div>
 
+{% endblock %}
 
 {% block mainView %}
 <h1 class="text-center">Main view</h1>
@@ -200,10 +207,10 @@
 
         const graphWidth = xExtent[1] - xExtent[0] || 1000;
         const graphHeight = yExtent[1] - yExtent[0] || 1000;
-        
+
         // scale to fit entire main graph in bird-view
         let factor = 0.75;
-        const scale = Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight) *factor;
+        const scale = Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight) * factor;
         const offsetX = (window.birdWidth - graphWidth * scale) / 2;
         const offsetY = (window.birdHeight - graphHeight * scale) / 2;
 
@@ -227,7 +234,7 @@
         const viewY = scaleY(-transform.y / transform.k);
         const viewWidth = (width / transform.k) * scale;
         const viewHeight = (height / transform.k) * scale;
- 
+
         window.birdViewport
             .attr("x", viewX)
             .attr("y", viewY)

@@ -3,7 +3,14 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
 {% block filters %}
-  <p id="applied-filters">{{ filter_string }}</p>
+<div id="applied-filters">
+    {% for f in filter_string %}
+    <a href="{% url 'filter_remove' %}?filter={{ f }}">
+        <button type="button">{{ f }}</button>
+    </a>
+    {% endfor %}
+</div>
+
 {% endblock %}
 
 {% block mainView %}

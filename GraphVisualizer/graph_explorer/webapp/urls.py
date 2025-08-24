@@ -10,5 +10,6 @@ urlpatterns = [
     path('resetFilters/', views.reset_graph, name="reset_graph"),
     path('filters/', views.apply_filter, name="query_filter"),
     path("block-visualizer/", views.block_view, name="block_visualizer"),
-    path("graph-block-data/", views.graph_block_data, name="graph_block_data")
+    path("graph-block-data/", views.graph_block_data, name="graph_block_data"),
+    path("filter-remove/", views.filter_remove, name="filter_remove")
 ]

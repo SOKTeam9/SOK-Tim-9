@@ -42,12 +42,12 @@ class YamlFileParser(BaseParser):
                 nodes.append(node_props)
 
         rel_keys = {rel[2] for rel in relationships}
-        print(rel_keys)
-        # Izbaci iz čvorova sve ključeve koji postoje u relacijama
+       
         for node in nodes:
             for key in rel_keys:
                 if key in node:
                     del node[key]
+                    
         return nodes, relationships
 
 #TEST

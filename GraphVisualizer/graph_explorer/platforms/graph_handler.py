@@ -42,49 +42,69 @@ class GraphHandler:
         nodes = {}
         edges = []
 
-        if len(filters) == 0:
+        if not filters:
             return self.get_graph()
 
-        query = "MATCH (n) "
-        if len(filters) != 0:
-            conditions = []
-            for attr, op, val in filters:
-                if isinstance(val, str):
-                    val_repr = f"'{val}'"
-                else:
-                    val_repr = str(val)
-                conditions.append(f"n.{attr} {op} {val_repr}")
-            query += "WHERE " + " AND ".join(conditions)
-
-        query += """
-        OPTIONAL MATCH (n)-[r]->(m)
-        WHERE """ + " AND ".join([f"m.{attr} {op} {repr(val) if isinstance(val, str) else val}" for attr, op, val in filters]) + """
-        RETURN n, r, m
-        """
-
-
         with self.driver.session() as session:
-            results = session.run(query)
+            subgraph_ids = set()
 
-            for record in results:
-                n = record["n"]
-                m = record["m"]
-                r = record["r"]
+            # Prođi kroz sve filtere
+            for i, (attr, op, val) in enumerate(filters):
+                val_repr = f"'{val}'" if isinstance(val, str) else str(val)
 
-                # Dodaj čvorove u dict (da ne dupliraš)
-                nodes[n.id] = {"id": n.id, "labels": list(n.labels), "properties": dict(n)}
-                if m != None:
-                    nodes[m.id] = {"id": m.id, "labels": list(m.labels), "properties": dict(m)}
+                if i == 0:
+                    # Prvi filter – uzmi sve čvorove koji zadovoljavaju filter
+                    query_nodes = f"""
+                    MATCH (n)
+                    WHERE n.{attr} {op} {val_repr}
+                    RETURN n
+                    """
+                else:
+                    # Sledeći filteri – uzmi samo čvorove koji su već u podgrafu
+                    query_nodes = f"""
+                    MATCH (n)
+                    WHERE n.{attr} {op} {val_repr} AND id(n) IN {list(subgraph_ids)}
+                    RETURN n
+                    """
 
-                if r != None:
-                    # Dodaj vezu
-                    edges.append({
-                        "id": r.id,
-                        "source": n.id,
-                        "target": m.id,
-                        "type": r.type,
-                        "properties": dict(r)
-                    })
+                results = session.run(query_nodes)
+
+                # Ažuriraj čvorove
+                new_nodes = {}
+                subgraph_ids = set()
+                for record in results:
+                    n = record["n"]
+                    new_nodes[n.id] = {
+                        "id": n.id,
+                        "labels": list(n.labels),
+                        "properties": dict(n)
+                    }
+                    subgraph_ids.add(n.id)
+
+                nodes = new_nodes  # samo čvorovi koji prežive filter
+
+                # Uzmi veze između preživelih čvorova
+                if subgraph_ids:
+                    query_edges = f"""
+                    MATCH (n)-[r]->(m)
+                    WHERE id(n) IN {list(subgraph_ids)} AND id(m) IN {list(subgraph_ids)}
+                    RETURN r, n, m
+                    """
+                    results = session.run(query_edges)
+                    edges = []
+                    for record in results:
+                        r = record["r"]
+                        n = record["n"]
+                        m = record["m"]
+                        edges.append({
+                            "id": r.id,
+                            "source": r.start_node.id,
+                            "target": r.end_node.id,
+                            "type": r.type,
+                            "properties": dict(r)
+                        })
+                else:
+                    edges = []
 
         return {"nodes": list(nodes.values()), "edges": edges}
 

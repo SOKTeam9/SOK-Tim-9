@@ -16,13 +16,13 @@
       <div class="left-header">
         <a href="{% url 'index' %}">Graph Visualizer</a>
         <div class="views">
-          <a href="{% url 'block_visualizer' %}"><button name="block-view">Block view</button></a>
-          <a class="simple" href="{% url 'simple_visualizer' %}"><button class="simple-button" name="simple-view">Simple
+          <a href="{% url 'block_visualizer' ws_id=ws_id %}"><button name="block-view">Block view</button></a>
+          <a class="simple" href="{% url 'simple_visualizer' ws_id=ws_id %}"><button class="simple-button" name="simple-view">Simple
               view</button></a>
         </div>
       </div>
       <div class="rigth-header">
-        <form id="uploadForm" method="post" enctype="multipart/form-data" action="{% url 'load_file' %}">
+        <form id="uploadForm" method="post" enctype="multipart/form-data" action="{% url 'load_file' ws_id=ws_id %}">
           <div class="top-query">
             {% csrf_token %}
             <label>File:</label>
@@ -33,11 +33,11 @@
             {% endif %}
             <input type="file" name="load_file" onchange="document.getElementById('uploadForm').submit();" style="width: 75px; ">
         </form>
-        <form id="resetGraphForm" method="post" action="{% url 'reset_graph' %}">
+        <form id="resetGraphForm" method="post" action="{% url 'reset_graph' ws_id=ws_id %}">
           {% csrf_token %}
           <button type="submit">Reset graph</button>
         </form>
-        <form id="searchForm" method="post" action="{% url 'query_search' %}">
+        <form id="searchForm" method="post" action="{% url 'query_search' ws_id=ws_id %}">
           {% csrf_token %}
           <label for="search">Search:</label>
           <input type="text" id="search" name="search" />
@@ -45,7 +45,7 @@
         </form>
       </div>
       <div class="mid-query">
-        <form id="searchForm" method="post" action="{% url 'query_filter' %}">
+        <form id="searchForm" method="post" action="{% url 'query_filter' ws_id=ws_id %}">
           {% csrf_token %}
           <label>Filter:</label>
           <input name="filter"></input>
@@ -74,6 +74,12 @@
     <div class="center">{% block mainView %}{% endblock %}</div>
   </div>
   </div>
+  <div class="workspaces">
+    <a href="{% url 'workspace_switch' ws_id=1 %}"><button class="workspace-tab {% if ws_id == 1 %}active{% endif %}">Workspace 1</button></a>
+    <a href="{% url 'workspace_switch' ws_id=2 %}"><button class="workspace-tab {% if ws_id == 2 %}active{% endif %}">Workspace 2</button></a>
+    <a href="{% url 'workspace_switch' ws_id=3 %}"><button class="workspace-tab {% if ws_id == 3 %}active{% endif %}">Workspace 3</button></a>
+    <a href="{% url 'workspace_switch' ws_id=4 %}"><button class="workspace-tab {% if ws_id == 4 %}active{% endif %}">Workspace 4</button></a>
+    <a href="{% url 'workspace_switch' ws_id=5 %}"><button class="workspace-tab {% if ws_id == 5 %}active{% endif %}">Workspace 5</button></a>
+  </div>
 </body>
-
 </html>

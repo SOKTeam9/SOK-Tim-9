@@ -12,5 +12,6 @@ urlpatterns = [
     path("block-visualizer/ws=<int:ws_id>/", views.block_view, name="block_visualizer"),
     path("graph-block-data/ws=<int:ws_id>/", views.graph_block_data, name="graph_block_data"),
     path("filter-remove/ws=<int:ws_id>/", views.filter_remove, name="filter_remove"),
-    path("workspace_switch/ws=<int:ws_id>/", views.workspace_switch, name="workspace_switch")
+    path("workspace_switch/ws=<int:ws_id>/", views.workspace_switch, name="workspace_switch"),
+    path("redirect/", views.redirect, name="redirect"),
 ]

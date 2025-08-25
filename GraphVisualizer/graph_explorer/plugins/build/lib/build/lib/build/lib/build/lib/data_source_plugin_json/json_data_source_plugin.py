@@ -3,11 +3,11 @@ import json
 from pathlib import Path
 
 class JSONGraphParser(BaseParser):
-    def __init__(self, file_name, driver, node_label=None, database="neo4j1"):
-        super().__init__(file_name, driver, database)
+    def __init__(self, file_name, driver, node_label=None):
+        super().__init__(file_name, driver)
         self.key_field = "id"  #PRETPOSTAVLJA SE DA SVAKI OBJEKAT U FAJLU IMA ATRIBUT ID
         self.node_label = node_label
-        
+
     def detect_node_label(self):
         if self.node_label:
             return self.node_label

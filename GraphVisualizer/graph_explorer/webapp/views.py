@@ -266,3 +266,32 @@ def create_edge(request):
     
     return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
 
+@csrf_exempt
+def edit_edge(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            new_rel_type = data.get("type")
+            source_id = data.get("source_id")
+            target_id = data.get("target_id")
+
+            if not all([new_rel_type, source_id, target_id]):
+                return JsonResponse({"status": "error", "message": "Novi tip relacije, početni i krajnji čvor su obavezni."}, status=400)
+
+            edited = handler.edit_relationship(source_id, target_id, new_rel_type)
+            handler.close()
+
+            if edited:
+                return JsonResponse({"status": "success", "message": f"Relacija između '{source_id}' i '{target_id}' uspešno ažurirana na '{new_rel_type}'."}, status=200)
+            else:
+                return JsonResponse({"status": "error", "message": "Neuspešno uređivanje relacije. Proverite da li relacija postoji."}, status=404)
+
+        except ValueError as ve:
+            return JsonResponse({"status": "error", "message": str(ve)}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Neispravan JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
+

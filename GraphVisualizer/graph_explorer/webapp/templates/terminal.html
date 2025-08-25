@@ -55,6 +55,7 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
         const editNodeMatch = command.startsWith('edit node');
         const deleteNodeMatch = command.startsWith('delete');
         const createEdgeMatch = command.startsWith('create edge');
+        const editEdgeMatch = command.startsWith('edit edge');
 
         if (filterMatch) {
          filterGraph(command, filterMatch);
@@ -66,6 +67,8 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
           deleteNode(command);
         }else if(createEdgeMatch){
           createEdge(command);
+        }else if(editEdgeMatch){
+          editEdge(command);
         }
          else {
           appendLine('Nepoznata komanda.', false);
@@ -325,6 +328,52 @@ async function call_create_edge_api(relType, sourceId, targetId) {
         } else {
             appendLine(`Greška prilikom kreiranja grane: ${result.message}`);
             commandHistory.push(`Greška prilikom kreiranja grane: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+function editEdge(command) {
+    const edgeMatch = command.match(/^edit edge --type=(\S+)\s+(\S+)\s+(\S+)$/);
+
+    if (!edgeMatch) {
+        appendLine('Neispravan format komande za uređivanje grane. Očekivani format: edit edge --type=<tip> <početni_id> <krajnji_id>');
+        commandHistory.push('Neispravan format komande za uređivanje grane. Očekivani format: edit edge --type=<tip> <početni_id> <krajnji_id>');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    const [, newType, sourceId, targetId] = edgeMatch;
+
+    call_edit_edge_api(newType, sourceId, targetId);
+}
+
+async function call_edit_edge_api(newType, sourceId, targetId) {
+    try {
+        const response = await fetch('/edit_edge/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                type: newType,
+                source_id: sourceId,
+                target_id: targetId
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(result.message);
+            commandHistory.push(result.message);
+        } else {
+            appendLine(`Greška prilikom uređivanja grane: ${result.message}`);
+            commandHistory.push(`Greška prilikom uređivanja grane: ${result.message}`);
         }
         sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
 

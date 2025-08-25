@@ -278,6 +278,37 @@ class GraphHandler:
                 except Exception as e:
                     print(f"Neo4j error: {e}")
                     return False
+                
+    def edit_relationship(self, source_id, target_id, new_rel_type):
+        with self.driver.session() as session:
+            try:
+                match_query = (
+                    "MATCH (a {id: $source_id})-[r]->(b {id: $target_id}) "
+                    "RETURN type(r) AS old_type"
+                )
+                result = session.run(match_query, source_id=source_id, target_id=target_id)
+                old_type_record = result.single()
+
+                if not old_type_record:
+                    raise ValueError(f"Relacija između čvorova '{source_id}' i '{target_id}' ne postoji.")
+                
+                old_type = old_type_record["old_type"]
+                
+                update_query = f"""
+                    MATCH (a {{id: $source_id}})-[r]->(b {{id: $target_id}})
+                    DELETE r
+                    CREATE (a)-[:{new_rel_type.upper().replace(" ", "_")}]->(b)
+                """
+
+                update_result = session.run(update_query, source_id=source_id, target_id=target_id)
+                
+                return update_result.consume().counters.relationships_created > 0
+            except Exception as e:
+                if "ValueError" in str(e):
+                    raise e
+                else:
+                    print(f"Neo4j error: {e}")
+                    raise Exception(f"Neuspešno uređivanje relacije. Detalji: {str(e)}")
 
 if __name__ == "__main__":
     # handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")

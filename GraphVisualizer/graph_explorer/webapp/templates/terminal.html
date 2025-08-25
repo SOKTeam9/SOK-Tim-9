@@ -57,6 +57,7 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
         const createEdgeMatch = command.startsWith('create edge');
         const editEdgeMatch = command.startsWith('edit edge');
         const deleteEdgeMatch = command.startsWith('delete edge');
+        const searchMatch = command.startsWith('search');
         console.log(deleteEdgeMatch);
 
         if (filterMatch) {
@@ -73,6 +74,8 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
           editEdge(command);
         }else if(deleteEdgeMatch){
           deleteEdge(command);
+        }else if(searchMatch){
+          searchGraph(command);
         }
          else {
           appendLine('Nepoznata komanda.', false);
@@ -421,8 +424,55 @@ async function call_delete_edge_api(sourceId, targetId) {
             appendLine(result.message);
             commandHistory.push(result.message);
         } else {
-            appendLine(`Greška prilikom brisanja grane: ${result.message}`);
-            commandHistory.push(`Greška prilikom brisanja grane: ${result.message}`);
+            appendLine(`Greska prilikom brisanja grane: ${result.message}`);
+            commandHistory.push(`Greska prilikom brisanja grane: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+function searchGraph(command) {
+    const queryMatch = command.match(/--query=(.*)/);
+
+    if (!queryMatch) {
+        appendLine('Očekivani format: search --query=<upit>');
+        return;
+    }
+
+    const query = queryMatch[1];
+    console.log('query: ', query)
+
+    call_search_api(query);
+}
+async function call_search_api(query) {
+    try {
+        const response = await fetch('/search_graph/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ query: query }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          console.log('Uspesna pretraga, dobijeni podaci:', result);
+
+          
+          updateGraphVisualization(result); 
+
+          console.log("result:   ---- ",result)
+          const nodesCount = JSON.parse(result.nodes).length;
+          const relsCount = JSON.parse(result.edges).length;
+          appendLine(`Pronađeno je ${nodesCount} čvorova i ${relsCount} veza.`);
+       
+        } else {
+            appendLine(`Greška prilikom pretrage: ${result.message}`);
+            commandHistory.push(`Greška prilikom pretrage: ${result.message}`);
         }
         sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
 

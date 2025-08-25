@@ -1,6 +1,7 @@
 from neo4j import GraphDatabase
 from neo4j.time import Date, DateTime
 from datetime import date, datetime
+from neo4j.exceptions import ClientError
 
 def serialize_value(value):
     if isinstance(value, (Date, DateTime)):
@@ -324,6 +325,71 @@ class GraphHandler:
             except Exception as e:
                 print(f"Neo4j error: {e}")
                 return False
+            
+    def get_search_subgraph(self, filters=None, search_query=None, database="neo4j"):
+       
+        filters = filters or []
+
+        if not filters and not search_query:
+            return self.get_graph(database=database)
+
+        with self.driver.session(database=database) as session:
+            conditions = []
+            params = {}
+
+            if search_query:
+               
+                search_condition = """
+                (
+                ANY(key IN keys(n) WHERE toLower(key) CONTAINS toLower($search_query))
+                OR
+                ANY(val IN [k IN keys(n) | toString(n[k])] WHERE toLower(val) CONTAINS toLower($search_query))
+                )
+                """
+                conditions.append(search_condition)
+                params['search_query'] = search_query
+
+            for i, (attr, op, val) in enumerate(filters):
+                param_name = f"filter_val_{i}"
+                conditions.append(f"n.`{attr}` {op} ${param_name}")
+                params[param_name] = val
+
+           
+            where_clause = " AND ".join(conditions)
+            query_nodes = f"MATCH (n) WHERE {where_clause} RETURN n"
+
+            results_nodes = session.run(query_nodes, **params)
+
+            nodes = {}
+            subgraph_ids = set()
+            for record in results_nodes:
+                n = record["n"]
+                nodes[n.id] = {
+                    "id": n.id,
+                    "labels": list(n.labels),
+                    "properties": dict(n)
+                }
+                subgraph_ids.add(n.id)
+
+            edges = []
+            if subgraph_ids:
+                query_edges = """
+                MATCH (n)-[r]->(m)
+                WHERE id(n) IN $ids AND id(m) IN $ids
+                RETURN r
+                """
+                results_edges = session.run(query_edges, ids=list(subgraph_ids))
+                for record in results_edges:
+                    r = record["r"]
+                    edges.append({
+                        "id": r.id,
+                        "source": r.start_node.id,
+                        "target": r.end_node.id,
+                        "type": r.type,
+                        "properties": dict(r)
+                    })
+
+        return {"nodes": list(nodes.values()), "links": edges}
 
 if __name__ == "__main__":
     # handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")

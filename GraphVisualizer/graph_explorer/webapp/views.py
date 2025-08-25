@@ -49,7 +49,7 @@ workspaces = {
 current_workspace = 1
 
 def index(request):
-    return render(request, 'index.html', {'title': 'Index', 'ws_id': 1})
+    return render(request, 'index.html', {'title': 'Index', 'ws_id': 1, 'selected_file_name': workspaces["1"]["selected_file"]})
 
 def reset_graph(request, ws_id):
     workspaces[str(ws_id)]["filters"].clear()

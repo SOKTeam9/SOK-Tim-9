@@ -24,7 +24,7 @@ class VisualizerFactory:
     def create_visualizer(vis_type, graph_data=None):
         vis_type = vis_type.lower()
         if vis_type == "block":
-            return BlockVisualizer(graph_data)
+            return BlockVisualizer()
         elif vis_type == "simple":
             return SimpleVisualizer()
         else:

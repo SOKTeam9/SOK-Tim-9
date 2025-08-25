@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+#TEMPLATE METHOD PATTERN
 class BaseParser(ABC):
     def __init__(self, file_name, driver, database="neo4j1"):
         self.file_name = file_name

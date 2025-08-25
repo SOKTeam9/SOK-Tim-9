@@ -58,7 +58,7 @@ def block_view(request, file_name=None, ws_id=1):
     graph_data = handler.get_subgraph(filters, "neo4j" + str(ws_id))  # vraća nodes + links
 
     visualizer = VisualizerFactory.create_visualizer("block", graph_data)
-    html = visualizer.render()
+    html = visualizer.visualize(graph_data)
 
     string_filters = _applied_filters()
 
@@ -71,7 +71,8 @@ def simple_visualizer(request, file_name=None, ws_id=1):
     graph_data = handler.get_subgraph(filters, "neo4j" + str(ws_id))
 
     visualizer = VisualizerFactory.create_visualizer("simple")
-    context = visualizer.get_context(graph_data)
+
+    context = visualizer.visualize(graph_data)
 
     context["filter_string"] = _applied_filters()
     context["selected_file_name"] = file_name

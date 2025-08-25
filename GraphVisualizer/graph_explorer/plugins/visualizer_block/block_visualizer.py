@@ -1,19 +1,13 @@
 import json
+from ..visualizer import Visualizer
 
-class BlockVisualizer:
-    def __init__(self, graph_data):
-        """
-        graph_data = dict sa ključevima 'nodes' i 'links'
-        {
-          "nodes": [{"id": 1, "label": "User", "properties": {...}}, ...],
-          "links": [{"source": 0, "target": 1, "type": "RELATION"}, ...]
-        }
-        """
-        self.graph_data = graph_data
+class BlockVisualizer(Visualizer):
+    def __init__(self):
+        pass
 
-    def render(self):
+    def render(self, graph_data):
         # Pretvori graph_data u JSON string
-        graph_json = json.dumps(self.graph_data)
+        graph_json = json.dumps(graph_data)
 
         # HTML + JS za D3 vizualizaciju
         html = f"""
@@ -90,3 +84,6 @@ class BlockVisualizer:
         </script>
         """
         return html
+
+    def visualize(self, graph_data):
+        return self.render(graph_data)

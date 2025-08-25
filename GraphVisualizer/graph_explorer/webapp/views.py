@@ -21,23 +21,28 @@ current_view = "simple"
 workspaces = {
     "1": {
         "view_type": "simple",
-        "filters": []
+        "filters": [],
+        "selected_file": "No file selected"
     },
     "2": {
         "view_type": "simple",
-        "filters": []
+        "filters": [],
+        "selected_file": "No file selected"
     },
     "3": {
         "view_type": "simple",
-        "filters": []
+        "filters": [],
+        "selected_file": "No file selected"
     },
     "4": {
         "view_type": "simple",
-        "filters": []
+        "filters": [],
+        "selected_file": "No file selected"
     },
     "5": {
         "view_type": "simple",
-        "filters": []
+        "filters": [],
+        "selected_file": "No file selected"
     },
 }
 
@@ -76,7 +81,6 @@ def graph_block_data(request, ws_id):
 def block_view(request, file_name=None, ws_id=1):
     workspaces[str(ws_id)]["view_type"] = "block"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-    print("IZVAN SUBGRAFA: ", workspaces[str(ws_id)]["filters"])
     graph_data = handler.get_subgraph(workspaces[str(ws_id)]["filters"], "neo4j" + str(ws_id))  # vraća nodes + links
 
     visualizer = VisualizerFactory.create_visualizer("block", graph_data)
@@ -84,7 +88,7 @@ def block_view(request, file_name=None, ws_id=1):
 
     string_filters = _applied_filters(ws_id)
 
-    return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": file_name, "ws_id": ws_id})
+    return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": workspaces[str(ws_id)]["selected_file"], "ws_id": ws_id})
 
 def simple_visualizer(request, file_name=None, ws_id=1):
     workspaces[str(ws_id)]["view_type"] = "simple"
@@ -96,7 +100,7 @@ def simple_visualizer(request, file_name=None, ws_id=1):
     context = visualizer.visualize(graph_data)
 
     context["filter_string"] = _applied_filters(ws_id)
-    context["selected_file_name"] = file_name
+    context["selected_file_name"] = workspaces[str(ws_id)]["selected_file"]
     context["ws_id"] = ws_id
     return render(request, "simple_template.html", context)
 
@@ -117,6 +121,7 @@ def load_file(request=None, ws_id=1):
             uploaded_file = request.FILES.get("load_file")
             if uploaded_file:
                 selected_file_name = uploaded_file.name
+                workspaces[str(ws_id)]["selected_file"] = selected_file_name
                 uri = "neo4j://127.0.0.1:7687"
                 username = "neo4j"
                 password = "djomlaboss"

@@ -12,7 +12,9 @@ class BaseParser(ABC):
             session.execute_write(self.clear_database)
             
             nodes, relationships = self.parse_data()
-            
+
+            print(self.database)
+           
             session.execute_write(self.create_nodes, nodes)
             session.execute_write(self.create_relationships, relationships)
 

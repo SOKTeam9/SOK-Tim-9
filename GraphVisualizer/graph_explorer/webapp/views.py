@@ -110,6 +110,7 @@ def load_file(request=None, ws_id=1):
 
             parser = ParserFactory.create_parser(tmp_path, driver, file_type, "neo4j" + str(ws_id))
             parser.load()
+
             # Zatvaranje drajvera
             driver.close()
 
@@ -192,3 +193,4 @@ def filter_remove(request, ws_id=1):
         return simple_visualizer(request, ws_id=ws_id)
     else:
         return block_view(request, ws_id=ws_id)
+

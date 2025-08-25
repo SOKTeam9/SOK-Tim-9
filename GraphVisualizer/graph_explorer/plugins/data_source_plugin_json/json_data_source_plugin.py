@@ -7,7 +7,7 @@ class JSONGraphParser(BaseParser):
         super().__init__(file_name, driver, database)
         self.key_field = "id"  #PRETPOSTAVLJA SE DA SVAKI OBJEKAT U FAJLU IMA ATRIBUT ID
         self.node_label = node_label
-
+        
     def detect_node_label(self):
         if self.node_label:
             return self.node_label

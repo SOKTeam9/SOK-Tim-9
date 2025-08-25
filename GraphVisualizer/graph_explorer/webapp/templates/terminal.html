@@ -53,9 +53,11 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
         const filterMatch = command.match(/^filter\s+(.+?)(<|>|<=|>=|=)(.+)$/);
         const createNodeMatch = command.startsWith('create node');
         const editNodeMatch = command.startsWith('edit node');
-        const deleteNodeMatch = command.startsWith('delete');
+        const deleteNodeMatch = command.startsWith('delete node');
         const createEdgeMatch = command.startsWith('create edge');
         const editEdgeMatch = command.startsWith('edit edge');
+        const deleteEdgeMatch = command.startsWith('delete edge');
+        console.log(deleteEdgeMatch);
 
         if (filterMatch) {
          filterGraph(command, filterMatch);
@@ -69,6 +71,8 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
           createEdge(command);
         }else if(editEdgeMatch){
           editEdge(command);
+        }else if(deleteEdgeMatch){
+          deleteEdge(command);
         }
          else {
           appendLine('Nepoznata komanda.', false);
@@ -293,8 +297,8 @@ function createEdge(command) {
     const edgeMatch = command.match(/^create edge --type=(\S+)\s+(\S+)\s+(\S+)$/);
 
     if (!edgeMatch) {
-        appendLine('Neispravan format komande za kreiranje grane. Očekivani format: create edge --type=rel_type source_id target_id');
-        commandHistory.push('Neispravan format komande za kreiranje grane. Očekivani format: create edge --type=rel_type source_id target_id');
+        appendLine('Očekivani format: create edge --type=rel_type source_node target_node');
+        commandHistory.push('Očekivani format: create edge --type=rel_type source_node target_node');
         sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
         return;
     }
@@ -341,8 +345,8 @@ function editEdge(command) {
     const edgeMatch = command.match(/^edit edge --type=(\S+)\s+(\S+)\s+(\S+)$/);
 
     if (!edgeMatch) {
-        appendLine('Neispravan format komande za uređivanje grane. Očekivani format: edit edge --type=<tip> <početni_id> <krajnji_id>');
-        commandHistory.push('Neispravan format komande za uređivanje grane. Očekivani format: edit edge --type=<tip> <početni_id> <krajnji_id>');
+        appendLine('Očekivani format: edit edge --type=tip početni_cvor krajnji_cvor');
+        commandHistory.push('Očekivani format: edit edge --type=tip početni_cvor krajnji_cvor');
         sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
         return;
     }
@@ -374,6 +378,51 @@ async function call_edit_edge_api(newType, sourceId, targetId) {
         } else {
             appendLine(`Greška prilikom uređivanja grane: ${result.message}`);
             commandHistory.push(`Greška prilikom uređivanja grane: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+
+function deleteEdge(command) {
+    const edgeMatch = command.match(/^delete edge (\S+)\s+(\S+)$/);
+
+    if (!edgeMatch) {
+        appendLine('Očekivani format: delete edge pocetni_cvor krajnji_cvor');
+        commandHistory.push('Očekivani format: delete edge pocetni_cvor krajnji_cvor');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    const [, sourceId, targetId] = edgeMatch;
+
+    call_delete_edge_api(sourceId, targetId);
+}
+async function call_delete_edge_api(sourceId, targetId) {
+    try {
+        const response = await fetch('/delete_edge/', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                source_id: sourceId,
+                target_id: targetId
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(result.message);
+            commandHistory.push(result.message);
+        } else {
+            appendLine(`Greška prilikom brisanja grane: ${result.message}`);
+            commandHistory.push(`Greška prilikom brisanja grane: ${result.message}`);
         }
         sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
 

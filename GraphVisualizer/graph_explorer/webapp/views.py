@@ -295,3 +295,29 @@ def edit_edge(request):
     
     return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
 
+@csrf_exempt
+def delete_edge(request):
+    if request.method == "DELETE":
+        try:
+            data = json.loads(request.body)
+            source_id = data.get("source_id")
+            target_id = data.get("target_id")
+
+            if not all([source_id, target_id]):
+                return JsonResponse({"status": "error", "message": "Početni i krajnji čvor su obavezni."}, status=400)
+
+            deleted = handler.delete_relationship(source_id, target_id)
+            handler.close()
+
+            if deleted:
+                return JsonResponse({"status": "success", "message": f"Grana između čvorova '{source_id}' i '{target_id}' je uspešno obrisana."}, status=200)
+            else:
+                return JsonResponse({"status": "error", "message": f"Neuspešno brisanje. Proverite da li grana između '{source_id}' i '{target_id}' postoji."}, status=404)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Neispravan JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
+

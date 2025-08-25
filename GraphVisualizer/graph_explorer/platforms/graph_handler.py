@@ -309,6 +309,21 @@ class GraphHandler:
                 else:
                     print(f"Neo4j error: {e}")
                     raise Exception(f"Neuspešno uređivanje relacije. Detalji: {str(e)}")
+                
+    def delete_relationship(self, source_id, target_id):
+        with self.driver.session() as session:
+            try:
+                query = f"""
+                    MATCH (a {{id: $source_id}})-[r]->(b {{id: $target_id}})
+                    DELETE r
+                """
+                
+                result = session.run(query, source_id=source_id, target_id=target_id)
+                
+                return result.consume().counters.relationships_deleted > 0
+            except Exception as e:
+                print(f"Neo4j error: {e}")
+                return False
 
 if __name__ == "__main__":
     # handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")

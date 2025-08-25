@@ -16,4 +16,5 @@ urlpatterns = [
     path('delete_node/', views.delete_node, name='delete_node'),
     path('create_edge/', views.create_edge, name='create_edge'),
     path('edit_edge/', views.edit_edge, name='edit_edge'),
+    path('delete_edge/', views.delete_edge, name='delete_edge'),
 ]

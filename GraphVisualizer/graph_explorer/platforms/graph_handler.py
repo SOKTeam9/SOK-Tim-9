@@ -244,6 +244,22 @@ class GraphHandler:
             )            
             result = session.run(query, id=node_id, properties=properties)
             return result.single() is not None
+        
+    def delete_node(self, node_id):
+        with self.driver.session() as session:
+            try:
+                query = (
+                    "MATCH (n {id: $id}) "
+                    "DELETE n"
+                )
+                result = session.run(query, id=node_id)
+                
+                return result.consume().counters.nodes_deleted > 0
+            except Exception as e:
+                if "Cannot delete node" in str(e):
+                    raise ValueError(f"Čvor sa ID-jem '{node_id}' je povezan sa drugim čvorovima i ne može biti obrisan.")
+                else:
+                    raise e
 
 if __name__ == "__main__":
     # handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")

@@ -192,7 +192,6 @@ def edit_node(request):
             if not node_id or not properties:
                 return JsonResponse({"status": "error", "message": "ID and properties are required."}, status=400)
 
-            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
             updated = handler.update_node(node_id, properties)
             handler.close()
 
@@ -207,4 +206,36 @@ def edit_node(request):
             return JsonResponse({"status": "error", "message": str(e)}, status=500)
     
     return JsonResponse({"status": "error", "message": "Method not allowed."}, status=405)
+
+@csrf_exempt
+def delete_node(request):
+    print("kjhgfd")
+    print(request)
+    if request.method == "DELETE":
+        try:
+            data = json.loads(request.body)
+            print("****************")
+            print("data: ",data)
+            node_id = data.get("id")
+            print("node id: ", node_id)
+            print("**************")
+            if not node_id:
+                return JsonResponse({"status": "error", "message": "ID je obavezan."}, status=400)
+
+            deleted = handler.delete_node(node_id)
+            handler.close()
+
+            if deleted:
+                return JsonResponse({"status": "success", "message": f"Čvor sa ID-jem '{node_id}' je uspešno obrisan."}, status=200)
+            else:
+                return JsonResponse({"status": "error", "message": f"Čvor sa ID-jem '{node_id}' ne postoji."}, status=404)
+
+        except ValueError as ve:
+            return JsonResponse({"status": "error", "message": str(ve)}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Nevažeći JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
 

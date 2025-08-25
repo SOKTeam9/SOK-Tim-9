@@ -18,12 +18,37 @@ handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
 
 current_view = "simple"
 
+workspaces = {
+    "1": {
+        "view_type": "simple",
+        "filters": []
+    },
+    "2": {
+        "view_type": "simple",
+        "filters": []
+    },
+    "3": {
+        "view_type": "simple",
+        "filters": []
+    },
+    "4": {
+        "view_type": "simple",
+        "filters": []
+    },
+    "5": {
+        "view_type": "simple",
+        "filters": []
+    },
+}
+
+current_workspace = 1
+
 def index(request):
     return render(request, 'index.html', {'title': 'Index', 'ws_id': 1})
 
 def reset_graph(request, ws_id):
-    filters.clear()
-    if current_view == "simple":
+    workspaces[str(ws_id)]["filters"].clear()
+    if workspaces[str(ws_id)]["filters"] == "simple":
         return simple_visualizer(request, ws_id=ws_id)
     else:
         return block_view(request, ws_id=ws_id)
@@ -49,36 +74,34 @@ def graph_block_data(request, ws_id):
     encoder=Neo4jJSONEncoder)
 
 def block_view(request, file_name=None, ws_id=1):
-    global current_view
-    current_view = "block"
+    workspaces[str(ws_id)]["view_type"] = "block"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-    graph_data = handler.get_subgraph(filters, "neo4j" + str(ws_id))  # vraća nodes + links
+    print("IZVAN SUBGRAFA: ", workspaces[str(ws_id)]["filters"])
+    graph_data = handler.get_subgraph(workspaces[str(ws_id)]["filters"], "neo4j" + str(ws_id))  # vraća nodes + links
 
     visualizer = VisualizerFactory.create_visualizer("block", graph_data)
     html = visualizer.visualize(graph_data)
 
-    string_filters = _applied_filters()
+    string_filters = _applied_filters(ws_id)
 
     return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": file_name, "ws_id": ws_id})
 
 def simple_visualizer(request, file_name=None, ws_id=1):
-    global current_view
-    current_view = "simple"
+    workspaces[str(ws_id)]["view_type"] = "simple"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-    graph_data = handler.get_subgraph(filters, "neo4j" + str(ws_id))
+    graph_data = handler.get_subgraph(workspaces[str(ws_id)]["filters"], "neo4j" + str(ws_id))
 
     visualizer = VisualizerFactory.create_visualizer("simple")
 
     context = visualizer.visualize(graph_data)
 
-    context["filter_string"] = _applied_filters()
+    context["filter_string"] = _applied_filters(ws_id)
     context["selected_file_name"] = file_name
     context["ws_id"] = ws_id
     return render(request, "simple_template.html", context)
 
 def workspace_switch(request, ws_id=1):
-    global current_view
-    if current_view == "simple":
+    if workspaces[str(ws_id)]["view_type"] == "simple":
         return simple_visualizer(request, ws_id=ws_id)
     else:
         return block_view(request, ws_id=ws_id)
@@ -117,7 +140,7 @@ def load_file(request=None, ws_id=1):
             # Možeš odmah obrisati privremeni fajl
             os.remove(tmp_path)
     
-    if current_view == "simple":
+    if workspaces[str(ws_id)]["view_type"] == "simple":
         return simple_visualizer(request, selected_file_name, ws_id)
     else:
         return block_view(request, selected_file_name, ws_id)
@@ -137,9 +160,10 @@ def make_search(request=None, ws_id=1):
                 actual_value = value
  
             single_filter = (attribute, operator, actual_value)
-            if single_filter not in filters:
-                filters.append(single_filter)
-        if current_view == "simple":
+            if single_filter not in workspaces[str(ws_id)]["filters"]:
+                workspaces[str(ws_id)]["filters"].append(single_filter)
+
+        if workspaces[str(ws_id)]["view_type"] == "simple":
             return simple_visualizer(request, ws_id=ws_id)
         else:
             return block_view(request, ws_id=ws_id)
@@ -159,37 +183,29 @@ def apply_filter(request=None, ws_id=1):
                     actual_value = filter_value
                 
                 single_filter = (filter_attribute, filter_relation, actual_value)
-                if single_filter not in filters:
-                    filters.append(single_filter)
+                if single_filter not in workspaces[str(ws_id)]["filters"]:
+                    workspaces[str(ws_id)]["filters"].append(single_filter)
             
-    if current_view == "simple":
+    if workspaces[str(ws_id)]["view_type"] == "simple":
         return simple_visualizer(request, ws_id=ws_id)
     else:
         return block_view(request, ws_id=ws_id)
     
-def _applied_filters():
+def _applied_filters(ws_id):
     list_strings = []
-    list_strings_to_file = []
-    for filter in filters:
+    for filter in workspaces[str(ws_id)]["filters"]:
         list_strings.append("".join(str(x) for x in filter))
-        list_strings_to_file.append("~".join(str(x) for x in filter))
     
-    filter_string = ",".join(list_strings)
-    # filter_string_to_file = ",".join(list_strings_to_file)
-    # with open("session.txt", "w+") as f:
-    #     f.write(filter_string_to_file + "\n")
-    #     f.write(current_view)
-
     return list_strings
 
 def filter_remove(request, ws_id=1):
     selected_filter = request.GET.get("filter")
-    for single_filter in filters:
+    for single_filter in workspaces[str(ws_id)]["filters"]:
         merged = "".join(str(x) for x in single_filter)
         if selected_filter == merged:
-            filters.remove(single_filter)
+            workspaces[str(ws_id)]["filters"].remove(single_filter)
             break
-    if current_view == "simple":
+    if workspaces[str(ws_id)]["view_type"] == "simple":
         return simple_visualizer(request, ws_id=ws_id)
     else:
         return block_view(request, ws_id=ws_id)

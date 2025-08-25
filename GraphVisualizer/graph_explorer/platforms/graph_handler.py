@@ -84,6 +84,8 @@ class GraphHandler:
         nodes = {}
         edges = []
 
+        print("U SUBGRAFU: ", filters)
+
         if not filters:
             return self.get_graph(database=database)
 

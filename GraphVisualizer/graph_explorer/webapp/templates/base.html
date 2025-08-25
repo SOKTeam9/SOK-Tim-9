@@ -75,11 +75,11 @@
   </div>
   </div>
   <div class="workspaces">
-    <a href="{% url 'workspace_switch' ws_id=1 %}"><button class="workspace-tab {% if current_ws_id == 1 %}active{% endif %}">Workspace 1</button></a>
-    <a href="{% url 'workspace_switch' ws_id=2 %}"><button class="workspace-tab {% if current_ws_id == 2 %}active{% endif %}">Workspace 2</button></a>
-    <a href="{% url 'workspace_switch' ws_id=3 %}"><button class="workspace-tab {% if current_ws_id == 3 %}active{% endif %}">Workspace 3</button></a>
-    <a href="{% url 'workspace_switch' ws_id=4 %}"><button class="workspace-tab {% if current_ws_id == 4 %}active{% endif %}">Workspace 4</button></a>
-    <a href="{% url 'workspace_switch' ws_id=5 %}"><button class="workspace-tab {% if current_ws_id == 5 %}active{% endif %}">Workspace 5</button></a>
+    <a href="{% url 'workspace_switch' ws_id=1 %}"><button class="workspace-tab {% if ws_id == 1 %}active{% endif %}">Workspace 1</button></a>
+    <a href="{% url 'workspace_switch' ws_id=2 %}"><button class="workspace-tab {% if ws_id == 2 %}active{% endif %}">Workspace 2</button></a>
+    <a href="{% url 'workspace_switch' ws_id=3 %}"><button class="workspace-tab {% if ws_id == 3 %}active{% endif %}">Workspace 3</button></a>
+    <a href="{% url 'workspace_switch' ws_id=4 %}"><button class="workspace-tab {% if ws_id == 4 %}active{% endif %}">Workspace 4</button></a>
+    <a href="{% url 'workspace_switch' ws_id=5 %}"><button class="workspace-tab {% if ws_id == 5 %}active{% endif %}">Workspace 5</button></a>
   </div>
 </body>
 </html>

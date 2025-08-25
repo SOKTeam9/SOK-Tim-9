@@ -119,9 +119,9 @@ def load_file(request=None, ws_id=1):
             os.remove(tmp_path)
     
     if current_view == "simple":
-        return simple_visualizer(request, selected_file_name)
+        return simple_visualizer(request, selected_file_name, ws_id)
     else:
-        return block_view(request, selected_file_name)
+        return block_view(request, selected_file_name, ws_id)
 
 def make_search(request=None, ws_id=1):
     if request.method == "POST":

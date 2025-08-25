@@ -260,6 +260,24 @@ class GraphHandler:
                     raise ValueError(f"Čvor sa ID-jem '{node_id}' je povezan sa drugim čvorovima i ne može biti obrisan.")
                 else:
                     raise e
+                
+    def create_relationship(self, source_id, target_id, rel_type):
+            with self.driver.session() as session:
+                try:
+                    rel_type_upper = rel_type.upper().replace(" ", "_")
+                    
+                    query = f"""
+                        MATCH (a {{id: $source_id}})
+                        MATCH (b {{id: $target_id}})
+                        CREATE (a)-[:{rel_type_upper}]->(b)
+                    """
+                    
+                    result = session.run(query, source_id=source_id, target_id=target_id)
+                    
+                    return result.consume().counters.relationships_created > 0
+                except Exception as e:
+                    print(f"Neo4j error: {e}")
+                    return False
 
 if __name__ == "__main__":
     # handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")

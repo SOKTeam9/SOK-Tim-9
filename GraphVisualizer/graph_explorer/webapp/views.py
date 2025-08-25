@@ -239,3 +239,30 @@ def delete_node(request):
     
     return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
 
+@csrf_exempt
+def create_edge(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            rel_type = data.get("type")
+            source_id = data.get("source_id")
+            target_id = data.get("target_id")
+
+            if not all([rel_type, source_id, target_id]):
+                return JsonResponse({"status": "error", "message": "Relacija, početni i krajnji čvor su obavezni."}, status=400)
+
+            created = handler.create_relationship(source_id, target_id, rel_type)
+            handler.close()
+
+            if created:
+                return JsonResponse({"status": "success", "message": f"Relacija '{rel_type}' uspešno kreirana između čvorova '{source_id}' i '{target_id}'."}, status=201)
+            else:
+                return JsonResponse({"status": "error", "message": "Neuspešno kreiranje relacije. Proverite da li početni i krajnji čvorovi postoje."}, status=404)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Neispravan JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
+

@@ -12,4 +12,5 @@ urlpatterns = [
     path("block-visualizer/", views.block_view, name="block_visualizer"),
     path("graph-block-data/", views.graph_block_data, name="graph_block_data"),
     path('create_node/', views.create_node, name='create_node'),
+    path('edit_node/', views.edit_node, name='edit_node'),
 ]

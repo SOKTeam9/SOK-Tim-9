@@ -52,11 +52,14 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
 
         const filterMatch = command.match(/^filter\s+(.+?)(<|>|<=|>=|=)(.+)$/);
         const createNodeMatch = command.startsWith('create node');
+        const editNodeMatch = command.startsWith('edit node');
 
         if (filterMatch) {
          filterGraph(command, filterMatch);
         }else if(createNodeMatch){
           createNode(command);
+        }else if(editNodeMatch){
+          editNode(command);
         }
          else {
           appendLine('Nepoznata komanda.', false);
@@ -142,6 +145,82 @@ async function call_create_node_api(nodeId, properties) {
         } else {
             appendLine(`Greška prilikom kreiranja čvora: ${result.message}`);
             commandHistory.push(`Greška prilikom kreiranja čvora: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+
+function editNode(command) {
+  console.log("Usao u editNode")
+    const idMatch = command.match(/--id=(\S+)/);
+    const propertiesMatches = command.matchAll(/--property\s+([^=\s]+)=([\S]+)/g);
+    
+    if (!idMatch) {
+        appendLine('Neispravan unos ID-a.');
+        commandHistory.push('Neispravan unos ID-a.');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    const nodeId = idMatch[1];
+    const properties = {};
+
+    if (propertiesMatches) {
+        for (const match of propertiesMatches) {
+            const key = match[1];
+            let value = match[2];
+
+            if (value.toLowerCase() === 'true') {
+                value = true;
+            } else if (value.toLowerCase() === 'false') {
+                value = false;
+            }
+            else if (!isNaN(Number(value))) {
+                value = Number(value);
+            }
+            else if (!isNaN(new Date(value)) && !isNaN(Date.parse(value))) {
+                value = new Date(value);
+            }
+
+            properties[key] = value;
+        }
+    }
+    
+    if (Object.keys(properties).length === 0) {
+        appendLine('Morate uneti bar jedno svojstvo za ažuriranje.');
+        commandHistory.push('Morate uneti bar jedno svojstvo za ažuriranje.');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    call_edit_node_api(nodeId, properties);
+}
+async function call_edit_node_api(nodeId, properties) {
+    try {
+        const response = await fetch('/edit_node/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: nodeId,
+                properties: properties
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(`Čvor sa ID-jem '${nodeId}' uspešno ažuriran.`);
+            commandHistory.push(`Čvor sa ID-jem '${nodeId}' uspešno ažuriran.`);
+        } else {
+            appendLine(`Greška prilikom ažuriranja čvora: ${result.message}`);
+            commandHistory.push(`Greška prilikom ažuriranja čvora: ${result.message}`);
         }
         sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
 

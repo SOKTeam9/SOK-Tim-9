@@ -181,3 +181,30 @@ def create_node(request):
     
     return JsonResponse({"status": "error", "message": "Method not allowed."}, status=405)
 
+@csrf_exempt
+def edit_node(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            node_id = data.get("id")
+            properties = data.get("properties")
+
+            if not node_id or not properties:
+                return JsonResponse({"status": "error", "message": "ID and properties are required."}, status=400)
+
+            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+            updated = handler.update_node(node_id, properties)
+            handler.close()
+
+            if updated:
+                return JsonResponse({"status": "success", "message": f"Node with ID '{node_id}' updated successfully."}, status=200)
+            else:
+                return JsonResponse({"status": "error", "message": f"Node with ID '{node_id}' not found."}, status=404)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Invalid JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Method not allowed."}, status=405)
+

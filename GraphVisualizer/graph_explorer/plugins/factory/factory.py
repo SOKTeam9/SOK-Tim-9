@@ -1,8 +1,8 @@
-from .data_source_plugin_json import JSONGraphParser
-from .data_source_plugin_xml import XmlFileParser
-from .data_source_plugin_yaml import YamlFileParser
-from .visualizer_block.block_visualizer import BlockVisualizer
-from .visualizer_simple.simple_visualizer import SimpleVisualizer
+from ..data_source_plugin_json.json_data_source_plugin import JSONGraphParser
+from ..data_source_plugin_xml.xml_data_source_plugin import XmlFileParser
+from ..data_source_plugin_yaml.yaml_data_source_plugin import YamlFileParser
+from ..visualizer_block.block_visualizer import BlockVisualizer
+from ..visualizer_simple.simple_visualizer import SimpleVisualizer
 
 #FACTORY METHOD PATTERN
 class ParserFactory:

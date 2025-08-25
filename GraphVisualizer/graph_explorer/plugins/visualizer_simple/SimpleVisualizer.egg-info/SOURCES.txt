@@ -1,0 +1,7 @@
+pyproject.toml
+simple_visualizer.py
+SimpleVisualizer.egg-info/PKG-INFO
+SimpleVisualizer.egg-info/SOURCES.txt
+SimpleVisualizer.egg-info/dependency_links.txt
+SimpleVisualizer.egg-info/requires.txt
+SimpleVisualizer.egg-info/top_level.txt

@@ -225,6 +225,16 @@ class GraphHandler:
     def close(self):
         self.driver.close()
 
+    def create_node(self, node_id, properties):
+        with self.driver.session() as session:
+            query = (
+                "CREATE (n {id: $id}) "
+                "SET n += $properties "
+                "RETURN n"
+            )
+            result = session.run(query, id=node_id, properties=properties)
+            return result.single() is not None
+
 if __name__ == "__main__":
     # handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
     # print(handler.get_graph())

@@ -13,6 +13,7 @@ from plugins.data_source_plugin_yaml.yaml_data_source_plugin import YamlFilePars
 from neo4j import GraphDatabase
 import os
 import tempfile
+from django.views.decorators.csrf import csrf_exempt
 
 filters = []
 
@@ -153,4 +154,30 @@ def _applied_filters():
     
     filter_string = ",".join(list_strings)
     return filter_string
+
+@csrf_exempt
+def create_node(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            node_id = data.get("id")
+            properties = data.get("properties")
+
+            if not node_id or not properties:
+                return JsonResponse({"status": "error", "message": "ID and properties are required."}, status=400)
+
+            created = handler.create_node(node_id, properties)
+            handler.close()
+
+            if created:
+                return JsonResponse({"status": "success", "message": f"Node with ID '{node_id}' created successfully."}, status=201)
+            else:
+                return JsonResponse({"status": "error", "message": "Failed to create node."}, status=500)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Invalid JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Method not allowed."}, status=405)
 

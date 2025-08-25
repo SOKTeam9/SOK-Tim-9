@@ -46,24 +46,21 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
       const command = this.value.trim();
       if (command !== '') {
         appendLine(command, true);
+        commandHistory.push(command);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
         this.value = '';
 
-        const filterMatch = command.match(/^filter\s+(.+)\s+(.+)\s+(.+)$/);
+        const filterMatch = command.match(/^filter\s+(.+?)(<|>|<=|>=|=)(.+)$/);
+        const createNodeMatch = command.startsWith('create node');
 
         if (filterMatch) {
-          const [, attribute, relation, value] = filterMatch;
-          commandHistory.push(command);
-          sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
-          const form = document.getElementById('hiddenFilterForm');
-
-          form.querySelector('[name="filter"]').value = attribute;
-          form.querySelector('[name="relations"]').value = relation;
-          form.querySelector('[name="value"]').value = value;
-
-          form.submit();
-        } else {
-          appendLine('Nepoznata komanda. Pokušajte: filter atribut relacija vrednost', false);
-          commandHistory.push('Nepoznata komanda. Pokušajte: filter atribut relacija vrednost');
+         filterGraph(command, filterMatch);
+        }else if(createNodeMatch){
+          createNode(command);
+        }
+         else {
+          appendLine('Nepoznata komanda.', false);
+          commandHistory.push('Nepoznata komanda.');
           sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
 
         }
@@ -75,21 +72,83 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
     terminalInput.focus();
   });
 
-  terminalInput.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') {
-      const command = this.value.trim();
-      if (command !== '') {
-        appendLine(command, true);
-        this.value = '';
+  function filterGraph(command, filterMatch){
+     const [, attribute, relation, value] = filterMatch;
+          const form = document.getElementById('hiddenFilterForm');
 
-        const filterMatch = command.match(/^filter\s+(.+)\s+(.+)\s+(.+)$/);
-        if (filterMatch) {
-          const [, attribute, relation, value] = filterMatch;
-          sendFilterToServer(attribute, relation, value);
-        } else {
-          appendLine('Nepoznata komanda. Pokušajte: filter atribut relacija vrednost', false);
+          form.querySelector('[name="filter"]').value = attribute;
+          form.querySelector('[name="relations"]').value = relation;
+          form.querySelector('[name="value"]').value = value;
+
+          form.submit();
+  }
+  function createNode(command) {
+      const idMatch = command.match(/--id=(\S+)/);
+      const propertiesMatches = command.matchAll(/--property\s+([^=\s]+)=([\S]+)/g);
+      console.log('Matches: ', propertiesMatches);
+
+      const nodeId = idMatch ? idMatch[1] : null;
+      const properties = {};
+
+      if (idMatch && propertiesMatches) {
+        for (const match of propertiesMatches) {
+          const key = match[1];
+          let value = match[2];
+          console.log('key: ', key);
+          console.log('value', value);
+
+          if (value.toLowerCase() === 'true') {
+            value = true;
+          } else if (value.toLowerCase() === 'false') {
+            value = false;
+          }
+          else if (!isNaN(Number(value))) {
+            value = Number(value);
+          }
+          else if (!isNaN(new Date(value)) && !isNaN(Date.parse(value))) {
+            value = new Date(value);
+          }
+
+          properties[key] = value;
         }
+        call_create_node_api(nodeId, properties);
+      }else{
+        appendLine('Neispravan unos atributa');
+        commandHistory.push('Neispravan unos atributa');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
       }
+
+console.log('Node ID:', nodeId);
+console.log('Properties:', properties);
+}
+async function call_create_node_api(nodeId, properties) {
+    try {
+        const response = await fetch('/create_node/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: nodeId,
+                properties: properties
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(`Čvor sa ID-jem '${nodeId}' uspešno kreiran.`);
+            commandHistory.push(`Čvor sa ID-jem '${nodeId}' uspešno kreiran.`);
+        } else {
+            appendLine(`Greška prilikom kreiranja čvora: ${result.message}`);
+            commandHistory.push(`Greška prilikom kreiranja čvora: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
     }
-  });
+}
 </script>

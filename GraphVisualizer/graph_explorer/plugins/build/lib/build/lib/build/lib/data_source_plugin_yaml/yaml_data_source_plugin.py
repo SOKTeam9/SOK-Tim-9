@@ -4,8 +4,8 @@ import yaml
 from ..base_parser import BaseParser
 
 class YamlFileParser(BaseParser):
-    def __init__(self, file_name, driver, database):
-        super().__init__(file_name, driver, database)
+    def __init__(self, file_name, driver):
+        super().__init__(file_name, driver)
     
     def parse_data(self):
         nodes = []

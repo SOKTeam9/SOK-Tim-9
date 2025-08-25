@@ -4,12 +4,9 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from platforms.graph_handler import GraphHandler
 from neo4j.time import Date, DateTime
-from plugins.visualizer_block.block_visualizer import BlockVisualizer
 import json
 import datetime
-from plugins.factory import ParserFactory, VisualizerFactory
-from plugins.visualizer_simple.simple_visualizer import SimpleVisualizer
-from plugins.data_source_plugin_yaml.yaml_data_source_plugin import YamlFileParser
+from plugins import ParserFactory, VisualizerFactory
 from neo4j import GraphDatabase
 import os
 import tempfile

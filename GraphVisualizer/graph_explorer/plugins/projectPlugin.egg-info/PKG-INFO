@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: projectPlugin
+Version: 0.1.0
+Summary: Pluginovi za projekat
+Requires-Dist: pyyaml

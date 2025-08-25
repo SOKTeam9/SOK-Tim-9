@@ -1,20 +1,20 @@
-from .data_source_plugin_json.json_data_source_plugin import JSONGraphParser
-from .data_source_plugin_xml.xml_data_source_plugin import XmlFileParser
-from .data_source_plugin_yaml.yaml_data_source_plugin import YamlFileParser
-from .visualizer_block.block_visualizer import BlockVisualizer
-from .visualizer_simple.simple_visualizer import SimpleVisualizer
+from jsonparser import JSONGraphParser
+from data_source_plugin_xml import XmlFileParser
+from data_source_plugin_yaml import YamlFileParser
+from visualizer_block.block_visualizer import BlockVisualizer
+from visualizer_simple.simple_visualizer import SimpleVisualizer
 
 #FACTORY METHOD PATTERN
 class ParserFactory:
     @staticmethod
-    def create_parser(file_name, driver, file_type, database):
+    def create_parser(file_name, driver, file_type):
         file_type = file_type.lower()
         if file_type == "json":
-            return JSONGraphParser(file_name, driver, database)
+            return JSONGraphParser(file_name, driver)
         elif file_type == "xml":
-            return XmlFileParser(file_name, driver, database)
+            return XmlFileParser(file_name, driver)
         elif file_type == "yaml":
-            return YamlFileParser(file_name, driver, database)
+            return YamlFileParser(file_name, driver)
         else:
             raise ValueError(f"Unsupported parser type: {file_type}")
 

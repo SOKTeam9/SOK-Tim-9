@@ -338,6 +338,21 @@ def simple_search_visualizer(request):
     context = visualizer.get_context(graph_data)
     return JsonResponse(context)
 
+def block_search_view(request):
+    global current_view
+    current_view = "block"
+    handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+
+    data=json.loads(request.body)
+    query = data.get("query")
+
+    graph_data = handler.get_search_subgraph(filters,query )
+
+    visualizer = VisualizerFactory.create_visualizer("block")
+    context = visualizer.get_context(graph_data)
+
+    return JsonResponse(context)
+
 
 @csrf_exempt
 def search_graph(request):
@@ -351,7 +366,10 @@ def search_graph(request):
             if not query:
                 return JsonResponse({"status": "error", "message": "Upit za pretragu je obavezan."}, status=400)
             
-            return simple_search_visualizer(request)
+            if current_view == "simple":
+                return simple_search_visualizer(request)
+            else:
+                return block_search_view(request)
 
         except json.JSONDecodeError:
             return JsonResponse({"status": "error", "message": "Neispravan JSON format."}, status=400)

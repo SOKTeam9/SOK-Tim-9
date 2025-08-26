@@ -152,6 +152,135 @@ window.mainContainer = container;
 window.mainZoom = zoom;
 window.simulation = simulation;
 window.mainSize = { width, height };
+function updateGraphVisualization(graphData) {
+    console.log("Ažuriranje vizualizacije grafa...");
+
+    let newNodes, newLinks;
+    try {
+        newNodes = JSON.parse(graphData.nodes);
+        newLinks = JSON.parse(graphData.edges);
+        console.log('Novi čvorovi:', newNodes);
+        console.log('Nove veze:', newLinks);
+    } catch (e) {
+        console.error("Greška: Podaci sa servera nisu u ispravnom formatu!", e);
+        return;
+    }
+
+    window.graphConfig.nodes = newNodes;
+    window.graphConfig.links = newLinks;
+    
+
+    if (window.simulation) {
+        window.simulation.stop();
+        window.simulation.on("tick", null);
+    }
+    
+    window.mainContainer.selectAll("line").remove();
+    window.mainContainer.selectAll(".node").remove();
+
+    window.simulation = d3.forceSimulation(newNodes)
+        .force("link", d3.forceLink(newLinks).id(d => d.id).distance(150))
+        .force("charge", d3.forceManyBody().strength(-800))
+        .force("center", d3.forceCenter(window.mainSize.width / 2, window.mainSize.height / 2))
+        .alpha(1).restart();
+
+    const link = window.mainContainer.selectAll(".link")
+        .data(newLinks)
+        .enter().append("line")
+        .attr("class", "link")
+        .attr("stroke", "#333")
+        .attr("stroke-width", 1.5)
+        .attr("marker-end", "url(#arrow)");
+
+    const node = window.mainContainer.selectAll(".node")
+        .data(newNodes)
+        .enter()
+        .append("g")
+        .attr("class", "node")
+        .call(d3.drag()
+            .on("start", (event, d) => {
+                if (!event.active) window.simulation.alphaTarget(0.3).restart();
+                d.fx = d.x; d.fy = d.y;
+            })
+            .on("drag", (event, d) => { d.fx = event.x; d.fy = event.y; })
+            .on("end", (event, d) => { 
+                if (!event.active) window.simulation.alphaTarget(0); 
+                d.fx = null; d.fy = null; 
+            })
+        );
+
+    node.append("rect")
+        .attr("width", 160)
+        .attr("height", d => (d.properties ? Object.keys(d.properties).length : 0) * 15 + 30)
+        .attr("rx", 10).attr("ry", 10)
+        .style("fill", n => window.selectedNodes.has(String(n.id)) ? "green" : "#f5f5f5")
+        .style("stroke", "#333")
+        .style("stroke-width", 1.5);
+
+    node.append("text")
+        .attr("x", 10)
+        .attr("y", 20)
+        .text(d => d.properties?.name || d.id || "Node")
+        .style("font-weight", "bold")
+        .style("fill", n => window.selectedNodes.has(String(n.id)) ? "white" : "steelblue");
+
+    node.each(function(d) {
+        const g = d3.select(this);
+        const props = d.properties ? Object.entries(d.properties) : [];
+        props.forEach((entry, i) => {
+            g.append("text")
+                .attr("x", 10)
+                .attr("y", 40 + i * 15)
+                .text(`${entry[0]}: ${entry[1]}`)
+                .style("font-size", "10px")
+                .style("fill", n => window.selectedNodes.has(String(n.id)) ? "white" : "black");
+        });
+    });
+
+    node.on("click", (event, d) => {
+        const idStr = String(d.id);
+        if (window.selectedNodes.has(idStr)) {
+            window.selectedNodes.delete(idStr);
+        } else {
+            window.selectedNodes.add(idStr);
+        }
+        
+        node.select("rect").style("fill", n => window.selectedNodes.has(String(n.id)) ? "green" : "#f5f5f5");
+        node.selectAll("text").style("fill", n => window.selectedNodes.has(String(n.id)) ? "white" : "steelblue");
+        
+        if (window.birdContainer) {
+            window.birdContainer.selectAll("rect.bnode").attr("fill", n => window.selectedNodes.has(String(n.id)) ? "green" : "#666");
+        }
+        updateTreeViewText();
+    });
+
+    window.simulation.on("tick", () => {
+        link
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+        node.attr("transform", d => `translate(${d.x},${d.y})`);
+
+        if (typeof drawBirdView === 'function') {
+            drawBirdView();
+        }
+    });
+
+    setTimeout(() => {
+        if (typeof drawBirdView === 'function') {
+            drawBirdView();
+        }
+        // if (typeof updateTreeViewText === 'function') {
+            updateTreeViewText();
+        // }
+        
+        window.mainSvg.call(window.mainZoom.transform, d3.zoomIdentity);
+    }, 500);
+
+    console.log("Vizualizacija je uspešno ažurirana.");
+}
+
 </script>
 {% endblock %}
 

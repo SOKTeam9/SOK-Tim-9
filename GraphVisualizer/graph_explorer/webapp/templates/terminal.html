@@ -13,7 +13,7 @@
     </div>
   </div>
   <div style="display: none;">
-    <form id="hiddenFilterForm" method="post" action="{% url 'query_filter' %}">
+    <form id="hiddenFilterForm" method="post" action="{% url 'query_filter' ws_id=ws_id %}">
       {% csrf_token %}
       <input type="hidden" name="filter">
       <input type="hidden" name="relations">

@@ -16,7 +16,7 @@ html {
 /* HEADER */
 .header {
   flex: none;
-  height: 16%;
+  height: 18%;
   display: flex;
   justify-content: space-between;
   align-items: stretch; /* iste visine za left-header i right-header */

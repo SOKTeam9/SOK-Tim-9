@@ -2,6 +2,15 @@ from neo4j import GraphDatabase
 from neo4j.time import Date, DateTime
 from datetime import date, datetime
 from neo4j.exceptions import ClientError
+import re
+
+# WORKSPACES = {
+#     "ws1": "neo4j1",   # default baza
+#     "ws2": "neo4j2",
+#     "ws3": "neo4j3",
+#     "ws4": "neo4j4",
+#     "ws5": "neo4j5",
+# }
 
 def serialize_value(value):
     if isinstance(value, (Date, DateTime)):
@@ -12,117 +21,29 @@ def serialize_value(value):
         return {k: serialize_value(v) for k, v in value.items()}
     return value
 
-# class GraphHandler:
-#     def __init__(self, uri, user, password):
-#         self.driver = GraphDatabase.driver(uri, auth=(user, password))
-
-#     def get_graph(self):
-#             query = """
-#             MATCH (n)-[r]->(m)
-#             RETURN n, r, m
-#             """
-#             nodes = {}
-#             edges = []
-
-#             with self.driver.session() as session:
-#                 results = session.run(query)
-
-#                 for record in results:
-#                     n = record["n"]
-#                     m = record["m"]
-#                     r = record["r"]
-
-#                     # Dodaj čvorove u dict (da ne dupliraš)
-#                     nodes[n.id] = {"id": n.id, "labels": list(n.labels), "properties": dict(n)}
-#                     nodes[m.id] = {"id": m.id, "labels": list(m.labels), "properties": dict(m)}
-
-#                     # Dodaj vezu
-#                     edges.append({
-#                         "id": r.id,
-#                         "source": n.id,
-#                         "target": m.id,
-#                         "type": r.type,
-#                         "properties": dict(r)
-#                     })
-
-#             return {"nodes": list(nodes.values()), "links": edges}
-
-#     def close(self):
-#         self.driver.close()
-
-#     def get_subgraph(self, filters):
-#         nodes = {}
-#         edges = []
-
-#         if not filters:
-#             return self.get_graph()
-
-#         with self.driver.session() as session:
-#             subgraph_ids = set()
-
-#             # Prođi kroz sve filtere
-#             for i, (attr, op, val) in enumerate(filters):
-#                 val_repr = f"'{val}'" if isinstance(val, str) else str(val)
-
-#                 if i == 0:
-#                     # Prvi filter – uzmi sve čvorove koji zadovoljavaju filter
-#                     query_nodes = f"""
-#                     MATCH (n)
-#                     WHERE n.{attr} {op} {val_repr}
-#                     RETURN n
-#                     """
-#                 else:
-#                     # Sledeći filteri – uzmi samo čvorove koji su već u podgrafu
-#                     query_nodes = f"""
-#                     MATCH (n)
-#                     WHERE n.{attr} {op} {val_repr} AND id(n) IN {list(subgraph_ids)}
-#                     RETURN n
-#                     """
-
-#                 results = session.run(query_nodes)
-
-#                 # Ažuriraj čvorove
-#                 new_nodes = {}
-#                 subgraph_ids = set()
-#                 for record in results:
-#                     n = record["n"]
-#                     new_nodes[n.id] = {
-#                         "id": n.id,
-#                         "labels": list(n.labels),
-#                         "properties": dict(n)
-#                     }
-#                     subgraph_ids.add(n.id)
-
-#                 nodes = new_nodes  # samo čvorovi koji prežive filter
-
-#                 # Uzmi veze između preživelih čvorova
-#                 if subgraph_ids:
-#                     query_edges = f"""
-#                     MATCH (n)-[r]->(m)
-#                     WHERE id(n) IN {list(subgraph_ids)} AND id(m) IN {list(subgraph_ids)}
-#                     RETURN r, n, m
-#                     """
-#                     results = session.run(query_edges)
-#                     edges = []
-#                     for record in results:
-#                         r = record["r"]
-#                         n = record["n"]
-#                         m = record["m"]
-#                         edges.append({
-#                             "id": r.id,
-#                             "source": r.start_node.id,
-#                             "target": r.end_node.id,
-#                             "type": r.type,
-#                             "properties": dict(r)
-#                         })
-#                 else:
-#                     edges = []
-
-#         return {"nodes": list(nodes.values()), "links": edges}
+def cypher_value(val):
+    if isinstance(val, str) and val.lower() in ("true", "false"):
+        return val.lower()
+    if isinstance(val, (int, float)):
+        return str(val)
+    if isinstance(val, str):
+        # ako je string u formatu YYYY-MM-DD, tretiraj kao datum
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", val):
+            return f"date('{val}')"
+        return f"'{val}'"
+    raise ValueError(f"Unsupported type: {type(val)}")
 
 class GraphHandler:
     def __init__(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
+
+    # def get_graph_by_workspace(self, workspace_key):
+    #     database = WORKSPACES.get(workspace_key, "neo4j1")  # fallback
+    #     return self.get_graph(database=database)
+
+    # def get_subgraph_by_workspace(self, workspace_key, filters):
+    #     database = WORKSPACES.get(workspace_key, "neo4j1")
+    #     return self.get_subgraph(filters, database=database)
 
     # def serialize_value(self,value):
     #     if isinstance(value, (date, datetime, Date)):
@@ -171,7 +92,7 @@ class GraphHandler:
             subgraph_ids = set()
 
             for i, (attr, op, val) in enumerate(filters):
-                val_repr = f"'{val}'" if isinstance(val, str) else str(val)
+                val_repr = cypher_value(val)
 
                 if i == 0:
                     query_nodes = f"""
@@ -195,7 +116,7 @@ class GraphHandler:
                     new_nodes[n.id] = {
                         "id": n.id,
                         "labels": list(n.labels),
-                        "properties": dict(n)
+                        "properties": serialize_value(dict(n))
                     }
                     subgraph_ids.add(n.id)
 
@@ -216,7 +137,7 @@ class GraphHandler:
                             "source": r.start_node.id,
                             "target": r.end_node.id,
                             "type": r.type,
-                            "properties": dict(r)
+                            "properties": serialize_value(dict(r))
                         })
                 else:
                     edges = []

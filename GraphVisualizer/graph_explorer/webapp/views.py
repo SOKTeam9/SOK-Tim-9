@@ -321,59 +321,28 @@ def delete_edge(request):
     
     return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
 
-def simple_search_visualizer(request):
-    global current_view
-    current_view = "simple"
-    handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-    print("sdfghjkl")
-    data = json.loads(request.body)    
-    print(data)
-    query = data.get("query")
-    print(query)
-    graph_data = handler.get_search_subgraph(filters,query )
-    print(graph_data)
-    print("lennL ", len(graph_data['nodes']))
-
-    visualizer = VisualizerFactory.create_visualizer("simple")
-    context = visualizer.get_context(graph_data)
-    return JsonResponse(context)
-
-def block_search_view(request):
-    global current_view
-    current_view = "block"
-    handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-
-    data=json.loads(request.body)
-    query = data.get("query")
-
-    graph_data = handler.get_search_subgraph(filters,query )
-
-    visualizer = VisualizerFactory.create_visualizer("block")
-    context = visualizer.get_context(graph_data)
-
-    return JsonResponse(context)
-
-
-@csrf_exempt
-def search_graph(request):
-    print("search graph start")
-    
+def cli_search(request):
+    print("RADI PREKO CLI SEARCH")
     if request.method == "POST":
-        try:
-          
-            data = json.loads(request.body)
-            query = data.get("query")
-            if not query:
-                return JsonResponse({"status": "error", "message": "Upit za pretragu je obavezan."}, status=400)
-            
-            if current_view == "simple":
-                return simple_search_visualizer(request)
-            else:
-                return block_search_view(request)
+        query = request.POST.get("query", "").strip()
+        if current_view=="simple":
+            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+            print("QUERY: ", query)
+            graph_data = handler.get_search_subgraph(filters,query )
+            print(graph_data)
+            print("lennL ", len(graph_data['nodes']))
 
-        except json.JSONDecodeError:
-            return JsonResponse({"status": "error", "message": "Neispravan JSON format."}, status=400)
-        except Exception as e:
-            return JsonResponse({"status": "error", "message": str(e)}, status=500)
-    
-    return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
+            visualizer = VisualizerFactory.create_visualizer("simple")
+            context = visualizer.get_context(graph_data)
+            context["filter_string"] = _applied_filters()
+            return render(request, "simple_template.html", context)
+        else:
+            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+
+            graph_data = handler.get_search_subgraph(filters,query )
+
+            visualizer = VisualizerFactory.create_visualizer("block")
+            html = visualizer.render()
+
+            string_filters = _applied_filters()
+            return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters})

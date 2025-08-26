@@ -17,32 +17,32 @@
     // Podaci koje Django ubacuje
     window.nodes = {{ nodes | safe }};
     window.edges = {{ edges | safe }};
-    let graphDiv = document.getElementById('graph');
+    const graphDiv = document.getElementById('graph');
 
-    let width = graphDiv.clientWidth;
-    let height = graphDiv.clientHeight;
+    const width = graphDiv.clientWidth;
+    const height = graphDiv.clientHeight;
 
     // --- Main graph ---
-    let simulation = d3.forceSimulation(nodes)
+    const simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(edges).id(d => d.id).distance(150))
         .force("charge", d3.forceManyBody().strength(-400))
         .force("center", d3.forceCenter(width / 2, height / 2));
 
-    let svg = d3.select("#graph")
+    const svg = d3.select("#graph")
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    let g = svg.append("g");
+    const g = svg.append("g");
 
-    let link = g.append("g")
+    const link = g.append("g")
         .attr("stroke", "#aaa")
         .selectAll("line")
         .data(edges)
         .enter().append("line")
         .attr("stroke-width", 2);
 
-    let node = g.append("g")
+    const node = g.append("g")
         .attr("stroke", "#fff")
         .attr("stroke-width", 1.5)
         .selectAll("circle")
@@ -52,7 +52,7 @@
         .attr("fill", "#4CAF50")
         .call(drag(simulation));
 
-    let labels = g.append("g")
+    const labels = g.append("g")
         .selectAll("text")
         .data(nodes)
         .enter().append("text")
@@ -62,7 +62,7 @@
         .style("font-size", "12px")
         .style("fill", "#fff");
 
-    let zoom = d3.zoom()
+    const zoom = d3.zoom()
         .scaleExtent([0.2, 4])
         .on("zoom", (event) => {
             g.attr("transform", event.transform);   // move main graph
@@ -73,7 +73,7 @@
 
     svg.call(zoom);
     // Tooltip
-    let tooltip = d3.select("body")
+    const tooltip = d3.select("body")
         .append("div")
         .style("position", "absolute")
         .style("background-color", "rgba(0,0,0,0.8)")
@@ -141,134 +141,6 @@
             .on("end", dragended);
     }
 
-    function updateGraphVisualization(graphData) {
-    console.log("Pokrecem azuriranje vizualizacije...");
-    
-    let newNodes, newEdges;
-    try {
-        newNodes = JSON.parse(graphData.nodes);
-        newEdges = JSON.parse(graphData.edges);
-    } catch (e) {
-        console.error("Greska: Podaci sa servera nisu u ispravnom formatu!", e);
-        return;
-    }
-
-    window.nodes = newNodes;
-    window.edges = newEdges;
-
-    d3.select("#graph").select("svg").remove();
-    
-    const graphDiv = document.getElementById('graph');
-    const width = graphDiv.clientWidth;
-    const height = graphDiv.clientHeight;
-
-    svg = d3.select("#graph")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    g = svg.append("g");
-
-    link = g.append("g")
-        .attr("stroke", "#aaa")
-        .selectAll("line")
-        .data(newEdges)
-        .enter().append("line")
-        .attr("stroke-width", 2);
-
-    node = g.append("g")
-        .attr("stroke", "#fff")
-        .attr("stroke-width", 1.5)
-        .selectAll("circle")
-        .data(newNodes)
-        .enter().append("circle")
-        .attr("r", 30)
-        .attr("fill", "#4CAF50")
-        .call(drag(simulation));
-
-    labels = g.append("g")
-        .selectAll("text")
-        .data(newNodes)
-        .enter().append("text")
-        .attr("dy", 4)
-        .attr("text-anchor", "middle")
-        .text(d => d.properties.id)
-        .style("font-size", "12px")
-        .style("fill", "#fff")
-
-    zoom = d3.zoom()
-        .scaleExtent([0.2, 4])
-        .on("zoom", (event) => {
-            g.attr("transform", event.transform);
-            if (window.updateBirdView) {
-                window.updateBirdView();
-            }
-        });
-
-    svg.call(zoom);
-
-    node.on("mouseover", (event, d) => {
-        tooltip.transition().duration(200).style("opacity", 1);
-        let content = `<strong>ID:</strong> ${d.properties.id}<br>`;
-        for (const key in d.properties) {
-            if (key !== "id") content += `<strong>${key}:</strong> ${d.properties[key]}<br>`;
-        }
-        tooltip.html(content)
-            .style("left", (event.pageX + 10) + "px")
-            .style("top", (event.pageY + 10) + "px");
-    })
-    .on("mousemove", (event) => {
-        tooltip.style("left", (event.pageX + 10) + "px")
-            .style("top", (event.pageY + 10) + "px");
-    })
-    .on("mouseout", () => {
-        tooltip.transition().duration(200).style("opacity", 0);
-    });
-
-    simulation = d3.forceSimulation(newNodes)
-        .force("link", d3.forceLink(newEdges).id(d => d.id).distance(150))
-        .force("charge", d3.forceManyBody().strength(-400))
-        .force("center", d3.forceCenter(width / 2, height / 2))
-     
-
-    simulation.on("tick", () => {
-        link
-            .attr("x1", d => d.source.x)
-            .attr("y1", d => d.source.y)
-            .attr("x2", d => d.target.x)
-            .attr("y2", d => d.target.y);
-        
-        node
-            .attr("cx", d => d.x)
-            .attr("cy", d => d.y);
-        
-        labels
-            .attr("x", d => d.x)
-            .attr("y", d => d.y);
-        
-        if (window.updateBirdView) {
-            window.updateBirdView();
-        }
-    });
-
-    const birdContainer = document.getElementById('bird-view');
-    if (birdContainer) {
-        birdContainer.innerHTML = "";
-        if (typeof initBirdView === 'function') {
-            setTimeout(initBirdView, 100);
-        }
-    }
-
-    const treeContainer = document.getElementById("treeView");
-    if (treeContainer) {
-        treeContainer.innerHTML = "";
-        if (typeof initTreeView === 'function') {
-            setTimeout(initTreeView, 100);
-        }
-    }
-
-    console.log("Vizualizacija je azurirana.");
-}
 
 </script>
 {% endblock %}

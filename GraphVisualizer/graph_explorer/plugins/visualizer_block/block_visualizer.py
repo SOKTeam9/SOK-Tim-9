@@ -11,11 +11,6 @@ class BlockVisualizer:
         """
         self.graph_data = graph_data
 
-    def get_context(self, graph_data):
-        return {
-            "nodes": json.dumps(graph_data["nodes"]),
-            "edges": json.dumps(graph_data["links"]),
-        }
 
     def render(self):
         # Pretvori graph_data u JSON string

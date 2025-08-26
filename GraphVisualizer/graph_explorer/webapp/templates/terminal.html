@@ -19,6 +19,10 @@
       <input type="hidden" name="relations">
       <input type="hidden" name="value">
     </form>
+    <form id="hiddenSearchForm" method="post" action="{% url 'cli_search' %}">
+        {% csrf_token %}
+        <input type="hidden" name="query">
+      </form>
   </div>
 </div>
 <script>
@@ -446,40 +450,10 @@ function searchGraph(command) {
     const query = queryMatch[1];
     console.log('query: ', query)
 
-    call_search_api(query);
-}
-async function call_search_api(query) {
-    try {
-        const response = await fetch('/search_graph/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ query: query }),
-        });
+    const form = document.getElementById('hiddenSearchForm');
 
-        const result = await response.json();
-        if (response.ok) {
-          console.log('Uspesna pretraga, dobijeni podaci:', result);
+    form.querySelector('[name="query"]').value = query;
 
-          
-          updateGraphVisualization(result); 
-
-          console.log("result:   ---- ",result)
-          const nodesCount = JSON.parse(result.nodes).length;
-          const relsCount = JSON.parse(result.edges).length;
-          appendLine(`Pronađeno je ${nodesCount} čvorova i ${relsCount} veza.`);
-       
-        } else {
-            appendLine(`Greška prilikom pretrage: ${result.message}`);
-            commandHistory.push(`Greška prilikom pretrage: ${result.message}`);
-        }
-        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
-
-    } catch (error) {
-        appendLine(`Greška u komunikaciji: ${error.message}`);
-        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
-        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
-    }
+    form.submit();
 }
 </script>

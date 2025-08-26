@@ -402,29 +402,31 @@ def cli_search(request):
             string_filters = _applied_filters()
             return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters})
         
-def clear_database(request):
+def clear_database(request, ws_id=1):
     if request.method == "POST":
+        workspaces[str(ws_id)]['filters'].clear()
+        workspaces[str(ws_id)]['selected_file'] = "No file selected"
+        write_config()
         print("BRISANJE BAZE")
         if current_view=="simple":
-            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-            graph_data = handler.delete_and_get_empty_graph()
+            graph_data = handler.delete_and_get_empty_graph("neo4j"+str(ws_id))
             print(graph_data)
             print("lennL ", len(graph_data['nodes']))
 
             visualizer = VisualizerFactory.create_visualizer("simple")
             context = visualizer.get_context(graph_data)
-            context["filter_string"] = _applied_filters()
+            context["filter_string"] = _applied_filters(ws_id)
+            context["selected_file_name"] = workspaces[str(ws_id)]["selected_file"]
+            context["ws_id"] = ws_id
             return render(request, "simple_template.html", context)
         else:
-            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
-
-            graph_data = handler.delete_and_get_empty_graph()
+            graph_data = handler.delete_and_get_empty_graph("neo4j"+str(ws_id))
 
             visualizer = VisualizerFactory.create_visualizer("block")
             html = visualizer.render()
 
-            string_filters = _applied_filters()
-            return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters})
+            string_filters = _applied_filters(ws_id)
+            return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": workspaces[str(ws_id)]["selected_file"], "ws_id": ws_id})
 def filter_remove(request, ws_id=1):
     selected_filter = request.GET.get("filter")
     for single_filter in workspaces[str(ws_id)]["filters"]:

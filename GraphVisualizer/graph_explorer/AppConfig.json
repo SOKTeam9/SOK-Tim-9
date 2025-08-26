@@ -1,9 +1,9 @@
 {
     "active": "1",
     "1": {
-        "view_type": "block",
+        "view_type": "simple",
         "filters": [],
-        "selected_file": "test.yaml"
+        "selected_file": "No file selected"
     },
     "2": {
         "view_type": "simple",

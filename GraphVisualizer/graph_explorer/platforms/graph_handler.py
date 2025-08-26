@@ -311,6 +311,36 @@ class GraphHandler:
                     })
 
         return {"nodes": list(nodes.values()), "links": edges}
+    
+    def delete_and_get_empty_graph(self, database="neo4j1"):
+        """
+        Briše sve čvorove i relacije iz grafa, a zatim dobavlja prazan graf.
+
+        Args:
+            database (str): Naziv baze podataka.
+
+        Returns:
+            dict: Rečnik sa praznim listama za čvorove i veze.
+        """
+        # Cypher upit za brisanje svih čvorova i relacija
+        delete_query = """
+        MATCH (n)
+        DETACH DELETE n
+        """
+
+        with self.driver.session(database=database) as session:
+            try:
+                # Izvrši upit za brisanje
+                session.run(delete_query)
+                print(f"Svi čvorovi i relacije su uspešno obrisani iz baze '{database}'.")
+            except Exception as e:
+                print(f"Greška prilikom brisanja grafa: {e}")
+                # Vrati prazan graf čak i ako brisanje ne uspe
+                return {"nodes": [], "links": []}
+
+        # Nakon brisanja, pozovi get_graph() da bi vratio prazan graf
+        # Ovo će potvrditi da je baza prazna
+        return self.get_graph(database=database)
 
 if __name__ == "__main__":
     # handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")

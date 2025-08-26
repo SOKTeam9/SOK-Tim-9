@@ -19,11 +19,11 @@
       <input type="hidden" name="relations">
       <input type="hidden" name="value">
     </form>
-    <form id="hiddenSearchForm" method="post" action="{% url 'cli_search' %}">
+    <form id="hiddenSearchForm" method="post" action="{% url 'cli_search' ws_id=ws_id %}">
         {% csrf_token %}
         <input type="hidden" name="query">
       </form>
-      <form id="hiddenClearDatabaseForm" method="post" action="{% url 'clear_database' %}">
+      <form id="hiddenClearDatabaseForm" method="post" action="{% url 'clear_database' ws_id=ws_id %}">
         {% csrf_token %}
       </form>
   </div>

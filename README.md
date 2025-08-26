@@ -12,7 +12,7 @@ Dragan Jordanović SV79/2022
 
 1. Instalirajte biblioteku za virtuelno okruženje: pip install virtenv
 2. Pozicionirajte se u GraphVisualizer folder: cd GraphVisualizer
-3. Kreirajte virtuelno okruženje: virtenv *naziv_okruženja*
+3. Kreirajte virtuelno okruženje: virtualenv *naziv_okruženja*
 4. Aktivirajte virtuelno okruženje:
    <ol>
      <li>WINDOWS: *naziv_okruženja*/Scripts/activate </li>

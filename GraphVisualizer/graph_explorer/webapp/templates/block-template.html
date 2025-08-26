@@ -15,6 +15,13 @@
 <h1>Main view</h1>
 <div id="graph" style="width: 100%; height: 100%"></div>
 
+<!-- tooltip za linkove -->
+<div id="linkTooltip"
+  style="position:absolute; padding:6px 10px; background:rgba(0,0,0,0.8);
+         color:white; font-size:12px; border-radius:4px; pointer-events:none;
+         visibility:hidden;">
+</div>
+
 {{ graph_json|json_script:"graph-block-data-main" }}
 <script>
   (function ensureGlobalConfig() {
@@ -82,15 +89,49 @@
     .force("charge", d3.forceManyBody().strength(-800))
     .force("center", d3.forceCenter(width / 2, height / 2));
 
+  // --- LINKOVI sa labelama ---
   const link = container
     .selectAll(".link")
     .data(linksMV)
     .enter()
-    .append("line")
+    .append("g")
+    .attr("class", "link");
+
+  link.append("line")
     .attr("stroke", "#333")
     .attr("stroke-width", 1.5)
     .attr("marker-end", "url(#arrow)");
 
+  link.append("path")
+    .attr("id", (d, i) => `linkPath${i}`)
+    .attr("class", "link-path")
+    .attr("fill", "none")
+    .attr("stroke", "none");
+
+  const linkLabel = link.append("text")
+    .attr("class", "link-label")
+    .attr("dy", -3)
+    .append("textPath")
+    .attr("xlink:href", (d, i) => `#linkPath${i}`)
+    .attr("startOffset", "50%")
+    .style("text-anchor", "middle")
+    .style("font-size", "10px")
+    .text(d => d.type || d.label || "rel");
+
+  // Tooltip za veze
+  const linkTooltip = d3.select("#linkTooltip");
+  link.select("text")
+    .on("mouseover", (event, d) => {
+      linkTooltip.style("visibility", "visible")
+        .text(d.type || d.label || "rel");
+    })
+    .on("mousemove", (event) => {
+      linkTooltip.style("top", (event.pageY + 10) + "px")
+        .style("left", (event.pageX + 10) + "px");
+    })
+    .on("mouseout", () => linkTooltip.style("visibility", "hidden"));
+
+  // --- NODES ---
   const node = container
     .selectAll(".node")
     .data(nodesMV)
@@ -149,11 +190,29 @@
   });
 
   simulation.on("tick", () => {
-    link
-      .attr("x1", (d) => d.source.x)
-      .attr("y1", (d) => d.source.y)
-      .attr("x2", (d) => d.target.x)
-      .attr("y2", (d) => d.target.y);
+    link.select("line")
+      .attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
+
+    // ako postoji dvosmerna veza -> zakrivljena
+    link.select("path")
+      .attr("d", (d) => {
+        const dx = d.target.x - d.source.x;
+        const dy = d.target.y - d.source.y;
+        const dr = Math.sqrt(dx * dx + dy * dy);
+        // ako postoji i suprotna veza
+        const opposite = linksMV.find(l =>
+          (l.source.id || l.source) === (d.target.id || d.target) &&
+          (l.target.id || l.target) === (d.source.id || d.source)
+        );
+        if (opposite) {
+          return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
+        }
+        return `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`;
+      });
+
     node.attr("transform", (d) => `translate(${d.x},${d.y})`);
   });
 

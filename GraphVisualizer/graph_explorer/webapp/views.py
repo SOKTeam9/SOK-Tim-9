@@ -55,7 +55,7 @@ def index(request):
 def reset_graph(request, ws_id):
     workspaces[str(ws_id)]["filters"].clear()
     write_config()
-    if workspaces[str(ws_id)]["filters"] == "simple":
+    if workspaces[str(ws_id)]["view_type"] == "simple":
         return simple_visualizer(request, ws_id=ws_id)
     else:
         return block_view(request, ws_id=ws_id)

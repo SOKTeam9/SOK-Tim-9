@@ -19,6 +19,7 @@ handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
 current_view = "simple"
 
 workspaces = {
+    "active" : "1",
     "1": {
         "view_type": "simple",
         "filters": [],
@@ -53,6 +54,7 @@ def index(request):
 
 def reset_graph(request, ws_id):
     workspaces[str(ws_id)]["filters"].clear()
+    write_config()
     if workspaces[str(ws_id)]["filters"] == "simple":
         return simple_visualizer(request, ws_id=ws_id)
     else:
@@ -88,6 +90,7 @@ def block_view(request, file_name=None, ws_id=1):
 
     string_filters = _applied_filters(ws_id)
 
+    write_config()
     return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": workspaces[str(ws_id)]["selected_file"], "ws_id": ws_id})
 
 def simple_visualizer(request, file_name=None, ws_id=1):
@@ -102,16 +105,16 @@ def simple_visualizer(request, file_name=None, ws_id=1):
     context["filter_string"] = _applied_filters(ws_id)
     context["selected_file_name"] = workspaces[str(ws_id)]["selected_file"]
     context["ws_id"] = ws_id
+    write_config()
     return render(request, "simple_template.html", context)
 
 def workspace_switch(request, ws_id=1):
+    workspaces["active"] = str(ws_id)
+    write_config()
     if workspaces[str(ws_id)]["view_type"] == "simple":
         return simple_visualizer(request, ws_id=ws_id)
     else:
         return block_view(request, ws_id=ws_id)
-
-
-
 
 def load_file(request=None, ws_id=1):
     selected_file_name = None
@@ -145,6 +148,7 @@ def load_file(request=None, ws_id=1):
             # Možeš odmah obrisati privremeni fajl
             os.remove(tmp_path)
     
+    write_config()
     if workspaces[str(ws_id)]["view_type"] == "simple":
         return simple_visualizer(request, selected_file_name, ws_id)
     else:
@@ -168,6 +172,7 @@ def make_search(request=None, ws_id=1):
             if single_filter not in workspaces[str(ws_id)]["filters"]:
                 workspaces[str(ws_id)]["filters"].append(single_filter)
 
+        write_config()
         if workspaces[str(ws_id)]["view_type"] == "simple":
             return simple_visualizer(request, ws_id=ws_id)
         else:
@@ -190,7 +195,8 @@ def apply_filter(request=None, ws_id=1):
                 single_filter = (filter_attribute, filter_relation, actual_value)
                 if single_filter not in workspaces[str(ws_id)]["filters"]:
                     workspaces[str(ws_id)]["filters"].append(single_filter)
-            
+    
+    write_config()  
     if workspaces[str(ws_id)]["view_type"] == "simple":
         return simple_visualizer(request, ws_id=ws_id)
     else:
@@ -210,8 +216,23 @@ def filter_remove(request, ws_id=1):
         if selected_filter == merged:
             workspaces[str(ws_id)]["filters"].remove(single_filter)
             break
+    
+    write_config()
     if workspaces[str(ws_id)]["view_type"] == "simple":
         return simple_visualizer(request, ws_id=ws_id)
     else:
         return block_view(request, ws_id=ws_id)
 
+def load_config():
+    with open("AppConfig.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return data
+
+def write_config():
+    with open("AppConfig.json", "w", encoding="utf-8") as f:
+        json.dump(workspaces, f, indent=4, ensure_ascii=False)
+
+def redirect(request):
+    global workspaces
+    workspaces = load_config()
+    return workspace_switch(request, int(workspaces["active"]))

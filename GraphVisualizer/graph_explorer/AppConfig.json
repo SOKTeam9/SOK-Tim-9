@@ -1,0 +1,28 @@
+{
+    "active" : "1",
+    "1": {
+        "view_type": "simple",
+        "filters": [],
+        "selected_file": "No file selected"
+    },
+    "2": {
+        "view_type": "simple",
+        "filters": [],
+        "selected_file": "No file selected"
+    },
+    "3": {
+        "view_type": "simple",
+        "filters": [],
+        "selected_file": "No file selected"
+    },
+    "4": {
+        "view_type": "simple",
+        "filters": [],
+        "selected_file": "No file selected"
+    },
+    "5": {
+        "view_type": "simple",
+        "filters": [],
+        "selected_file": "No file selected"
+    }
+}

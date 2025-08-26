@@ -1,3 +1,4 @@
-{% extends "base.html" %} {% block main-view %}
-<h1>No files loaded</h1>
+{% extends "base.html" %} {% block mainView %}
+<h1>Redirecting...</h1>
+<meta http-equiv="refresh" content="0; url={% url 'redirect' %}">
 {% endblock %}

@@ -16,11 +16,19 @@
 <div id="graph" style="width: 100%; height: 100%"></div>
 
 <!-- tooltip za linkove -->
-<div id="linkTooltip"
-  style="position:absolute; padding:6px 10px; background:rgba(0,0,0,0.8);
-         color:white; font-size:12px; border-radius:4px; pointer-events:none;
-         visibility:hidden;">
-</div>
+<div
+  id="linkTooltip"
+  style="
+    position: absolute;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    pointer-events: none;
+    visibility: hidden;
+  "
+></div>
 
 {{ graph_json|json_script:"graph-block-data-main" }}
 <script>
@@ -63,6 +71,7 @@
 
   svg.call(zoom);
 
+  // Marker za strelice
   svg
     .append("defs")
     .append("marker")
@@ -89,7 +98,7 @@
     .force("charge", d3.forceManyBody().strength(-800))
     .force("center", d3.forceCenter(width / 2, height / 2));
 
-  // --- LINKOVI sa labelama ---
+  // --- LINKOVI sa tekstom ---
   const link = container
     .selectAll(".link")
     .data(linksMV)
@@ -97,39 +106,21 @@
     .append("g")
     .attr("class", "link");
 
-  link.append("line")
+  // linije
+  link
+    .append("line")
     .attr("stroke", "#333")
     .attr("stroke-width", 1.5)
     .attr("marker-end", "url(#arrow)");
 
-  link.append("path")
-    .attr("id", (d, i) => `linkPath${i}`)
-    .attr("class", "link-path")
-    .attr("fill", "none")
-    .attr("stroke", "none");
-
-  const linkLabel = link.append("text")
+  // tekst iznad linije, pratimo smer
+  const linkLabel = link
+    .append("text")
     .attr("class", "link-label")
-    .attr("dy", -3)
-    .append("textPath")
-    .attr("xlink:href", (d, i) => `#linkPath${i}`)
-    .attr("startOffset", "50%")
-    .style("text-anchor", "middle")
-    .style("font-size", "10px")
-    .text(d => d.type || d.label || "rel");
-
-  // Tooltip za veze
-  const linkTooltip = d3.select("#linkTooltip");
-  link.select("text")
-    .on("mouseover", (event, d) => {
-      linkTooltip.style("visibility", "visible")
-        .text(d.type || d.label || "rel");
-    })
-    .on("mousemove", (event) => {
-      linkTooltip.style("top", (event.pageY + 10) + "px")
-        .style("left", (event.pageX + 10) + "px");
-    })
-    .on("mouseout", () => linkTooltip.style("visibility", "hidden"));
+    .attr("font-size", 10)
+    .attr("fill", "#555")
+    .attr("text-anchor", "middle")
+    .text((d) => d.type || d.label || "rel");
 
   // --- NODES ---
   const node = container
@@ -190,45 +181,47 @@
   });
 
   simulation.on("tick", () => {
-    link.select("line")
-      .attr("x1", d => d.source.x)
-      .attr("y1", d => d.source.y)
-      .attr("x2", d => d.target.x)
-      .attr("y2", d => d.target.y);
+    link
+      .select("line")
+      .attr("x1", (d) => d.source.x)
+      .attr("y1", (d) => d.source.y)
+      .attr("x2", (d) => d.target.x)
+      .attr("y2", (d) => d.target.y);
 
-    // ako postoji dvosmerna veza -> zakrivljena
-    link.select("path")
-      .attr("d", (d) => {
-        const dx = d.target.x - d.source.x;
-        const dy = d.target.y - d.source.y;
-        const dr = Math.sqrt(dx * dx + dy * dy);
-        // ako postoji i suprotna veza
-        const opposite = linksMV.find(l =>
-          (l.source.id || l.source) === (d.target.id || d.target) &&
-          (l.target.id || l.target) === (d.source.id || d.source)
-        );
-        if (opposite) {
-          return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
-        }
-        return `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`;
+    // tekst iznad linije i rotiran prema smeru
+    link
+      .select("text")
+      .attr("x", (d) => (d.source.x + d.target.x) / 2)
+      .attr("y", (d) => (d.source.y + d.target.y) / 2 - 5)
+      .attr("transform", (d) => {
+        const x = (d.source.x + d.target.x) / 2;
+        const y = (d.source.y + d.target.y) / 2;
+        const angle =
+          (Math.atan2(d.target.y - d.source.y, d.target.x - d.source.x) * 180) /
+          Math.PI;
+        return `rotate(${angle},${x},${y})`;
       });
 
     node.attr("transform", (d) => `translate(${d.x},${d.y})`);
   });
+  // Tooltip za veze
+  const linkTooltip = d3.select("#linkTooltip");
 
-  // Funkcija za update tree view
-  function updateTreeViewText() {
-    document.querySelectorAll("#treeView li > span").forEach((span) => {
-      const nodeId = String(span.dataset.nodeId);
-      if (window.selectedNodes.has(nodeId)) {
-        span.classList.add("selected-node");
-      } else {
-        span.classList.remove("selected-node");
-      }
+  link
+    .on("mouseover", (event, d) => {
+      linkTooltip
+        .style("visibility", "visible")
+        .text(d.type || d.label || "rel");
+    })
+    .on("mousemove", (event) => {
+      linkTooltip
+        .style("top", event.pageY + 10 + "px")
+        .style("left", event.pageX + 10 + "px");
+    })
+    .on("mouseout", () => {
+      linkTooltip.style("visibility", "hidden");
     });
-  }
-
-  // Main view klik
+  // selekcija čvorova
   node.on("click", (event, d) => {
     const idStr = String(d.id);
     if (window.selectedNodes.has(idStr)) window.selectedNodes.delete(idStr);
@@ -255,12 +248,21 @@
     updateTreeViewText();
   });
 
+  function updateTreeViewText() {
+    document.querySelectorAll("#treeView li > span").forEach((span) => {
+      const nodeId = String(span.dataset.nodeId);
+      if (window.selectedNodes.has(nodeId)) span.classList.add("selected-node");
+      else span.classList.remove("selected-node");
+    });
+  }
+
   window.mainSvg = svg;
   window.mainContainer = container;
   window.mainZoom = zoom;
   window.simulation = simulation;
   window.mainSize = { width, height };
 </script>
+
 {% endblock %} {% block treeView %}
 <h1>Tree view</h1>
 <div style="margin-bottom: 5px">

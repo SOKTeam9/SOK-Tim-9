@@ -6,10 +6,8 @@
   </a>
   {% endfor %}
 </div>
-
 {% endblock %} {% block mainView %}
 <h1 class="text-center">Main view</h1>
-
 <div
   id="graph"
   style="background-color: #f9f9f9; width: 100%; height: 80%"
@@ -17,133 +15,180 @@
 
 <!-- D3.js -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
-
 <script>
   // Podaci koje Django ubacuje
   window.nodes = {{ nodes | safe }};
   window.edges = {{ edges | safe }};
-  const graphDiv = document.getElementById('graph');
 
+  const graphDiv = document.getElementById('graph');
   const width = graphDiv.clientWidth;
   const height = graphDiv.clientHeight;
 
   // --- Main graph ---
   const simulation = d3.forceSimulation(nodes)
-      .force("link", d3.forceLink(edges).id(d => d.id).distance(150))
-      .force("charge", d3.forceManyBody().strength(-400))
-      .force("center", d3.forceCenter(width / 2, height / 2));
+    .force("link", d3.forceLink(edges).id(d => d.id).distance(150))
+    .force("charge", d3.forceManyBody().strength(-400))
+    .force("center", d3.forceCenter(width / 2, height / 2));
 
   const svg = d3.select("#graph")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height);
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
 
   const g = svg.append("g");
+  // Definišemo strelice
+  svg.append("defs").selectAll("marker")
+    .data(["arrow"]) // možeš dodati "arrow-reverse" za obostrane
+    .enter().append("marker")
+      .attr("id", d => d)
+      .attr("viewBox", "0 -5 10 10")
+      .attr("refX", 35) // udaljenost strelice od centra čvora (radius = 30)
+      .attr("refY", 0)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+      .append("path")
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("fill", "#aaa");
 
-  const link = g.append("g")
-      .attr("stroke", "#aaa")
-      .selectAll("line")
-      .data(edges)
-      .enter().append("line")
-      .attr("stroke-width", 2);
+
+  const linkPath = g.append("g")
+    .attr("stroke", "#aaa")
+    .selectAll("path")
+    .data(edges)
+    .enter().append("path")
+      .attr("id", (d,i) => `edgePath${i}`)
+      .attr("stroke-width", 2)
+      .attr("fill", "none")
+      .attr("marker-end", "url(#arrow)")
+      .attr("marker-start", d => d.bidirectional ? "url(#arrow)" : null);
 
   const node = g.append("g")
-      .attr("stroke", "#fff")
-      .attr("stroke-width", 1.5)
-      .selectAll("circle")
-      .data(nodes)
-      .enter().append("circle")
-      .attr("r", 30)
-      .attr("fill", "#4CAF50")
-      .call(drag(simulation));
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 1.5)
+    .selectAll("circle")
+    .data(nodes)
+    .enter().append("circle")
+    .attr("r", 30)
+    .attr("fill", "#4CAF50")
+    .call(drag(simulation));
 
   const labels = g.append("g")
-      .selectAll("text")
-      .data(nodes)
-      .enter().append("text")
-      .attr("dy", 4)
+    .selectAll("text")
+    .data(nodes)
+    .enter().append("text")
+    .attr("dy", 4)
+    .attr("text-anchor", "middle")
+    .text(d => d.properties.id)
+    .style("font-size", "12px")
+    .style("fill", "#fff");
+
+  const edgeLabels = g.append("g")
+    .selectAll("text")
+    .attr("dy", -3)
+    .data(edges)
+    .enter().append("text")
+    .attr("font-size", 10)
+    .attr("fill", "#555")
+    .append("textPath")
+      .attr("xlink:href", (d, i) => `#edgePath${i}`)
+      .attr("startOffset", "50%") // centriranje teksta
       .attr("text-anchor", "middle")
-      .text(d => d.properties.id)
-      .style("font-size", "12px")
-      .style("fill", "#fff");
+      .text(d => d.type || "n/a");
 
   const zoom = d3.zoom()
-      .scaleExtent([0.2, 4])
-      .on("zoom", (event) => {
-          g.attr("transform", event.transform);   // move main graph
-          if (window.updateBirdView) {
-              window.updateBirdView();           // update red rectangle
-          }
-      });
+    .scaleExtent([0.2, 4])
+    .on("zoom", (event) => {
+      g.attr("transform", event.transform);
+      if (window.updateBirdView) {
+        window.updateBirdView();
+      }
+    });
 
   svg.call(zoom);
+
   // Tooltip
   const tooltip = d3.select("body")
-      .append("div")
-      .style("position", "absolute")
-      .style("background-color", "rgba(0,0,0,0.8)")
-      .style("color", "#fff")
-      .style("padding", "8px")
-      .style("border-radius", "4px")
-      .style("pointer-events", "none")
-      .style("opacity", 0);
+    .append("div")
+    .style("position", "absolute")
+    .style("background-color", "rgba(0,0,0,0.8)")
+    .style("color", "#fff")
+    .style("padding", "8px")
+    .style("border-radius", "4px")
+    .style("pointer-events", "none")
+    .style("opacity", 0);
 
   simulation.on("tick", () => {
-      // Main graph update
-      link
-          .attr("x1", d => d.source.x)
-          .attr("y1", d => d.source.y)
-          .attr("x2", d => d.target.x)
-          .attr("y2", d => d.target.y);
+     linkPath.attr("d", d => `M${d.source.x},${d.source.y} L${d.target.x},${d.target.y}`);
 
-      node
-          .attr("cx", d => d.x)
-          .attr("cy", d => d.y);
+    node
+      .attr("cx", d => d.x)
+      .attr("cy", d => d.y);
 
-      labels
-          .attr("x", d => d.x)
-          .attr("y", d => d.y);
+    labels
+      .attr("x", d => d.x)
+      .attr("y", d => d.y);
 
-      window.updateBirdView();
+    window.updateBirdView();
   });
-
-  node.on("mouseover", (event, d) => {
+  // --- TOOLTIP ZA VEZE ---
+  linkPath.on("mouseover", (event, d) => {
       tooltip.transition().duration(200).style("opacity", 1);
-      let content = `<strong>ID:</strong> ${d.properties.id}<br>`;
-      for (const key in d.properties) {
-          if (key !== "id") content += `<strong>${key}:</strong> ${d.properties[key]}<br>`;
+
+      let content = `<strong>Veza:</strong> ${d.type || "n/a"}<br>`;
+      if (d.properties) {
+          for (const key in d.properties) {
+              content += `<strong>${key}:</strong> ${d.properties[key]}<br>`;
+          }
       }
       tooltip.html(content)
           .style("left", (event.pageX + 10) + "px")
           .style("top", (event.pageY + 10) + "px");
   })
-      .on("mousemove", (event) => {
-          tooltip.style("left", (event.pageX + 10) + "px")
-              .style("top", (event.pageY + 10) + "px");
-      })
-      .on("mouseout", () => {
-          tooltip.transition().duration(200).style("opacity", 0);
-      });
+  .on("mousemove", (event) => {
+      tooltip.style("left", (event.pageX + 10) + "px")
+             .style("top", (event.pageY + 10) + "px");
+  })
+  .on("mouseout", () => {
+      tooltip.transition().duration(200).style("opacity", 0);
+  });
+  node.on("mouseover", (event, d) => {
+      tooltip.transition().duration(200).style("opacity", 1);
+      let content = `<strong>ID:</strong> ${d.properties.id}<br>`;
+      for (const key in d.properties) {
+        if (key !== "id") content += `<strong>${key}:</strong> ${d.properties[key]}<br>`;
+      }
+      tooltip.html(content)
+        .style("left", (event.pageX + 10) + "px")
+        .style("top", (event.pageY + 10) + "px");
+    })
+    .on("mousemove", (event) => {
+      tooltip.style("left", (event.pageX + 10) + "px")
+        .style("top", (event.pageY + 10) + "px");
+    })
+    .on("mouseout", () => {
+      tooltip.transition().duration(200).style("opacity", 0);
+    });
 
   function drag(simulation) {
-      function dragstarted(event, d) {
-          if (!event.active) simulation.alphaTarget(0.3).restart();
-          d.fx = d.x;
-          d.fy = d.y;
-      }
-      function dragged(event, d) {
-          d.fx = event.x;
-          d.fy = event.y;
-      }
-      function dragended(event, d) {
-          if (!event.active) simulation.alphaTarget(0);
-          d.fx = null;
-          d.fy = null;
-      }
-      return d3.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended);
+    function dragstarted(event, d) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
+    function dragged(event, d) {
+      d.fx = event.x;
+      d.fy = event.y;
+    }
+    function dragended(event, d) {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+    return d3.drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended);
   }
 </script>
 {% endblock %} {% block birdView %}
@@ -155,7 +200,7 @@
 <script>
   function waitForMainGraph() {
     if (window.nodes && window.edges) {
-      initBirdView(); // safe to build bird-view now
+      initBirdView();
     } else {
       setTimeout(waitForMainGraph, 50);
     }
@@ -175,7 +220,6 @@
 
     const birdG = birdSvg.append("g");
 
-    // Create links
     window.birdLinks = birdG
       .append("g")
       .attr("stroke", "#aaa")
@@ -185,7 +229,6 @@
       .append("line")
       .attr("stroke-width", 1);
 
-    // Create nodes
     window.birdNodes = birdG
       .append("g")
       .selectAll("circle")
@@ -195,7 +238,6 @@
       .attr("r", 3)
       .attr("fill", "#4CAF50");
 
-    // Red rectangle for viewport
     window.birdViewport = birdSvg
       .append("rect")
       .attr("fill", "none")
@@ -206,14 +248,13 @@
   window.updateBirdView = function () {
     if (!window.birdNodes || !window.birdLinks) return;
 
-    const transform = d3.zoomTransform(svg.node()); // main graph zoom & pan
+    const transform = d3.zoomTransform(svg.node());
+
     const xExtent = d3.extent(window.nodes, (d) => d.x);
     const yExtent = d3.extent(window.nodes, (d) => d.y);
-
     const graphWidth = xExtent[1] - xExtent[0] || 1000;
     const graphHeight = yExtent[1] - yExtent[0] || 1000;
 
-    // scale to fit entire main graph in bird-view
     let factor = 0.75;
     const scale =
       Math.min(window.birdWidth / graphWidth, window.birdHeight / graphHeight) *
@@ -224,19 +265,16 @@
     const scaleX = (x) => (x - xExtent[0]) * scale + offsetX;
     const scaleY = (y) => (y - yExtent[0]) * scale + offsetY;
 
-    // update links
     window.birdLinks
       .attr("x1", (d) => scaleX(d.source.x))
       .attr("y1", (d) => scaleY(d.source.y))
       .attr("x2", (d) => scaleX(d.target.x))
       .attr("y2", (d) => scaleY(d.target.y));
 
-    // update nodes
     window.birdNodes
       .attr("cx", (d) => scaleX(d.x))
       .attr("cy", (d) => scaleY(d.y));
 
-    // update red rectangle for main viewport
     const viewX = scaleX(-transform.x / transform.k);
     const viewY = scaleY(-transform.y / transform.k);
     const viewWidth = (width / transform.k) * scale;
@@ -251,12 +289,10 @@
 </script>
 {% endblock %} {% block treeView %}
 <h1 class="text-center">Tree View</h1>
-
 <div style="margin-bottom: 5px">
   <button id="expandAll">Expand All</button>
   <button id="collapseAll">Collapse All</button>
 </div>
-
 <div
   id="treeView"
   style="height: 100%; overflow: auto; border: 1px solid #ccc; padding: 5px"
@@ -267,15 +303,12 @@
     list-style-type: none;
     padding-left: 15px;
   }
-
   #treeView li {
     padding: 2px 0;
   }
-
   #treeView li span {
     cursor: pointer;
   }
-
   #treeView li button {
     border: none;
     background: transparent;
@@ -337,7 +370,6 @@
       const ul = document.createElement("ul");
       ul.style.display = "none";
 
-      // show properties
       if (node.properties) {
         for (const [k, v] of Object.entries(node.properties)) {
           if (k === "id") continue;
@@ -347,7 +379,6 @@
         }
       }
 
-      // show children
       const children = getConnectedNodes(node.id);
       children.forEach((c) =>
         renderTree(ul, c, depth + 1, maxDepth, new Set(visited))
@@ -362,6 +393,7 @@
           button.textContent = "+";
         }
       });
+
       span.addEventListener("click", () => button.click());
 
       li.appendChild(button);
@@ -377,7 +409,6 @@
     window.nodes.forEach((n) => renderTree(ulRoot, n));
     treeContainer.appendChild(ulRoot);
 
-    // expand/collapse controls
     document.getElementById("expandAll").addEventListener("click", () => {
       treeContainer
         .querySelectorAll("ul ul")
@@ -386,6 +417,7 @@
         .querySelectorAll("#treeView li > button")
         .forEach((b) => (b.textContent = "−"));
     });
+
     document.getElementById("collapseAll").addEventListener("click", () => {
       treeContainer
         .querySelectorAll("ul ul")

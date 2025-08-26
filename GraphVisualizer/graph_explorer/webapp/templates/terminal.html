@@ -23,6 +23,9 @@
         {% csrf_token %}
         <input type="hidden" name="query">
       </form>
+      <form id="hiddenClearDatabaseForm" method="post" action="{% url 'clear_database' %}">
+        {% csrf_token %}
+      </form>
   </div>
 </div>
 <script>
@@ -62,6 +65,7 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
         const editEdgeMatch = command.startsWith('edit edge');
         const deleteEdgeMatch = command.startsWith('delete edge');
         const searchMatch = command.startsWith('search');
+        const deleteDatabaseMatch = command.match(/^delete$/);
         console.log(deleteEdgeMatch);
 
         if (filterMatch) {
@@ -80,6 +84,8 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
           deleteEdge(command);
         }else if(searchMatch){
           searchGraph(command);
+        }else if(deleteDatabaseMatch){
+            clearDatabase();
         }
          else {
           appendLine('Nepoznata komanda.', false);
@@ -454,6 +460,11 @@ function searchGraph(command) {
 
     form.querySelector('[name="query"]').value = query;
 
+    form.submit();
+}
+function clearDatabase(){
+    console.log("Clear database")
+    const form = document.getElementById('hiddenClearDatabaseForm');
     form.submit();
 }
 </script>

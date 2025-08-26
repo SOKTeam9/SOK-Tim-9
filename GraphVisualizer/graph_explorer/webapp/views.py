@@ -346,3 +346,27 @@ def cli_search(request):
 
             string_filters = _applied_filters()
             return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters})
+        
+def clear_database(request):
+    if request.method == "POST":
+        print("BRISANJE BAZE")
+        if current_view=="simple":
+            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+            graph_data = handler.delete_and_get_empty_graph()
+            print(graph_data)
+            print("lennL ", len(graph_data['nodes']))
+
+            visualizer = VisualizerFactory.create_visualizer("simple")
+            context = visualizer.get_context(graph_data)
+            context["filter_string"] = _applied_filters()
+            return render(request, "simple_template.html", context)
+        else:
+            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+
+            graph_data = handler.delete_and_get_empty_graph()
+
+            visualizer = VisualizerFactory.create_visualizer("block")
+            html = visualizer.render()
+
+            string_filters = _applied_filters()
+            return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters})

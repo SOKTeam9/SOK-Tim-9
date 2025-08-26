@@ -17,6 +17,8 @@ urlpatterns = [
     path('create_edge/', views.create_edge, name='create_edge'),
     path('edit_edge/', views.edit_edge, name='edit_edge'),
     path('delete_edge/', views.delete_edge, name='delete_edge'),
-    path('cli_search/', views.cli_search, name='cli_search')
+    path('cli_search/', views.cli_search, name='cli_search'),
+    path('clear_database/', views.clear_database, name='clear_database')
+
 
 ]

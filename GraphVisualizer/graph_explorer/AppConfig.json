@@ -1,12 +1,12 @@
 {
-    "active" : "1",
+    "active": "3",
     "1": {
         "view_type": "simple",
         "filters": [],
-        "selected_file": "No file selected"
+        "selected_file": "a.yaml"
     },
     "2": {
-        "view_type": "simple",
+        "view_type": "block",
         "filters": [],
         "selected_file": "No file selected"
     },
@@ -21,8 +21,8 @@
         "selected_file": "No file selected"
     },
     "5": {
-        "view_type": "simple",
+        "view_type": "block",
         "filters": [],
-        "selected_file": "No file selected"
+        "selected_file": "a.yaml"
     }
 }

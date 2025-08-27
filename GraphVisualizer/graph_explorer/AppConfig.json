@@ -1,5 +1,5 @@
 {
-    "active": "4",
+    "active": "1",
     "1": {
         "view_type": "simple",
         "filters": [],
@@ -18,7 +18,7 @@
     "4": {
         "view_type": "simple",
         "filters": [],
-        "selected_file": "employees.xml"
+        "selected_file": "No file selected"
     },
     "5": {
         "view_type": "simple",

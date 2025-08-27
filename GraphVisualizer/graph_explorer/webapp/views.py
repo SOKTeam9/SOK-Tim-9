@@ -98,8 +98,6 @@ def simple_visualizer(request, file_name=None, ws_id=1):
     workspaces[str(ws_id)]["view_type"] = "simple"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
     graph_data = handler.get_subgraph(workspaces[str(ws_id)]["filters"], "neo4j" + str(ws_id))
-    print("GRAPH DATA: ", graph_data)
-
     visualizer = VisualizerFactory.create_visualizer("simple")
 
     context = visualizer.visualize(graph_data)
@@ -302,7 +300,7 @@ def create_edge(request):
             if not all([rel_type, source_id, target_id]):
                 return JsonResponse({"status": "error", "message": "Relacija, početni i krajnji čvor su obavezni."}, status=400)
 
-            created = handler.create_relationship(source_id, target_id, rel_type)
+            created = handler.create_relationship(source_id, target_id, rel_type, "neo4j"+workspaces['active'])
             handler.close()
 
             if created:
@@ -329,7 +327,7 @@ def edit_edge(request):
             if not all([new_rel_type, source_id, target_id]):
                 return JsonResponse({"status": "error", "message": "Novi tip relacije, početni i krajnji čvor su obavezni."}, status=400)
 
-            edited = handler.edit_relationship(source_id, target_id, new_rel_type)
+            edited = handler.edit_relationship(source_id, target_id, new_rel_type, "neo4j"+workspaces['active'])
             handler.close()
 
             if edited:
@@ -357,7 +355,7 @@ def delete_edge(request):
             if not all([source_id, target_id]):
                 return JsonResponse({"status": "error", "message": "Početni i krajnji čvor su obavezni."}, status=400)
 
-            deleted = handler.delete_relationship(source_id, target_id)
+            deleted = handler.delete_relationship(source_id, target_id, "neo4j"+workspaces['active'])
             handler.close()
 
             if deleted:
@@ -403,9 +401,8 @@ def clear_database(request, ws_id=1):
         workspaces[str(ws_id)]['selected_file'] = "No file selected"
         write_config()
         print("BRISANJE BAZE")
-        if current_view=="simple":
+        if workspaces[str(ws_id)]['view_type']=="simple":
             graph_data = handler.delete_and_get_empty_graph("neo4j"+str(ws_id))
-            print(graph_data)
             print("lennL ", len(graph_data['nodes']))
 
             visualizer = VisualizerFactory.create_visualizer("simple")

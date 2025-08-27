@@ -199,8 +199,8 @@ class GraphHandler:
                 else:
                     raise e
                 
-    def create_relationship(self, source_id, target_id, rel_type):
-            with self.driver.session() as session:
+    def create_relationship(self, source_id, target_id, rel_type, database):
+            with self.driver.session(database=database) as session:
                 try:
                     rel_type_upper = rel_type.upper().replace(" ", "_")
                     
@@ -217,8 +217,8 @@ class GraphHandler:
                     print(f"Neo4j error: {e}")
                     return False
                 
-    def edit_relationship(self, source_id, target_id, new_rel_type):
-        with self.driver.session() as session:
+    def edit_relationship(self, source_id, target_id, new_rel_type, database):
+        with self.driver.session(database=database) as session:
             try:
                 match_query = (
                     "MATCH (a {id: $source_id})-[r]->(b {id: $target_id}) "
@@ -248,8 +248,9 @@ class GraphHandler:
                     print(f"Neo4j error: {e}")
                     raise Exception(f"Neuspešno uređivanje relacije. Detalji: {str(e)}")
                 
-    def delete_relationship(self, source_id, target_id):
-        with self.driver.session() as session:
+    def delete_relationship(self, source_id, target_id, database):
+        with self.driver.session(database=database) as session:
+            print(database)
             try:
                 query = f"""
                     MATCH (a {{id: $source_id}})-[r]->(b {{id: $target_id}})

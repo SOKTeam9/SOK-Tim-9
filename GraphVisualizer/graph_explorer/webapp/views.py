@@ -266,20 +266,14 @@ def edit_node(request):
 
 @csrf_exempt
 def delete_node(request):
-    print("kjhgfd")
-    print(request)
     if request.method == "DELETE":
         try:
             data = json.loads(request.body)
-            print("****************")
-            print("data: ",data)
             node_id = data.get("id")
-            print("node id: ", node_id)
-            print("**************")
             if not node_id:
                 return JsonResponse({"status": "error", "message": "ID je obavezan."}, status=400)
 
-            deleted = handler.delete_node(node_id)
+            deleted = handler.delete_node(node_id, "neo4j"+workspaces['active'])
             handler.close()
 
             if deleted:

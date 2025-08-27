@@ -183,8 +183,8 @@ class GraphHandler:
             result = session.run(query, id=node_id, properties=properties)
             return result.single() is not None
         
-    def delete_node(self, node_id):
-        with self.driver.session() as session:
+    def delete_node(self, node_id, database):
+        with self.driver.session(database=database) as session:
             try:
                 query = (
                     "MATCH (n {id: $id}) "

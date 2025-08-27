@@ -17,13 +17,7 @@
     },
     "4": {
         "view_type": "simple",
-        "filters": [
-            [
-                "id",
-                "=",
-                "emp-001"
-            ]
-        ],
+        "filters": [],
         "selected_file": "employees.xml"
     },
     "5": {

@@ -222,8 +222,8 @@ def create_node(request):
             if not node_id or not properties:
                 return JsonResponse({"status": "error", "message": "ID and properties are required."}, status=400)
 
-            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j"+workspaces['active'], "djomlaboss")
-            created = handler.create_node(node_id, properties)
+            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+            created = handler.create_node(node_id, properties, "neo4j"+workspaces['active'])
             handler.close()
 
             if created:

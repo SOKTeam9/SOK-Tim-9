@@ -147,8 +147,22 @@ class GraphHandler:
     def close(self):
         self.driver.close()
 
-    def create_node(self, node_id, properties):
-        with self.driver.session() as session:
+    def format_properties_for_cypher(self, properties):
+        formatted_props = {}
+        for key, value in properties.items():
+            if isinstance(value, str) and re.match(r"^\d{4}-\d{2}-\d{2}$", value):
+                formatted_props[key] = date.fromisoformat(value)
+            else:
+                formatted_props[key] = value
+                
+        return formatted_props
+
+    def create_node(self, node_id, properties, database):
+        print("Properties: ", properties)
+        self.format_properties_for_cypher(properties)
+        properties=self.format_properties_for_cypher(properties)
+        
+        with self.driver.session(database=database) as session:
             query = (
                 "CREATE (n {id: $id}) "
                 "SET n += $properties "

@@ -98,6 +98,7 @@ def simple_visualizer(request, file_name=None, ws_id=1):
     workspaces[str(ws_id)]["view_type"] = "simple"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
     graph_data = handler.get_subgraph(workspaces[str(ws_id)]["filters"], "neo4j" + str(ws_id))
+    print("GRAPH DATA: ", graph_data)
 
     visualizer = VisualizerFactory.create_visualizer("simple")
 
@@ -221,6 +222,7 @@ def create_node(request):
             if not node_id or not properties:
                 return JsonResponse({"status": "error", "message": "ID and properties are required."}, status=400)
 
+            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j"+workspaces['active'], "djomlaboss")
             created = handler.create_node(node_id, properties)
             handler.close()
 
@@ -383,7 +385,7 @@ def cli_search(request):
         cur_ws = 'neo4j'+workspaces['active']
         if workspaces[workspaces['active']]['view_type']=="simple":
             print("QUERY: ", query)
-            graph_data = handler.get_search_subgraph(filters,query, cur_ws)
+            graph_data = handler.get_search_subgraph(workspaces[workspaces['active']]['filters'],query, cur_ws)
             print(graph_data)
             print("lennL ", len(graph_data['nodes']))
 
@@ -396,7 +398,7 @@ def cli_search(request):
             return render(request, "simple_template.html", context)
         else:
 
-            graph_data = handler.get_search_subgraph(filters,query, cur_ws)
+            graph_data = handler.get_search_subgraph(workspaces[workspaces['active']]['filters'],query, cur_ws)
 
             visualizer = VisualizerFactory.create_visualizer("block")
             html = visualizer.render(graph_data)

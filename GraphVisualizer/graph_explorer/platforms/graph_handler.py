@@ -270,10 +270,12 @@ class GraphHandler:
                 conditions.append(search_condition)
                 params['search_query'] = search_query
 
+            print("PROSLO SEARCH QUERY")
             for i, (attr, op, val) in enumerate(filters):
+                val_rep = cypher_value(val)
                 param_name = f"filter_val_{i}"
                 conditions.append(f"n.`{attr}` {op} ${param_name}")
-                params[param_name] = val
+                params[param_name] = val_rep
 
            
             where_clause = " AND ".join(conditions)
@@ -288,7 +290,7 @@ class GraphHandler:
                 nodes[n.id] = {
                     "id": n.id,
                     "labels": list(n.labels),
-                    "properties": dict(n)
+                    "properties": serialize_value(dict(n))
                 }
                 subgraph_ids.add(n.id)
 
@@ -307,7 +309,7 @@ class GraphHandler:
                         "source": r.start_node.id,
                         "target": r.end_node.id,
                         "type": r.type,
-                        "properties": dict(r)
+                        "properties": serialize_value(dict(r))
                     })
 
         return {"nodes": list(nodes.values()), "links": edges}

@@ -1,14 +1,14 @@
 {
-    "active": "2",
+    "active": "1",
     "1": {
-        "view_type": "block",
+        "view_type": "simple",
         "filters": [],
-        "selected_file": "test.json"
+        "selected_file": "No file selected"
     },
     "2": {
         "view_type": "simple",
         "filters": [],
-        "selected_file": "countries.json"
+        "selected_file": "No file selected"
     },
     "3": {
         "view_type": "simple",

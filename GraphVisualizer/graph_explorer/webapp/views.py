@@ -161,9 +161,9 @@ def make_search(request=None, ws_id=1):
         search_query = request.POST.get("search", "").strip()
 
         if search_query != "":
-            attribute = search_query.split("-")[0]
-            operator = search_query.split("-")[1]
-            value = search_query.split("-")[2]
+            attribute = search_query.split("~")[0]
+            operator = search_query.split("~")[1]
+            value = search_query.split("~")[2]
 
             try:
                 actual_value = float(value)

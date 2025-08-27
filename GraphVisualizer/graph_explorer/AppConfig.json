@@ -1,14 +1,8 @@
 {
-    "active": "1",
+    "active": "4",
     "1": {
         "view_type": "simple",
-        "filters": [
-            [
-                "bool",
-                "=",
-                "true"
-            ]
-        ],
+        "filters": [],
         "selected_file": "No file selected"
     },
     "2": {

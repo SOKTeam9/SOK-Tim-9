@@ -54,7 +54,8 @@ class GraphHandler:
 
     def get_graph(self, database="neo4j"):
         query = """
-        MATCH (n)-[r]->(m)
+        MATCH (n)
+        OPTIONAL MATCH (n)-[r]-(m)
         RETURN n, r, m
         """
         nodes = {}
@@ -69,9 +70,9 @@ class GraphHandler:
                 r = record["r"]
 
                 nodes[n.id] = {"id": n.id, "labels": list(n.labels), "properties": serialize_value(dict(n))}
-                nodes[m.id] = {"id": m.id, "labels": list(m.labels), "properties": serialize_value(dict(m))}
-
-                edges.append({
+                if m is not None:
+                    nodes[m.id] = {"id": m.id, "labels": list(m.labels), "properties": serialize_value(dict(m))}
+                    edges.append({
                     "id": r.id,
                     "source": n.id,
                     "target": m.id,
@@ -79,13 +80,15 @@ class GraphHandler:
                     "properties": serialize_value(dict(r))
                 })
 
+                
+
         return {"nodes": list(nodes.values()), "links": edges}
 
     def get_subgraph(self, filters, database="neo4j"):
         nodes = {}
         edges = []
 
-        if not filters:
+        if len(filters)==0:
             return self.get_graph(database=database)
 
         with self.driver.session(database=database) as session:
@@ -159,6 +162,7 @@ class GraphHandler:
 
     def create_node(self, node_id, properties, database):
         print("Properties: ", properties)
+        print("BAZA: ", database)
         self.format_properties_for_cypher(properties)
         properties=self.format_properties_for_cypher(properties)
         

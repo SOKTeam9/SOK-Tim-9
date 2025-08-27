@@ -299,6 +299,307 @@ automobili:
     godiste: 2020
     povezani_avioni: []
     povezani_kamioni: ["kamion4"]
+  - id: "auto51"
+    marka: "Ford"
+    model: "Escape"
+    godiste: 2021
+    povezani_avioni: []
+    povezani_kamioni: ["kamion21"]
+  - id: "auto52"
+    marka: "Toyota"
+    model: "Corolla"
+    godiste: 2020
+    povezani_avioni: ["avion22"]
+    povezani_kamioni: []
+  - id: "auto53"
+    marka: "Honda"
+    model: "CR-V"
+    godiste: 2018
+    povezani_avioni: ["avion33"]
+    povezani_kamioni: ["kamion33"]
+  - id: "auto54"
+    marka: "Tesla"
+    model: "Model Y"
+    godiste: 2022
+    povezani_avioni: []
+    povezani_kamioni: ["kamion24"]
+  - id: "auto55"
+    marka: "BMW"
+    model: "3 Series"
+    godiste: 2021
+    povezani_avioni: ["avion25"]
+    povezani_kamioni: []
+  - id: "auto56"
+    marka: "Audi"
+    model: "Q5"
+    godiste: 2020
+    povezani_avioni: ["avion16"]
+    povezani_kamioni: ["kamion16"]
+  - id: "auto57"
+    marka: "Hyundai"
+    model: "Tucson"
+    godiste: 2017
+    povezani_avioni: ["avion37"]
+    povezani_kamioni: []
+  - id: "auto58"
+    marka: "Kia"
+    model: "Sportage"
+    godiste: 2022
+    povezani_avioni: []
+    povezani_kamioni: ["kamion48"]
+  - id: "auto59"
+    marka: "Mazda"
+    model: "CX-5"
+    godiste: 2019
+    povezani_avioni: ["avion49"]
+    povezani_kamioni: []
+  - id: "auto60"
+    marka: "Subaru"
+    model: "Outback"
+    godiste: 2018
+    povezani_avioni: ["avion20"]
+    povezani_kamioni: ["kamion10"]
+  - id: "auto61"
+    marka: "Volkswagen"
+    model: "Tiguan"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: ["kamion11"]
+  - id: "auto62"
+    marka: "Chevrolet"
+    model: "Equinox"
+    godiste: 2021
+    povezani_avioni: ["avion12"]
+    povezani_kamioni: []
+  - id: "auto63"
+    marka: "Dodge"
+    model: "Journey"
+    godiste: 2017
+    povezani_avioni: ["avion23"]
+    povezani_kamioni: ["kamion23"]
+  - id: "auto64"
+    marka: "Jeep"
+    model: "Cherokee"
+    godiste: 2019
+    povezani_avioni: []
+    povezani_kamioni: ["kamion24"]
+  - id: "auto65"
+    marka: "Mercedes"
+    model: "GLC"
+    godiste: 2021
+    povezani_avioni: ["avion35"]
+    povezani_kamioni: []
+  - id: "auto66"
+    marka: "Lexus"
+    model: "RX"
+    godiste: 2020
+    povezani_avioni: ["avion16"]
+    povezani_kamioni: ["kamion26"]
+  - id: "auto67"
+    marka: "Acura"
+    model: "RDX"
+    godiste: 2018
+    povezani_avioni: []
+    povezani_kamioni: []
+  - id: "auto68"
+    marka: "Infiniti"
+    model: "QX60"
+    godiste: 2022
+    povezani_avioni: ["avion28"]
+    povezani_kamioni: ["kamion18"]
+  - id: "auto69"
+    marka: "Cadillac"
+    model: "XT5"
+    godiste: 2019
+    povezani_avioni: ["avion19"]
+    povezani_kamioni: []
+  - id: "auto70"
+    marka: "Mini"
+    model: "Countryman"
+    godiste: 2021
+    povezani_avioni: []
+    povezani_kamioni: ["kamion40"]
+  - id: "auto71"
+    marka: "Porsche"
+    model: "911"
+    godiste: 2017
+    povezani_avioni: ["avion41"]
+    povezani_kamioni: []
+  - id: "auto72"
+    marka: "Jaguar"
+    model: "XJ"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: ["kamion42"]
+  - id: "auto73"
+    marka: "Volvo"
+    model: "XC90"
+    godiste: 2019
+    povezani_avioni: ["avion43"]
+    povezani_kamioni: []
+  - id: "auto74"
+    marka: "Ford"
+    model: "Edge"
+    godiste: 2022
+    povezani_avioni: ["avion14"]
+    povezani_kamioni: ["kamion28"]
+  - id: "auto75"
+    marka: "Toyota"
+    model: "Highlander"
+    godiste: 2021
+    povezani_avioni: []
+    povezani_kamioni: ["kamion45"]
+  - id: "auto76"
+    marka: "Honda"
+    model: "Pilot"
+    godiste: 2020
+    povezani_avioni: ["avion16"]
+    povezani_kamioni: []
+  - id: "auto77"
+    marka: "Tesla"
+    model: "Model S"
+    godiste: 2018
+    povezani_avioni: ["avion47"]
+    povezani_kamioni: ["kamion27"]
+  - id: "auto78"
+    marka: "Chevrolet"
+    model: "Traverse"
+    godiste: 2017
+    povezani_avioni: []
+    povezani_kamioni: []
+  - id: "auto79"
+    marka: "BMW"
+    model: "X3"
+    godiste: 2022
+    povezani_avioni: ["avion19"]
+    povezani_kamioni: ["kamion29"]
+  - id: "auto80"
+    marka: "Audi"
+    model: "Q7"
+    godiste: 2021
+    povezani_avioni: []
+    povezani_kamioni: ["kamion30"]
+  - id: "auto81"
+    marka: "Hyundai"
+    model: "Palisade"
+    godiste: 2020
+    povezani_avioni: ["avion31"]
+    povezani_kamioni: []
+  - id: "auto82"
+    marka: "Kia"
+    model: "Telluride"
+    godiste: 2018
+    povezani_avioni: ["avion32"]
+    povezani_kamioni: ["kamion12"]
+  - id: "auto83"
+    marka: "Mazda"
+    model: "CX-9"
+    godiste: 2019
+    povezani_avioni: []
+    povezani_kamioni: ["kamion43"]
+  - id: "auto84"
+    marka: "Subaru"
+    model: "Forester"
+    godiste: 2022
+    povezani_avioni: ["avion24"]
+    povezani_kamioni: []
+  - id: "auto85"
+    marka: "Volkswagen"
+    model: "Atlas"
+    godiste: 2021
+    povezani_avioni: ["avion38"]
+    povezani_kamioni: ["kamion34"]
+  - id: "auto86"
+    marka: "Dodge"
+    model: "Charger"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: []
+  - id: "auto87"
+    marka: "Jeep"
+    model: "Grand Cherokee"
+    godiste: 2017
+    povezani_avioni: ["avion22"]
+    povezani_kamioni: ["kamion44"]
+  - id: "auto88"
+    marka: "Mercedes"
+    model: "GLE"
+    godiste: 2019
+    povezani_avioni: []
+    povezani_kamioni: ["kamion35"]
+  - id: "auto89"
+    marka: "Lexus"
+    model: "NX"
+    godiste: 2022
+    povezani_avioni: ["avion21"]
+    povezani_kamioni: []
+  - id: "auto90"
+    marka: "Acura"
+    model: "MDX"
+    godiste: 2021
+    povezani_avioni: ["avion10"]
+    povezani_kamioni: ["kamion10"]
+  - id: "auto91"
+    marka: "Infiniti"
+    model: "QX80"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: ["kamion13"]
+  - id: "auto92"
+    marka: "Cadillac"
+    model: "Escalade"
+    godiste: 2018
+    povezani_avioni: ["avion32"]
+    povezani_kamioni: []
+  - id: "auto93"
+    marka: "Mini"
+    model: "Paceman"
+    godiste: 2019
+    povezani_avioni: ["avion12"]
+    povezani_kamioni: ["kamion21"]
+  - id: "auto94"
+    marka: "Porsche"
+    model: "Panamera"
+    godiste: 2022
+    povezani_avioni: []
+    povezani_kamioni: ["kamion14"]
+  - id: "auto95"
+    marka: "Jaguar"
+    model: "F-Type"
+    godiste: 2021
+    povezani_avioni: ["avion15"]
+    povezani_kamioni: []
+  - id: "auto96"
+    marka: "Volvo"
+    model: "S90"
+    godiste: 2020
+    povezani_avioni: []
+    povezani_kamioni: ["kamion16"]
+  - id: "auto97"
+    marka: "Ford"
+    model: "Bronco"
+    godiste: 2018
+    povezani_avioni: ["avion17"]
+    povezani_kamioni: ["kamion27"]
+  - id: "auto98"
+    marka: "Toyota"
+    model: "Tacoma"
+    godiste: 2017
+    povezani_avioni: []
+    povezani_kamioni: []
+  - id: "auto99"
+    marka: "Honda"
+    model: "Ridgeline"
+    godiste: 2022
+    povezani_avioni: ["avion49"]
+    povezani_kamioni: ["kamion49"]
+  - id: "auto100"
+    marka: "Tesla"
+    model: "Roadster"
+    godiste: 2021
+    povezani_avioni: []
+    povezani_kamioni: []
+
 
 avioni:
   - id: "avion1"

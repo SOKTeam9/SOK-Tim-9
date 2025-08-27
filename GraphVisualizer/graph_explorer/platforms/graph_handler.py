@@ -287,12 +287,10 @@ class GraphHandler:
                 conditions.append(search_condition)
                 params['search_query'] = search_query
 
-            print("PROSLO SEARCH QUERY")
             for i, (attr, op, val) in enumerate(filters):
-                val_rep = cypher_value(val)
                 param_name = f"filter_val_{i}"
                 conditions.append(f"n.`{attr}` {op} ${param_name}")
-                params[param_name] = val_rep
+                params[param_name] = val
 
            
             where_clause = " AND ".join(conditions)
@@ -332,16 +330,6 @@ class GraphHandler:
         return {"nodes": list(nodes.values()), "links": edges}
     
     def delete_and_get_empty_graph(self, database="neo4j1"):
-        """
-        Briše sve čvorove i relacije iz grafa, a zatim dobavlja prazan graf.
-
-        Args:
-            database (str): Naziv baze podataka.
-
-        Returns:
-            dict: Rečnik sa praznim listama za čvorove i veze.
-        """
-        # Cypher upit za brisanje svih čvorova i relacija
         delete_query = """
         MATCH (n)
         DETACH DELETE n
@@ -349,16 +337,12 @@ class GraphHandler:
 
         with self.driver.session(database=database) as session:
             try:
-                # Izvrši upit za brisanje
                 session.run(delete_query)
                 print(f"Svi čvorovi i relacije su uspešno obrisani iz baze '{database}'.")
             except Exception as e:
                 print(f"Greška prilikom brisanja grafa: {e}")
-                # Vrati prazan graf čak i ako brisanje ne uspe
                 return {"nodes": [], "links": []}
 
-        # Nakon brisanja, pozovi get_graph() da bi vratio prazan graf
-        # Ovo će potvrditi da je baza prazna
         return self.get_graph(database=database)
 
 if __name__ == "__main__":

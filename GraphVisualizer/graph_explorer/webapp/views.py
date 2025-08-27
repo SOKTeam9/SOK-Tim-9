@@ -164,7 +164,7 @@ def make_search(request=None, ws_id=1):
             value = search_query.split("~")[2]
 
             try:
-                actual_value = float(value)
+                actual_value = int(value)
             except:
                 actual_value = value
  
@@ -188,7 +188,7 @@ def apply_filter(request=None, ws_id=1):
 
             if filter_attribute != "" and filter_relation != "" and filter_value != "":
                 try:
-                    actual_value = float(filter_value)
+                    actual_value = int(filter_value)
                 except:
                     actual_value = filter_value
                 

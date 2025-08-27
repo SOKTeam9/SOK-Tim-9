@@ -57,7 +57,7 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
         sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
         this.value = '';
 
-        const filterMatch = command.match(/^filter\s+(.+?)(<|>|<=|>=|=)(.+)$/);
+        const filterMatch = command.match(/^filter\s+(.+?)\s*(>=|<=|<|>|=)\s*(.+)$/);
         const createNodeMatch = command.startsWith('create node');
         const editNodeMatch = command.startsWith('edit node');
         const deleteNodeMatch = command.startsWith('delete node');
@@ -102,7 +102,7 @@ let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || []
   });
 
   function filterGraph(command, filterMatch){
-     const [, attribute, relation, value] = filterMatch;
+        const [, attribute, relation, value] = filterMatch;
           const form = document.getElementById('hiddenFilterForm');
 
           form.querySelector('[name="filter"]').value = attribute;

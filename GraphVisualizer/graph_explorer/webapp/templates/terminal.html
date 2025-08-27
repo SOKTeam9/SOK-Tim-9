@@ -209,9 +209,9 @@ function editNode(command) {
             else if (!isNaN(Number(value))) {
                 value = Number(value);
             }
-            else if (!isNaN(new Date(value)) && !isNaN(Date.parse(value))) {
-                value = new Date(value);
-            }
+            // else if (!isNaN(new Date(value)) && !isNaN(Date.parse(value))) {
+            //     value = new Date(value);
+            // }
 
             properties[key] = value;
         }

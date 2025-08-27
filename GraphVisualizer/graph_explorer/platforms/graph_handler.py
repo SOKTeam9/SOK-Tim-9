@@ -161,9 +161,6 @@ class GraphHandler:
         return formatted_props
 
     def create_node(self, node_id, properties, database):
-        print("Properties: ", properties)
-        print("BAZA: ", database)
-        self.format_properties_for_cypher(properties)
         properties=self.format_properties_for_cypher(properties)
         
         with self.driver.session(database=database) as session:
@@ -175,8 +172,9 @@ class GraphHandler:
             result = session.run(query, id=node_id, properties=properties)
             return result.single() is not None
         
-    def update_node(self, node_id, properties):
-        with self.driver.session() as session:
+    def update_node(self, node_id, properties, database):
+        properties=self.format_properties_for_cypher(properties)
+        with self.driver.session(database=database) as session:
             query = (
                 "MATCH (n {id: $id}) "
                 "SET n += $properties "

@@ -249,7 +249,7 @@ def edit_node(request):
             if not node_id or not properties:
                 return JsonResponse({"status": "error", "message": "ID and properties are required."}, status=400)
 
-            updated = handler.update_node(node_id, properties)
+            updated = handler.update_node(node_id, properties, "neo4j"+workspaces['active'])
             handler.close()
 
             if updated:
@@ -384,11 +384,7 @@ def cli_search(request):
         query = request.POST.get("query", "").strip()
         cur_ws = 'neo4j'+workspaces['active']
         if workspaces[workspaces['active']]['view_type']=="simple":
-            print("QUERY: ", query)
             graph_data = handler.get_search_subgraph(workspaces[workspaces['active']]['filters'],query, cur_ws)
-            print(graph_data)
-            print("lennL ", len(graph_data['nodes']))
-
             visualizer = VisualizerFactory.create_visualizer("simple")
             context = visualizer.get_context(graph_data)
             context["filter_string"] = _applied_filters(int(workspaces['active']))

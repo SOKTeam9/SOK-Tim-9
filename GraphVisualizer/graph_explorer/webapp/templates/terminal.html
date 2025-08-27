@@ -19,7 +19,7 @@
       <input type="hidden" name="relations">
       <input type="hidden" name="value">
     </form>
-    <form id="hiddenSearchForm" method="post" action="{% url 'cli_search' ws_id=ws_id %}">
+    <form id="hiddenSearchForm" method="post" action="{% url 'cli_search' %}">
         {% csrf_token %}
         <input type="hidden" name="query">
       </form>

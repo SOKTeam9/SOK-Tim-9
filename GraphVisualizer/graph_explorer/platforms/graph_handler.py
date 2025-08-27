@@ -247,7 +247,7 @@ class GraphHandler:
                 print(f"Neo4j error: {e}")
                 return False
             
-    def get_search_subgraph(self, filters=None, search_query=None, database="neo4j"):
+    def get_search_subgraph(self, filters=None, search_query=None, database="neo4j1"):
        
         filters = filters or []
 

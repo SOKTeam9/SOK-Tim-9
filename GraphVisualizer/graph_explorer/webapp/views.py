@@ -380,27 +380,30 @@ def cli_search(request):
     print("RADI PREKO CLI SEARCH")
     if request.method == "POST":
         query = request.POST.get("query", "").strip()
-        if current_view=="simple":
-            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+        cur_ws = 'neo4j'+workspaces['active']
+        if workspaces[workspaces['active']]['view_type']=="simple":
             print("QUERY: ", query)
-            graph_data = handler.get_search_subgraph(filters,query )
+            graph_data = handler.get_search_subgraph(filters,query, cur_ws)
             print(graph_data)
             print("lennL ", len(graph_data['nodes']))
 
             visualizer = VisualizerFactory.create_visualizer("simple")
             context = visualizer.get_context(graph_data)
-            context["filter_string"] = _applied_filters()
+            context["filter_string"] = _applied_filters(int(workspaces['active']))
+            context["selected_file_name"] = workspaces[workspaces['active']]["selected_file"]
+            context["ws_id"] = int(workspaces['active'])
+            write_config()
             return render(request, "simple_template.html", context)
         else:
-            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
 
-            graph_data = handler.get_search_subgraph(filters,query )
+            graph_data = handler.get_search_subgraph(filters,query, cur_ws)
 
             visualizer = VisualizerFactory.create_visualizer("block")
-            html = visualizer.render()
+            html = visualizer.render(graph_data)
 
-            string_filters = _applied_filters()
-            return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters})
+            string_filters = _applied_filters(int(workspaces['active']))
+            write_config()
+            return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": workspaces[workspaces['active']]["selected_file"], "ws_id": int(workspaces['active'])})
         
 def clear_database(request, ws_id=1):
     if request.method == "POST":
@@ -423,7 +426,7 @@ def clear_database(request, ws_id=1):
             graph_data = handler.delete_and_get_empty_graph("neo4j"+str(ws_id))
 
             visualizer = VisualizerFactory.create_visualizer("block")
-            html = visualizer.render()
+            html = visualizer.render(graph_data)
 
             string_filters = _applied_filters(ws_id)
             return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": workspaces[str(ws_id)]["selected_file"], "ws_id": ws_id})

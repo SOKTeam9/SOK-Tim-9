@@ -55,7 +55,7 @@ class GraphHandler:
     def get_graph(self, database="neo4j"):
         query = """
         MATCH (n)
-        OPTIONAL MATCH (n)-[r]-(m)
+        OPTIONAL MATCH (n)-[r]->(m)
         RETURN n, r, m
         """
         nodes = {}

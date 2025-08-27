@@ -4,6 +4,14 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
+    path('create_node/', views.create_node, name='create_node'),
+    path('edit_node/', views.edit_node, name='edit_node'),
+    path('delete_node/', views.delete_node, name='delete_node'),
+    path('create_edge/', views.create_edge, name='create_edge'),
+    path('edit_edge/', views.edit_edge, name='edit_edge'),
+    path('delete_edge/', views.delete_edge, name='delete_edge'),
+    path('cli_search/', views.cli_search, name='cli_search'),
+    path('clear_database/ws=<int:ws_id>/', views.clear_database, name='clear_database'),
     path('simpleVisualizer/ws=<int:ws_id>/', views.simple_visualizer, name="simple_visualizer"),
     path('fileInput/ws=<int:ws_id>/', views.load_file, name="load_file"),
     path('search/ws=<int:ws_id>/', views.make_search, name="query_search"),

@@ -1,5 +1,470 @@
-{% extends "base.html" %}
-{% block terminal %}
-<h1>Terminal</h1>
+<div id="modern-terminal-container">
+  <div class="terminal-header">
+    <span class="terminal-title">TERMINAL</span>
+  </div>
+  <div class="terminal-body">
+    <div class="terminal-output">
+      <span class="start-text">Modern Graph Visualizer Terminal.</span>
+      <span class="start-text">Unesite komandu za početak...</span>
+    </div>
+    <div class="terminal-input-wrapper">
+      <span class="prompt"> > </span>
+      <input type="text" class="terminal-input">
+    </div>
+  </div>
+  <div style="display: none;">
+    <form id="hiddenFilterForm" method="post" action="{% url 'query_filter' ws_id=ws_id %}">
+      {% csrf_token %}
+      <input type="hidden" name="filter">
+      <input type="hidden" name="relations">
+      <input type="hidden" name="value">
+    </form>
+    <form id="hiddenSearchForm" method="post" action="{% url 'cli_search' %}">
+        {% csrf_token %}
+        <input type="hidden" name="query">
+      </form>
+      <form id="hiddenClearDatabaseForm" method="post" action="{% url 'clear_database' ws_id=ws_id %}">
+        {% csrf_token %}
+      </form>
+  </div>
+</div>
+<script>
+  const terminalOutput = document.querySelector('.terminal-output');
+  const terminalInput = document.querySelector('.terminal-input');
+let commandHistory = JSON.parse(sessionStorage.getItem('terminalHistory')) || [];
 
-{% endblock %}
+  document.addEventListener('DOMContentLoaded', function () {
+    if (commandHistory.length > 0) {
+      commandHistory.forEach(element => {
+        appendLine(element, true)
+      });
+    }
+  });
+
+  function appendLine(text, isCommand = false) {
+    const line = document.createElement('div');
+    line.innerHTML = `<span class="prompt">${isCommand ? '> ' : ''}</span><span class="line-text">${text}</span>`;
+    terminalOutput.appendChild(line);
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  }
+
+  terminalInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      const command = this.value.trim();
+      if (command !== '') {
+        appendLine(command, true);
+        commandHistory.push(command);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        this.value = '';
+
+        const filterMatch = command.match(/^filter\s+(.+?)(<|>|<=|>=|=)(.+)$/);
+        const createNodeMatch = command.startsWith('create node');
+        const editNodeMatch = command.startsWith('edit node');
+        const deleteNodeMatch = command.startsWith('delete node');
+        const createEdgeMatch = command.startsWith('create edge');
+        const editEdgeMatch = command.startsWith('edit edge');
+        const deleteEdgeMatch = command.startsWith('delete edge');
+        const searchMatch = command.startsWith('search');
+        const deleteDatabaseMatch = command.match(/^delete$/);
+        console.log(deleteEdgeMatch);
+
+        if (filterMatch) {
+         filterGraph(command, filterMatch);
+        }else if(createNodeMatch){
+          createNode(command);
+        }else if(editNodeMatch){
+          editNode(command);
+        }else if(deleteNodeMatch){
+          deleteNode(command);
+        }else if(createEdgeMatch){
+          createEdge(command);
+        }else if(editEdgeMatch){
+          editEdge(command);
+        }else if(deleteEdgeMatch){
+          deleteEdge(command);
+        }else if(searchMatch){
+          searchGraph(command);
+        }else if(deleteDatabaseMatch){
+            clearDatabase();
+        }
+         else {
+          appendLine('Nepoznata komanda.', false);
+          commandHistory.push('Nepoznata komanda.');
+          sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+        }
+      }
+    }
+  });
+
+  window.addEventListener('load', function () {
+    terminalInput.focus();
+  });
+
+  function filterGraph(command, filterMatch){
+     const [, attribute, relation, value] = filterMatch;
+          const form = document.getElementById('hiddenFilterForm');
+
+          form.querySelector('[name="filter"]').value = attribute;
+          form.querySelector('[name="relations"]').value = relation;
+          form.querySelector('[name="value"]').value = value;
+
+          form.submit();
+  }
+  function createNode(command) {
+      const idMatch = command.match(/--id=(\S+)/);
+      const propertiesMatches = command.matchAll(/--property\s+([^=\s]+)=([\S]+)/g);
+      console.log('Matches: ', propertiesMatches);
+
+      const nodeId = idMatch ? idMatch[1] : null;
+      const properties = {};
+
+      if (idMatch && propertiesMatches) {
+        for (const match of propertiesMatches) {
+          const key = match[1];
+          let value = match[2];
+          console.log('key: ', key);
+          console.log('value', value);
+
+          if (value.toLowerCase() === 'true') {
+            value = true;
+          } else if (value.toLowerCase() === 'false') {
+            value = false;
+          }
+          else if (!isNaN(Number(value))) {
+            value = Number(value);
+          }
+        //   else if (!isNaN(new Date(value)) && !isNaN(Date.parse(value))) {
+        //     value = new Date(value);
+        //   }
+
+          properties[key] = value;
+        }
+        call_create_node_api(nodeId, properties);
+      }else{
+        appendLine('Neispravan unos atributa');
+        commandHistory.push('Neispravan unos atributa');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+      }
+
+console.log('Node ID:', nodeId);
+console.log('Properties:', properties);
+}
+async function call_create_node_api(nodeId, properties) {
+    try {
+        const response = await fetch('/create_node/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: nodeId,
+                properties: properties
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(`Čvor sa ID-jem '${nodeId}' uspešno kreiran.`);
+            commandHistory.push(`Čvor sa ID-jem '${nodeId}' uspešno kreiran.`);
+        } else {
+            appendLine(`Greška prilikom kreiranja čvora: ${result.message}`);
+            commandHistory.push(`Greška prilikom kreiranja čvora: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+
+function editNode(command) {
+  console.log("Usao u editNode")
+    const idMatch = command.match(/--id=(\S+)/);
+    const propertiesMatches = command.matchAll(/--property\s+([^=\s]+)=([\S]+)/g);
+    
+    if (!idMatch) {
+        appendLine('Neispravan unos ID-a.');
+        commandHistory.push('Neispravan unos ID-a.');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    const nodeId = idMatch[1];
+    const properties = {};
+
+    if (propertiesMatches) {
+        for (const match of propertiesMatches) {
+            const key = match[1];
+            let value = match[2];
+
+            if (value.toLowerCase() === 'true') {
+                value = true;
+            } else if (value.toLowerCase() === 'false') {
+                value = false;
+            }
+            else if (!isNaN(Number(value))) {
+                value = Number(value);
+            }
+            // else if (!isNaN(new Date(value)) && !isNaN(Date.parse(value))) {
+            //     value = new Date(value);
+            // }
+
+            properties[key] = value;
+        }
+    }
+    
+    if (Object.keys(properties).length === 0) {
+        appendLine('Morate uneti bar jedno svojstvo za ažuriranje.');
+        commandHistory.push('Morate uneti bar jedno svojstvo za ažuriranje.');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    call_edit_node_api(nodeId, properties);
+}
+async function call_edit_node_api(nodeId, properties) {
+    try {
+        const response = await fetch('/edit_node/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: nodeId,
+                properties: properties
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(`Čvor sa ID-jem '${nodeId}' uspešno ažuriran.`);
+            commandHistory.push(`Čvor sa ID-jem '${nodeId}' uspešno ažuriran.`);
+        } else {
+            appendLine(`Greška prilikom ažuriranja čvora: ${result.message}`);
+            commandHistory.push(`Greška prilikom ažuriranja čvora: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+function deleteNode(command) {
+    const idMatch = command.match(/--id=(\S+)/);
+    
+    if (!idMatch) {
+        appendLine('Neispravan unos ID-a.');
+        commandHistory.push('Neispravan unos ID-a.');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    const nodeId = idMatch[1];
+    call_delete_node_api(nodeId);
+}
+async function call_delete_node_api(nodeId) {
+    try {
+        const response = await fetch('/delete_node/', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: nodeId
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(`Čvor sa ID-jem '${nodeId}' uspešno obrisan.`);
+            commandHistory.push(`Čvor sa ID-jem '${nodeId}' uspešno obrisan.`);
+        } else {
+            const errorMessage = result.message;
+
+            if (errorMessage.includes("povezan sa drugim čvorovima")) {
+                appendLine(`Nemoguće brisanje čvora sa ID-jem '${nodeId}': Čvor je povezan sa drugim čvorovima.`);
+                commandHistory.push(`Nemoguće brisanje čvora sa ID-jem '${nodeId}': Čvor je povezan sa drugim čvorovima.`);
+            } else {
+                appendLine(`Greška prilikom brisanja čvora: ${errorMessage}`);
+                commandHistory.push(`Greška prilikom brisanja čvora: ${errorMessage}`);
+            }
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+
+function createEdge(command) {
+    const edgeMatch = command.match(/^create edge --type=(\S+)\s+(\S+)\s+(\S+)$/);
+
+    if (!edgeMatch) {
+        appendLine('Očekivani format: create edge --type=rel_type source_node target_node');
+        commandHistory.push('Očekivani format: create edge --type=rel_type source_node target_node');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    const [, relType, sourceId, targetId] = edgeMatch;
+    console.log(relType);
+    console.log(sourceId);
+    console.log(targetId);
+
+    call_create_edge_api(relType, sourceId, targetId);
+}
+async function call_create_edge_api(relType, sourceId, targetId) {
+    try {
+        const response = await fetch('/create_edge/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                type: relType,
+                source_id: sourceId,
+                target_id: targetId
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(`Grana izmedju cvorova '${sourceId}'-'${targetId}' uspešno kreirana.`);
+            commandHistory.push(result.message);
+        } else {
+            appendLine(`Greška prilikom kreiranja grane: ${result.message}`);
+            commandHistory.push(`Greška prilikom kreiranja grane: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+function editEdge(command) {
+    const edgeMatch = command.match(/^edit edge --type=(\S+)\s+(\S+)\s+(\S+)$/);
+
+    if (!edgeMatch) {
+        appendLine('Očekivani format: edit edge --type=tip početni_cvor krajnji_cvor');
+        commandHistory.push('Očekivani format: edit edge --type=tip početni_cvor krajnji_cvor');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    const [, newType, sourceId, targetId] = edgeMatch;
+
+    call_edit_edge_api(newType, sourceId, targetId);
+}
+
+async function call_edit_edge_api(newType, sourceId, targetId) {
+    try {
+        const response = await fetch('/edit_edge/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                type: newType,
+                source_id: sourceId,
+                target_id: targetId
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(result.message);
+            commandHistory.push(result.message);
+        } else {
+            appendLine(`Greška prilikom uređivanja grane: ${result.message}`);
+            commandHistory.push(`Greška prilikom uređivanja grane: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+
+function deleteEdge(command) {
+    const edgeMatch = command.match(/^delete edge (\S+)\s+(\S+)$/);
+
+    if (!edgeMatch) {
+        appendLine('Očekivani format: delete edge pocetni_cvor krajnji_cvor');
+        commandHistory.push('Očekivani format: delete edge pocetni_cvor krajnji_cvor');
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+        return;
+    }
+
+    const [, sourceId, targetId] = edgeMatch;
+
+    call_delete_edge_api(sourceId, targetId);
+}
+async function call_delete_edge_api(sourceId, targetId) {
+    try {
+        const response = await fetch('/delete_edge/', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                source_id: sourceId,
+                target_id: targetId
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            appendLine(result.message);
+            commandHistory.push(result.message);
+        } else {
+            appendLine(`Greska prilikom brisanja grane: ${result.message}`);
+            commandHistory.push(`Greska prilikom brisanja grane: ${result.message}`);
+        }
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+
+    } catch (error) {
+        appendLine(`Greška u komunikaciji: ${error.message}`);
+        commandHistory.push(`Greška u komunikaciji: ${error.message}`);
+        sessionStorage.setItem('terminalHistory', JSON.stringify(commandHistory));
+    }
+}
+function searchGraph(command) {
+    const queryMatch = command.match(/--query=(.*)/);
+
+    if (!queryMatch) {
+        appendLine('Očekivani format: search --query=upit');
+        return;
+    }
+
+    const query = queryMatch[1];
+    console.log('query: ', query)
+
+    const form = document.getElementById('hiddenSearchForm');
+
+    form.querySelector('[name="query"]').value = query;
+
+    form.submit();
+}
+function clearDatabase(){
+    console.log("Clear database")
+    const form = document.getElementById('hiddenClearDatabaseForm');
+    form.submit();
+}
+</script>

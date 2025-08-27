@@ -73,6 +73,10 @@
     </div>
     <div class="center">{% block mainView %}{% endblock %}</div>
   </div>
+  <div class="footer">
+            {% block terminal %}{% endblock %}
+        </div>
+        
   </div>
   <div class="workspaces">
     <a href="{% url 'workspace_switch' ws_id=1 %}"><button class="workspace-tab {% if ws_id == 1 %}active{% endif %}">Workspace 1</button></a>

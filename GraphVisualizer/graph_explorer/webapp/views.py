@@ -10,6 +10,7 @@ from plugins import ParserFactory, VisualizerFactory
 from neo4j import GraphDatabase
 import os
 import tempfile
+from django.views.decorators.csrf import csrf_exempt
 
 filters = []
 
@@ -97,7 +98,6 @@ def simple_visualizer(request, file_name=None, ws_id=1):
     workspaces[str(ws_id)]["view_type"] = "simple"
     handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
     graph_data = handler.get_subgraph(workspaces[str(ws_id)]["filters"], "neo4j" + str(ws_id))
-
     visualizer = VisualizerFactory.create_visualizer("simple")
 
     context = visualizer.visualize(graph_data)
@@ -159,9 +159,9 @@ def make_search(request=None, ws_id=1):
         search_query = request.POST.get("search", "").strip()
 
         if search_query != "":
-            attribute = search_query.split("-")[0]
-            operator = search_query.split("-")[1]
-            value = search_query.split("-")[2]
+            attribute = search_query.split("~")[0]
+            operator = search_query.split("~")[1]
+            value = search_query.split("~")[2]
 
             try:
                 actual_value = float(value)
@@ -209,6 +209,216 @@ def _applied_filters(ws_id):
     
     return list_strings
 
+@csrf_exempt
+def create_node(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            node_id = data.get("id")
+            properties = data.get("properties")
+
+            if not node_id or not properties:
+                return JsonResponse({"status": "error", "message": "ID and properties are required."}, status=400)
+
+            handler = GraphHandler("neo4j://127.0.0.1:7687", "neo4j", "djomlaboss")
+            created = handler.create_node(node_id, properties, "neo4j"+workspaces['active'])
+            handler.close()
+
+            if created:
+                return JsonResponse({"status": "success", "message": f"Node with ID '{node_id}' created successfully."}, status=201)
+            else:
+                return JsonResponse({"status": "error", "message": "Failed to create node."}, status=500)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Invalid JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Method not allowed."}, status=405)
+
+@csrf_exempt
+def edit_node(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            node_id = data.get("id")
+            properties = data.get("properties")
+
+            if not node_id or not properties:
+                return JsonResponse({"status": "error", "message": "ID and properties are required."}, status=400)
+
+            updated = handler.update_node(node_id, properties, "neo4j"+workspaces['active'])
+            handler.close()
+
+            if updated:
+                return JsonResponse({"status": "success", "message": f"Node with ID '{node_id}' updated successfully."}, status=200)
+            else:
+                return JsonResponse({"status": "error", "message": f"Node with ID '{node_id}' not found."}, status=404)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Invalid JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Method not allowed."}, status=405)
+
+@csrf_exempt
+def delete_node(request):
+    if request.method == "DELETE":
+        try:
+            data = json.loads(request.body)
+            node_id = data.get("id")
+            if not node_id:
+                return JsonResponse({"status": "error", "message": "ID je obavezan."}, status=400)
+
+            deleted = handler.delete_node(node_id, "neo4j"+workspaces['active'])
+            handler.close()
+
+            if deleted:
+                return JsonResponse({"status": "success", "message": f"Čvor sa ID-jem '{node_id}' je uspešno obrisan."}, status=200)
+            else:
+                return JsonResponse({"status": "error", "message": f"Čvor sa ID-jem '{node_id}' ne postoji."}, status=404)
+
+        except ValueError as ve:
+            return JsonResponse({"status": "error", "message": str(ve)}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Nevažeći JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
+
+@csrf_exempt
+def create_edge(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            rel_type = data.get("type")
+            source_id = data.get("source_id")
+            target_id = data.get("target_id")
+
+            if not all([rel_type, source_id, target_id]):
+                return JsonResponse({"status": "error", "message": "Relacija, početni i krajnji čvor su obavezni."}, status=400)
+
+            created = handler.create_relationship(source_id, target_id, rel_type, "neo4j"+workspaces['active'])
+            handler.close()
+
+            if created:
+                return JsonResponse({"status": "success", "message": f"Relacija '{rel_type}' uspešno kreirana između čvorova '{source_id}' i '{target_id}'."}, status=201)
+            else:
+                return JsonResponse({"status": "error", "message": "Neuspešno kreiranje relacije. Proverite da li početni i krajnji čvorovi postoje."}, status=404)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Neispravan JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
+
+@csrf_exempt
+def edit_edge(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            new_rel_type = data.get("type")
+            source_id = data.get("source_id")
+            target_id = data.get("target_id")
+
+            if not all([new_rel_type, source_id, target_id]):
+                return JsonResponse({"status": "error", "message": "Novi tip relacije, početni i krajnji čvor su obavezni."}, status=400)
+
+            edited = handler.edit_relationship(source_id, target_id, new_rel_type, "neo4j"+workspaces['active'])
+            handler.close()
+
+            if edited:
+                return JsonResponse({"status": "success", "message": f"Relacija između '{source_id}' i '{target_id}' uspešno ažurirana na '{new_rel_type}'."}, status=200)
+            else:
+                return JsonResponse({"status": "error", "message": "Neuspešno uređivanje relacije. Proverite da li relacija postoji."}, status=404)
+
+        except ValueError as ve:
+            return JsonResponse({"status": "error", "message": str(ve)}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Neispravan JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
+
+@csrf_exempt
+def delete_edge(request):
+    if request.method == "DELETE":
+        try:
+            data = json.loads(request.body)
+            source_id = data.get("source_id")
+            target_id = data.get("target_id")
+
+            if not all([source_id, target_id]):
+                return JsonResponse({"status": "error", "message": "Početni i krajnji čvor su obavezni."}, status=400)
+
+            deleted = handler.delete_relationship(source_id, target_id, "neo4j"+workspaces['active'])
+            handler.close()
+
+            if deleted:
+                return JsonResponse({"status": "success", "message": f"Grana između čvorova '{source_id}' i '{target_id}' je uspešno obrisana."}, status=200)
+            else:
+                return JsonResponse({"status": "error", "message": f"Neuspešno brisanje. Proverite da li grana između '{source_id}' i '{target_id}' postoji."}, status=404)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Neispravan JSON format."}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": "error", "message": "Metoda nije dozvoljena."}, status=405)
+
+def cli_search(request):
+    print("RADI PREKO CLI SEARCH")
+    if request.method == "POST":
+        query = request.POST.get("query", "").strip()
+        cur_ws = 'neo4j'+workspaces['active']
+        if workspaces[workspaces['active']]['view_type']=="simple":
+            graph_data = handler.get_search_subgraph(workspaces[workspaces['active']]['filters'],query, cur_ws)
+            visualizer = VisualizerFactory.create_visualizer("simple")
+            context = visualizer.get_context(graph_data)
+            context["filter_string"] = _applied_filters(int(workspaces['active']))
+            context["selected_file_name"] = workspaces[workspaces['active']]["selected_file"]
+            context["ws_id"] = int(workspaces['active'])
+            write_config()
+            return render(request, "simple_template.html", context)
+        else:
+
+            graph_data = handler.get_search_subgraph(workspaces[workspaces['active']]['filters'],query, cur_ws)
+
+            visualizer = VisualizerFactory.create_visualizer("block")
+            html = visualizer.render(graph_data)
+
+            string_filters = _applied_filters(int(workspaces['active']))
+            write_config()
+            return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": workspaces[workspaces['active']]["selected_file"], "ws_id": int(workspaces['active'])})
+        
+def clear_database(request, ws_id=1):
+    if request.method == "POST":
+        workspaces[str(ws_id)]['filters'].clear()
+        workspaces[str(ws_id)]['selected_file'] = "No file selected"
+        write_config()
+        print("BRISANJE BAZE")
+        if workspaces[str(ws_id)]['view_type']=="simple":
+            graph_data = handler.delete_and_get_empty_graph("neo4j"+str(ws_id))
+            print("lennL ", len(graph_data['nodes']))
+
+            visualizer = VisualizerFactory.create_visualizer("simple")
+            context = visualizer.get_context(graph_data)
+            context["filter_string"] = _applied_filters(ws_id)
+            context["selected_file_name"] = workspaces[str(ws_id)]["selected_file"]
+            context["ws_id"] = ws_id
+            return render(request, "simple_template.html", context)
+        else:
+            graph_data = handler.delete_and_get_empty_graph("neo4j"+str(ws_id))
+
+            visualizer = VisualizerFactory.create_visualizer("block")
+            html = visualizer.render(graph_data)
+
+            string_filters = _applied_filters(ws_id)
+            return render(request, "block-template.html", {"graph_json": graph_data, "filter_string": string_filters, "selected_file_name": workspaces[str(ws_id)]["selected_file"], "ws_id": ws_id})
 def filter_remove(request, ws_id=1):
     selected_filter = request.GET.get("filter")
     for single_filter in workspaces[str(ws_id)]["filters"]:

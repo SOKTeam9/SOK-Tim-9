@@ -1,19 +1,19 @@
 {
-    "active": "3",
+    "active": "1",
     "1": {
         "view_type": "simple",
         "filters": [],
-        "selected_file": "No file selected"
+        "selected_file": "employees.xml"
     },
     "2": {
-        "view_type": "simple",
+        "view_type": "block",
         "filters": [],
-        "selected_file": "city_routes.xml"
+        "selected_file": "countries.json"
     },
     "3": {
         "view_type": "simple",
         "filters": [],
-        "selected_file": "test.yaml"
+        "selected_file": "No file selected"
     },
     "4": {
         "view_type": "simple",
@@ -22,18 +22,7 @@
     },
     "5": {
         "view_type": "simple",
-        "filters": [
-            [
-                "title",
-                "=",
-                "Tester"
-            ],
-            [
-                "age",
-                "<",
-                30
-            ]
-        ],
+        "filters": [],
         "selected_file": "No file selected"
     }
 }

@@ -163,6 +163,9 @@ def make_search(request=None, ws_id=1):
             operator = search_query.split("~")[1]
             value = search_query.split("~")[2]
 
+            if operator == "!=":
+                operator = "<>"
+
             try:
                 actual_value = int(value)
             except:
@@ -205,6 +208,8 @@ def apply_filter(request=None, ws_id=1):
 def _applied_filters(ws_id):
     list_strings = []
     for filter in workspaces[str(ws_id)]["filters"]:
+        if filter[1] == "<>":
+            filter = tuple([filter[0], "!=", filter[2]])
         list_strings.append("".join(str(x) for x in filter))
     
     return list_strings
@@ -422,8 +427,16 @@ def clear_database(request, ws_id=1):
 def filter_remove(request, ws_id=1):
     selected_filter = request.GET.get("filter")
     for single_filter in workspaces[str(ws_id)]["filters"]:
+        print(single_filter)
+        if (single_filter[1] == "<>"):
+            single_filter= tuple([single_filter[0], "!=",single_filter[2]])
         merged = "".join(str(x) for x in single_filter)
+        print(merged)
+        print(selected_filter)
+        
         if selected_filter == merged:
+            if (single_filter[1] == "!="):
+                single_filter= tuple([single_filter[0], "<>",single_filter[2]])
             workspaces[str(ws_id)]["filters"].remove(single_filter)
             break
     

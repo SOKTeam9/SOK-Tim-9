@@ -1,0 +1,2367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee id="emp-001">
+        <name>Marko Markovic</name>
+        <title>CEO</title>
+        <age>45</age>
+        <hire_date>2010-03-15</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-002"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-002">
+        <name>Jelena Jelic</name>
+        <title>COO</title>
+        <age>42</age>
+        <hire_date>2011-05-20</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-003"/>
+            <colleague_ref ref="emp-004"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-003">
+        <name>Petar Petrovic</name>
+        <title>CTO</title>
+        <age>38</age>
+        <hire_date>2012-08-10</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-004"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-004">
+        <name>Ana Anic</name>
+        <title>Software Engineer</title>
+        <age>31</age>
+        <hire_date>2015-01-22</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-005"/>
+            <colleague_ref ref="emp-002"/>
+            <colleague_ref ref="emp-047"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-005">
+        <name>Ivan Ivanovic</name>
+        <title>Software Engineer</title>
+        <age>29</age>
+        <hire_date>2016-04-18</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-006"/>
+            <colleague_ref ref="emp-007"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-006">
+        <name>Milos Milicevic</name>
+        <title>QA</title>
+        <age>34</age>
+        <hire_date>2014-06-05</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-008"/>
+            <colleague_ref ref="emp-002"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-007">
+        <name>Milica Milic</name>
+        <title>UX Designer</title>
+        <age>27</age>
+        <hire_date>2018-09-01</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-009"/>
+            <colleague_ref ref="emp-047"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-008">
+        <name>Dusan Dusanovic</name>
+        <title>Data Scientist</title>
+        <age>33</age>
+        <hire_date>2017-11-25</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-010"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-009">
+        <name>Nina Ninic</name>
+        <title>Marketing Manager</title>
+        <age>30</age>
+        <hire_date>2016-02-14</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-011"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-010">
+        <name>Lazar Lazarevic</name>
+        <title>Sales Lead</title>
+        <age>28</age>
+        <hire_date>2019-07-30</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-012"/>
+            <colleague_ref ref="emp-047"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-011">
+        <name>Iva Ivic</name>
+        <title>HR Manager</title>
+        <age>36</age>
+        <hire_date>2013-10-01</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-013"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-012">
+        <name>Vuk Vucic</name>
+        <title>Financial Analyst</title>
+        <age>26</age>
+        <hire_date>2020-04-25</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-014"/>
+            <colleague_ref ref="emp-002"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-013">
+        <name>Tea Tepic</name>
+        <title>PR Specialist</title>
+        <age>25</age>
+        <hire_date>2021-01-10</hire_date>
+        <colleagues_with>
+            <colleague_ref ref="emp-015"/>
+        </colleagues_with>
+    </employee>
+    <employee id="emp-014">
+    <name>Luka Lukic</name>
+    <title>Analyst</title>
+    <age>29</age>
+    <hire_date>2018-03-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-016"/>
+        <colleague_ref ref="emp-047"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-015">
+    <name>Maja Majic</name>
+    <title>Specialist</title>
+    <age>31</age>
+    <hire_date>2017-06-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-017"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-016">
+    <name>Nikola Nikolic</name>
+    <title>Intern</title>
+    <age>23</age>
+    <hire_date>2023-01-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-018"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-017">
+    <name>Sara Saric</name>
+    <title>Junior Developer</title>
+    <age>26</age>
+    <hire_date>2022-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-019"/>
+        <colleague_ref ref="emp-002"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-018">
+    <name>David Davidovic</name>
+    <title>Tester</title>
+    <age>30</age>
+    <hire_date>2019-11-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-020"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-019">
+    <name>Stefan Stefanovic</name>
+    <title>UI Designer</title>
+    <age>35</age>
+    <hire_date>2016-08-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-021"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-020">
+    <name>Zoran Zoranovic</name>
+    <title>Full Stack Developer</title>
+    <age>40</age>
+    <hire_date>2014-04-12</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-022"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-021">
+    <name>Stefan Zoranovic</name>
+    <title>Asistent</title>
+    <age>24</age>
+    <hire_date>2022-03-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-023"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-022">
+    <name>David Lazarevic</name>
+    <title>Saradnik</title>
+    <age>32</age>
+    <hire_date>2017-09-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-024"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-023">
+    <name>Mladen Petric</name>
+    <title>Koordinator</title>
+    <age>38</age>
+    <hire_date>2015-12-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-025"/>
+        <colleague_ref ref="emp-002"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-024">
+    <name>Neven Ilincic</name>
+    <title>Konsultant</title>
+    <age>44</age>
+    <hire_date>2011-08-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-026"/>
+        <colleague_ref ref="emp-047"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-025">
+    <name>Luka Vukovic</name>
+    <title>Analitičar</title>
+    <age>27</age>
+    <hire_date>2020-05-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-027"/>
+        <colleague_ref ref="emp-019"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-026">
+    <name>Petar Dragicevic</name>
+    <title>Menadžer</title>
+    <age>33</age>
+    <hire_date>2016-10-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-028"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-027">
+    <name>Miljana Ristic</name>
+    <title>Developer</title>
+    <age>29</age>
+    <hire_date>2019-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-029"/>
+        <colleague_ref ref="emp-047"/>
+        <colleague_ref ref="emp-002"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-028">
+    <name>Vuk Nikolic</name>
+    <title>Tester</title>
+    <age>25</age>
+    <hire_date>2021-07-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-030"/>
+        <colleague_ref ref="emp-026"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-029">
+    <name>Anastasija Arsic</name>
+    <title>Specijalista</title>
+    <age>30</age>
+    <hire_date>2018-04-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-031"/>
+        <colleague_ref ref="emp-047"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-030">
+    <name>Luka Citic</name>
+    <title>Asistent</title>
+    <age>22</age>
+    <hire_date>2023-05-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-032"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-031">
+    <name>Kristina Trajkovic</name>
+    <title>Saradnik</title>
+    <age>28</age>
+    <hire_date>2019-10-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-033"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-032">
+    <name>Tamara Stojkovic</name>
+    <title>Koordinator</title>
+    <age>34</age>
+    <hire_date>2015-08-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-034"/>
+        <colleague_ref ref="emp-002"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-033">
+    <name>David Stosic</name>
+    <title>Konsultant</title>
+    <age>41</age>
+    <hire_date>2012-06-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-035"/>
+        <colleague_ref ref="emp-047"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-034">
+    <name>Luka Trajkovic</name>
+    <title>Analitičar</title>
+    <age>26</age>
+    <hire_date>2020-03-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-036"/>
+        <colleague_ref ref="emp-026"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-035">
+    <name>Milos Mitic</name>
+    <title>Menadžer</title>
+    <age>37</age>
+    <hire_date>2017-01-08</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-037"/>
+        <colleague_ref ref="emp-047"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-036">
+    <name>Pedja Popovic</name>
+    <title>Developer</title>
+    <age>30</age>
+    <hire_date>2019-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-038"/>
+        <colleague_ref ref="emp-002"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-037">
+    <name>Teodora Stamenkovic</name>
+    <title>Tester</title>
+    <age>24</age>
+    <hire_date>2022-04-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-039"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-038">
+    <name>Emilija Milosavljevic</name>
+    <title>Specijalista</title>
+    <age>31</age>
+    <hire_date>2018-06-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-040"/>
+        <colleague_ref ref="emp-047"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-039">
+    <name>Lazar Simonovic</name>
+    <title>Asistent</title>
+    <age>23</age>
+    <hire_date>2023-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-041"/>
+        <colleague_ref ref="emp-019"/>
+    </colleagues_with>
+</employee>
+    <employee id="emp-040">
+    <name>Marijan Stojmenovic</name>
+    <title>Saradnik</title>
+    <age>36</age>
+    <hire_date>2017-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-042"/>
+        <colleague_ref ref="emp-026"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-041">
+    <name>Djordje Kuzmanovic</name>
+    <title>Koordinator</title>
+    <age>29</age>
+    <hire_date>2019-03-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-043"/>
+        <colleague_ref ref="emp-047"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-042">
+    <name>Djordje Kitanovic</name>
+    <title>Konsultant</title>
+    <age>43</age>
+    <hire_date>2013-05-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-044"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-043">
+    <name>Miljana Petrusijevic</name>
+    <title>Analitičar</title>
+    <age>27</age>
+    <hire_date>2020-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-045"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-044">
+    <name>Danijela Kartaljevic</name>
+    <title>Menadžer</title>
+    <age>38</age>
+    <hire_date>2016-11-09</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-046"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-045">
+    <name>Bratislav Djordjevic</name>
+    <title>Developer</title>
+    <age>31</age>
+    <hire_date>2018-08-30</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-047"/>
+        <colleague_ref ref="emp-026"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-046">
+    <name>Vukasin Trajkovic</name>
+    <title>Tester</title>
+    <age>25</age>
+    <hire_date>2021-03-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-048"/>
+        <colleague_ref ref="emp-002"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-047">
+    <name>Jovan Velickovic</name>
+    <title>Specijalista</title>
+    <age>29</age>
+    <hire_date>2019-05-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-049"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-048">
+    <name>Aleksa Pavlovic</name>
+    <title>Asistent</title>
+    <age>24</age>
+    <hire_date>2022-06-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-050"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-049">
+    <name>Andrija Stosic</name>
+    <title>Saradnik</title>
+    <age>33</age>
+    <hire_date>2017-02-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-001"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-050">
+    <name>Sanja Stojkovic</name>
+    <title>Koordinator</title>
+    <age>28</age>
+    <hire_date>2019-12-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-002"/>
+        <colleague_ref ref="emp-019"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-051">
+    <name>Miloš Popović</name>
+    <title>IT Analyst</title>
+    <age>32</age>
+    <hire_date>2018-07-21</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-002"/>
+        <colleague_ref ref="emp-047"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-052">
+    <name>Jovana Jovanović</name>
+    <title>Project Manager</title>
+    <age>35</age>
+    <hire_date>2015-11-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-001"/>
+        <colleague_ref ref="emp-003"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-053">
+    <name>Nemanja Nikolić</name>
+    <title>Senior Developer</title>
+    <age>40</age>
+    <hire_date>2012-04-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-004"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-054">
+    <name>Aleksandra Petrović</name>
+    <title>HR Specialist</title>
+    <age>28</age>
+    <hire_date>2020-09-19</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-005"/>
+        <colleague_ref ref="emp-006"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-055">
+    <name>Dragan Perić</name>
+    <title>QA Engineer</title>
+    <age>31</age>
+    <hire_date>2017-02-28</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-007"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-056">
+    <name>Anđela Đorđević</name>
+    <title>Frontend Developer</title>
+    <age>26</age>
+    <hire_date>2021-06-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-008"/>
+        <colleague_ref ref="emp-009"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-057">
+    <name>Milan Stojanović</name>
+    <title>Backend Developer</title>
+    <age>34</age>
+    <hire_date>2016-12-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-010"/>
+        <colleague_ref ref="emp-011"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-058">
+    <name>Ivana Ilić</name>
+    <title>UX/UI Designer</title>
+    <age>29</age>
+    <hire_date>2019-03-08</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-012"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-059">
+    <name>Stevan Petrović</name>
+    <title>Database Administrator</title>
+    <age>42</age>
+    <hire_date>2010-09-09</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-013"/>
+        <colleague_ref ref="emp-014"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-060">
+    <name>Nikolina Simić</name>
+    <title>System Administrator</title>
+    <age>33</age>
+    <hire_date>2017-05-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-015"/>
+        <colleague_ref ref="emp-016"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-061">
+    <name>Goran Radovanović</name>
+    <title>DevOps Engineer</title>
+    <age>38</age>
+    <hire_date>2014-08-11</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-017"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-062">
+    <name>Marina Milenković</name>
+    <title>Cloud Architect</title>
+    <age>45</age>
+    <hire_date>2010-01-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-018"/>
+        <colleague_ref ref="emp-019"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-063">
+    <name>Darko Ignjatović</name>
+    <title>Network Engineer</title>
+    <age>30</age>
+    <hire_date>2019-10-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-020"/>
+        <colleague_ref ref="emp-021"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-064">
+    <name>Sonja Pavlović</name>
+    <title>Security Specialist</title>
+    <age>27</age>
+    <hire_date>2021-04-12</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-022"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-065">
+    <name>Vlada Lazarević</name>
+    <title>Product Manager</title>
+    <age>39</age>
+    <hire_date>2013-06-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-023"/>
+        <colleague_ref ref="emp-024"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-066">
+    <name>Anja Jovanović</name>
+    <title>Business Analyst</title>
+    <age>31</age>
+    <hire_date>2018-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-025"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-067">
+    <name>Stefan Marković</name>
+    <title>Marketing Specialist</title>
+    <age>25</age>
+    <hire_date>2022-01-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-026"/>
+        <colleague_ref ref="emp-027"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-068">
+    <name>Milica Cvetković</name>
+    <title>PR Coordinator</title>
+    <age>29</age>
+    <hire_date>2019-07-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-028"/>
+        <colleague_ref ref="emp-029"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-069">
+    <name>Lazar Mihajlović</name>
+    <title>Financial Controller</title>
+    <age>36</age>
+    <hire_date>2016-10-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-030"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-070">
+    <name>Marija Ristić</name>
+    <title>Accountant</title>
+    <age>30</age>
+    <hire_date>2018-03-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-031"/>
+        <colleague_ref ref="emp-032"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-071">
+    <name>Uroš Stojković</name>
+    <title>Sales Manager</title>
+    <age>41</age>
+    <hire_date>2011-05-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-033"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-072">
+    <name>Ana Knežević</name>
+    <title>Support Specialist</title>
+    <age>27</age>
+    <hire_date>2020-11-03</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-034"/>
+        <colleague_ref ref="emp-035"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-073">
+    <name>Aleksa Marković</name>
+    <title>IT Technician</title>
+    <age>24</age>
+    <hire_date>2022-08-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-036"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-074">
+    <name>Miloš Kovačević</name>
+    <title>Graphic Designer</title>
+    <age>33</age>
+    <hire_date>2017-04-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-037"/>
+        <colleague_ref ref="emp-038"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-075">
+    <name>Sara Popović</name>
+    <title>Copywriter</title>
+    <age>28</age>
+    <hire_date>2019-06-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-039"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-076">
+    <name>Ivan Đorđević</name>
+    <title>Content Manager</title>
+    <age>35</age>
+    <hire_date>2015-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-040"/>
+        <colleague_ref ref="emp-041"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-077">
+    <name>Dunja Simić</name>
+    <title>Social Media Manager</title>
+    <age>26</age>
+    <hire_date>2021-03-29</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-042"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-078">
+    <name>Petar Petrović</name>
+    <title>SEO Specialist</title>
+    <age>30</age>
+    <hire_date>2018-11-08</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-043"/>
+        <colleague_ref ref="emp-044"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-079">
+    <name>Sofija Mitrović</name>
+    <title>HR Generalist</title>
+    <age>34</age>
+    <hire_date>2016-08-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-045"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-080">
+    <name>Filip Đorđević</name>
+    <title>Recruitment Specialist</title>
+    <age>29</age>
+    <hire_date>2019-05-16</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-046"/>
+        <colleague_ref ref="emp-047"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-081">
+    <name>Tijana Marković</name>
+    <title>Training Coordinator</title>
+    <age>32</age>
+    <hire_date>2017-10-23</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-048"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-082">
+    <name>Dušan Petrović</name>
+    <title>Legal Advisor</title>
+    <age>43</age>
+    <hire_date>2012-07-07</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-049"/>
+        <colleague_ref ref="emp-050"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-083">
+    <name>Aleksa Simić</name>
+    <title>Financial Manager</title>
+    <age>37</age>
+    <hire_date>2014-04-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-051"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-084">
+    <name>Nina Jovanović</name>
+    <title>Administrative Assistant</title>
+    <age>26</age>
+    <hire_date>2021-02-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-052"/>
+        <colleague_ref ref="emp-053"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-085">
+    <name>Miloš Pavlović</name>
+    <title>Office Manager</title>
+    <age>30</age>
+    <hire_date>2018-06-30</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-054"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-086">
+    <name>Katarina Marković</name>
+    <title>Event Coordinator</title>
+    <age>25</age>
+    <hire_date>2022-09-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-055"/>
+        <colleague_ref ref="emp-056"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-087">
+    <name>Vladimir Petrović</name>
+    <title>Logistics Manager</title>
+    <age>40</age>
+    <hire_date>2013-01-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-057"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-088">
+    <name>Anastasija Popović</name>
+    <title>Supply Chain Analyst</title>
+    <age>31</age>
+    <hire_date>2019-08-11</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-058"/>
+        <colleague_ref ref="emp-059"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-089">
+    <name>Nikola Jovanović</name>
+    <title>Maintenance Manager</title>
+    <age>44</age>
+    <hire_date>2011-06-04</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-060"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-090">
+    <name>Tamara Janković</name>
+    <title>Junior Developer</title>
+    <age>23</age>
+    <hire_date>2023-03-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-061"/>
+        <colleague_ref ref="emp-062"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-091">
+    <name>Luka Petrović</name>
+    <title>Intern</title>
+    <age>22</age>
+    <hire_date>2023-06-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-063"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-092">
+    <name>Miloš Ilić</name>
+    <title>UX Intern</title>
+    <age>21</age>
+    <hire_date>2023-09-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-064"/>
+        <colleague_ref ref="emp-065"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-093">
+    <name>Sara Kovačević</name>
+    <title>Legal Intern</title>
+    <age>24</age>
+    <hire_date>2022-07-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-066"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-094">
+    <name>David Marković</name>
+    <title>Marketing Intern</title>
+    <age>23</age>
+    <hire_date>2023-04-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-067"/>
+        <colleague_ref ref="emp-068"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-095">
+    <name>Ana Popović</name>
+    <title>PR Intern</title>
+    <age>22</age>
+    <hire_date>2023-01-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-069"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-096">
+    <name>Marko Petrović</name>
+    <title>Sales Intern</title>
+    <age>21</age>
+    <hire_date>2023-08-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-070"/>
+        <colleague_ref ref="emp-071"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-097">
+    <name>Marija Jovanović</name>
+    <title>HR Intern</title>
+    <age>24</age>
+    <hire_date>2022-05-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-072"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-098">
+    <name>Milan Stanković</name>
+    <title>IT Intern</title>
+    <age>23</age>
+    <hire_date>2023-07-21</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-073"/>
+        <colleague_ref ref="emp-074"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-099">
+    <name>Miloš Vasić</name>
+    <title>Logistics Intern</title>
+    <age>22</age>
+    <hire_date>2023-05-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-075"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-100">
+    <name>Stefan Nikolić</name>
+    <title>Analyst</title>
+    <age>28</age>
+    <hire_date>2020-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-076"/>
+        <colleague_ref ref="emp-077"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-101">
+    <name>Teodora Lazarević</name>
+    <title>Specialist</title>
+    <age>31</age>
+    <hire_date>2017-06-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-078"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-102">
+    <name>Aleksandar Jovanović</name>
+    <title>Intern</title>
+    <age>23</age>
+    <hire_date>2023-01-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-079"/>
+        <colleague_ref ref="emp-080"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-103">
+    <name>Ivana Nikolić</name>
+    <title>Junior Developer</title>
+    <age>26</age>
+    <hire_date>2022-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-081"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-104">
+    <name>Stefan Davidović</name>
+    <title>Tester</title>
+    <age>30</age>
+    <hire_date>2019-11-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-082"/>
+        <colleague_ref ref="emp-083"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-105">
+    <name>Miloš Stefanović</name>
+    <title>UI Designer</title>
+    <age>35</age>
+    <hire_date>2016-08-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-084"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-106">
+    <name>Zoran Jovanović</name>
+    <title>Full Stack Developer</title>
+    <age>40</age>
+    <hire_date>2014-04-12</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-085"/>
+        <colleague_ref ref="emp-086"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-107">
+    <name>Stefan Mirković</name>
+    <title>Asistent</title>
+    <age>24</age>
+    <hire_date>2022-03-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-087"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-108">
+    <name>David Petrović</name>
+    <title>Saradnik</title>
+    <age>32</age>
+    <hire_date>2017-09-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-088"/>
+        <colleague_ref ref="emp-089"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-109">
+    <name>Mladen Pavlović</name>
+    <title>Koordinator</title>
+    <age>38</age>
+    <hire_date>2015-12-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-090"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-110">
+    <name>Neven Marković</name>
+    <title>Konsultant</title>
+    <age>44</age>
+    <hire_date>2011-08-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-091"/>
+        <colleague_ref ref="emp-092"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-111">
+    <name>Luka Jović</name>
+    <title>Analitičar</title>
+    <age>27</age>
+    <hire_date>2020-05-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-093"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-112">
+    <name>Petar Nikolić</name>
+    <title>Menadžer</title>
+    <age>33</age>
+    <hire_date>2016-10-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-094"/>
+        <colleague_ref ref="emp-095"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-113">
+    <name>Miljana Jovanović</name>
+    <title>Developer</title>
+    <age>29</age>
+    <hire_date>2019-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-096"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-114">
+    <name>Vuk Pavlović</name>
+    <title>Tester</title>
+    <age>25</age>
+    <hire_date>2021-07-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-097"/>
+        <colleague_ref ref="emp-098"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-115">
+    <name>Anastasija Stefanović</name>
+    <title>Specijalista</title>
+    <age>30</age>
+    <hire_date>2018-04-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-099"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-116">
+    <name>Luka Nikolić</name>
+    <title>Asistent</title>
+    <age>22</age>
+    <hire_date>2023-05-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-100"/>
+        <colleague_ref ref="emp-101"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-117">
+    <name>Kristina Petrović</name>
+    <title>Saradnik</title>
+    <age>28</age>
+    <hire_date>2019-10-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-102"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-118">
+    <name>Tamara Jovanović</name>
+    <title>Koordinator</title>
+    <age>34</age>
+    <hire_date>2015-08-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-103"/>
+        <colleague_ref ref="emp-104"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-119">
+    <name>David Marković</name>
+    <title>Konsultant</title>
+    <age>41</age>
+    <hire_date>2012-06-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-105"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-120">
+    <name>Luka Stojanović</name>
+    <title>Analitičar</title>
+    <age>26</age>
+    <hire_date>2020-03-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-106"/>
+        <colleague_ref ref="emp-107"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-121">
+    <name>Miloš Popović</name>
+    <title>Menadžer</title>
+    <age>37</age>
+    <hire_date>2017-01-08</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-108"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-122">
+    <name>Pedja Petrović</name>
+    <title>Developer</title>
+    <age>30</age>
+    <hire_date>2019-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-109"/>
+        <colleague_ref ref="emp-110"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-123">
+    <name>Teodora Jovanović</name>
+    <title>Tester</title>
+    <age>24</age>
+    <hire_date>2022-04-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-111"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-124">
+    <name>Emilija Petrović</name>
+    <title>Specijalista</title>
+    <age>31</age>
+    <hire_date>2018-06-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-112"/>
+        <colleague_ref ref="emp-113"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-125">
+    <name>Lazar Nikolić</name>
+    <title>Asistent</title>
+    <age>23</age>
+    <hire_date>2023-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-114"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-126">
+    <name>Marijan Marković</name>
+    <title>Saradnik</title>
+    <age>36</age>
+    <hire_date>2017-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-115"/>
+        <colleague_ref ref="emp-116"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-127">
+    <name>Djordje Jovanović</name>
+    <title>Koordinator</title>
+    <age>29</age>
+    <hire_date>2019-03-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-117"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-128">
+    <name>Djordje Petrović</name>
+    <title>Konsultant</title>
+    <age>43</age>
+    <hire_date>2013-05-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-118"/>
+        <colleague_ref ref="emp-119"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-129">
+    <name>Miljana Marković</name>
+    <title>Analitičar</title>
+    <age>27</age>
+    <hire_date>2020-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-120"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-130">
+    <name>Danijela Jovanović</name>
+    <title>Menadžer</title>
+    <age>38</age>
+    <hire_date>2016-11-09</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-121"/>
+        <colleague_ref ref="emp-122"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-131">
+    <name>Bratislav Petrović</name>
+    <title>Developer</title>
+    <age>31</age>
+    <hire_date>2018-08-30</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-123"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-132">
+    <name>Vukasin Marković</name>
+    <title>Tester</title>
+    <age>25</age>
+    <hire_date>2021-03-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-124"/>
+        <colleague_ref ref="emp-125"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-133">
+    <name>Jovan Petrović</name>
+    <title>Specijalista</title>
+    <age>29</age>
+    <hire_date>2019-05-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-126"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-134">
+    <name>Aleksa Marković</name>
+    <title>Asistent</title>
+    <age>24</age>
+    <hire_date>2022-06-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-127"/>
+        <colleague_ref ref="emp-128"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-135">
+    <name>Andrija Petrović</name>
+    <title>Saradnik</title>
+    <age>33</age>
+    <hire_date>2017-02-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-129"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-136">
+    <name>Sanja Marković</name>
+    <title>Koordinator</title>
+    <age>28</age>
+    <hire_date>2019-12-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-130"/>
+        <colleague_ref ref="emp-131"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-137">
+    <name>Miloš Ivanović</name>
+    <title>IT Analyst</title>
+    <age>32</age>
+    <hire_date>2018-07-21</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-132"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-138">
+    <name>Jovana Petrović</name>
+    <title>Project Manager</title>
+    <age>35</age>
+    <hire_date>2015-11-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-133"/>
+        <colleague_ref ref="emp-134"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-139">
+    <name>Nemanja Jovanović</name>
+    <title>Senior Developer</title>
+    <age>40</age>
+    <hire_date>2012-04-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-135"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-140">
+    <name>Aleksandra Marković</name>
+    <title>HR Specialist</title>
+    <age>28</age>
+    <hire_date>2020-09-19</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-136"/>
+        <colleague_ref ref="emp-137"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-141">
+    <name>Dragan Jovanović</name>
+    <title>QA Engineer</title>
+    <age>31</age>
+    <hire_date>2017-02-28</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-138"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-142">
+    <name>Anđela Petrović</name>
+    <title>Frontend Developer</title>
+    <age>26</age>
+    <hire_date>2021-06-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-139"/>
+        <colleague_ref ref="emp-140"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-143">
+    <name>Milan Jovanović</name>
+    <title>Backend Developer</title>
+    <age>34</age>
+    <hire_date>2016-12-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-141"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-144">
+    <name>Ivana Marković</name>
+    <title>UX/UI Designer</title>
+    <age>29</age>
+    <hire_date>2019-03-08</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-142"/>
+        <colleague_ref ref="emp-143"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-145">
+    <name>Stevan Nikolić</name>
+    <title>Database Administrator</title>
+    <age>42</age>
+    <hire_date>2010-09-09</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-144"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-146">
+    <name>Nikolina Jovanović</name>
+    <title>System Administrator</title>
+    <age>33</age>
+    <hire_date>2017-05-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-145"/>
+        <colleague_ref ref="emp-146"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-147">
+    <name>Goran Petrović</name>
+    <title>DevOps Engineer</title>
+    <age>38</age>
+    <hire_date>2014-08-11</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-147"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-148">
+    <name>Marina Marković</name>
+    <title>Cloud Architect</title>
+    <age>45</age>
+    <hire_date>2010-01-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-148"/>
+        <colleague_ref ref="emp-149"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-149">
+    <name>Darko Petrović</name>
+    <title>Network Engineer</title>
+    <age>30</age>
+    <hire_date>2019-10-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-150"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-150">
+    <name>Sonja Jovanović</name>
+    <title>Security Specialist</title>
+    <age>27</age>
+    <hire_date>2021-04-12</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-151"/>
+        <colleague_ref ref="emp-152"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-151">
+    <name>Vlada Marković</name>
+    <title>Product Manager</title>
+    <age>39</age>
+    <hire_date>2013-06-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-153"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-152">
+    <name>Anja Petrović</name>
+    <title>Business Analyst</title>
+    <age>31</age>
+    <hire_date>2018-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-154"/>
+        <colleague_ref ref="emp-155"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-153">
+    <name>Stefan Jovanović</name>
+    <title>Marketing Specialist</title>
+    <age>25</age>
+    <hire_date>2022-01-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-156"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-154">
+    <name>Milica Marković</name>
+    <title>PR Coordinator</title>
+    <age>29</age>
+    <hire_date>2019-07-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-157"/>
+        <colleague_ref ref="emp-158"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-155">
+    <name>Lazar Petrović</name>
+    <title>Financial Controller</title>
+    <age>36</age>
+    <hire_date>2016-10-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-159"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-156">
+    <name>Marija Jovanović</name>
+    <title>Accountant</title>
+    <age>30</age>
+    <hire_date>2018-03-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-160"/>
+        <colleague_ref ref="emp-161"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-157">
+    <name>Uroš Marković</name>
+    <title>Sales Manager</title>
+    <age>41</age>
+    <hire_date>2011-05-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-162"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-158">
+    <name>Ana Petrović</name>
+    <title>Support Specialist</title>
+    <age>27</age>
+    <hire_date>2020-11-03</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-163"/>
+        <colleague_ref ref="emp-164"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-159">
+    <name>Aleksa Jovanović</name>
+    <title>IT Technician</title>
+    <age>24</age>
+    <hire_date>2022-08-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-165"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-160">
+    <name>Miloš Marković</name>
+    <title>Graphic Designer</title>
+    <age>33</age>
+    <hire_date>2017-04-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-166"/>
+        <colleague_ref ref="emp-167"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-161">
+    <name>Sara Petrović</name>
+    <title>Copywriter</title>
+    <age>28</age>
+    <hire_date>2019-06-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-168"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-162">
+    <name>Ivan Marković</name>
+    <title>Content Manager</title>
+    <age>35</age>
+    <hire_date>2015-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-169"/>
+        <colleague_ref ref="emp-170"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-163">
+    <name>Dunja Jovanović</name>
+    <title>Social Media Manager</title>
+    <age>26</age>
+    <hire_date>2021-03-29</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-171"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-164">
+    <name>Petar Marković</name>
+    <title>SEO Specialist</title>
+    <age>30</age>
+    <hire_date>2018-11-08</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-172"/>
+        <colleague_ref ref="emp-173"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-165">
+    <name>Sofija Petrović</name>
+    <title>HR Generalist</title>
+    <age>34</age>
+    <hire_date>2016-08-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-174"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-166">
+    <name>Filip Marković</name>
+    <title>Recruitment Specialist</title>
+    <age>29</age>
+    <hire_date>2019-05-16</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-175"/>
+        <colleague_ref ref="emp-176"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-167">
+    <name>Tijana Jovanović</name>
+    <title>Training Coordinator</title>
+    <age>32</age>
+    <hire_date>2017-10-23</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-177"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-168">
+    <name>Dušan Marković</name>
+    <title>Legal Advisor</title>
+    <age>43</age>
+    <hire_date>2012-07-07</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-178"/>
+        <colleague_ref ref="emp-179"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-169">
+    <name>Aleksa Petrović</name>
+    <title>Financial Manager</title>
+    <age>37</age>
+    <hire_date>2014-04-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-180"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-170">
+    <name>Nina Marković</name>
+    <title>Administrative Assistant</title>
+    <age>26</age>
+    <hire_date>2021-02-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-181"/>
+        <colleague_ref ref="emp-182"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-171">
+    <name>Miloš Jovanović</name>
+    <title>Office Manager</title>
+    <age>30</age>
+    <hire_date>2018-06-30</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-183"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-172">
+    <name>Katarina Petrović</name>
+    <title>Event Coordinator</title>
+    <age>25</age>
+    <hire_date>2022-09-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-184"/>
+        <colleague_ref ref="emp-185"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-173">
+    <name>Vladimir Marković</name>
+    <title>Logistics Manager</title>
+    <age>40</age>
+    <hire_date>2013-01-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-186"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-174">
+    <name>Anastasija Marković</name>
+    <title>Supply Chain Analyst</title>
+    <age>31</age>
+    <hire_date>2019-08-11</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-187"/>
+        <colleague_ref ref="emp-188"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-175">
+    <name>Nikola Petrović</name>
+    <title>Maintenance Manager</title>
+    <age>44</age>
+    <hire_date>2011-06-04</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-189"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-176">
+    <name>Tamara Marković</name>
+    <title>Junior Developer</title>
+    <age>23</age>
+    <hire_date>2023-03-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-190"/>
+        <colleague_ref ref="emp-191"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-177">
+    <name>Luka Jovanović</name>
+    <title>Intern</title>
+    <age>22</age>
+    <hire_date>2023-06-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-192"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-178">
+    <name>Miloš Petrović</name>
+    <title>UX Intern</title>
+    <age>21</age>
+    <hire_date>2023-09-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-193"/>
+        <colleague_ref ref="emp-194"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-179">
+    <name>Sara Marković</name>
+    <title>Legal Intern</title>
+    <age>24</age>
+    <hire_date>2022-07-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-195"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-180">
+    <name>David Jovanović</name>
+    <title>Marketing Intern</title>
+    <age>23</age>
+    <hire_date>2023-04-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-196"/>
+        <colleague_ref ref="emp-197"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-181">
+    <name>Ana Marković</name>
+    <title>PR Intern</title>
+    <age>22</age>
+    <hire_date>2023-01-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-198"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-182">
+    <name>Marko Jovanović</name>
+    <title>Sales Intern</title>
+    <age>21</age>
+    <hire_date>2023-08-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-199"/>
+        <colleague_ref ref="emp-200"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-183">
+    <name>Marija Petrović</name>
+    <title>HR Intern</title>
+    <age>24</age>
+    <hire_date>2022-05-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-201"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-184">
+    <name>Milan Marković</name>
+    <title>IT Intern</title>
+    <age>23</age>
+    <hire_date>2023-07-21</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-202"/>
+        <colleague_ref ref="emp-203"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-185">
+    <name>Miloš Petrović</name>
+    <title>Logistics Intern</title>
+    <age>22</age>
+    <hire_date>2023-05-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-204"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-186">
+    <name>Stefan Marković</name>
+    <title>Analyst</title>
+    <age>28</age>
+    <hire_date>2020-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-205"/>
+        <colleague_ref ref="emp-206"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-187">
+    <name>Teodora Petrović</name>
+    <title>Specialist</title>
+    <age>31</age>
+    <hire_date>2017-06-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-207"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-188">
+    <name>Aleksandar Marković</name>
+    <title>Intern</title>
+    <age>23</age>
+    <hire_date>2023-01-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-208"/>
+        <colleague_ref ref="emp-209"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-189">
+    <name>Ivana Jovanović</name>
+    <title>Junior Developer</title>
+    <age>26</age>
+    <hire_date>2022-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-210"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-190">
+    <name>Stefan Petrović</name>
+    <title>Tester</title>
+    <age>30</age>
+    <hire_date>2019-11-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-211"/>
+        <colleague_ref ref="emp-212"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-191">
+    <name>Miloš Jovanović</name>
+    <title>UI Designer</title>
+    <age>35</age>
+    <hire_date>2016-08-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-213"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-192">
+    <name>Zoran Marković</name>
+    <title>Full Stack Developer</title>
+    <age>40</age>
+    <hire_date>2014-04-12</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-214"/>
+        <colleague_ref ref="emp-215"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-193">
+    <name>Stefan Petrović</name>
+    <title>Asistent</title>
+    <age>24</age>
+    <hire_date>2022-03-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-216"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-194">
+    <name>David Marković</name>
+    <title>Saradnik</title>
+    <age>32</age>
+    <hire_date>2017-09-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-217"/>
+        <colleague_ref ref="emp-218"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-195">
+    <name>Mladen Jovanović</name>
+    <title>Koordinator</title>
+    <age>38</age>
+    <hire_date>2015-12-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-219"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-196">
+    <name>Neven Petrović</name>
+    <title>Konsultant</title>
+    <age>44</age>
+    <hire_date>2011-08-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-220"/>
+        <colleague_ref ref="emp-221"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-197">
+    <name>Luka Marković</name>
+    <title>Analitičar</title>
+    <age>27</age>
+    <hire_date>2020-05-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-222"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-198">
+    <name>Petar Jovanović</name>
+    <title>Menadžer</title>
+    <age>33</age>
+    <hire_date>2016-10-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-223"/>
+        <colleague_ref ref="emp-224"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-199">
+    <name>Miljana Petrović</name>
+    <title>Developer</title>
+    <age>29</age>
+    <hire_date>2019-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-225"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-200">
+    <name>Vuk Marković</name>
+    <title>Tester</title>
+    <age>25</age>
+    <hire_date>2021-07-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-226"/>
+        <colleague_ref ref="emp-227"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-201">
+    <name>Anastasija Marković</name>
+    <title>Specijalista</title>
+    <age>30</age>
+    <hire_date>2018-04-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-228"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-202">
+    <name>Luka Petrović</name>
+    <title>Asistent</title>
+    <age>22</age>
+    <hire_date>2023-05-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-229"/>
+        <colleague_ref ref="emp-230"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-203">
+    <name>Kristina Marković</name>
+    <title>Saradnik</title>
+    <age>28</age>
+    <hire_date>2019-10-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-231"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-204">
+    <name>Tamara Jovanović</name>
+    <title>Koordinator</title>
+    <age>34</age>
+    <hire_date>2015-08-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-232"/>
+        <colleague_ref ref="emp-233"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-205">
+    <name>David Petrović</name>
+    <title>Konsultant</title>
+    <age>41</age>
+    <hire_date>2012-06-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-234"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-206">
+    <name>Luka Marković</name>
+    <title>Analitičar</title>
+    <age>26</age>
+    <hire_date>2020-03-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-235"/>
+        <colleague_ref ref="emp-236"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-207">
+    <name>Miloš Petrović</name>
+    <title>Menadžer</title>
+    <age>37</age>
+    <hire_date>2017-01-08</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-237"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-208">
+    <name>Pedja Jovanović</name>
+    <title>Developer</title>
+    <age>30</age>
+    <hire_date>2019-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-238"/>
+        <colleague_ref ref="emp-239"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-209">
+    <name>Teodora Marković</name>
+    <title>Tester</title>
+    <age>24</age>
+    <hire_date>2022-04-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-240"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-210">
+    <name>Emilija Petrović</name>
+    <title>Specijalista</title>
+    <age>31</age>
+    <hire_date>2018-06-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-241"/>
+        <colleague_ref ref="emp-242"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-211">
+    <name>Lazar Marković</name>
+    <title>Asistent</title>
+    <age>23</age>
+    <hire_date>2023-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-243"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-212">
+    <name>Marijan Jovanović</name>
+    <title>Saradnik</title>
+    <age>36</age>
+    <hire_date>2017-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-244"/>
+        <colleague_ref ref="emp-245"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-213">
+    <name>Djordje Petrović</name>
+    <title>Koordinator</title>
+    <age>29</age>
+    <hire_date>2019-03-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-246"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-214">
+    <name>Djordje Marković</name>
+    <title>Konsultant</title>
+    <age>43</age>
+    <hire_date>2013-05-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-247"/>
+        <colleague_ref ref="emp-248"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-215">
+    <name>Miljana Jovanović</name>
+    <title>Analitičar</title>
+    <age>27</age>
+    <hire_date>2020-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-249"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-216">
+    <name>Danijela Petrović</name>
+    <title>Menadžer</title>
+    <age>38</age>
+    <hire_date>2016-11-09</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-250"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-217">
+    <name>Bratislav Marković</name>
+    <title>Developer</title>
+    <age>31</age>
+    <hire_date>2018-08-30</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-001"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-218">
+    <name>Vukasin Jovanović</name>
+    <title>Tester</title>
+    <age>25</age>
+    <hire_date>2021-03-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-002"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-219">
+    <name>Jovan Petrović</name>
+    <title>Specijalista</title>
+    <age>29</age>
+    <hire_date>2019-05-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-003"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-220">
+    <name>Aleksa Marković</name>
+    <title>Asistent</title>
+    <age>24</age>
+    <hire_date>2022-06-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-004"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-221">
+    <name>Andrija Jovanović</name>
+    <title>Saradnik</title>
+    <age>33</age>
+    <hire_date>2017-02-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-005"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-222">
+    <name>Sanja Petrović</name>
+    <title>Koordinator</title>
+    <age>28</age>
+    <hire_date>2019-12-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-006"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-223">
+    <name>Miloš Popović</name>
+    <title>IT Analyst</title>
+    <age>32</age>
+    <hire_date>2018-07-21</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-007"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-224">
+    <name>Jovana Marković</name>
+    <title>Project Manager</title>
+    <age>35</age>
+    <hire_date>2015-11-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-008"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-225">
+    <name>Nemanja Petrović</name>
+    <title>Senior Developer</title>
+    <age>40</age>
+    <hire_date>2012-04-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-009"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-226">
+    <name>Aleksandra Jovanović</name>
+    <title>HR Specialist</title>
+    <age>28</age>
+    <hire_date>2020-09-19</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-010"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-227">
+    <name>Dragan Marković</name>
+    <title>QA Engineer</title>
+    <age>31</age>
+    <hire_date>2017-02-28</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-011"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-228">
+    <name>Anđela Petrović</name>
+    <title>Frontend Developer</title>
+    <age>26</age>
+    <hire_date>2021-06-15</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-012"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-229">
+    <name>Milan Jovanović</name>
+    <title>Backend Developer</title>
+    <age>34</age>
+    <hire_date>2016-12-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-013"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-230">
+    <name>Ivana Marković</name>
+    <title>UX/UI Designer</title>
+    <age>29</age>
+    <hire_date>2019-03-08</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-014"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-231">
+    <name>Stevan Petrović</name>
+    <title>Database Administrator</title>
+    <age>42</age>
+    <hire_date>2010-09-09</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-015"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-232">
+    <name>Nikolina Jovanović</name>
+    <title>System Administrator</title>
+    <age>33</age>
+    <hire_date>2017-05-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-016"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-233">
+    <name>Goran Marković</name>
+    <title>DevOps Engineer</title>
+    <age>38</age>
+    <hire_date>2014-08-11</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-017"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-234">
+    <name>Marina Petrović</name>
+    <title>Cloud Architect</title>
+    <age>45</age>
+    <hire_date>2010-01-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-018"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-235">
+    <name>Darko Jovanović</name>
+    <title>Network Engineer</title>
+    <age>30</age>
+    <hire_date>2019-10-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-019"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-236">
+    <name>Sonja Marković</name>
+    <title>Security Specialist</title>
+    <age>27</age>
+    <hire_date>2021-04-12</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-020"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-237">
+    <name>Vlada Petrović</name>
+    <title>Product Manager</title>
+    <age>39</age>
+    <hire_date>2013-06-25</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-021"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-238">
+    <name>Anja Jovanović</name>
+    <title>Business Analyst</title>
+    <age>31</age>
+    <hire_date>2018-09-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-022"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-239">
+    <name>Stefan Marković</name>
+    <title>Marketing Specialist</title>
+    <age>25</age>
+    <hire_date>2022-01-20</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-023"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-240">
+    <name>Milica Petrović</name>
+    <title>PR Coordinator</title>
+    <age>29</age>
+    <hire_date>2019-07-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-024"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-241">
+    <name>Lazar Jovanović</name>
+    <title>Financial Controller</title>
+    <age>36</age>
+    <hire_date>2016-10-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-025"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-242">
+    <name>Marija Marković</name>
+    <title>Accountant</title>
+    <age>30</age>
+    <hire_date>2018-03-22</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-026"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-243">
+    <name>Uroš Petrović</name>
+    <title>Sales Manager</title>
+    <age>41</age>
+    <hire_date>2011-05-18</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-027"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-244">
+    <name>Ana Jovanović</name>
+    <title>Support Specialist</title>
+    <age>27</age>
+    <hire_date>2020-11-03</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-028"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-245">
+    <name>Aleksa Marković</name>
+    <title>IT Technician</title>
+    <age>24</age>
+    <hire_date>2022-08-01</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-029"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-246">
+    <name>Miloš Petrović</name>
+    <title>Graphic Designer</title>
+    <age>33</age>
+    <hire_date>2017-04-10</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-030"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-247">
+    <name>Sara Jovanović</name>
+    <title>Copywriter</title>
+    <age>28</age>
+    <hire_date>2019-06-05</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-031"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-248">
+    <name>Ivan Marković</name>
+    <title>Content Manager</title>
+    <age>35</age>
+    <hire_date>2015-02-14</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-032"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-249">
+    <name>Dunja Petrović</name>
+    <title>Social Media Manager</title>
+    <age>26</age>
+    <hire_date>2021-03-29</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-033"/>
+    </colleagues_with>
+</employee>
+<employee id="emp-250">
+    <name>Petar Jovanović</name>
+    <title>SEO Specialist</title>
+    <age>30</age>
+    <hire_date>2018-11-08</hire_date>
+    <colleagues_with>
+        <colleague_ref ref="emp-034"/>
+    </colleagues_with>
+</employee>
+</employees>

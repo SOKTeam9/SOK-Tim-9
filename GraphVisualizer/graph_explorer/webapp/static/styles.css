@@ -10,11 +10,13 @@ html {
 .page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 95vh;
 }
 
 /* HEADER */
 .header {
+  flex: none;
+  height: 18%;
   display: flex;
   justify-content: space-between;
   align-items: stretch; /* iste visine za left-header i right-header */
@@ -110,13 +112,153 @@ button.reset:hover {
   border-right: 1px solid #ddd;
 }
 
-.left .top,
+.left .top {
+  flex: 2;
+  padding: 5px;
+  min-height: 47%; /* sprečava da sadržaj gura flex */
+  overflow: hidden;
+}
+
+.left .top #treeView {
+  overflow: auto;
+}
+
 .left .bottom {
-  flex: 1;
-  padding: 10px;
+  flex: 3;
+  min-height: 0;
+}
+
+.bottom {
+  padding: 5px;
 }
 
 .center {
   flex: 7;
-  padding: 10px;
+  padding: 5px;
+}
+
+.link {
+  stroke: #aaa;
+}
+.node {
+  fill: steelblue;
+  cursor: pointer;
+}
+.label {
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.link-small {
+  stroke: #ccc;
+}
+.node-small {
+  fill: black;
+}
+
+h1 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+span.selected-node {
+  color: green;
+  font-weight: bold;
+}
+
+#modern-terminal-container {
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.terminal-header {
+    background-color: #f0f0f0;
+    padding: 8px 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+}
+
+.terminal-body {
+    flex-grow: 1;
+    background-color: #fcfcfc;
+    color: #333;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.terminal-output {
+    flex-grow: 1;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    padding-bottom: 5px;
+}
+
+.terminal-output .start-text {
+    color: #777;
+    font-style: italic;
+}
+
+.terminal-input-wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.terminal-input {
+    background: transparent;
+    color: #333;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-family: 'Consolas', 'Monaco', monospace;
+    cursor: not-allowed;
+}
+
+.prompt {
+    color: #6a5acd;
+    margin-right: 5px;
+}
+.workspaces {
+  flex: none;
+  height: 3%;
+  display: flex;
+  border-top: 1px solid #ccc;
+  background: #f7f7f7;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.workspace-tab {
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background: #eaeaea;
+  padding: 8px 16px;
+  margin-right: 4px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+}
+
+.workspace-tab.active {
+  background: white;
+  font-weight: bold;
+  border-bottom: 2px solid white; /* da izgleda "spojeno" sa sadržajem */
 }

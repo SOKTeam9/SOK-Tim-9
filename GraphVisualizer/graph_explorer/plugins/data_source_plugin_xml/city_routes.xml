@@ -1,0 +1,2503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<world>
+    <city id="c-1">
+        <name>New York</name>
+        <country>USA</country>
+        <population>8467513</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-2"/>
+            <route_to ref="c-3"/>
+        </routes>
+    </city>
+    <city id="c-2">
+        <name>London</name>
+        <country>UK</country>
+        <population>8982000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-1"/>
+            <route_to ref="c-4"/>
+        </routes>
+    </city>
+    <city id="c-3">
+        <name>Tokyo</name>
+        <country>Japan</country>
+        <population>13960000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-1"/>
+            <route_to ref="c-5"/>
+        </routes>
+    </city>
+    <city id="c-4">
+        <name>Paris</name>
+        <country>France</country>
+        <population>2141000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-2"/>
+            <route_to ref="c-6"/>
+        </routes>
+    </city>
+    <city id="c-5">
+        <name>Dubai</name>
+        <country>UAE</country>
+        <population>3137000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-3"/>
+            <route_to ref="c-7"/>
+        </routes>
+    </city>
+    <city id="c-6">
+        <name>Berlin</name>
+        <country>Germany</country>
+        <population>3769000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-4"/>
+            <route_to ref="c-8"/>
+        </routes>
+    </city>
+    <city id="c-7">
+        <name>Rome</name>
+        <country>Italy</country>
+        <population>2860000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-5"/>
+            <route_to ref="c-9"/>
+        </routes>
+    </city>
+    <city id="c-8">
+        <name>Madrid</name>
+        <country>Spain</country>
+        <population>3223000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-6"/>
+            <route_to ref="c-10"/>
+        </routes>
+    </city>
+    <city id="c-9">
+        <name>Sydney</name>
+        <country>Australia</country>
+        <population>5312000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-7"/>
+            <route_to ref="c-11"/>
+        </routes>
+    </city>
+    <city id="c-10">
+        <name>Toronto</name>
+        <country>Canada</country>
+        <population>2930000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-8"/>
+            <route_to ref="c-12"/>
+        </routes>
+    </city>
+    <city id="c-11">
+        <name>Moscow</name>
+        <country>Russia</country>
+        <population>12655000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-9"/>
+            <route_to ref="c-13"/>
+        </routes>
+    </city>
+    <city id="c-12">
+        <name>Cairo</name>
+        <country>Egypt</country>
+        <population>9845000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-10"/>
+            <route_to ref="c-14"/>
+        </routes>
+    </city>
+    <city id="c-13">
+        <name>Mexico City</name>
+        <country>Mexico</country>
+        <population>9209000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-11"/>
+            <route_to ref="c-15"/>
+        </routes>
+    </city>
+    <city id="c-14">
+        <name>Seoul</name>
+        <country>South Korea</country>
+        <population>9765000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-12"/>
+            <route_to ref="c-16"/>
+        </routes>
+    </city>
+    <city id="c-15">
+        <name>Mumbai</name>
+        <country>India</country>
+        <population>20411000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-13"/>
+            <route_to ref="c-17"/>
+        </routes>
+    </city>
+    <city id="c-16">
+        <name>Jakarta</name>
+        <country>Indonesia</country>
+        <population>10562000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-14"/>
+            <route_to ref="c-18"/>
+        </routes>
+    </city>
+    <city id="c-17">
+        <name>Manila</name>
+        <country>Philippines</country>
+        <population>17801000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-15"/>
+            <route_to ref="c-19"/>
+        </routes>
+    </city>
+    <city id="c-18">
+        <name>Lagos</name>
+        <country>Nigeria</country>
+        <population>14862000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-16"/>
+            <route_to ref="c-20"/>
+        </routes>
+    </city>
+    <city id="c-19">
+        <name>Shanghai</name>
+        <country>China</country>
+        <population>26317000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-17"/>
+            <route_to ref="c-21"/>
+        </routes>
+    </city>
+    <city id="c-20">
+        <name>Karachi</name>
+        <country>Pakistan</country>
+        <population>16094000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-18"/>
+            <route_to ref="c-22"/>
+        </routes>
+    </city>
+    <city id="c-21">
+        <name>Dhaka</name>
+        <country>Bangladesh</country>
+        <population>21741000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-19"/>
+            <route_to ref="c-23"/>
+        </routes>
+    </city>
+    <city id="c-22">
+        <name>Kinshasa</name>
+        <country>DR Congo</country>
+        <population>14970000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-20"/>
+            <route_to ref="c-24"/>
+        </routes>
+    </city>
+    <city id="c-23">
+        <name>Buenos Aires</name>
+        <country>Argentina</country>
+        <population>3075000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-21"/>
+            <route_to ref="c-25"/>
+        </routes>
+    </city>
+    <city id="c-24">
+        <name>Bogota</name>
+        <country>Colombia</country>
+        <population>7412000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-22"/>
+            <route_to ref="c-26"/>
+        </routes>
+    </city>
+    <city id="c-25">
+        <name>Lima</name>
+        <country>Peru</country>
+        <population>9674000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-23"/>
+            <route_to ref="c-27"/>
+        </routes>
+    </city>
+    <city id="c-26">
+        <name>Santiago</name>
+        <country>Chile</country>
+        <population>6257000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-24"/>
+            <route_to ref="c-28"/>
+        </routes>
+    </city>
+    <city id="c-27">
+        <name>Rio de Janeiro</name>
+        <country>Brazil</country>
+        <population>6710000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-25"/>
+            <route_to ref="c-29"/>
+        </routes>
+    </city>
+    <city id="c-28">
+        <name>Sao Paulo</name>
+        <country>Brazil</country>
+        <population>12330000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-26"/>
+            <route_to ref="c-30"/>
+        </routes>
+    </city>
+    <city id="c-29">
+        <name>Johannesburg</name>
+        <country>South Africa</country>
+        <population>5926000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-27"/>
+            <route_to ref="c-31"/>
+        </routes>
+    </city>
+    <city id="c-30">
+        <name>Cape Town</name>
+        <country>South Africa</country>
+        <population>4618000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-28"/>
+            <route_to ref="c-32"/>
+        </routes>
+    </city>
+    <city id="c-31">
+        <name>Nairobi</name>
+        <country>Kenya</country>
+        <population>4397000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-29"/>
+            <route_to ref="c-33"/>
+        </routes>
+    </city>
+    <city id="c-32">
+        <name>Casablanca</name>
+        <country>Morocco</country>
+        <population>3359000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-30"/>
+            <route_to ref="c-34"/>
+        </routes>
+    </city>
+    <city id="c-33">
+        <name>Tunis</name>
+        <country>Tunisia</country>
+        <population>638000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-31"/>
+            <route_to ref="c-35"/>
+        </routes>
+    </city>
+    <city id="c-34">
+        <name>Algiers</name>
+        <country>Algeria</country>
+        <population>3415000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-32"/>
+            <route_to ref="c-36"/>
+        </routes>
+    </city>
+    <city id="c-35">
+        <name>Tripoli</name>
+        <country>Libya</country>
+        <population>1158000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-33"/>
+            <route_to ref="c-37"/>
+        </routes>
+    </city>
+    <city id="c-36">
+        <name>Amman</name>
+        <country>Jordan</country>
+        <population>4007000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-34"/>
+            <route_to ref="c-38"/>
+        </routes>
+    </city>
+    <city id="c-37">
+        <name>Beirut</name>
+        <country>Lebanon</country>
+        <population>2421000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-35"/>
+            <route_to ref="c-39"/>
+        </routes>
+    </city>
+    <city id="c-38">
+        <name>Damascus</name>
+        <country>Syria</country>
+        <population>2503000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-36"/>
+            <route_to ref="c-40"/>
+        </routes>
+    </city>
+    <city id="c-39">
+        <name>Baghdad</name>
+        <country>Iraq</country>
+        <population>7665000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-37"/>
+            <route_to ref="c-41"/>
+        </routes>
+    </city>
+    <city id="c-40">
+        <name>Riyadh</name>
+        <country>Saudi Arabia</country>
+        <population>6924000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-38"/>
+            <route_to ref="c-42"/>
+        </routes>
+    </city>
+    <city id="c-41">
+        <name>Kuwait City</name>
+        <country>Kuwait</country>
+        <population>4473000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-39"/>
+            <route_to ref="c-43"/>
+        </routes>
+    </city>
+    <city id="c-42">
+        <name>Tehran</name>
+        <country>Iran</country>
+        <population>8693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-40"/>
+            <route_to ref="c-44"/>
+        </routes>
+    </city>
+    <city id="c-43">
+        <name>Kabul</name>
+        <country>Afghanistan</country>
+        <population>4601000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-41"/>
+            <route_to ref="c-45"/>
+        </routes>
+    </city>
+    <city id="c-44">
+        <name>Lahore</name>
+        <country>Pakistan</country>
+        <population>13095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-42"/>
+            <route_to ref="c-46"/>
+        </routes>
+    </city>
+    <city id="c-45">
+        <name>Colombo</name>
+        <country>Sri Lanka</country>
+        <population>561000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-43"/>
+            <route_to ref="c-47"/>
+        </routes>
+    </city>
+    <city id="c-46">
+        <name>Kathmandu</name>
+        <country>Nepal</country>
+        <population>1442000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-44"/>
+            <route_to ref="c-48"/>
+        </routes>
+    </city>
+    <city id="c-47">
+        <name>Dhaka</name>
+        <country>Bangladesh</country>
+        <population>21741000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-45"/>
+            <route_to ref="c-49"/>
+        </routes>
+    </city>
+    <city id="c-48">
+        <name>Hanoi</name>
+        <country>Vietnam</country>
+        <population>8053000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-46"/>
+            <route_to ref="c-50"/>
+        </routes>
+    </city>
+    <city id="c-49">
+        <name>Ho Chi Minh City</name>
+        <country>Vietnam</country>
+        <population>8993000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-47"/>
+            <route_to ref="c-51"/>
+        </routes>
+    </city>
+    <city id="c-50">
+        <name>Bangkok</name>
+        <country>Thailand</country>
+        <population>10539000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-48"/>
+            <route_to ref="c-52"/>
+        </routes>
+    </city>
+    <city id="c-51">
+        <name>Kuala Lumpur</name>
+        <country>Malaysia</country>
+        <population>1808000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-49"/>
+            <route_to ref="c-53"/>
+        </routes>
+    </city>
+    <city id="c-52">
+        <name>Singapore</name>
+        <country>Singapore</country>
+        <population>5686000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-50"/>
+            <route_to ref="c-54"/>
+        </routes>
+    </city>
+    <city id="c-53">
+        <name>Hong Kong</name>
+        <country>Hong Kong</country>
+        <population>7496000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-51"/>
+            <route_to ref="c-55"/>
+        </routes>
+    </city>
+    <city id="c-54">
+        <name>Taipei</name>
+        <country>Taiwan</country>
+        <population>2704000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-52"/>
+            <route_to ref="c-56"/>
+        </routes>
+    </city>
+    <city id="c-55">
+        <name>Manila</name>
+        <country>Philippines</country>
+        <population>17801000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-53"/>
+            <route_to ref="c-57"/>
+        </routes>
+    </city>
+    <city id="c-56">
+        <name>Jakarta</name>
+        <country>Indonesia</country>
+        <population>10562000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-54"/>
+            <route_to ref="c-58"/>
+        </routes>
+    </city>
+    <city id="c-57">
+        <name>Wellington</name>
+        <country>New Zealand</country>
+        <population>215000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-55"/>
+            <route_to ref="c-59"/>
+        </routes>
+    </city>
+    <city id="c-58">
+        <name>Auckland</name>
+        <country>New Zealand</country>
+        <population>1467000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-56"/>
+            <route_to ref="c-60"/>
+        </routes>
+    </city>
+    <city id="c-59">
+        <name>Suva</name>
+        <country>Fiji</country>
+        <population>93000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-57"/>
+            <route_to ref="c-61"/>
+        </routes>
+    </city>
+    <city id="c-60">
+        <name>Port Moresby</name>
+        <country>Papua New Guinea</country>
+        <population>364000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-58"/>
+            <route_to ref="c-62"/>
+        </routes>
+    </city>
+    <city id="c-61">
+        <name>Helsinki</name>
+        <country>Finland</country>
+        <population>656000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-59"/>
+            <route_to ref="c-63"/>
+        </routes>
+    </city>
+    <city id="c-62">
+        <name>Oslo</name>
+        <country>Norway</country>
+        <population>693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-60"/>
+            <route_to ref="c-64"/>
+        </routes>
+    </city>
+    <city id="c-63">
+        <name>Stockholm</name>
+        <country>Sweden</country>
+        <population>975000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-61"/>
+            <route_to ref="c-65"/>
+        </routes>
+    </city>
+    <city id="c-64">
+        <name>Copenhagen</name>
+        <country>Denmark</country>
+        <population>632000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-62"/>
+            <route_to ref="c-66"/>
+        </routes>
+    </city>
+    <city id="c-65">
+        <name>Dublin</name>
+        <country>Ireland</country>
+        <population>544000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-63"/>
+            <route_to ref="c-67"/>
+        </routes>
+    </city>
+    <city id="c-66">
+        <name>Lisbon</name>
+        <country>Portugal</country>
+        <population>505000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-64"/>
+            <route_to ref="c-68"/>
+        </routes>
+    </city>
+    <city id="c-67">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-65"/>
+            <route_to ref="c-69"/>
+        </routes>
+    </city>
+    <city id="c-68">
+        <name>Vienna</name>
+        <country>Austria</country>
+        <population>1917000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-66"/>
+            <route_to ref="c-70"/>
+        </routes>
+    </city>
+    <city id="c-69">
+        <name>Budapest</name>
+        <country>Hungary</country>
+        <population>1752000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-67"/>
+            <route_to ref="c-71"/>
+        </routes>
+    </city>
+    <city id="c-70">
+        <name>Warsaw</name>
+        <country>Poland</country>
+        <population>1790000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-68"/>
+            <route_to ref="c-72"/>
+        </routes>
+    </city>
+    <city id="c-71">
+        <name>Bucharest</name>
+        <country>Romania</country>
+        <population>1830000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-69"/>
+            <route_to ref="c-73"/>
+        </routes>
+    </city>
+    <city id="c-72">
+        <name>Belgrade</name>
+        <country>Serbia</country>
+        <population>1685000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-70"/>
+            <route_to ref="c-74"/>
+        </routes>
+    </city>
+    <city id="c-73">
+        <name>Sarajevo</name>
+        <country>Bosnia and Herzegovina</country>
+        <population>275524</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-71"/>
+            <route_to ref="c-75"/>
+        </routes>
+    </city>
+    <city id="c-74">
+        <name>Skopje</name>
+        <country>North Macedonia</country>
+        <population>506926</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-72"/>
+            <route_to ref="c-76"/>
+        </routes>
+    </city>
+    <city id="c-75">
+        <name>Tirana</name>
+        <country>Albania</country>
+        <population>418495</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-73"/>
+            <route_to ref="c-77"/>
+        </routes>
+    </city>
+    <city id="c-76">
+        <name>Athens</name>
+        <country>Greece</country>
+        <population>664046</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-74"/>
+            <route_to ref="c-78"/>
+        </routes>
+    </city>
+    <city id="c-77">
+        <name>Istanbul</name>
+        <country>Turkey</country>
+        <population>15840000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-75"/>
+            <route_to ref="c-79"/>
+        </routes>
+    </city>
+    <city id="c-78">
+        <name>Ankara</name>
+        <country>Turkey</country>
+        <population>5663000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-76"/>
+            <route_to ref="c-80"/>
+        </routes>
+    </city>
+    <city id="c-79">
+        <name>Baku</name>
+        <country>Azerbaijan</country>
+        <population>2374000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-77"/>
+            <route_to ref="c-81"/>
+        </routes>
+    </city>
+    <city id="c-80">
+        <name>Tbilisi</name>
+        <country>Georgia</country>
+        <population>1200000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-78"/>
+            <route_to ref="c-82"/>
+        </routes>
+    </city>
+    <city id="c-81">
+        <name>Yerevan</name>
+        <country>Armenia</country>
+        <population>1093000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-79"/>
+            <route_to ref="c-83"/>
+        </routes>
+    </city>
+    <city id="c-82">
+        <name>Bishkek</name>
+        <country>Kyrgyzstan</country>
+        <population>1071000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-80"/>
+            <route_to ref="c-84"/>
+        </routes>
+    </city>
+    <city id="c-83">
+        <name>Almaty</name>
+        <country>Kazakhstan</country>
+        <population>2039000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-81"/>
+            <route_to ref="c-85"/>
+        </routes>
+    </city>
+    <city id="c-84">
+        <name>Tashkent</name>
+        <country>Uzbekistan</country>
+        <population>2694000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-82"/>
+            <route_to ref="c-86"/>
+        </routes>
+    </city>
+    <city id="c-85">
+        <name>Dushanbe</name>
+        <country>Tajikistan</country>
+        <population>846000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-83"/>
+            <route_to ref="c-87"/>
+        </routes>
+    </city>
+    <city id="c-86">
+        <name>Ashgabat</name>
+        <country>Turkmenistan</country>
+        <population>1030000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-84"/>
+            <route_to ref="c-88"/>
+        </routes>
+    </city>
+    <city id="c-87">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-85"/>
+            <route_to ref="c-89"/>
+        </routes>
+    </city>
+    <city id="c-88">
+        <name>Kathmandu</name>
+        <country>Nepal</country>
+        <population>1442000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-86"/>
+            <route_to ref="c-90"/>
+        </routes>
+    </city>
+    <city id="c-89">
+        <name>Thimphu</name>
+        <country>Bhutan</country>
+        <population>114000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-87"/>
+            <route_to ref="c-91"/>
+        </routes>
+    </city>
+    <city id="c-90">
+        <name>Dhaka</name>
+        <country>Bangladesh</country>
+        <population>21741000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-88"/>
+            <route_to ref="c-92"/>
+        </routes>
+    </city>
+    <city id="c-91">
+        <name>Male</name>
+        <country>Maldives</country>
+        <population>153000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-89"/>
+            <route_to ref="c-93"/>
+        </routes>
+    </city>
+    <city id="c-92">
+        <name>Colombo</name>
+        <country>Sri Lanka</country>
+        <population>561000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-90"/>
+            <route_to ref="c-94"/>
+        </routes>
+    </city>
+    <city id="c-93">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-91"/>
+            <route_to ref="c-95"/>
+        </routes>
+    </city>
+    <city id="c-94">
+        <name>Tehran</name>
+        <country>Iran</country>
+        <population>8693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-92"/>
+            <route_to ref="c-96"/>
+        </routes>
+    </city>
+    <city id="c-95">
+        <name>Moscow</name>
+        <country>Russia</country>
+        <population>12655000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-93"/>
+            <route_to ref="c-97"/>
+        </routes>
+    </city>
+    <city id="c-96">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-94"/>
+            <route_to ref="c-98"/>
+        </routes>
+    </city>
+    <city id="c-97">
+        <name>Amsterdam</name>
+        <country>Netherlands</country>
+        <population>873000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-95"/>
+            <route_to ref="c-99"/>
+        </routes>
+    </city>
+    <city id="c-98">
+        <name>Zurich</name>
+        <country>Switzerland</country>
+        <population>434000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-96"/>
+            <route_to ref="c-100"/>
+        </routes>
+    </city>
+    <city id="c-99">
+        <name>Helsinki</name>
+        <country>Finland</country>
+        <population>656000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-97"/>
+            <route_to ref="c-1"/>
+        </routes>
+    </city>
+    <city id="c-100">
+        <name>Oslo</name>
+        <country>Norway</country>
+        <population>693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-98"/>
+            <route_to ref="c-2"/>
+        </routes>
+    </city>
+    <city id="c-101">
+        <name>Stockholm</name>
+        <country>Sweden</country>
+        <population>975000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-102"/>
+            <route_to ref="c-1"/>
+        </routes>
+    </city>
+    <city id="c-102">
+        <name>Copenhagen</name>
+        <country>Denmark</country>
+        <population>632000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-101"/>
+            <route_to ref="c-3"/>
+        </routes>
+    </city>
+    <city id="c-103">
+        <name>Dublin</name>
+        <country>Ireland</country>
+        <population>544000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-102"/>
+            <route_to ref="c-5"/>
+        </routes>
+    </city>
+    <city id="c-104">
+        <name>Lisbon</name>
+        <country>Portugal</country>
+        <population>505000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-103"/>
+            <route_to ref="c-7"/>
+        </routes>
+    </city>
+    <city id="c-105">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-104"/>
+            <route_to ref="c-9"/>
+        </routes>
+    </city>
+    <city id="c-106">
+        <name>Vienna</name>
+        <country>Austria</country>
+        <population>1917000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-105"/>
+            <route_to ref="c-11"/>
+        </routes>
+    </city>
+    <city id="c-107">
+        <name>Budapest</name>
+        <country>Hungary</country>
+        <population>1752000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-106"/>
+            <route_to ref="c-13"/>
+        </routes>
+    </city>
+    <city id="c-108">
+        <name>Warsaw</name>
+        <country>Poland</country>
+        <population>1790000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-107"/>
+            <route_to ref="c-15"/>
+        </routes>
+    </city>
+    <city id="c-109">
+        <name>Bucharest</name>
+        <country>Romania</country>
+        <population>1830000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-108"/>
+            <route_to ref="c-17"/>
+        </routes>
+    </city>
+    <city id="c-110">
+        <name>Belgrade</name>
+        <country>Serbia</country>
+        <population>1685000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-109"/>
+            <route_to ref="c-19"/>
+        </routes>
+    </city>
+    <city id="c-111">
+        <name>Sarajevo</name>
+        <country>Bosnia and Herzegovina</country>
+        <population>275524</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-110"/>
+            <route_to ref="c-21"/>
+        </routes>
+    </city>
+    <city id="c-112">
+        <name>Skopje</name>
+        <country>North Macedonia</country>
+        <population>506926</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-111"/>
+            <route_to ref="c-23"/>
+        </routes>
+    </city>
+    <city id="c-113">
+        <name>Tirana</name>
+        <country>Albania</country>
+        <population>418495</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-112"/>
+            <route_to ref="c-25"/>
+        </routes>
+    </city>
+    <city id="c-114">
+        <name>Athens</name>
+        <country>Greece</country>
+        <population>664046</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-113"/>
+            <route_to ref="c-27"/>
+        </routes>
+    </city>
+    <city id="c-115">
+        <name>Istanbul</name>
+        <country>Turkey</country>
+        <population>15840000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-114"/>
+            <route_to ref="c-29"/>
+        </routes>
+    </city>
+    <city id="c-116">
+        <name>Ankara</name>
+        <country>Turkey</country>
+        <population>5663000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-115"/>
+            <route_to ref="c-31"/>
+        </routes>
+    </city>
+    <city id="c-117">
+        <name>Baku</name>
+        <country>Azerbaijan</country>
+        <population>2374000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-116"/>
+            <route_to ref="c-33"/>
+        </routes>
+    </city>
+    <city id="c-118">
+        <name>Tbilisi</name>
+        <country>Georgia</country>
+        <population>1200000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-117"/>
+            <route_to ref="c-35"/>
+        </routes>
+    </city>
+    <city id="c-119">
+        <name>Yerevan</name>
+        <country>Armenia</country>
+        <population>1093000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-118"/>
+            <route_to ref="c-37"/>
+        </routes>
+    </city>
+    <city id="c-120">
+        <name>Bishkek</name>
+        <country>Kyrgyzstan</country>
+        <population>1071000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-119"/>
+            <route_to ref="c-39"/>
+        </routes>
+    </city>
+    <city id="c-121">
+        <name>Almaty</name>
+        <country>Kazakhstan</country>
+        <population>2039000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-120"/>
+            <route_to ref="c-41"/>
+        </routes>
+    </city>
+    <city id="c-122">
+        <name>Tashkent</name>
+        <country>Uzbekistan</country>
+        <population>2694000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-121"/>
+            <route_to ref="c-43"/>
+        </routes>
+    </city>
+    <city id="c-123">
+        <name>Dushanbe</name>
+        <country>Tajikistan</country>
+        <population>846000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-122"/>
+            <route_to ref="c-45"/>
+        </routes>
+    </city>
+    <city id="c-124">
+        <name>Ashgabat</name>
+        <country>Turkmenistan</country>
+        <population>1030000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-123"/>
+            <route_to ref="c-47"/>
+        </routes>
+    </city>
+    <city id="c-125">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-124"/>
+            <route_to ref="c-49"/>
+        </routes>
+    </city>
+    <city id="c-126">
+        <name>Kathmandu</name>
+        <country>Nepal</country>
+        <population>1442000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-125"/>
+            <route_to ref="c-51"/>
+        </routes>
+    </city>
+    <city id="c-127">
+        <name>Thimphu</name>
+        <country>Bhutan</country>
+        <population>114000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-126"/>
+            <route_to ref="c-53"/>
+        </routes>
+    </city>
+    <city id="c-128">
+        <name>Male</name>
+        <country>Maldives</country>
+        <population>153000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-127"/>
+            <route_to ref="c-55"/>
+        </routes>
+    </city>
+    <city id="c-129">
+        <name>Colombo</name>
+        <country>Sri Lanka</country>
+        <population>561000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-128"/>
+            <route_to ref="c-57"/>
+        </routes>
+    </city>
+    <city id="c-130">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-129"/>
+            <route_to ref="c-59"/>
+        </routes>
+    </city>
+    <city id="c-131">
+        <name>Tehran</name>
+        <country>Iran</country>
+        <population>8693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-130"/>
+            <route_to ref="c-61"/>
+        </routes>
+    </city>
+    <city id="c-132">
+        <name>Moscow</name>
+        <country>Russia</country>
+        <population>12655000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-131"/>
+            <route_to ref="c-63"/>
+        </routes>
+    </city>
+    <city id="c-133">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-132"/>
+            <route_to ref="c-65"/>
+        </routes>
+    </city>
+    <city id="c-134">
+        <name>Amsterdam</name>
+        <country>Netherlands</country>
+        <population>873000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-133"/>
+            <route_to ref="c-67"/>
+        </routes>
+    </city>
+    <city id="c-135">
+        <name>Zurich</name>
+        <country>Switzerland</country>
+        <population>434000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-134"/>
+            <route_to ref="c-69"/>
+        </routes>
+    </city>
+    <city id="c-136">
+        <name>Helsinki</name>
+        <country>Finland</country>
+        <population>656000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-135"/>
+            <route_to ref="c-71"/>
+        </routes>
+    </city>
+    <city id="c-137">
+        <name>Oslo</name>
+        <country>Norway</country>
+        <population>693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-136"/>
+            <route_to ref="c-73"/>
+        </routes>
+    </city>
+    <city id="c-138">
+        <name>Stockholm</name>
+        <country>Sweden</country>
+        <population>975000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-137"/>
+            <route_to ref="c-75"/>
+        </routes>
+    </city>
+    <city id="c-139">
+        <name>Copenhagen</name>
+        <country>Denmark</country>
+        <population>632000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-138"/>
+            <route_to ref="c-77"/>
+        </routes>
+    </city>
+    <city id="c-140">
+        <name>Dublin</name>
+        <country>Ireland</country>
+        <population>544000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-139"/>
+            <route_to ref="c-79"/>
+        </routes>
+    </city>
+    <city id="c-141">
+        <name>Lisbon</name>
+        <country>Portugal</country>
+        <population>505000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-140"/>
+            <route_to ref="c-81"/>
+        </routes>
+    </city>
+    <city id="c-142">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-141"/>
+            <route_to ref="c-83"/>
+        </routes>
+    </city>
+    <city id="c-143">
+        <name>Vienna</name>
+        <country>Austria</country>
+        <population>1917000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-142"/>
+            <route_to ref="c-85"/>
+        </routes>
+    </city>
+    <city id="c-144">
+        <name>Budapest</name>
+        <country>Hungary</country>
+        <population>1752000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-143"/>
+            <route_to ref="c-87"/>
+        </routes>
+    </city>
+    <city id="c-145">
+        <name>Warsaw</name>
+        <country>Poland</country>
+        <population>1790000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-144"/>
+            <route_to ref="c-89"/>
+        </routes>
+    </city>
+    <city id="c-146">
+        <name>Bucharest</name>
+        <country>Romania</country>
+        <population>1830000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-145"/>
+            <route_to ref="c-91"/>
+        </routes>
+    </city>
+    <city id="c-147">
+        <name>Belgrade</name>
+        <country>Serbia</country>
+        <population>1685000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-146"/>
+            <route_to ref="c-93"/>
+        </routes>
+    </city>
+    <city id="c-148">
+        <name>Sarajevo</name>
+        <country>Bosnia and Herzegovina</country>
+        <population>275524</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-147"/>
+            <route_to ref="c-95"/>
+        </routes>
+    </city>
+    <city id="c-149">
+        <name>Skopje</name>
+        <country>North Macedonia</country>
+        <population>506926</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-148"/>
+            <route_to ref="c-97"/>
+        </routes>
+    </city>
+    <city id="c-150">
+        <name>Tirana</name>
+        <country>Albania</country>
+        <population>418495</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-149"/>
+            <route_to ref="c-99"/>
+        </routes>
+    </city>
+    <city id="c-151">
+        <name>Athens</name>
+        <country>Greece</country>
+        <population>664046</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-150"/>
+            <route_to ref="c-101"/>
+        </routes>
+    </city>
+    <city id="c-152">
+        <name>Istanbul</name>
+        <country>Turkey</country>
+        <population>15840000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-151"/>
+            <route_to ref="c-103"/>
+        </routes>
+    </city>
+    <city id="c-153">
+        <name>Ankara</name>
+        <country>Turkey</country>
+        <population>5663000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-152"/>
+            <route_to ref="c-105"/>
+        </routes>
+    </city>
+    <city id="c-154">
+        <name>Baku</name>
+        <country>Azerbaijan</country>
+        <population>2374000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-153"/>
+            <route_to ref="c-107"/>
+        </routes>
+    </city>
+    <city id="c-155">
+        <name>Tbilisi</name>
+        <country>Georgia</country>
+        <population>1200000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-154"/>
+            <route_to ref="c-109"/>
+        </routes>
+    </city>
+    <city id="c-156">
+        <name>Yerevan</name>
+        <country>Armenia</country>
+        <population>1093000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-155"/>
+            <route_to ref="c-111"/>
+        </routes>
+    </city>
+    <city id="c-157">
+        <name>Bishkek</name>
+        <country>Kyrgyzstan</country>
+        <population>1071000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-156"/>
+            <route_to ref="c-113"/>
+        </routes>
+    </city>
+    <city id="c-158">
+        <name>Almaty</name>
+        <country>Kazakhstan</country>
+        <population>2039000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-157"/>
+            <route_to ref="c-115"/>
+        </routes>
+    </city>
+    <city id="c-159">
+        <name>Tashkent</name>
+        <country>Uzbekistan</country>
+        <population>2694000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-158"/>
+            <route_to ref="c-117"/>
+        </routes>
+    </city>
+    <city id="c-160">
+        <name>Dushanbe</name>
+        <country>Tajikistan</country>
+        <population>846000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-159"/>
+            <route_to ref="c-119"/>
+        </routes>
+    </city>
+    <city id="c-161">
+        <name>Ashgabat</name>
+        <country>Turkmenistan</country>
+        <population>1030000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-160"/>
+            <route_to ref="c-121"/>
+        </routes>
+    </city>
+    <city id="c-162">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-161"/>
+            <route_to ref="c-123"/>
+        </routes>
+    </city>
+    <city id="c-163">
+        <name>Kathmandu</name>
+        <country>Nepal</country>
+        <population>1442000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-162"/>
+            <route_to ref="c-125"/>
+        </routes>
+    </city>
+    <city id="c-164">
+        <name>Thimphu</name>
+        <country>Bhutan</country>
+        <population>114000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-163"/>
+            <route_to ref="c-127"/>
+        </routes>
+    </city>
+    <city id="c-165">
+        <name>Male</name>
+        <country>Maldives</country>
+        <population>153000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-164"/>
+            <route_to ref="c-129"/>
+        </routes>
+    </city>
+    <city id="c-166">
+        <name>Colombo</name>
+        <country>Sri Lanka</country>
+        <population>561000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-165"/>
+            <route_to ref="c-131"/>
+        </routes>
+    </city>
+    <city id="c-167">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-166"/>
+            <route_to ref="c-133"/>
+        </routes>
+    </city>
+    <city id="c-168">
+        <name>Tehran</name>
+        <country>Iran</country>
+        <population>8693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-167"/>
+            <route_to ref="c-135"/>
+        </routes>
+    </city>
+    <city id="c-169">
+        <name>Moscow</name>
+        <country>Russia</country>
+        <population>12655000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-168"/>
+            <route_to ref="c-137"/>
+        </routes>
+    </city>
+    <city id="c-170">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-169"/>
+            <route_to ref="c-139"/>
+        </routes>
+    </city>
+    <city id="c-171">
+        <name>Amsterdam</name>
+        <country>Netherlands</country>
+        <population>873000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-170"/>
+            <route_to ref="c-141"/>
+        </routes>
+    </city>
+    <city id="c-172">
+        <name>Zurich</name>
+        <country>Switzerland</country>
+        <population>434000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-171"/>
+            <route_to ref="c-143"/>
+        </routes>
+    </city>
+    <city id="c-173">
+        <name>Helsinki</name>
+        <country>Finland</country>
+        <population>656000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-172"/>
+            <route_to ref="c-145"/>
+        </routes>
+    </city>
+    <city id="c-174">
+        <name>Oslo</name>
+        <country>Norway</country>
+        <population>693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-173"/>
+            <route_to ref="c-147"/>
+        </routes>
+    </city>
+    <city id="c-175">
+        <name>Stockholm</name>
+        <country>Sweden</country>
+        <population>975000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-174"/>
+            <route_to ref="c-149"/>
+        </routes>
+    </city>
+    <city id="c-176">
+        <name>Copenhagen</name>
+        <country>Denmark</country>
+        <population>632000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-175"/>
+            <route_to ref="c-151"/>
+        </routes>
+    </city>
+    <city id="c-177">
+        <name>Dublin</name>
+        <country>Ireland</country>
+        <population>544000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-176"/>
+            <route_to ref="c-153"/>
+        </routes>
+    </city>
+    <city id="c-178">
+        <name>Lisbon</name>
+        <country>Portugal</country>
+        <population>505000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-177"/>
+            <route_to ref="c-155"/>
+        </routes>
+    </city>
+    <city id="c-179">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-178"/>
+            <route_to ref="c-157"/>
+        </routes>
+    </city>
+    <city id="c-180">
+        <name>Vienna</name>
+        <country>Austria</country>
+        <population>1917000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-179"/>
+            <route_to ref="c-159"/>
+        </routes>
+    </city>
+    <city id="c-181">
+        <name>Budapest</name>
+        <country>Hungary</country>
+        <population>1752000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-180"/>
+            <route_to ref="c-161"/>
+        </routes>
+    </city>
+    <city id="c-182">
+        <name>Warsaw</name>
+        <country>Poland</country>
+        <population>1790000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-181"/>
+            <route_to ref="c-163"/>
+        </routes>
+    </city>
+    <city id="c-183">
+        <name>Bucharest</name>
+        <country>Romania</country>
+        <population>1830000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-182"/>
+            <route_to ref="c-165"/>
+        </routes>
+    </city>
+    <city id="c-184">
+        <name>Belgrade</name>
+        <country>Serbia</country>
+        <population>1685000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-183"/>
+            <route_to ref="c-167"/>
+        </routes>
+    </city>
+    <city id="c-185">
+        <name>Sarajevo</name>
+        <country>Bosnia and Herzegovina</country>
+        <population>275524</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-184"/>
+            <route_to ref="c-169"/>
+        </routes>
+    </city>
+    <city id="c-186">
+        <name>Skopje</name>
+        <country>North Macedonia</country>
+        <population>506926</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-185"/>
+            <route_to ref="c-171"/>
+        </routes>
+    </city>
+    <city id="c-187">
+        <name>Tirana</name>
+        <country>Albania</country>
+        <population>418495</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-186"/>
+            <route_to ref="c-173"/>
+        </routes>
+    </city>
+    <city id="c-188">
+        <name>Athens</name>
+        <country>Greece</country>
+        <population>664046</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-187"/>
+            <route_to ref="c-175"/>
+        </routes>
+    </city>
+    <city id="c-189">
+        <name>Istanbul</name>
+        <country>Turkey</country>
+        <population>15840000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-188"/>
+            <route_to ref="c-177"/>
+        </routes>
+    </city>
+    <city id="c-190">
+        <name>Ankara</name>
+        <country>Turkey</country>
+        <population>5663000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-189"/>
+            <route_to ref="c-179"/>
+        </routes>
+    </city>
+    <city id="c-191">
+        <name>Baku</name>
+        <country>Azerbaijan</country>
+        <population>2374000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-190"/>
+            <route_to ref="c-181"/>
+        </routes>
+    </city>
+    <city id="c-192">
+        <name>Tbilisi</name>
+        <country>Georgia</country>
+        <population>1200000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-191"/>
+            <route_to ref="c-183"/>
+        </routes>
+    </city>
+    <city id="c-193">
+        <name>Yerevan</name>
+        <country>Armenia</country>
+        <population>1093000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-192"/>
+            <route_to ref="c-185"/>
+        </routes>
+    </city>
+    <city id="c-194">
+        <name>Bishkek</name>
+        <country>Kyrgyzstan</country>
+        <population>1071000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-193"/>
+            <route_to ref="c-187"/>
+        </routes>
+    </city>
+    <city id="c-195">
+        <name>Almaty</name>
+        <country>Kazakhstan</country>
+        <population>2039000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-194"/>
+            <route_to ref="c-189"/>
+        </routes>
+    </city>
+    <city id="c-196">
+        <name>Tashkent</name>
+        <country>Uzbekistan</country>
+        <population>2694000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-195"/>
+            <route_to ref="c-191"/>
+        </routes>
+    </city>
+    <city id="c-197">
+        <name>Dushanbe</name>
+        <country>Tajikistan</country>
+        <population>846000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-196"/>
+            <route_to ref="c-193"/>
+        </routes>
+    </city>
+    <city id="c-198">
+        <name>Ashgabat</name>
+        <country>Turkmenistan</country>
+        <population>1030000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-197"/>
+            <route_to ref="c-195"/>
+        </routes>
+    </city>
+    <city id="c-199">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-198"/>
+            <route_to ref="c-197"/>
+        </routes>
+    </city>
+    <city id="c-200">
+        <name>Kathmandu</name>
+        <country>Nepal</country>
+        <population>1442000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-199"/>
+            <route_to ref="c-198"/>
+        </routes>
+    </city>
+    <city id="c-201">
+        <name>Thimphu</name>
+        <country>Bhutan</country>
+        <population>114000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-200"/>
+            <route_to ref="c-199"/>
+        </routes>
+    </city>
+    <city id="c-202">
+        <name>Male</name>
+        <country>Maldives</country>
+        <population>153000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-201"/>
+            <route_to ref="c-200"/>
+        </routes>
+    </city>
+    <city id="c-203">
+        <name>Colombo</name>
+        <country>Sri Lanka</country>
+        <population>561000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-202"/>
+            <route_to ref="c-201"/>
+        </routes>
+    </city>
+    <city id="c-204">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-203"/>
+            <route_to ref="c-202"/>
+        </routes>
+    </city>
+    <city id="c-205">
+        <name>Tehran</name>
+        <country>Iran</country>
+        <population>8693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-204"/>
+            <route_to ref="c-203"/>
+        </routes>
+    </city>
+    <city id="c-206">
+        <name>Moscow</name>
+        <country>Russia</country>
+        <population>12655000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-205"/>
+            <route_to ref="c-204"/>
+        </routes>
+    </city>
+    <city id="c-207">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-206"/>
+            <route_to ref="c-205"/>
+        </routes>
+    </city>
+    <city id="c-208">
+        <name>Amsterdam</name>
+        <country>Netherlands</country>
+        <population>873000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-207"/>
+            <route_to ref="c-206"/>
+        </routes>
+    </city>
+    <city id="c-209">
+        <name>Zurich</name>
+        <country>Switzerland</country>
+        <population>434000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-208"/>
+            <route_to ref="c-207"/>
+        </routes>
+    </city>
+    <city id="c-210">
+        <name>Helsinki</name>
+        <country>Finland</country>
+        <population>656000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-209"/>
+            <route_to ref="c-208"/>
+        </routes>
+    </city>
+    <city id="c-211">
+        <name>Oslo</name>
+        <country>Norway</country>
+        <population>693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-210"/>
+            <route_to ref="c-209"/>
+        </routes>
+    </city>
+    <city id="c-212">
+        <name>Stockholm</name>
+        <country>Sweden</country>
+        <population>975000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-211"/>
+            <route_to ref="c-210"/>
+        </routes>
+    </city>
+    <city id="c-213">
+        <name>Copenhagen</name>
+        <country>Denmark</country>
+        <population>632000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-212"/>
+            <route_to ref="c-211"/>
+        </routes>
+    </city>
+    <city id="c-214">
+        <name>Dublin</name>
+        <country>Ireland</country>
+        <population>544000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-213"/>
+            <route_to ref="c-212"/>
+        </routes>
+    </city>
+    <city id="c-215">
+        <name>Lisbon</name>
+        <country>Portugal</country>
+        <population>505000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-214"/>
+            <route_to ref="c-213"/>
+        </routes>
+    </city>
+    <city id="c-216">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-215"/>
+            <route_to ref="c-214"/>
+        </routes>
+    </city>
+    <city id="c-217">
+        <name>Vienna</name>
+        <country>Austria</country>
+        <population>1917000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-216"/>
+            <route_to ref="c-215"/>
+        </routes>
+    </city>
+    <city id="c-218">
+        <name>Budapest</name>
+        <country>Hungary</country>
+        <population>1752000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-217"/>
+            <route_to ref="c-216"/>
+        </routes>
+    </city>
+    <city id="c-219">
+        <name>Warsaw</name>
+        <country>Poland</country>
+        <population>1790000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-218"/>
+            <route_to ref="c-217"/>
+        </routes>
+    </city>
+    <city id="c-220">
+        <name>Bucharest</name>
+        <country>Romania</country>
+        <population>1830000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-219"/>
+            <route_to ref="c-218"/>
+        </routes>
+    </city>
+    <city id="c-221">
+        <name>Belgrade</name>
+        <country>Serbia</country>
+        <population>1685000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-220"/>
+            <route_to ref="c-219"/>
+        </routes>
+    </city>
+    <city id="c-222">
+        <name>Sarajevo</name>
+        <country>Bosnia and Herzegovina</country>
+        <population>275524</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-221"/>
+            <route_to ref="c-220"/>
+        </routes>
+    </city>
+    <city id="c-223">
+        <name>Skopje</name>
+        <country>North Macedonia</country>
+        <population>506926</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-222"/>
+            <route_to ref="c-221"/>
+        </routes>
+    </city>
+    <city id="c-224">
+        <name>Tirana</name>
+        <country>Albania</country>
+        <population>418495</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-223"/>
+            <route_to ref="c-222"/>
+        </routes>
+    </city>
+    <city id="c-225">
+        <name>Athens</name>
+        <country>Greece</country>
+        <population>664046</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-224"/>
+            <route_to ref="c-223"/>
+        </routes>
+    </city>
+    <city id="c-226">
+        <name>Istanbul</name>
+        <country>Turkey</country>
+        <population>15840000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-225"/>
+            <route_to ref="c-224"/>
+        </routes>
+    </city>
+    <city id="c-227">
+        <name>Ankara</name>
+        <country>Turkey</country>
+        <population>5663000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-226"/>
+            <route_to ref="c-225"/>
+        </routes>
+    </city>
+    <city id="c-228">
+        <name>Baku</name>
+        <country>Azerbaijan</country>
+        <population>2374000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-227"/>
+            <route_to ref="c-226"/>
+        </routes>
+    </city>
+    <city id="c-229">
+        <name>Tbilisi</name>
+        <country>Georgia</country>
+        <population>1200000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-228"/>
+            <route_to ref="c-227"/>
+        </routes>
+    </city>
+    <city id="c-230">
+        <name>Yerevan</name>
+        <country>Armenia</country>
+        <population>1093000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-229"/>
+            <route_to ref="c-228"/>
+        </routes>
+    </city>
+    <city id="c-231">
+        <name>Bishkek</name>
+        <country>Kyrgyzstan</country>
+        <population>1071000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-230"/>
+            <route_to ref="c-229"/>
+        </routes>
+    </city>
+    <city id="c-232">
+        <name>Almaty</name>
+        <country>Kazakhstan</country>
+        <population>2039000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-231"/>
+            <route_to ref="c-230"/>
+        </routes>
+    </city>
+    <city id="c-233">
+        <name>Tashkent</name>
+        <country>Uzbekistan</country>
+        <population>2694000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-232"/>
+            <route_to ref="c-231"/>
+        </routes>
+    </city>
+    <city id="c-234">
+        <name>Dushanbe</name>
+        <country>Tajikistan</country>
+        <population>846000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-233"/>
+            <route_to ref="c-232"/>
+        </routes>
+    </city>
+    <city id="c-235">
+        <name>Ashgabat</name>
+        <country>Turkmenistan</country>
+        <population>1030000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-234"/>
+            <route_to ref="c-233"/>
+        </routes>
+    </city>
+    <city id="c-236">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-235"/>
+            <route_to ref="c-234"/>
+        </routes>
+    </city>
+    <city id="c-237">
+        <name>Kathmandu</name>
+        <country>Nepal</country>
+        <population>1442000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-236"/>
+            <route_to ref="c-235"/>
+        </routes>
+    </city>
+    <city id="c-238">
+        <name>Thimphu</name>
+        <country>Bhutan</country>
+        <population>114000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-237"/>
+            <route_to ref="c-236"/>
+        </routes>
+    </city>
+    <city id="c-239">
+        <name>Male</name>
+        <country>Maldives</country>
+        <population>153000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-238"/>
+            <route_to ref="c-237"/>
+        </routes>
+    </city>
+    <city id="c-240">
+        <name>Colombo</name>
+        <country>Sri Lanka</country>
+        <population>561000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-239"/>
+            <route_to ref="c-238"/>
+        </routes>
+    </city>
+    <city id="c-241">
+        <name>Islamabad</name>
+        <country>Pakistan</country>
+        <population>1095000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-240"/>
+            <route_to ref="c-239"/>
+        </routes>
+    </city>
+    <city id="c-242">
+        <name>Tehran</name>
+        <country>Iran</country>
+        <population>8693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-241"/>
+            <route_to ref="c-240"/>
+        </routes>
+    </city>
+    <city id="c-243">
+        <name>Moscow</name>
+        <country>Russia</country>
+        <population>12655000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-242"/>
+            <route_to ref="c-241"/>
+        </routes>
+    </city>
+    <city id="c-244">
+        <name>Prague</name>
+        <country>Czech Republic</country>
+        <population>1301000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-243"/>
+            <route_to ref="c-242"/>
+        </routes>
+    </city>
+    <city id="c-245">
+        <name>Amsterdam</name>
+        <country>Netherlands</country>
+        <population>873000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-244"/>
+            <route_to ref="c-243"/>
+        </routes>
+    </city>
+    <city id="c-246">
+        <name>Zurich</name>
+        <country>Switzerland</country>
+        <population>434000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-245"/>
+            <route_to ref="c-244"/>
+        </routes>
+    </city>
+    <city id="c-247">
+        <name>Helsinki</name>
+        <country>Finland</country>
+        <population>656000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-246"/>
+            <route_to ref="c-245"/>
+        </routes>
+    </city>
+    <city id="c-248">
+        <name>Oslo</name>
+        <country>Norway</country>
+        <population>693000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-247"/>
+            <route_to ref="c-246"/>
+        </routes>
+    </city>
+    <city id="c-249">
+        <name>Stockholm</name>
+        <country>Sweden</country>
+        <population>975000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-248"/>
+            <route_to ref="c-247"/>
+        </routes>
+    </city>
+    <city id="c-250">
+        <name>Copenhagen</name>
+        <country>Denmark</country>
+        <population>632000</population>
+        <has_airport>true</has_airport>
+        <routes>
+            <route_to ref="c-249"/>
+            <route_to ref="c-248"/>
+        </routes>
+    </city>
+</world>

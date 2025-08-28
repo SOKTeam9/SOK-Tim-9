@@ -1,0 +1,6 @@
+build
+data_source_plugin_json
+data_source_plugin_xml
+data_source_plugin_yaml
+visualizer_block
+visualizer_simple
